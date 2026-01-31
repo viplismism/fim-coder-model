@@ -10,68 +10,15 @@ This framework extracts semantic code boundaries (functions, structs, impl block
 
 ### Data Preparation Pipeline
 
-```
-title: Data Preparation Pipeline
-
-Rust Repo -> AST Extractor: Source files (*.rs)
-note: Parses Rust code using syn crate to extract semantic boundaries
-
-AST Extractor -> AST JSON: Nodes with spans
-note AST Extractor, AST JSON: Extracts Function, Struct, Impl, Enum, Trait nodes with line number spans
-
-AST JSON -> Datagen: Structured AST
-Datagen -> Training Data: FIM samples
-
-note Training Data: Outputs train.jsonl and test.jsonl with prefix/middle/suffix splits
-```
-
-[View Diagram](https://swimlanes.io/#ZVFBDoIwELzzir1DRI76Ag8GE8Gbo3dgobCmliJNEV/iFxSfxYEQEeZSmZ2dmYxnl6eijVhVQUQF6k1oiCQ6dFp6PpE6xwglCgWKV4Y2NmYxpDEnQ8NwSpXRAA0QBIxqPHCJTsJy6LmGADVoZ6BpCrfI7dJ3LiYnT7LWEnLhkfZBmgE9+Tn7N7bW6BXy1NlIGSwxf8dBPQlgpFtF5rfW7G0dUf+X2BvhPRJDQjL3Bx8=)
+![Data Preparation Pipeline](images/dataprep.png)
 
 ### Training Pipeline
 
-```
-title: Training Pipeline
-
-Base Model -> LoRA Init: Load Qwen2.5-Coder
-note Base Model: Qwen2.5-Coder-7B/14B/32B
-
-LoRA Init -> LoRA Init: Apply 4-bit quantization (QLoRA)
-note LoRA Init: BitsAndBytes NF4 quantization reduces VRAM by ~4x
-
-LoRA Init => SFTTrainer: Attach LoRA adapters
-note: Targets q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj
-
-Training Data -> SFTTrainer: Load FIM samples
-SFTTrainer -> SFTTrainer: Train with gradient accumulation
-note SFTTrainer: Multi-GPU via accelerate/DeepSpeed
-
-SFTTrainer -> LoRA Adapter: Save adapter weights
-note LoRA Adapter: ~100MB vs 60GB full model
-```
-
-[View Diagram](https://swimlanes.io/#ZVLBboMwDL3vK3ITSfcFO0zambo/2C3qwUBIoyUJxelKv2hf0C/bQ6BVN8clku33/Ozn+cR0LZhpKFccNZgxoSNSqNE58flCsowjFCgkKJ5bymxiIshSTkbK0EIZowEaIAgYt7TnCr2E+bVjOALUo52FthPeIU+n6F3qpSfJaEKCXHikPVBmQI9Bxl+CbY2u0KZlhtthielb7uWTDYx0C2V+G83UtaH+n2qvQHgv2CckcXfw/fYDP2+r6vqXcBJNdzrp6Kg=)
+![Training Pipeline](images/training.png)
 
 ### Deployment Pipeline
 
-```
-title: Deployment Pipeline
-
-LoRA Adapter -> Merge Script: Load adapter
-Base Model -> Merge Script: Load base weights
-
-Merge Script -> Merge Script: Merge weights
-note Merge Script: Combines LoRA deltas with base model
-
-Merge Script -> Merged Model: Full model weights
-note Merged Model: ~60GB for 32B model
-
-Merged Model -> Modelfile Gen: Generate Ollama config
-Modelfile Gen -> Ollama: Create deployment
-
-note Ollama: Ready for inference with FIM tokens
-```
-
-[View Diagram](https://swimlanes.io/#ZY9BDsIgEEX3nGLWkrgPF7owxkT3egMUaGkqMIahNZ7Ei9iDGYrRhAXJ8P7/M5MbNKVkqqVScjRgp4Sezr3VKvCJNBlHqFAoULx2tPWJTSBLOBkFQyu1jwboABEwaulIFXoJy/vAMA9ao52HvhfhQZ5u0YXUS8+Q1YwEueBI5yjNgB79jL0G2lj0Enlub5Qctpjf46CfbWCgWyvzP2q2ro6o/1vtJQjvBXuPJO4OfrH94N+jrKqj3w==)
+![Deployment Pipeline](images/deployment.png)
 
 ## FIM Sample Format
 
@@ -90,26 +37,7 @@ The training data follows the Qwen FIM token format:
 
 ### Node Types Extracted
 
-```
-title: AST Node Types
-
-_: Source Code Analysis
-
-Rust File -> AST Extractor: Parse source
-
-AST Extractor -> Function: fn declarations
-AST Extractor -> FunctionBody: { ... } blocks  
-AST Extractor -> Struct: struct definitions
-AST Extractor -> Impl: impl blocks
-AST Extractor -> Enum: enum definitions
-AST Extractor -> Trait: trait definitions
-AST Extractor -> Use: import statements
-AST Extractor -> Const: const/static items
-
-note: FunctionBody samples are most valuable for code completion training
-```
-
-[View Diagram](https://swimlanes.io/#ZY/BDoIwDIbvPkXPkugj6MGYMRF38QYbdbCxFSiEiS/hC/pgLIyJeld/++9r2wt0tSKqodZSacAOER2dfWdU4CtpCopQgFCgeO1pFxIXQ5pxMkqGdhrfTKAHDAfGHR24QS9h9Rg5lgFqcKuE9pPwCXlqYnBlTp5loyXkwgPtgTQDurZT9i/q1ugNeW6vYQ5rTO8wUI8ukNEtpPmfGt22pdF/id0d4T0h3yMJu4P1pw/+3FdN8/Ib)
+![AST Node Types](images/astnodes.png)
 
 ## Requirements
 
