@@ -58,12 +58,12 @@ def generate_modelfile(
         output_path = run_path.parent.parent.parent / f"{run_name}.modelfile"
     
     output_path.write_text(content)
-    print(f"✅ Generated: {output_path}")
+    print(f"Generated: {output_path}")
     print(f"   Model: {model_path}")
     
     # Print ollama command
     name = model_name or run_path.name.replace("_", "-").lower()
-    print(f"\n📦 To create Ollama model:")
+    print(f"\nTo create Ollama model:")
     print(f"   ollama create {name} -f {output_path}")
     
     return output_path

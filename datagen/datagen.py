@@ -122,7 +122,7 @@ def generate_dataset(ast_data, output_dir, prefix="ast"):
     
     elapsed = time.time() - start
     total_samples = stats['train'] + stats['test']
-    print(f"\n✅ Done in {elapsed:.1f}s | {stats['success']:,} files | {total_samples:,} samples (train={stats['train']:,}, test={stats['test']:,})")
+    print(f"\nDone in {elapsed:.1f}s | {stats['success']:,} files | {total_samples:,} samples (train={stats['train']:,}, test={stats['test']:,})")
 
 if __name__ == "__main__":
     import argparse

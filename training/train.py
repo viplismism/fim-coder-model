@@ -239,7 +239,7 @@ PARAMETER stop <|file_sep|>
 '''
         modelfile_path = run_dir / "modelfile"
         modelfile_path.write_text(modelfile_content)
-        print(f"✅ Modelfile: {modelfile_path}")
+        print(f"Modelfile: {modelfile_path}")
         print(f"   Run: ollama create {run_name} -f {modelfile_path}")
                 if cfg["wandb"]["enabled"]:
             wandb.finish()

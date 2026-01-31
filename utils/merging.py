@@ -33,7 +33,7 @@ def merge(run_dir: str, base_model: str = "Qwen/Qwen2.5-Coder-32B"):
     AutoTokenizer.from_pretrained(base_model, trust_remote_code=True).save_pretrained(output_path)
     
     size = sum(f.stat().st_size for f in output_path.iterdir() if f.is_file()) / (1024**3)
-    print(f"\n✅ Saved: {output_path} ({size:.2f} GB)")
+    print(f"\nSaved: {output_path} ({size:.2f} GB)")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
