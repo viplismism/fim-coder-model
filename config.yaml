@@ -1,0 +1,86 @@
+# FIM Training Configuration
+# All configurable parameters for training
+
+# Model Settings
+model:
+  size: "32B"  # Options: "14B", "32B"
+  models:
+    14B:
+      name: "Qwen/Qwen2.5-Coder-14B"
+      per_device_batch_size: 2
+      gradient_accumulation_steps: 4
+    32B:
+      name: "Qwen/Qwen2.5-Coder-32B"
+      per_device_batch_size: 1
+      gradient_accumulation_steps: 8
+
+# LoRA Configuration
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.1
+  bias: "none"
+  task_type: "CAUSAL_LM"
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+# Quantization (BitsAndBytes)
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_use_double_quant: true
+  compute_dtype: "bfloat16"
+
+# Tokenizer Settings
+tokenizer:
+  model_max_length: 4096
+  padding_side: "right"
+
+# Training Hyperparameters
+training:
+  num_epochs: 3
+  learning_rate: 1.0e-4
+  warmup_steps: 5
+  lr_scheduler_type: "linear"
+  weight_decay: 0.001
+  max_grad_norm: 1.0
+  optim: "paged_adamw_8bit"
+  bf16: true
+  seed: 3407
+
+# Checkpointing & Evaluation
+checkpointing:
+  save_steps: 100
+  save_total_limit: 3
+  eval_steps: 25
+  eval_strategy: "steps"
+  logging_steps: 5
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+
+# Data Paths (relative to project root)
+data:
+  train_file: "data/reth_train.jsonl"
+  test_file: "data/reth_test.jsonl"
+  repo_name: "reth"
+
+# Distributed Training
+distributed:
+  ddp_find_unused_parameters: false
+
+# Weights & Biases
+wandb:
+  project: "qwen-fim"
+  enabled: true
+
+# Ollama Modelfile Defaults
+modelfile:
+  temperature: 0.2
+  num_predict: 128
+  num_ctx: 4096

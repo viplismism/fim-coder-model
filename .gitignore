@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Training artifacts
+training/runs/*/checkpoints/
+training/runs/*/final_model/
+training/runs/*/merged_model/
+training/wandb/
+
+# Data (large files)
+data/*.json
+data/*.jsonl
+
+# Rust build
+ast_extractor/target/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.key
