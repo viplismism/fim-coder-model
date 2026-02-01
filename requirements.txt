@@ -1,9 +1,20 @@
-torch
-transformers
-datasets
-trl
-peft
-accelerate
-bitsandbytes
-wandb
-pyyaml
+# Pinned versions for QLoRA training stability
+# Tested with CUDA 12.1, Python 3.10
+
+# Core ML
+torch==2.1.0
+transformers==4.40.0
+trl==0.8.6
+peft==0.10.0
+accelerate==0.29.0
+bitsandbytes==0.43.0
+
+# Data & utils
+datasets>=2.18.0
+wandb>=0.16.0
+pyyaml>=6.0
+rich>=13.0.0
+numpy<2
+
+# Optional: flash-attn (compile takes 15-30min, skip if needed)
+# pip install flash-attn --no-build-isolation
