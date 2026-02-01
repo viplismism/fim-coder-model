@@ -184,7 +184,7 @@ def main():
         save_steps=ckpt_cfg["save_steps"],
         save_total_limit=ckpt_cfg["save_total_limit"],
         eval_steps=ckpt_cfg["eval_steps"],
-        eval_strategy=ckpt_cfg["eval_strategy"],
+        evaluation_strategy=ckpt_cfg["eval_strategy"],
         logging_steps=ckpt_cfg["logging_steps"],
         load_best_model_at_end=ckpt_cfg["load_best_model_at_end"] if is_main else False,
         metric_for_best_model=ckpt_cfg["metric_for_best_model"],
@@ -198,7 +198,7 @@ def main():
     trainer = SFTTrainer(
         model=model, args=training_args,
         train_dataset=train_ds, eval_dataset=eval_ds,
-        processing_class=tokenizer,
+        tokenizer=tokenizer,
         formatting_func=lambda x: x["text"],
     )
 
