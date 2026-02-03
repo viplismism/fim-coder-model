@@ -1,0 +1,64 @@
+checkpointing:
+  eval_steps: 25
+  eval_strategy: steps
+  load_best_model_at_end: true
+  logging_steps: 5
+  metric_for_best_model: eval_loss
+  save_steps: 500
+  save_total_limit: 3
+data:
+  repo_name: reth
+  test_file: data/reth_test.jsonl
+  train_file: data/reth_train.jsonl
+distributed:
+  ddp_find_unused_parameters: false
+lora:
+  alpha: 128
+  bias: none
+  dropout: 0.05
+  r: 64
+  target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+  task_type: CAUSAL_LM
+model:
+  models:
+    14B:
+      gradient_accumulation_steps: 1
+      name: Qwen/Qwen2.5-Coder-14B
+      per_device_batch_size: 8
+    32B:
+      gradient_accumulation_steps: 1
+      name: Qwen/Qwen2.5-Coder-32B
+      per_device_batch_size: 16
+  size: 32B
+modelfile:
+  num_ctx: 4096
+  num_predict: 128
+  temperature: 0.2
+quantization:
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  compute_dtype: bfloat16
+  load_in_4bit: true
+tokenizer:
+  model_max_length: 4096
+  padding_side: right
+training:
+  bf16: true
+  learning_rate: 2.0e-05
+  lr_scheduler_type: cosine
+  max_grad_norm: 1.0
+  num_epochs: 3
+  optim: paged_adamw_8bit
+  seed: 3407
+  warmup_steps: 100
+  weight_decay: 0.001
+wandb:
+  enabled: true
+  project: qwen-fim

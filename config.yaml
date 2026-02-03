@@ -1,4 +1,4 @@
-# FIM Training Configuration
+# FIM training Configuration
 # All configurable parameters for training
 
 # Model Settings
@@ -7,18 +7,18 @@ model:
   models:
     14B:
       name: "Qwen/Qwen2.5-Coder-14B"
-      per_device_batch_size: 2
-      gradient_accumulation_steps: 4
+      per_device_batch_size: 8
+      gradient_accumulation_steps: 1
     32B:
       name: "Qwen/Qwen2.5-Coder-32B"
-      per_device_batch_size: 1
-      gradient_accumulation_steps: 8
+      per_device_batch_size: 16
+      gradient_accumulation_steps: 1
 
 # LoRA Configuration
 lora:
-  r: 32
-  alpha: 64
-  dropout: 0.1
+  r: 64
+  alpha: 128
+  dropout: 0.05
   bias: "none"
   task_type: "CAUSAL_LM"
   target_modules:
@@ -45,9 +45,9 @@ tokenizer:
 # Training Hyperparameters
 training:
   num_epochs: 3
-  learning_rate: 1.0e-4
-  warmup_steps: 5
-  lr_scheduler_type: "linear"
+  learning_rate: 2.0e-5
+  warmup_steps: 100
+  lr_scheduler_type: "cosine"
   weight_decay: 0.001
   max_grad_norm: 1.0
   optim: "paged_adamw_8bit"
@@ -56,7 +56,7 @@ training:
 
 # Checkpointing & Evaluation
 checkpointing:
-  save_steps: 100
+  save_steps: 500
   save_total_limit: 3
   eval_steps: 25
   eval_strategy: "steps"

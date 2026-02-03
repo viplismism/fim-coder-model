@@ -134,9 +134,11 @@ def main():
     bnb = get_bnb_config(cfg)
     
     model = AutoModelForCausalLM.from_pretrained(
-        model_name, quantization_config=bnb, trust_remote_code=True,
-        torch_dtype=torch.bfloat16, use_cache=False,
-        device_map={"": local_rank} if local_rank != -1 else "auto",
+        model_name, 
+        quantization_config=bnb, 
+        trust_remote_code=True,
+        torch_dtype=torch.bfloat16, 
+        use_cache=False,
     )
     model = get_peft_model(prepare_model_for_kbit_training(model), get_lora_config(cfg))
     
@@ -192,7 +194,9 @@ def main():
         ddp_find_unused_parameters=dist_cfg["ddp_find_unused_parameters"],
         local_rank=local_rank,
         # Reporting
-        report_to="wandb" if (is_main and cfg["wandb"]["enabled"]) else "none",
+        push_to_hub=True,
+        hub_model_id="viplismism/qwen-fim-32B",
+        report_to="wandb",
     )
 
     trainer = SFTTrainer(
@@ -241,7 +245,7 @@ PARAMETER stop <|file_sep|>
         modelfile_path.write_text(modelfile_content)
         print(f"Modelfile: {modelfile_path}")
         print(f"   Run: ollama create {run_name} -f {modelfile_path}")
-                if cfg["wandb"]["enabled"]:
+        if cfg["wandb"]["enabled"]:
             wandb.finish()
 
     if local_rank != -1:
