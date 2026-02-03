@@ -16,5 +16,10 @@ pyyaml>=6.0
 rich>=13.0.0
 numpy<2
 
+# API Server (evaluation)
+fastapi>=0.109.0
+uvicorn>=0.27.0
+requests>=2.31.0
+
 # Optional: flash-attn (compile takes 15-30min, skip if needed)
 # pip install flash-attn --no-build-isolation
