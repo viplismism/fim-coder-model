@@ -1,0 +1,22 @@
+# Requirements for local testing (Mac/CPU)
+# For GPU training, use requirements.txt on a CUDA machine
+
+# Core ML (no quantization on Mac)
+torch>=2.1.0
+transformers>=4.40.0
+peft>=0.10.0
+accelerate>=0.29.0
+
+# Data & utils
+datasets>=2.18.0
+pyyaml>=6.0
+rich>=13.0.0
+numpy<2
+
+# API Server
+fastapi>=0.109.0
+uvicorn>=0.27.0
+requests>=2.31.0
+
+# HuggingFace Hub
+huggingface_hub>=0.20.0

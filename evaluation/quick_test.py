@@ -67,28 +67,54 @@ TEST_CASES = [
 ]
 
 
-def load_model(adapter_path: str, base_model: str = "Qwen/Qwen2.5-Coder-32B"):
+def get_device():
+    """Get the best available device."""
+    if torch.cuda.is_available():
+        return "cuda"
+    elif torch.backends.mps.is_available():
+        return "mps"
+    return "cpu"
+
+
+def load_model(adapter_path: str, base_model: str = "Qwen/Qwen2.5-Coder-32B", use_quantization: bool = True):
     """Load the fine-tuned model with LoRA adapter."""
-    from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+    from transformers import AutoModelForCausalLM, AutoTokenizer
     from peft import PeftModel
     
+    device = get_device()
+    print(f"Device: {device}")
     print(f"Loading base model: {base_model}")
     print(f"Loading adapter: {adapter_path}")
     
-    bnb_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.bfloat16,
-        bnb_4bit_use_double_quant=True
-    )
+    # Quantization only works on CUDA
+    if use_quantization and device == "cuda":
+        from transformers import BitsAndBytesConfig
+        bnb_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_use_double_quant=True
+        )
+        model = AutoModelForCausalLM.from_pretrained(
+            base_model,
+            quantization_config=bnb_config,
+            device_map="auto",
+            trust_remote_code=True
+        )
+    else:
+        # MPS or CPU - no quantization, use float16
+        dtype = torch.float16 if device in ["cuda", "mps"] else torch.float32
+        model = AutoModelForCausalLM.from_pretrained(
+            base_model,
+            torch_dtype=dtype,
+            device_map="auto" if device == "cuda" else None,
+            trust_remote_code=True,
+            low_cpu_mem_usage=True
+        )
+        if device == "mps":
+            model = model.to(device)
     
     tokenizer = AutoTokenizer.from_pretrained(adapter_path, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(
-        base_model,
-        quantization_config=bnb_config,
-        device_map="auto",
-        trust_remote_code=True
-    )
     model = PeftModel.from_pretrained(model, adapter_path)
     model.eval()
     
@@ -225,14 +251,19 @@ def main():
     parser.add_argument("--adapter", default="viplismism/qwen-fim-32B",
                        help="HuggingFace adapter path or local path")
     parser.add_argument("--base_model", default="Qwen/Qwen2.5-Coder-32B",
-                       help="Base model name")
+                       help="Base model name (use 7B or 14B for Mac)")
     parser.add_argument("--interactive", "-i", action="store_true",
                        help="Run in interactive mode")
     parser.add_argument("--quiet", "-q", action="store_true",
                        help="Only show summary")
+    parser.add_argument("--no-quantize", action="store_true",
+                       help="Disable quantization (required for MPS)")
     args = parser.parse_args()
     
-    model, tokenizer = load_model(args.adapter, args.base_model)
+    # Auto-detect: disable quantization on non-CUDA
+    use_quant = not args.no_quantize and torch.cuda.is_available()
+    
+    model, tokenizer = load_model(args.adapter, args.base_model, use_quantization=use_quant)
     
     if args.interactive:
         interactive_mode(model, tokenizer)
