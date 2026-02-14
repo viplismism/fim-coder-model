@@ -45,13 +45,19 @@ echo ""
 
 # Step 1: Install system dependencies and Python venv
 echo "[1/6] Setting up Python environment..."
-if ! command -v python3 &> /dev/null; then
-    apt-get update && apt-get install -y python3 python3-venv python3-pip
-fi
+apt-get update
+apt-get install -y python3 python3-venv python3-pip
 
 # Create virtual environment if it doesn't exist (in project root)
-if [ ! -d "env" ]; then
-    python3 -m venv env
+if [ ! -d "$SCRIPT_DIR/env" ]; then
+    echo "Creating virtual environment..."
+    python3 -m venv "$SCRIPT_DIR/env"
+fi
+
+# Verify venv exists
+if [ ! -d "$SCRIPT_DIR/env/bin" ]; then
+    echo "ERROR: Virtual environment not created properly"
+    exit 1
 fi
 
 # Activate virtual environment (use absolute path)
