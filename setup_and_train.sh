@@ -31,8 +31,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Navigate to script directory
-cd "$(dirname "$0")"
+# Navigate to script directory (resolve full path)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR"
 
 echo "=========================================="
 echo "FIM Coder Model - Setup & Training"
@@ -54,7 +55,7 @@ if [ ! -d "env" ]; then
 fi
 
 # Activate virtual environment (use absolute path)
-source "$(dirname "$0")/env/bin/activate"
+source "$SCRIPT_DIR/env/bin/activate"
 
 # Upgrade pip and install requirements
 pip install --upgrade pip
