@@ -31,10 +31,6 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Navigate to script directory (resolve full path)
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-cd "$SCRIPT_DIR"
-
 echo "=========================================="
 echo "FIM Coder Model - Setup & Training"
 echo "=========================================="
@@ -43,85 +39,48 @@ echo "Epochs: $NUM_EPOCHS"
 echo "Push to Hub: $PUSH_TO_HUB"
 echo ""
 
-# Step 1: Install system dependencies and Python venv
+# Step 1: Install system dependencies
 echo "[1/6] Setting up Python environment..."
 apt-get update
 apt-get install -y python3 python3-venv python3-pip
 
-# Create virtual environment if it doesn't exist (in project root)
-if [ ! -d "$SCRIPT_DIR/env" ]; then
-    echo "Creating virtual environment..."
-    python3 -m venv "$SCRIPT_DIR/env"
-fi
+# Create and activate venv
+python3 -m venv env
+source env/bin/activate
 
-# Verify venv exists
-if [ ! -d "$SCRIPT_DIR/env/bin" ]; then
-    echo "ERROR: Virtual environment not created properly"
-    exit 1
-fi
-
-# Activate virtual environment (use absolute path)
-source "$SCRIPT_DIR/env/bin/activate"
-
-# Upgrade pip and install requirements
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Step 2: Install Rust if not present
+# Step 2: Install Rust
+echo "[2/6] Installing Rust..."
 if ! command -v cargo &> /dev/null; then
-    echo "[2/6] Installing Rust..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     source "$HOME/.cargo/env"
 fi
 
 # Step 3: Build AST extractor
 echo "[3/6] Building AST extractor..."
-if [ ! -f "ast_extractor/target/release/ast_extractor" ]; then
-    cd ast_extractor
-    cargo build --release
-    cd ..
-fi
+cd ast_extractor
+cargo build --release
+cd ..
 
-# Step 4: Clone target repository if not exists
-REPO_PATH="/tmp/reth"
-if [ ! -d "$REPO_PATH/.git" ]; then
-    echo "[4/6] Cloning target repository (reth)..."
-    rm -rf "$REPO_PATH"
-    git clone --depth 1 https://github.com/paradigmxyz/reth "$REPO_PATH"
+# Step 4: Clone target repository
+echo "[4/6] Cloning target repository (reth)..."
+if [ ! -d "/tmp/reth/.git" ]; then
+    git clone --depth 1 https://github.com/paradigmxyz/reth /tmp/reth
 fi
 
 # Step 5: Generate training data
 echo "[5/6] Generating FIM training data..."
 mkdir -p data
-
-if [ ! -f "data/reth_ast.json" ]; then
-    ./ast_extractor/target/release/ast_extractor "$REPO_PATH" ./data/reth_ast.json
-fi
-
-if [ ! -f "data/reth_train.jsonl" ]; then
-    python3 datagen/datagen.py --ast data/reth_ast.json --output_prefix reth
-fi
+./ast_extractor/target/release/ast_extractor /tmp/reth ./data/reth_ast.json
+python3 datagen/datagen.py --ast data/reth_ast.json --output_prefix reth
 
 # Step 6: Start training
 echo "[6/6] Starting training..."
-
-# Update config based on options
-if [ "$PUSH_TO_HUB" = true ]; then
-    sed -i 's/push_to_hub: false/push_to_hub: true/' config.yaml
-    echo "✅ Will push to HuggingFace after training"
-fi
-
-# Run training
 python3 training/train.py --model_size "$MODEL_SIZE" --epochs "$NUM_EPOCHS"
 
 echo ""
 echo "=========================================="
 echo "Training Complete!"
 echo "=========================================="
-
-if [ "$PUSH_TO_HUB" = true ]; then
-    echo "Model saved locally. To push to HuggingFace:"
-    echo "1. Login: huggingface-cli login"
-    echo "2. Enable push_to_hub in config.yaml"
-    echo "3. Run: python3 training/train.py --model_size $MODEL_SIZE"
-fi
