@@ -31,6 +31,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Navigate to script directory
+cd "$(dirname "$0")"
+
 echo "=========================================="
 echo "FIM Coder Model - Setup & Training"
 echo "=========================================="
@@ -39,32 +42,49 @@ echo "Epochs: $NUM_EPOCHS"
 echo "Push to Hub: $PUSH_TO_HUB"
 echo ""
 
-# Step 1: Install Rust if not present
+# Step 1: Install system dependencies and Python venv
+echo "[1/6] Setting up Python environment..."
+if ! command -v python3 &> /dev/null; then
+    apt-get update && apt-get install -y python3 python3-venv python3-pip
+fi
+
+# Create virtual environment if it doesn't exist
+if [ ! -d "env" ]; then
+    python3 -m venv env
+fi
+
+# Activate virtual environment
+source env/bin/activate
+
+# Upgrade pip and install requirements
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Step 2: Install Rust if not present
 if ! command -v cargo &> /dev/null; then
-    echo "[1/5] Installing Rust..."
+    echo "[2/6] Installing Rust..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     source "$HOME/.cargo/env"
 fi
 
-# Step 2: Build AST extractor
-echo "[2/5] Building AST extractor..."
-cd "$(dirname "$0")"
+# Step 3: Build AST extractor
+echo "[3/6] Building AST extractor..."
 if [ ! -f "ast_extractor/target/release/ast_extractor" ]; then
     cd ast_extractor
     cargo build --release
     cd ..
 fi
 
-# Step 3: Clone target repository if not exists
+# Step 4: Clone target repository if not exists
 REPO_PATH="/tmp/reth"
 if [ ! -d "$REPO_PATH/.git" ]; then
-    echo "[3/5] Cloning target repository (reth)..."
+    echo "[4/6] Cloning target repository (reth)..."
     rm -rf "$REPO_PATH"
     git clone --depth 1 https://github.com/paradigmxyz/reth "$REPO_PATH"
 fi
 
-# Step 4: Generate training data
-echo "[4/5] Generating FIM training data..."
+# Step 5: Generate training data
+echo "[5/6] Generating FIM training data..."
 mkdir -p data
 
 if [ ! -f "data/reth_ast.json" ]; then
@@ -75,8 +95,8 @@ if [ ! -f "data/reth_train.jsonl" ]; then
     python3 datagen/datagen.py --ast data/reth_ast.json --output_prefix reth
 fi
 
-# Step 5: Update config for this run
-echo "[5/5] Starting training..."
+# Step 6: Start training
+echo "[6/6] Starting training..."
 
 # Update config based on options
 if [ "$PUSH_TO_HUB" = true ]; then

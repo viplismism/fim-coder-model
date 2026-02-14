@@ -100,6 +100,7 @@ struct FunctionData {
     return_type: String,
 }
 
+#[allow(dead_code)]
 struct AstVisitor<'a> {
     source: &'a str,
     nodes: Vec<AstNode>,
@@ -113,6 +114,7 @@ impl<'a> AstVisitor<'a> {
         }
     }
 
+    #[allow(dead_code)]
     fn span_to_string(&self, span: proc_macro2::Span) -> String {
         let start = span.start();
         let end = span.end();
