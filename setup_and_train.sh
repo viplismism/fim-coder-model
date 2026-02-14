@@ -48,13 +48,13 @@ if ! command -v python3 &> /dev/null; then
     apt-get update && apt-get install -y python3 python3-venv python3-pip
 fi
 
-# Create virtual environment if it doesn't exist
+# Create virtual environment if it doesn't exist (in project root)
 if [ ! -d "env" ]; then
     python3 -m venv env
 fi
 
-# Activate virtual environment
-source env/bin/activate
+# Activate virtual environment (use absolute path)
+source "$(dirname "$0")/env/bin/activate"
 
 # Upgrade pip and install requirements
 pip install --upgrade pip
