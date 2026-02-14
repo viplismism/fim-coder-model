@@ -121,6 +121,7 @@ impl<'a> AstVisitor<'a> {
         format!("{}:{}", start.line, end.line)
     }
 
+    #[allow(dead_code)]
     fn extract_span_text(&self, span: proc_macro2::Span) -> String {
         let lines: Vec<&str> = self.source.lines().collect();
         let start = span.start();
