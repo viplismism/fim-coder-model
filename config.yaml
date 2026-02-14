@@ -79,6 +79,11 @@ wandb:
   project: "qwen-fim"
   enabled: true
 
+# HuggingFace Hub (optional - disable if not logged in)
+huggingface:
+  push_to_hub: false
+  hub_model_id: "viplismism/qwen-fim"
+
 # Ollama Modelfile Defaults
 modelfile:
   temperature: 0.2

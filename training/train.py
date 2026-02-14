@@ -194,9 +194,9 @@ def main():
         ddp_find_unused_parameters=dist_cfg["ddp_find_unused_parameters"],
         local_rank=local_rank,
         # Reporting
-        push_to_hub=True,
-        hub_model_id="viplismism/qwen-fim-32B",
-        report_to="wandb",
+        push_to_hub=cfg.get("huggingface", {}).get("push_to_hub", False),
+        hub_model_id=cfg.get("huggingface", {}).get("hub_model_id", f"viplismism/qwen-fim-{model_size}"),
+        report_to="wandb" if cfg.get("wandb", {}).get("enabled", True) else "none",
     )
 
     trainer = SFTTrainer(
