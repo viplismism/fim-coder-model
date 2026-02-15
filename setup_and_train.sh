@@ -41,8 +41,8 @@ echo ""
 
 # Step 1: Install system dependencies
 echo "[1/6] Setting up Python environment..."
-apt-get update
-apt-get install -y python3 python3-venv python3-pip
+sudo apt-get update
+sudo apt-get install -y python3 python3-venv python3-pip
 
 # Create and activate venv
 python3 -m venv env
