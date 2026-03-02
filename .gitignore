@@ -21,6 +21,11 @@ training/wandb/
 data/*.json
 data/*.jsonl
 
+# Results
+results/
+inference/results/
+evaluation/results/
+
 # Rust build
 ast_extractor/target/
 

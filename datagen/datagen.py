@@ -127,14 +127,14 @@ def generate_dataset(ast_data, output_dir, prefix="ast"):
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Generate FIM training data from AST")
-    parser.add_argument("--ast", type=str, default=None, help="Path to AST JSON file (default: data/ast.json)")
+    parser.add_argument("--ast", type=str, default=None, help="Path to AST JSON file (default: data/reth_ast.json)")
     parser.add_argument("--output_prefix", type=str, default="ast", help="Output file prefix (default: ast)")
     args = parser.parse_args()
     
     random.seed(42)
     project_root = Path(__file__).parent.parent
     
-    ast_path = Path(args.ast) if args.ast else project_root / 'data' / 'ast.json'
+    ast_path = Path(args.ast) if args.ast else project_root / 'data' / 'reth_ast.json'
     
     if not ast_path.exists():
         sys.exit(f"ERROR: {ast_path} not found")

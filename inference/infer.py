@@ -53,7 +53,7 @@ class Evaluator:
 def baseline_prompt(prefix: str, suffix: str) -> str:
     return f"<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>"
 
-def tuned_prompt(prefix: str, suffix: str, path: str, repo: str = "hyperswitch") -> str:
+def tuned_prompt(prefix: str, suffix: str, path: str, repo: str = "reth") -> str:
     return f"<|repo_name|>{repo}\n<|file_sep|>{path}\n<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>"
 
 def edit_sim(a: str, b: str) -> float:
@@ -126,13 +126,13 @@ def main():
     args = parser.parse_args()
 
     root = Path(__file__).parent.parent
-    test_path = args.test_data or str(root / "data" / "ast_test.jsonl")
+    test_path = args.test_data or str(root / "data" / "reth_test.jsonl")
     
     print(f"Tuned: {args.tuned}\nBaseline: {args.baseline}\nTest: {test_path}\n")
     results = evaluate(args.tuned, args.baseline, test_path, args.max_samples)
     summary(results)
     
-    out = root / "results" / (args.output or f"results_{int(time.time())}.json")
+    out = root / "inference" / "results" / (args.output or f"results_{int(time.time())}.json")
     out.parent.mkdir(exist_ok=True)
     with open(out, 'w') as f:
         json.dump(results, f, indent=2)

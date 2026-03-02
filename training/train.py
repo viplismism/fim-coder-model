@@ -46,7 +46,7 @@ def get_bnb_config(cfg: dict) -> BitsAndBytesConfig:
     )
 
 
-def format_fim(ex, repo="hyperswitch"):
+def format_fim(ex, repo="reth"):
     """Format example into FIM format."""
     return {"text": f"<|repo_name|>{repo}\n<|file_sep|>{ex['filePath']}\n"
                     f"<|fim_prefix|>{ex['prefix']}<|fim_suffix|>{ex['suffix']}<|fim_middle|>{ex['middle']}<|endoftext|>"}
