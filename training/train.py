@@ -195,7 +195,7 @@ def main():
         local_rank=local_rank,
         # Reporting
         push_to_hub=cfg.get("huggingface", {}).get("push_to_hub", False),
-        hub_model_id=cfg.get("huggingface", {}).get("hub_model_id", f"viplismism/qwen-fim-{model_size}"),
+        hub_model_id=cfg.get("huggingface", {}).get("hub_model_id", f"viplismism/Qwen2.5-Coder-{model_size}-FIM"),
         report_to="wandb" if cfg.get("wandb", {}).get("enabled", True) else "none",
     )
 
