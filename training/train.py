@@ -222,7 +222,7 @@ def main():
         push_to_hub=cfg.get("huggingface", {}).get("push_to_hub", False),
         hub_model_id=cfg.get("huggingface", {}).get("hub_model_id", f"viplismism/fim-{model_size}"),
         report_to="wandb" if cfg.get("wandb", {}).get("enabled", True) else "none",
-        max_seq_length=max_length,
+        max_length=max_length,
         dataset_text_field="text",
     )
 
