@@ -110,9 +110,9 @@ def convert_to_gguf(
 
 def main():
     parser = argparse.ArgumentParser(description="Merge LoRA and convert to GGUF")
-    parser.add_argument("--adapter", default="viplismism/qwen-fim-32B",
+    parser.add_argument("--adapter", default="viplismism/deepseek-coder-6.7b-fim",
                        help="LoRA adapter path (HuggingFace or local)")
-    parser.add_argument("--base_model", default="Qwen/Qwen2.5-Coder-32B",
+    parser.add_argument("--base_model", default="deepseek-ai/deepseek-coder-6.7b-base",
                        help="Base model name")
     parser.add_argument("--output_dir", default="merged_model",
                        help="Output directory for merged model")
@@ -138,7 +138,7 @@ def main():
     
     # Step 2: Convert to GGUF
     if not args.skip_gguf:
-        gguf_output = Path(args.output_dir) / f"qwen-fim-32b.{args.quantization}.gguf"
+        gguf_output = Path(args.output_dir) / f"deepseek-coder-6.7b-fim.{args.quantization}.gguf"
         convert_to_gguf(
             model_path=str(merged_path),
             output_path=str(gguf_output),

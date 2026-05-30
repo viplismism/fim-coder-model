@@ -1,11 +1,11 @@
 #!/bin/bash
 # Complete setup and training script for FIM Coder Model
-# Usage: ./setup_and_train.sh [--model_size 14B|32B] [--epochs N] [--push_to_hub]
+# Usage: ./setup_and_train.sh [--model_size deepseek-7B] [--epochs N] [--push_to_hub]
 
 set -e
 
 # Default values
-MODEL_SIZE="14B"
+MODEL_SIZE="deepseek-7B"
 NUM_EPOCHS=3
 PUSH_TO_HUB=false
 

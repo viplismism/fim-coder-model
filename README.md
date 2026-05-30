@@ -22,17 +22,15 @@ This framework extracts semantic code boundaries (functions, structs, impl block
 
 ## FIM Sample Format
 
-The training data follows the Qwen FIM token format:
+The training data follows the DeepSeek Coder FIM token format:
 
 ```
-<|repo_name|>reth
-<|file_sep|>crates/rpc/src/handler.rs
-<|fim_prefix|>impl Handler {
+<｜fim▁begin｜>impl Handler {
     pub fn new(config: Config) -> Self {
-        <|fim_suffix|>
+        <｜fim▁hole｜>
     }
 }
-<|fim_middle|>Self { config, state: State::default() }<|endoftext|>
+<｜fim▁end｜>Self { config, state: State::default() }<｜end▁of▁sentence｜>
 ```
 
 ### Node Types Extracted
@@ -42,7 +40,7 @@ The training data follows the Qwen FIM token format:
 ## Requirements
 
 - Python 3.9+
-- CUDA-capable GPU (80GB+ VRAM recommended for 32B model)
+- CUDA-capable GPU (24GB+ VRAM recommended for the default 6.7B QLoRA run)
 - Rust toolchain (for AST extractor)
 
 ## Installation
@@ -80,7 +78,7 @@ python3 training/train.py
 accelerate launch --num_processes 4 training/train.py
 
 # Override config parameters
-python3 training/train.py --epochs 5 --lr 5e-5 --model_size 14B
+python3 training/train.py --epochs 5 --lr 5e-5
 ```
 
 ### Post-Training
@@ -130,9 +128,7 @@ All training parameters are defined in `config.yaml`:
 
 | Model | Parameters | VRAM (4-bit) | Recommended GPUs |
 |-------|------------|--------------|------------------|
-| Qwen2.5-Coder-7B | 7B | ~8GB | 1x A100/H100 |
-| Qwen2.5-Coder-14B | 14B | ~16GB | 2x A100/H100 |
-| Qwen2.5-Coder-32B | 32B | ~36GB | 4x H100/H200 |
+| DeepSeek-Coder-6.7B Base | 6.7B | ~8GB | 1x RTX 4090 |
 
 ## License
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""FIM model fine-tuning with LoRA on Qwen2.5-Coder."""
+"""FIM model fine-tuning with LoRA on DeepSeek Coder."""
 
 import os, time, argparse, warnings, yaml
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -46,10 +46,32 @@ def get_bnb_config(cfg: dict) -> BitsAndBytesConfig:
     )
 
 
-def format_fim(ex, repo="reth"):
-    """Format example into FIM format."""
-    return {"text": f"<|repo_name|>{repo}\n<|file_sep|>{ex['filePath']}\n"
-                    f"<|fim_prefix|>{ex['prefix']}<|fim_suffix|>{ex['suffix']}<|fim_middle|>{ex['middle']}<|endoftext|>"}
+def format_fim(ex, fim_style, fim_tokens, eos_token):
+    """Format example into FIM format using model-specific tokens."""
+    if fim_style == "deepseek":
+        return {
+            "text": (
+                f"{fim_tokens['begin']}{ex['prefix']}"
+                f"{fim_tokens['hole']}{ex['suffix']}"
+                f"{fim_tokens['end']}{ex['middle']}"
+                f"{eos_token}"
+            )
+        }
+    raise ValueError(f"Unsupported FIM style: {fim_style}")
+
+
+def format_fim_prompt(prefix: str, suffix: str, fim_style: str, fim_tokens: dict) -> str:
+    """Build inference prompt for model-specific FIM format."""
+    if fim_style == "deepseek":
+        return f"{fim_tokens['begin']}{prefix}{fim_tokens['hole']}{suffix}{fim_tokens['end']}"
+    raise ValueError(f"Unsupported FIM style: {fim_style}")
+
+
+def fim_stop_tokens(fim_style: str, fim_tokens: dict, eos_token: str) -> list[str]:
+    """Return FIM stop tokens for generated modelfiles."""
+    if fim_style == "deepseek":
+        return [fim_tokens["begin"], fim_tokens["hole"], fim_tokens["end"], eos_token]
+    raise ValueError(f"Unsupported FIM style: {fim_style}")
 
 
 def fmt_time(s):
@@ -60,13 +82,12 @@ def fmt_time(s):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, default=None, help="Path to config YAML file")
-    parser.add_argument("--model_size", default=None, choices=["14B", "32B"], help="Override model size from config")
+    parser.add_argument("--model_size", default=None, choices=["deepseek-7B"], help="Override model size from config")
     parser.add_argument("--resume", type=str, default=None, help="Resume from checkpoint path")
     parser.add_argument("--epochs", type=int, default=None, help="Override number of epochs")
     parser.add_argument("--lr", type=float, default=None, help="Override learning rate")
     args = parser.parse_args()
 
-    # Load config
     project_root = Path(__file__).parent.parent
     config_path = Path(args.config) if args.config else project_root / "config.yaml"
     
@@ -75,12 +96,10 @@ def main():
     
     cfg = load_config(config_path)
     
-    # CLI overrides
     model_size = args.model_size or cfg["model"]["size"]
     num_epochs = args.epochs if args.epochs is not None else cfg["training"]["num_epochs"]
     learning_rate = args.lr if args.lr is not None else cfg["training"]["learning_rate"]
 
-    # Distributed setup
     local_rank = int(os.environ.get("LOCAL_RANK", -1))
     world_size = int(os.environ.get("WORLD_SIZE", 1))
     is_main = local_rank in [-1, 0]
@@ -93,18 +112,19 @@ def main():
     else:
         device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-    # Model config
     model_cfg = cfg["model"]["models"][model_size]
     model_name = model_cfg["name"]
     batch_size = model_cfg["per_device_batch_size"]
     grad_acc = model_cfg["gradient_accumulation_steps"]
+    max_length = model_cfg.get("max_length", 4096)
+    fim_style = model_cfg.get("fim_style", "deepseek")
+    fim_tokens = model_cfg.get("fim_tokens", {"begin": "<｜fim▁begin｜>", "hole": "<｜fim▁hole｜>", "end": "<｜fim▁end｜>"})
     
     run_name = f"fim-{model_size}-{int(time.time())}"
     run_dir = Path(__file__).parent / "runs" / run_name
     
     if is_main:
         run_dir.mkdir(parents=True, exist_ok=True)
-        # Save config copy to run directory
         with open(run_dir / "config.yaml", "w") as f:
             yaml.dump(cfg, f, default_flow_style=False)
         
@@ -119,17 +139,16 @@ def main():
                     "learning_rate": learning_rate,
                     "batch_size": batch_size,
                     "grad_acc": grad_acc,
+                    "max_length": max_length,
                     **cfg["lora"],
                     **cfg["training"],
                 }
             )
 
-    # Tokenizer & model
-    tok_cfg = cfg["tokenizer"]
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     tokenizer.pad_token = tokenizer.eos_token
-    tokenizer.padding_side = tok_cfg["padding_side"]
-    tokenizer.model_max_length = tok_cfg["model_max_length"]
+    tokenizer.padding_side = cfg["tokenizer"]["padding_side"]
+    tokenizer.model_max_length = max_length
 
     bnb = get_bnb_config(cfg)
     
@@ -145,22 +164,32 @@ def main():
     if is_main:
         model.print_trainable_parameters()
 
-    # Data
     data_cfg = cfg["data"]
     ds = load_dataset("json", data_files={
         "train": str(project_root / data_cfg["train_file"]),
         "test": str(project_root / data_cfg["test_file"]),
     })
-    repo_name = data_cfg["repo_name"]
-    train_ds = ds["train"].map(lambda x: format_fim(x, repo_name))
-    eval_ds = ds["test"].map(lambda x: format_fim(x, repo_name))
+    
+    def fmt_with_tokens(ex):
+        return format_fim(ex, fim_style, fim_tokens, tokenizer.eos_token)
+    
+    train_ds = ds["train"].map(
+        fmt_with_tokens,
+        remove_columns=ds["train"].column_names,
+        load_from_cache_file=False,
+    )
+    eval_ds = ds["test"].map(
+        fmt_with_tokens,
+        remove_columns=ds["test"].column_names,
+        load_from_cache_file=False,
+    )
     
     if is_main:
         print(f"\nConfig: {config_path}")
         print(f"Train: {len(train_ds):,} | Eval: {len(eval_ds):,} | Model: {model_name}")
+        print(f"Max Length: {max_length} | FIM Style: {fim_style} | FIM Tokens: {fim_tokens}")
         print(f"Epochs: {num_epochs} | LR: {learning_rate} | Batch: {batch_size} | GradAcc: {grad_acc}")
 
-    # Training args
     train_cfg = cfg["training"]
     ckpt_cfg = cfg["checkpointing"]
     dist_cfg = cfg["distributed"]
@@ -168,11 +197,9 @@ def main():
     training_args = TrainingArguments(
         output_dir=str(run_dir / "checkpoints"),
         run_name=run_name,
-        # Batch & accumulation
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
         gradient_accumulation_steps=grad_acc,
-        # Training hyperparams
         num_train_epochs=num_epochs,
         learning_rate=learning_rate,
         warmup_steps=train_cfg["warmup_steps"],
@@ -181,8 +208,8 @@ def main():
         max_grad_norm=train_cfg["max_grad_norm"],
         optim=train_cfg["optim"],
         bf16=train_cfg["bf16"],
+        gradient_checkpointing=train_cfg.get("gradient_checkpointing", True),
         seed=train_cfg["seed"],
-        # Checkpointing & eval
         save_steps=ckpt_cfg["save_steps"],
         save_total_limit=ckpt_cfg["save_total_limit"],
         eval_steps=ckpt_cfg["eval_steps"],
@@ -190,12 +217,10 @@ def main():
         logging_steps=ckpt_cfg["logging_steps"],
         load_best_model_at_end=ckpt_cfg["load_best_model_at_end"] if is_main else False,
         metric_for_best_model=ckpt_cfg["metric_for_best_model"],
-        # Distributed
         ddp_find_unused_parameters=dist_cfg["ddp_find_unused_parameters"],
         local_rank=local_rank,
-        # Reporting
         push_to_hub=cfg.get("huggingface", {}).get("push_to_hub", False),
-        hub_model_id=cfg.get("huggingface", {}).get("hub_model_id", f"viplismism/Qwen2.5-Coder-{model_size}-FIM"),
+        hub_model_id=cfg.get("huggingface", {}).get("hub_model_id", f"viplismism/fim-{model_size}"),
         report_to="wandb" if cfg.get("wandb", {}).get("enabled", True) else "none",
     )
 
@@ -203,13 +228,13 @@ def main():
         model=model, args=training_args,
         train_dataset=train_ds, eval_dataset=eval_ds,
         tokenizer=tokenizer,
+        max_seq_length=max_length,
         formatting_func=lambda x: x["text"],
     )
 
     if local_rank != -1:
         dist.barrier()
 
-    # Train
     start = time.time()
     try:
         trainer.train(resume_from_checkpoint=args.resume)
@@ -219,27 +244,22 @@ def main():
         if is_main:
             print(f"\nInterrupted after {fmt_time(time.time() - start)}")
 
-    # Save
     if is_main:
         final_dir = run_dir / "final_model"
         model.save_pretrained(final_dir)
         tokenizer.save_pretrained(final_dir)
-        print(f"Saved to {final_dir}")        
-        # Generate modelfile template
+        print(f"Saved to {final_dir}")
+        
         modelfile_cfg = cfg.get("modelfile", {})
+        stop_params = "\n".join(f"PARAMETER stop {token}" for token in fim_stop_tokens(fim_style, fim_tokens, tokenizer.eos_token))
         modelfile_content = f'''FROM {final_dir.resolve()}
 
-TEMPLATE """{{{{{{ .Prompt }}}}}}"""
+TEMPLATE """{{{{ .Prompt }}}}"""
 
 PARAMETER temperature {modelfile_cfg.get("temperature", 0.2)}
 PARAMETER num_predict {modelfile_cfg.get("num_predict", 128)}
-PARAMETER num_ctx {modelfile_cfg.get("num_ctx", 4096)}
-PARAMETER stop <|fim_prefix|>
-PARAMETER stop <|fim_suffix|>
-PARAMETER stop <|fim_middle|>
-PARAMETER stop <|endoftext|>
-PARAMETER stop <|repo_name|>
-PARAMETER stop <|file_sep|>
+PARAMETER num_ctx {max_length}
+{stop_params}
 '''
         modelfile_path = run_dir / "modelfile"
         modelfile_path.write_text(modelfile_content)

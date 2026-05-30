@@ -139,8 +139,8 @@ class FIMEvaluator:
 
 
 def build_fim_prompt(prefix: str, suffix: str) -> str:
-    """Build FIM prompt with Qwen tokens."""
-    return f"<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>"
+    """Build FIM prompt with DeepSeek Coder tokens."""
+    return f"<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>"
 
 
 def edit_distance(s1: str, s2: str) -> int:
@@ -424,9 +424,9 @@ def save_results(results: List[BenchmarkResult], output_path: Path):
 
 def main():
     parser = argparse.ArgumentParser(description="FIM Model Benchmark")
-    parser.add_argument("--tuned", default="viplismism/qwen-fim-32B",
+    parser.add_argument("--tuned", default="viplismism/deepseek-coder-6.7b-fim",
                        help="Fine-tuned model/adapter path")
-    parser.add_argument("--baseline", default="Qwen/Qwen2.5-Coder-32B",
+    parser.add_argument("--baseline", default="deepseek-ai/deepseek-coder-6.7b-base",
                        help="Baseline model path")
     parser.add_argument("--test_data", default=None,
                        help="Test data JSONL path")

@@ -105,7 +105,7 @@ def run_integration_tests():
     print("\n[Test 4] OpenAI-Compatible Endpoint")
     try:
         result = test_openai_compatible(
-            prompt="<|fim_prefix|>fn main() {\n    let x = <|fim_suffix|>;\n    println!(\"{}\", x);\n}<|fim_middle|>"
+            prompt="<｜fim▁begin｜>fn main() {\n    let x = <｜fim▁hole｜>;\n    println!(\"{}\", x);\n}<｜fim▁end｜>"
         )
         completion = result['choices'][0]['text']
         print(f"  Completion: {completion}")

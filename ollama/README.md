@@ -12,8 +12,8 @@ Deploy your fine-tuned FIM model with Ollama for local inference.
 ```bash
 cd ollama/
 # Update Modelfile with correct path to your .gguf file
-ollama create qwen-fim-32b -f Modelfile
-ollama run qwen-fim-32b
+ollama create deepseek-coder-6.7b-fim -f Modelfile
+ollama run deepseek-coder-6.7b-fim
 ```
 
 ## Full Pipeline: LoRA -> Merged -> GGUF -> Ollama
@@ -28,8 +28,8 @@ pip install -r requirements.txt
 
 # Merge LoRA adapter into base model
 python utils/convert_to_gguf.py \
-  --adapter viplismism/qwen-fim-32B \
-  --base_model Qwen/Qwen2.5-Coder-32B \
+  --adapter viplismism/deepseek-coder-6.7b-fim \
+  --base_model deepseek-ai/deepseek-coder-6.7b-base \
   --output_dir merged_model \
   --skip_gguf
 ```
@@ -44,7 +44,8 @@ cd llama.cpp && make -j && cd ..
 # Convert to GGUF with Q5_K_M quantization (~22GB, high quality)
 export LLAMA_CPP_PATH=./llama.cpp
 python utils/convert_to_gguf.py \
-  --adapter viplismism/qwen-fim-32B \
+  --adapter viplismism/deepseek-coder-6.7b-fim \
+  --base_model deepseek-ai/deepseek-coder-6.7b-base \
   --output_dir merged_model \
   --quantization q5_k_m
 ```
@@ -53,7 +54,7 @@ python utils/convert_to_gguf.py \
 
 ```bash
 # From your Mac
-scp -P <port> user@server:/path/to/merged_model/qwen-fim-32b.q5_k_m.gguf ~/models/
+scp -P <port> user@server:/path/to/merged_model/deepseek-coder-6.7b-fim.q5_k_m.gguf ~/models/
 ```
 
 ### Step 4: Create Ollama Model
@@ -61,22 +62,22 @@ scp -P <port> user@server:/path/to/merged_model/qwen-fim-32b.q5_k_m.gguf ~/model
 ```bash
 cd ~/models/
 # Copy Modelfile and update the FROM path
-ollama create qwen-fim-32b -f Modelfile
+ollama create deepseek-coder-6.7b-fim -f Modelfile
 ```
 
 ## Usage
 
 ### CLI
 ```bash
-ollama run qwen-fim-32b "fn add(a: i32, b: i32) -> i32 {"
+ollama run deepseek-coder-6.7b-fim "fn add(a: i32, b: i32) -> i32 {"
 ```
 
 ### FIM Mode (with suffix)
 ```bash
 # Using the API with FIM tokens
 curl http://localhost:11434/api/generate -d '{
-  "model": "qwen-fim-32b",
-  "prompt": "<|fim_prefix|>fn add(a: i32, b: i32) -> i32 {\n    <|fim_suffix|>\n}<|fim_middle|>",
+  "model": "deepseek-coder-6.7b-fim",
+  "prompt": "<｜fim▁begin｜>fn add(a: i32, b: i32) -> i32 {\n    <｜fim▁hole｜>\n}<｜fim▁end｜>",
   "stream": false
 }'
 ```
@@ -86,8 +87,8 @@ curl http://localhost:11434/api/generate -d '{
 import ollama
 
 response = ollama.generate(
-    model='qwen-fim-32b',
-    prompt='<|fim_prefix|>fn add(a: i32, b: i32) -> i32 {\n    <|fim_suffix|>\n}<|fim_middle|>'
+    model='deepseek-coder-6.7b-fim',
+    prompt='<｜fim▁begin｜>fn add(a: i32, b: i32) -> i32 {\n    <｜fim▁hole｜>\n}<｜fim▁end｜>'
 )
 print(response['response'])
 ```
@@ -109,9 +110,9 @@ Use with Continue.dev or other extensions:
 ```json
 {
   "models": [{
-    "title": "Qwen FIM 32B",
+    "title": "DeepSeek Coder 6.7B FIM",
     "provider": "ollama",
-    "model": "qwen-fim-32b"
+    "model": "deepseek-coder-6.7b-fim"
   }]
 }
 ```

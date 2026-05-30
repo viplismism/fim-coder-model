@@ -87,10 +87,17 @@ def generate_dataset(ast_data, output_dir, prefix="ast"):
     output_dir.mkdir(parents=True, exist_ok=True)
     train_path, test_path = output_dir / f'{prefix}_train.jsonl', output_dir / f'{prefix}_test.jsonl'
     
+    file_paths = list(ast_data.keys())
+    random.shuffle(file_paths)
+    split_idx = int(len(file_paths) * TRAIN_SPLIT)
+    train_files = set(file_paths[:split_idx])
+    test_files = set(file_paths[split_idx:])
+    
     stats = {'files': 0, 'success': 0, 'train': 0, 'test': 0}
     start, total = time.time(), len(ast_data)
     
     print(f"Processing {total:,} files → {output_dir}")
+    print(f"File-level split: {len(train_files):,} train, {len(test_files):,} test")
     
     with open(train_path, 'w') as train_f, open(test_path, 'w') as test_f:
         for i, (path, data) in enumerate(ast_data.items()):
@@ -104,6 +111,9 @@ def generate_dataset(ast_data, output_dir, prefix="ast"):
             if 'code' not in data:
                 continue
             
+            is_train_file = path in train_files
+            target_f = train_f if is_train_file else test_f
+            
             content = data['code']
             for block in extract_blocks(content, data.get('ast', [])):
                 sample = create_fim_sample(content, block, path)
@@ -111,11 +121,10 @@ def generate_dataset(ast_data, output_dir, prefix="ast"):
                     continue
                 
                 line = json.dumps(sample) + '\n'
-                if random.random() < TRAIN_SPLIT:
-                    train_f.write(line)
+                target_f.write(line)
+                if is_train_file:
                     stats['train'] += 1
                 else:
-                    test_f.write(line)
                     stats['test'] += 1
             
             stats['success'] += 1

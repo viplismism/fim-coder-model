@@ -3,16 +3,18 @@
 
 # Model Settings
 model:
-  size: "32B"  # Options: "14B", "32B"
+  size: "deepseek-7B"
   models:
-    14B:
-      name: "Qwen/Qwen2.5-Coder-14B"
-      per_device_batch_size: 8
-      gradient_accumulation_steps: 1
-    32B:
-      name: "Qwen/Qwen2.5-Coder-32B"
-      per_device_batch_size: 16
-      gradient_accumulation_steps: 1
+    deepseek-7B:
+      name: "deepseek-ai/deepseek-coder-6.7b-base"
+      per_device_batch_size: 1
+      gradient_accumulation_steps: 8
+      max_length: 4096
+      fim_style: "deepseek"
+      fim_tokens:
+        begin: "<｜fim▁begin｜>"
+        hole: "<｜fim▁hole｜>"
+        end: "<｜fim▁end｜>"
 
 # LoRA Configuration
 lora:
@@ -52,15 +54,16 @@ training:
   max_grad_norm: 1.0
   optim: "paged_adamw_8bit"
   bf16: true
+  gradient_checkpointing: true
   seed: 3407
 
 # Checkpointing & Evaluation
 checkpointing:
   save_steps: 500
   save_total_limit: 3
-  eval_steps: 25
+  eval_steps: 500
   eval_strategy: "steps"
-  logging_steps: 5
+  logging_steps: 10
   load_best_model_at_end: true
   metric_for_best_model: "eval_loss"
 
@@ -68,7 +71,6 @@ checkpointing:
 data:
   train_file: "data/reth_train.jsonl"
   test_file: "data/reth_test.jsonl"
-  repo_name: "reth"
 
 # Distributed Training
 distributed:
@@ -76,13 +78,13 @@ distributed:
 
 # Weights & Biases
 wandb:
-  project: "qwen-fim"
+  project: "deepseek-fim"
   enabled: true
 
 # HuggingFace Hub (optional - disable if not logged in)
 huggingface:
   push_to_hub: false
-  hub_model_id: "viplismism/Qwen2.5-Coder-32B-FIM"
+  hub_model_id: "viplismism/deepseek-coder-6.7b-fim"
 
 # Ollama Modelfile Defaults
 modelfile:

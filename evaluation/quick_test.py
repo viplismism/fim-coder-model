@@ -76,7 +76,7 @@ def get_device():
     return "cpu"
 
 
-def load_model(adapter_path: str, base_model: str = "Qwen/Qwen2.5-Coder-32B", use_quantization: bool = True):
+def load_model(adapter_path: str, base_model: str = "deepseek-ai/deepseek-coder-6.7b-base", use_quantization: bool = True):
     """Load the fine-tuned model with LoRA adapter."""
     from transformers import AutoModelForCausalLM, AutoTokenizer
     from peft import PeftModel
@@ -124,7 +124,7 @@ def load_model(adapter_path: str, base_model: str = "Qwen/Qwen2.5-Coder-32B", us
 
 def generate_fim(model, tokenizer, prefix: str, suffix: str, max_tokens: int = 64, temperature: float = 0.2):
     """Generate FIM completion."""
-    prompt = f"<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>"
+    prompt = f"<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>"
     
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     input_len = inputs.input_ids.shape[1]
@@ -248,9 +248,9 @@ def interactive_mode(model, tokenizer):
 
 def main():
     parser = argparse.ArgumentParser(description="Quick FIM model testing")
-    parser.add_argument("--adapter", default="viplismism/qwen-fim-32B",
+    parser.add_argument("--adapter", default="viplismism/deepseek-coder-6.7b-fim",
                        help="HuggingFace adapter path or local path")
-    parser.add_argument("--base_model", default="Qwen/Qwen2.5-Coder-32B",
+    parser.add_argument("--base_model", default="deepseek-ai/deepseek-coder-6.7b-base",
                        help="Base model name (use 7B or 14B for Mac)")
     parser.add_argument("--interactive", "-i", action="store_true",
                        help="Run in interactive mode")

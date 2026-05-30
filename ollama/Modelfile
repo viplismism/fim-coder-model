@@ -1,33 +1,30 @@
-# Ollama Modelfile for FIM-trained Qwen2.5-Coder-32B
+# Ollama Modelfile for FIM-trained DeepSeek-Coder-6.7B
 # 
 # Usage:
-#   ollama create qwen-fim-32b -f Modelfile
-#   ollama run qwen-fim-32b
+#   ollama create deepseek-coder-6.7b-fim -f Modelfile
+#   ollama run deepseek-coder-6.7b-fim
 #
 # For FIM completion, use this format in your prompt:
-#   <|fim_prefix|>code before cursor<|fim_suffix|>code after cursor<|fim_middle|>
+#   <｜fim▁begin｜>code before cursor<｜fim▁hole｜>code after cursor<｜fim▁end｜>
 
 # Model path - update this to your GGUF file location
-FROM ./qwen-fim-32b.q5_k_m.gguf
+FROM ./deepseek-coder-6.7b-fim.q5_k_m.gguf
 
 # Template for FIM (Fill-in-the-Middle) completion
-TEMPLATE """{{ if .Suffix }}<|fim_prefix|>{{ .Prompt }}<|fim_suffix|>{{ .Suffix }}<|fim_middle|>{{ else }}{{ .Prompt }}{{ end }}"""
+TEMPLATE """{{ if .Suffix }}<｜fim▁begin｜>{{ .Prompt }}<｜fim▁hole｜>{{ .Suffix }}<｜fim▁end｜>{{ else }}{{ .Prompt }}{{ end }}"""
 
 # Model parameters optimized for code completion
 PARAMETER temperature 0.2
 PARAMETER top_p 0.9
 PARAMETER top_k 40
 PARAMETER num_predict 128
-PARAMETER stop "<|endoftext|>"
-PARAMETER stop "<|fim_prefix|>"
-PARAMETER stop "<|fim_suffix|>"
-PARAMETER stop "<|fim_middle|>"
-PARAMETER stop "<|fim_pad|>"
-PARAMETER stop "<|repo_name|>"
-PARAMETER stop "<|file_sep|>"
+PARAMETER stop "<｜end▁of▁sentence｜>"
+PARAMETER stop "<｜fim▁begin｜>"
+PARAMETER stop "<｜fim▁hole｜>"
+PARAMETER stop "<｜fim▁end｜>"
 
 # System message (optional, for chat mode)
 SYSTEM """You are an expert code completion assistant specialized in Rust programming. When given code with a cursor position marked by FIM tokens, you complete the code accurately and idiomatically."""
 
 # License and metadata
-LICENSE """Apache 2.0 - Based on Qwen2.5-Coder-32B fine-tuned for FIM"""
+LICENSE """DeepSeek model license - Based on DeepSeek-Coder-6.7B Base fine-tuned for FIM"""

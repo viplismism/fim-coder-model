@@ -7,7 +7,7 @@ from pathlib import Path
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
 
-def merge(run_dir: str, base_model: str = "Qwen/Qwen2.5-Coder-32B"):
+def merge(run_dir: str, base_model: str = "deepseek-ai/deepseek-coder-6.7b-base"):
     run_path = Path(run_dir)
     lora_path = run_path / "final_model"
     output_path = run_path / "merged_model"
@@ -38,6 +38,6 @@ def merge(run_dir: str, base_model: str = "Qwen/Qwen2.5-Coder-32B"):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--run_dir", required=True)
-    parser.add_argument("--base_model", default="Qwen/Qwen2.5-Coder-32B")
+    parser.add_argument("--base_model", default="deepseek-ai/deepseek-coder-6.7b-base")
     args = parser.parse_args()
     merge(args.run_dir, args.base_model)

@@ -11,12 +11,10 @@ TEMPLATE """{{{{ .Prompt }}}}"""
 PARAMETER temperature {temperature}
 PARAMETER num_predict {num_predict}
 PARAMETER num_ctx {num_ctx}
-PARAMETER stop <|fim_prefix|>
-PARAMETER stop <|fim_suffix|>
-PARAMETER stop <|fim_middle|>
-PARAMETER stop <|endoftext|>
-PARAMETER stop <|repo_name|>
-PARAMETER stop <|file_sep|>
+PARAMETER stop <｜fim▁begin｜>
+PARAMETER stop <｜fim▁hole｜>
+PARAMETER stop <｜fim▁end｜>
+PARAMETER stop <｜end▁of▁sentence｜>
 '''
 
 def generate_modelfile(

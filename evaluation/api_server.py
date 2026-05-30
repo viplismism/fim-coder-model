@@ -70,8 +70,8 @@ class ModelManager:
     
     def load(
         self, 
-        adapter_path: str = "viplismism/qwen-fim-32B",
-        base_model: str = "Qwen/Qwen2.5-Coder-32B"
+        adapter_path: str = "viplismism/deepseek-coder-6.7b-fim",
+        base_model: str = "deepseek-ai/deepseek-coder-6.7b-base"
     ):
         """Load the model with LoRA adapter."""
         from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
@@ -111,7 +111,7 @@ class ModelManager:
         if self.model is None:
             raise RuntimeError("Model not loaded")
         
-        prompt = f"<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>"
+        prompt = f"<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>"
         
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.device)
         input_len = inputs.input_ids.shape[1]
@@ -147,8 +147,8 @@ model_manager = ModelManager()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Load model on startup."""
-    adapter = os.environ.get("FIM_ADAPTER", "viplismism/qwen-fim-32B")
-    base = os.environ.get("FIM_BASE_MODEL", "Qwen/Qwen2.5-Coder-32B")
+    adapter = os.environ.get("FIM_ADAPTER", "viplismism/deepseek-coder-6.7b-fim")
+    base = os.environ.get("FIM_BASE_MODEL", "deepseek-ai/deepseek-coder-6.7b-base")
     model_manager.load(adapter, base)
     yield
     # Cleanup on shutdown
@@ -240,14 +240,14 @@ async def openai_compatible(request: OpenAIRequest):
     """
     OpenAI-compatible completion endpoint for IDE integration.
     
-    Expects FIM format in prompt: <|fim_prefix|>...<|fim_suffix|>...<|fim_middle|>
+    Expects DeepSeek FIM format in prompt: <｜fim▁begin｜>...<｜fim▁hole｜>...<｜fim▁end｜>
     Or uses suffix parameter if provided.
     """
     # Parse FIM format from prompt
-    if "<|fim_prefix|>" in request.prompt:
-        parts = request.prompt.split("<|fim_prefix|>")[1].split("<|fim_suffix|>")
+    if "<｜fim▁begin｜>" in request.prompt:
+        parts = request.prompt.split("<｜fim▁begin｜>")[1].split("<｜fim▁hole｜>")
         prefix = parts[0]
-        suffix = parts[1].split("<|fim_middle|>")[0] if len(parts) > 1 else ""
+        suffix = parts[1].split("<｜fim▁end｜>")[0] if len(parts) > 1 else ""
     else:
         prefix = request.prompt
         suffix = request.suffix or ""

@@ -51,10 +51,10 @@ class Evaluator:
         return [self.tokenizer.decode(out[i][input_len:], skip_special_tokens=True) for i in range(k)]
 
 def baseline_prompt(prefix: str, suffix: str) -> str:
-    return f"<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>"
+    return f"<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>"
 
-def tuned_prompt(prefix: str, suffix: str, path: str, repo: str = "reth") -> str:
-    return f"<|repo_name|>{repo}\n<|file_sep|>{path}\n<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>"
+def tuned_prompt(prefix: str, suffix: str, _path: str, _repo: str = "reth") -> str:
+    return baseline_prompt(prefix, suffix)
 
 def edit_sim(a: str, b: str) -> float:
     a, b = a.strip(), b.strip()
@@ -119,7 +119,7 @@ def summary(results: List[Dict]):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--tuned", required=True)
-    parser.add_argument("--baseline", default="Qwen/Qwen2.5-Coder-32B")
+    parser.add_argument("--baseline", default="deepseek-ai/deepseek-coder-6.7b-base")
     parser.add_argument("--test_data", default=None)
     parser.add_argument("--max_samples", type=int, default=None)
     parser.add_argument("--output", default=None)
