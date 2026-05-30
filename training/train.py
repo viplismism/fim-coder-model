@@ -10,8 +10,8 @@ import torch.distributed as dist
 import wandb
 from pathlib import Path
 from datasets import load_dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, BitsAndBytesConfig
-from trl import SFTTrainer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from trl import SFTTrainer, SFTConfig
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
 
@@ -194,7 +194,7 @@ def main():
     ckpt_cfg = cfg["checkpointing"]
     dist_cfg = cfg["distributed"]
     
-    training_args = TrainingArguments(
+    training_args = SFTConfig(
         output_dir=str(run_dir / "checkpoints"),
         run_name=run_name,
         per_device_train_batch_size=batch_size,
@@ -222,14 +222,14 @@ def main():
         push_to_hub=cfg.get("huggingface", {}).get("push_to_hub", False),
         hub_model_id=cfg.get("huggingface", {}).get("hub_model_id", f"viplismism/fim-{model_size}"),
         report_to="wandb" if cfg.get("wandb", {}).get("enabled", True) else "none",
+        max_seq_length=max_length,
+        dataset_text_field="text",
     )
 
     trainer = SFTTrainer(
         model=model, args=training_args,
         train_dataset=train_ds, eval_dataset=eval_ds,
-        tokenizer=tokenizer,
-        max_seq_length=max_length,
-        formatting_func=lambda x: x["text"],
+        processing_class=tokenizer,
     )
 
     if local_rank != -1:
