@@ -213,7 +213,7 @@ def main():
         save_steps=ckpt_cfg["save_steps"],
         save_total_limit=ckpt_cfg["save_total_limit"],
         eval_steps=ckpt_cfg["eval_steps"],
-        evaluation_strategy=ckpt_cfg["eval_strategy"],
+        eval_strategy=ckpt_cfg["eval_strategy"],
         logging_steps=ckpt_cfg["logging_steps"],
         load_best_model_at_end=ckpt_cfg["load_best_model_at_end"] if is_main else False,
         metric_for_best_model=ckpt_cfg["metric_for_best_model"],
