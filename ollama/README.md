@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 # Merge LoRA adapter into base model
 python utils/convert_to_gguf.py \
-  --adapter viplismism/deepseek-coder-6.7b-fim \
+  --adapter viplismism/deepseek-coder-6.7b-fim-reth-v1 \
   --base_model deepseek-ai/deepseek-coder-6.7b-base \
   --output_dir merged_model \
   --skip_gguf
@@ -44,7 +44,7 @@ cd llama.cpp && make -j && cd ..
 # Convert to GGUF with Q5_K_M quantization (~22GB, high quality)
 export LLAMA_CPP_PATH=./llama.cpp
 python utils/convert_to_gguf.py \
-  --adapter viplismism/deepseek-coder-6.7b-fim \
+  --adapter viplismism/deepseek-coder-6.7b-fim-reth-v1 \
   --base_model deepseek-ai/deepseek-coder-6.7b-base \
   --output_dir merged_model \
   --quantization q5_k_m

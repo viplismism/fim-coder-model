@@ -84,7 +84,7 @@ wandb:
 # HuggingFace Hub (optional - disable if not logged in)
 huggingface:
   push_to_hub: false
-  hub_model_id: "viplismism/deepseek-coder-6.7b-fim"
+  hub_model_id: "viplismism/deepseek-coder-6.7b-fim-reth-v1"
 
 # Ollama Modelfile Defaults
 modelfile:

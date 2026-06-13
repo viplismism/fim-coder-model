@@ -248,7 +248,7 @@ def interactive_mode(model, tokenizer):
 
 def main():
     parser = argparse.ArgumentParser(description="Quick FIM model testing")
-    parser.add_argument("--adapter", default="viplismism/deepseek-coder-6.7b-fim",
+    parser.add_argument("--adapter", default="viplismism/deepseek-coder-6.7b-fim-reth-v1",
                        help="HuggingFace adapter path or local path")
     parser.add_argument("--base_model", default="deepseek-ai/deepseek-coder-6.7b-base",
                        help="Base model name (use 7B or 14B for Mac)")

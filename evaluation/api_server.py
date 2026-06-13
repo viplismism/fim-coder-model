@@ -70,7 +70,7 @@ class ModelManager:
     
     def load(
         self, 
-        adapter_path: str = "viplismism/deepseek-coder-6.7b-fim",
+        adapter_path: str = "viplismism/deepseek-coder-6.7b-fim-reth-v1",
         base_model: str = "deepseek-ai/deepseek-coder-6.7b-base"
     ):
         """Load the model with LoRA adapter."""
@@ -147,7 +147,7 @@ model_manager = ModelManager()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Load model on startup."""
-    adapter = os.environ.get("FIM_ADAPTER", "viplismism/deepseek-coder-6.7b-fim")
+    adapter = os.environ.get("FIM_ADAPTER", "viplismism/deepseek-coder-6.7b-fim-reth-v1")
     base = os.environ.get("FIM_BASE_MODEL", "deepseek-ai/deepseek-coder-6.7b-base")
     model_manager.load(adapter, base)
     yield

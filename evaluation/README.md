@@ -7,7 +7,7 @@ This module contains tools for testing and evaluating the fine-tuned FIM model.
 Run sanity checks on the model with predefined test cases:
 
 ```bash
-python evaluation/quick_test.py --adapter viplismism/deepseek-coder-6.7b-fim
+python evaluation/quick_test.py --adapter viplismism/deepseek-coder-6.7b-fim-reth-v1
 
 # Interactive mode
 python evaluation/quick_test.py -i
@@ -19,10 +19,10 @@ Compare tuned model against baseline with pass@k metrics:
 
 ```bash
 # Full benchmark on test set
-python evaluation/benchmark.py --tuned viplismism/deepseek-coder-6.7b-fim --max_samples 100
+python evaluation/benchmark.py --tuned viplismism/deepseek-coder-6.7b-fim-reth-v1 --max_samples 100
 
 # With custom test data
-python evaluation/benchmark.py --tuned viplismism/deepseek-coder-6.7b-fim --test_data data/reth_test.jsonl
+python evaluation/benchmark.py --tuned viplismism/deepseek-coder-6.7b-fim-reth-v1 --test_data data/reth_test.jsonl
 ```
 
 Output includes:
@@ -44,7 +44,7 @@ python evaluation/api_server.py
 uvicorn evaluation.api_server:app --host 0.0.0.0 --port 8000
 
 # With custom model
-FIM_ADAPTER=viplismism/deepseek-coder-6.7b-fim FIM_BASE_MODEL=deepseek-ai/deepseek-coder-6.7b-base uvicorn evaluation.api_server:app
+FIM_ADAPTER=viplismism/deepseek-coder-6.7b-fim-reth-v1 FIM_BASE_MODEL=deepseek-ai/deepseek-coder-6.7b-base uvicorn evaluation.api_server:app
 ```
 
 ### Endpoints

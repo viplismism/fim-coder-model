@@ -6,6 +6,17 @@ A training framework for fine-tuning Large Language Models on Fill-in-the-Middle
 
 This framework extracts semantic code boundaries (functions, structs, impl blocks) from Rust codebases using AST parsing, generates FIM training samples, and fine-tunes models using LoRA with 4-bit quantization for efficient multi-GPU training.
 
+## Released Models
+
+LoRA adapters trained with this framework on the [reth](https://github.com/paradigmxyz/reth) Rust codebase:
+
+| Model | Base | Adapter |
+|-------|------|---------|
+| [deepseek-coder-6.7b-fim-reth-v1](https://huggingface.co/viplismism/deepseek-coder-6.7b-fim-reth-v1) | DeepSeek-Coder-6.7B | 320 MB |
+| [Qwen2.5-Coder-32B-FIM](https://huggingface.co/viplismism/Qwen2.5-Coder-32B-FIM) | Qwen2.5-Coder-32B | 2.15 GB |
+
+Each repository contains the LoRA adapter only — load it on top of the corresponding base model (see the model card for a usage snippet).
+
 ## Architecture
 
 ### Data Preparation Pipeline
@@ -129,6 +140,7 @@ All training parameters are defined in `config.yaml`:
 | Model | Parameters | VRAM (4-bit) | Recommended GPUs |
 |-------|------------|--------------|------------------|
 | DeepSeek-Coder-6.7B Base | 6.7B | ~8GB | 1x RTX 4090 |
+| Qwen2.5-Coder-32B | 32B | ~24GB | 1x A100 / multi-GPU |
 
 ## License
 

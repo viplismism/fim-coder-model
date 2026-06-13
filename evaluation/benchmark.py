@@ -424,7 +424,7 @@ def save_results(results: List[BenchmarkResult], output_path: Path):
 
 def main():
     parser = argparse.ArgumentParser(description="FIM Model Benchmark")
-    parser.add_argument("--tuned", default="viplismism/deepseek-coder-6.7b-fim",
+    parser.add_argument("--tuned", default="viplismism/deepseek-coder-6.7b-fim-reth-v1",
                        help="Fine-tuned model/adapter path")
     parser.add_argument("--baseline", default="deepseek-ai/deepseek-coder-6.7b-base",
                        help="Baseline model path")

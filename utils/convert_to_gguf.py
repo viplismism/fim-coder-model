@@ -110,7 +110,7 @@ def convert_to_gguf(
 
 def main():
     parser = argparse.ArgumentParser(description="Merge LoRA and convert to GGUF")
-    parser.add_argument("--adapter", default="viplismism/deepseek-coder-6.7b-fim",
+    parser.add_argument("--adapter", default="viplismism/deepseek-coder-6.7b-fim-reth-v1",
                        help="LoRA adapter path (HuggingFace or local)")
     parser.add_argument("--base_model", default="deepseek-ai/deepseek-coder-6.7b-base",
                        help="Base model name")
