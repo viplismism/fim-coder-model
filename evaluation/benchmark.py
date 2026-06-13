@@ -49,6 +49,8 @@ class BenchmarkResult:
     baseline_output: str
     tuned_metrics: SampleMetrics
     baseline_metrics: SampleMetrics
+    tuned_k_samples: List[str] = None
+    baseline_k_samples: List[str] = None
 
 
 class FIMEvaluator:
@@ -260,12 +262,15 @@ def run_benchmark(
     
     if max_samples and max_samples < len(test_data):
         random.seed(42)
-        test_data = random.sample(test_data, max_samples)
-    
+        indices = sorted(random.sample(range(len(test_data)), max_samples))
+    else:
+        indices = list(range(len(test_data)))
+    selected = [test_data[idx] for idx in indices]
+
     results = []
-    total = len(test_data)
-    
-    for i, item in enumerate(test_data):
+    total = len(selected)
+
+    for i, item in enumerate(selected):
         prefix = item['prefix']
         suffix = item['suffix']
         expected = item['middle']
@@ -293,14 +298,16 @@ def run_benchmark(
         )
         
         results.append(BenchmarkResult(
-            sample_id=i,
+            sample_id=indices[i],
             file_path=file_path,
             node_type=node_type,
             expected=expected,
             tuned_output=tuned_result.text,
             baseline_output=baseline_result.text,
             tuned_metrics=tuned_metrics,
-            baseline_metrics=baseline_metrics
+            baseline_metrics=baseline_metrics,
+            tuned_k_samples=tuned_k,
+            baseline_k_samples=baseline_k
         ))
         
         # Progress
@@ -383,6 +390,7 @@ def save_results(results: List[BenchmarkResult], output_path: Path):
         "metadata": {
             "total_samples": len(results),
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "sampled_indices": [r.sample_id for r in results],
         },
         "summary": {
             "tuned": {
@@ -410,6 +418,8 @@ def save_results(results: List[BenchmarkResult], output_path: Path):
                 "baseline_output": r.baseline_output,
                 "tuned_metrics": asdict(r.tuned_metrics),
                 "baseline_metrics": asdict(r.baseline_metrics),
+                "tuned_k_samples": r.tuned_k_samples,
+                "baseline_k_samples": r.baseline_k_samples,
             }
             for r in results
         ]
@@ -420,6 +430,57 @@ def save_results(results: List[BenchmarkResult], output_path: Path):
         json.dump(output, f, indent=2)
     
     print(f"\nResults saved to: {output_path}")
+
+
+def save_manifest(results: List[BenchmarkResult], manifest_path: Path):
+    """Write the exact list of test samples that were run (original index in the test file)."""
+    lines = ["# original_index\tnode_type\tfile_path"]
+    for r in results:
+        lines.append(f"{r.sample_id}\t{r.node_type}\t{r.file_path}")
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text("\n".join(lines) + "\n")
+    print(f"Sample manifest saved to: {manifest_path}")
+
+
+def save_report(results: List[BenchmarkResult], report_path: Path):
+    """Write a human-readable side-by-side report (expected vs tuned vs baseline)."""
+    n = len(results)
+    def cnt(model: str, m: str) -> int:
+        return sum(getattr(r.tuned_metrics if model == "tuned" else r.baseline_metrics, m) for r in results)
+
+    def clip(s: str, limit: int = 300) -> str:
+        s = (s or "").replace("\n", "\\n")
+        return s if len(s) <= limit else s[:limit] + " …[truncated]"
+
+    lines = ["# FIM Benchmark Report", "", f"Samples: {n}", "",
+             "| Metric | Tuned | Baseline | Delta |", "|---|---|---|---|"]
+    for name, m in [("pass@1", "pass_at_1"), ("pass@3", "pass_at_3"), ("pass@5", "pass_at_5")]:
+        t, b = cnt("tuned", m), cnt("baseline", m)
+        lines.append(f"| {name} | {t}/{n} | {b}/{n} | {t - b:+d} |")
+    for name, m in [("edit_similarity", "edit_similarity"), ("token_overlap", "token_overlap"), ("bleu_score", "bleu_score")]:
+        t = cnt("tuned", m) / n
+        b = cnt("baseline", m) / n
+        lines.append(f"| {name} | {t:.3f} | {b:.3f} | {t - b:+.3f} |")
+    lines += ["", "---", ""]
+
+    for r in results:
+        tm, bm = r.tuned_metrics, r.baseline_metrics
+        lines.append(f"## [#{r.sample_id}] {r.node_type} — {r.file_path}")
+        lines.append(f"```")
+        lines.append(f"EXPECTED : {clip(r.expected)}")
+        lines.append(f"TUNED    : {clip(r.tuned_output)}")
+        lines.append(f"           {'EXACT' if tm.exact_match else '     '} edit={tm.edit_similarity:.2f} bleu={tm.bleu_score:.2f} pass@5={tm.pass_at_5}")
+        lines.append(f"BASELINE : {clip(r.baseline_output)}")
+        lines.append(f"           {'EXACT' if bm.exact_match else '     '} edit={bm.edit_similarity:.2f} bleu={bm.bleu_score:.2f} pass@5={bm.pass_at_5}")
+        if r.tuned_k_samples:
+            lines.append(f"  tuned tries    : {[clip(s, 120) for s in r.tuned_k_samples]}")
+            lines.append(f"  baseline tries : {[clip(s, 120) for s in r.baseline_k_samples]}")
+        lines.append("```")
+        lines.append("")
+
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text("\n".join(lines))
+    print(f"Report saved to: {report_path}")
 
 
 def main():
@@ -473,6 +534,8 @@ def main():
     # Print and save results
     print_summary(results)
     save_results(results, output_path)
+    save_report(results, output_path.parent / (output_path.stem + "_report.md"))
+    save_manifest(results, output_path.parent / (output_path.stem + "_samples.txt"))
 
 
 if __name__ == "__main__":
