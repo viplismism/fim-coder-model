@@ -11,10 +11,17 @@ import random
 import argparse
 import torch
 from pathlib import Path
+import sys
 from dataclasses import dataclass, asdict
 from typing import List, Dict, Optional, Tuple
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from utils.tokenizer_whitespace import (
+    assert_tokenizer_preserves_code_whitespace,
+    decode_preserving_whitespace,
+)
 
 os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
 
@@ -87,7 +94,9 @@ class FIMEvaluator:
                 trust_remote_code=True
             )
         
+        self.tokenizer.clean_up_tokenization_spaces = False
         self.tokenizer.pad_token = self.tokenizer.eos_token
+        assert_tokenizer_preserves_code_whitespace(self.tokenizer)
         self.model.eval()
         print(f"Loaded: {model_path}")
     
@@ -109,10 +118,10 @@ class FIMEvaluator:
         elapsed = time.time() - start
         
         gen_tokens = outputs[0][input_len:]
-        generated = self.tokenizer.decode(gen_tokens, skip_special_tokens=True)
+        generated = decode_preserving_whitespace(self.tokenizer, gen_tokens)
         
         return GenerationResult(
-            text=generated.strip(),
+            text=generated,
             time_ms=elapsed * 1000,
             tokens=len(gen_tokens)
         )
@@ -135,7 +144,7 @@ class FIMEvaluator:
             )
         
         return [
-            self.tokenizer.decode(outputs[i][input_len:], skip_special_tokens=True).strip()
+            decode_preserving_whitespace(self.tokenizer, outputs[i][input_len:])
             for i in range(k)
         ]
 
@@ -167,7 +176,7 @@ def edit_distance(s1: str, s2: str) -> int:
 
 def edit_similarity(generated: str, expected: str) -> float:
     """Compute edit similarity (1 - normalized edit distance)."""
-    gen, exp = generated.strip(), expected.strip()
+    gen, exp = generated, expected
     if not gen and not exp:
         return 1.0
     if not gen or not exp:
@@ -200,7 +209,7 @@ def simple_bleu(generated: str, expected: str, max_n: int = 4) -> float:
             ngrams[tuple(tokens[i:i+n])] += 1
         return ngrams
     
-    if not generated.strip() or not expected.strip():
+    if not generated or not expected:
         return 0.0
     
     scores = []
@@ -233,16 +242,16 @@ def compute_metrics(
     gen_tokens: int
 ) -> SampleMetrics:
     """Compute all metrics for a single sample."""
-    gen_clean = generated.strip()
-    exp_clean = expected.strip()
+    gen_clean = generated
+    exp_clean = expected
     
     exact = gen_clean == exp_clean
     
     return SampleMetrics(
         exact_match=exact,
         pass_at_1=exact,
-        pass_at_3=any(s.strip() == exp_clean for s in k_samples[:3]),
-        pass_at_5=any(s.strip() == exp_clean for s in k_samples[:5]),
+        pass_at_3=any(s == exp_clean for s in k_samples[:3]),
+        pass_at_5=any(s == exp_clean for s in k_samples[:5]),
         edit_similarity=edit_similarity(gen_clean, exp_clean),
         token_overlap=token_overlap(gen_clean, exp_clean),
         bleu_score=simple_bleu(gen_clean, exp_clean),

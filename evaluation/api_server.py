@@ -9,6 +9,7 @@ import time
 import torch
 import logging
 from pathlib import Path
+import sys
 from typing import Optional, List
 from contextlib import asynccontextmanager
 
@@ -18,6 +19,12 @@ os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from utils.tokenizer_whitespace import (
+    assert_tokenizer_preserves_code_whitespace,
+    decode_preserving_whitespace,
+)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -94,6 +101,8 @@ class ModelManager:
             trust_remote_code=True
         )
         self.model = PeftModel.from_pretrained(self.model, adapter_path)
+        self.tokenizer.clean_up_tokenization_spaces = False
+        assert_tokenizer_preserves_code_whitespace(self.tokenizer)
         self.model.eval()
         self.model_name = adapter_path
         
@@ -129,7 +138,7 @@ class ModelManager:
         elapsed = (time.time() - start) * 1000
         
         gen_tokens = outputs[0][input_len:]
-        completion = self.tokenizer.decode(gen_tokens, skip_special_tokens=True)
+        completion = decode_preserving_whitespace(self.tokenizer, gen_tokens)
         
         # Apply stop sequences
         if stop_sequences:
@@ -137,7 +146,7 @@ class ModelManager:
                 if stop in completion:
                     completion = completion.split(stop)[0]
         
-        return completion.strip(), len(gen_tokens), elapsed
+        return completion, len(gen_tokens), elapsed
 
 
 # Global model manager

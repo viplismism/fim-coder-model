@@ -1,12 +1,13 @@
 # Dependencies for QLoRA FIM training + inference
 # Tested with CUDA 12.1, Python 3.10
-# Minimum versions reflect the current TRL/PEFT API (SFTConfig.max_length,
-# processing_class) and are required to load adapters saved with PEFT >= 0.19.
+# Pin the training stack. TRL 0.17 keeps the current SFTConfig(max_length=...)
+# and processing_class API while allowing transformers 4.49, which preserves
+# DeepSeek Coder code whitespace in tokenizer round trips.
 
 # Core ML
 torch>=2.1.0
-transformers>=4.49.0,<5.0   # cap below 5.0: transformers 5.x mangles the deepseek tokenizer decode (strips whitespace)
-trl>=0.18.0
+transformers==4.49.0
+trl==0.17.0
 peft>=0.19.0
 accelerate>=1.0.0
 bitsandbytes>=0.45.0

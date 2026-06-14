@@ -6,8 +6,15 @@ os.environ['TRANSFORMERS_VERBOSITY'] = 'error'
 
 import torch
 from pathlib import Path
+import sys
 from dataclasses import dataclass
 from typing import List, Dict
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from utils.tokenizer_whitespace import (
+    assert_tokenizer_preserves_code_whitespace,
+    decode_preserving_whitespace,
+)
 
 @dataclass
 class Result:
@@ -27,7 +34,9 @@ class Evaluator:
         self.tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True, local_files_only=is_local)
         self.model = AutoModelForCausalLM.from_pretrained(
             model_path, quantization_config=bnb, device_map="auto", trust_remote_code=True, local_files_only=is_local)
+        self.tokenizer.clean_up_tokenization_spaces = False
         self.tokenizer.pad_token = self.tokenizer.eos_token
+        assert_tokenizer_preserves_code_whitespace(self.tokenizer)
         self.model.eval()
         print(f"Loaded: {model_path}")
 
@@ -39,7 +48,7 @@ class Evaluator:
             out = self.model.generate(**inputs, max_new_tokens=max_tokens, do_sample=False,
                                        pad_token_id=self.tokenizer.pad_token_id)
         gen_ids = out[0][input_len:] if out.dim() > 1 else out[input_len:]
-        return Result(self.tokenizer.decode(gen_ids, skip_special_tokens=True), time.time() - start, len(gen_ids))
+        return Result(decode_preserving_whitespace(self.tokenizer, gen_ids), time.time() - start, len(gen_ids))
 
     def generate_k(self, prompt: str, k: int = 5, max_tokens: int = 128) -> List[str]:
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.device)
@@ -48,7 +57,7 @@ class Evaluator:
             out = self.model.generate(**inputs, max_new_tokens=max_tokens, do_sample=True,
                                        temperature=0.8, top_p=0.95, num_return_sequences=k,
                                        pad_token_id=self.tokenizer.pad_token_id)
-        return [self.tokenizer.decode(out[i][input_len:], skip_special_tokens=True) for i in range(k)]
+        return [decode_preserving_whitespace(self.tokenizer, out[i][input_len:]) for i in range(k)]
 
 def baseline_prompt(prefix: str, suffix: str) -> str:
     return f"<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>"
@@ -57,7 +66,7 @@ def tuned_prompt(prefix: str, suffix: str, _path: str, _repo: str = "reth") -> s
     return baseline_prompt(prefix, suffix)
 
 def edit_sim(a: str, b: str) -> float:
-    a, b = a.strip(), b.strip()
+    a, b = a, b
     if not a and not b: return 1.0
     if not a or not b: return 0.0
     m, n = len(a), len(b)
@@ -93,10 +102,10 @@ def evaluate(tuned_path: str, baseline_path: str, test_path: str, max_samples: i
         b_k = baseline.generate_k(baseline_prompt(prefix, suffix), k=5)
         
         def metrics(gen, exp, samples):
-            exact = gen.strip() == exp.strip()
+            exact = gen == exp
             return {'generated': gen, 'exact': exact, 'pass@1': exact,
-                    'pass@3': any(s.strip() == exp.strip() for s in samples[:3]),
-                    'pass@5': any(s.strip() == exp.strip() for s in samples),
+                    'pass@3': any(s == exp for s in samples[:3]),
+                    'pass@5': any(s == exp for s in samples),
                     'edit_sim': edit_sim(gen, exp), 'word_overlap': word_overlap(gen, exp)}
         
         results.append({'id': i, 'path': path, 'expected': expected,

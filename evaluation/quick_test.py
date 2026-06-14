@@ -5,6 +5,13 @@ import torch
 import time
 import argparse
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from utils.tokenizer_whitespace import (
+    assert_tokenizer_preserves_code_whitespace,
+    decode_preserving_whitespace,
+)
 
 # Test cases for FIM completion
 TEST_CASES = [
@@ -115,6 +122,8 @@ def load_model(adapter_path: str, base_model: str = "deepseek-ai/deepseek-coder-
             model = model.to(device)
     
     tokenizer = AutoTokenizer.from_pretrained(adapter_path, trust_remote_code=True)
+    tokenizer.clean_up_tokenization_spaces = False
+    assert_tokenizer_preserves_code_whitespace(tokenizer)
     model = PeftModel.from_pretrained(model, adapter_path)
     model.eval()
     
@@ -141,12 +150,12 @@ def generate_fim(model, tokenizer, prefix: str, suffix: str, max_tokens: int = 6
         )
     elapsed = time.time() - start_time
     
-    generated = tokenizer.decode(outputs[0][input_len:], skip_special_tokens=True)
+    generated = decode_preserving_whitespace(tokenizer, outputs[0][input_len:])
     # Stop at newline or end of logical completion
     if "\n\n" in generated:
         generated = generated.split("\n\n")[0]
     
-    return generated.strip(), elapsed
+    return generated, elapsed
 
 
 def run_test(model, tokenizer, test_case: dict, verbose: bool = True):

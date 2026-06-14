@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """FIM model fine-tuning with LoRA on DeepSeek Coder."""
 
-import os, time, argparse, warnings, yaml
+import os, time, argparse, warnings, yaml, sys
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings("ignore")
 
@@ -13,6 +13,9 @@ from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from trl import SFTTrainer, SFTConfig
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from utils.tokenizer_whitespace import assert_tokenizer_preserves_code_whitespace
 
 
 def load_config(config_path: Path) -> dict:
@@ -146,9 +149,11 @@ def main():
             )
 
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    tokenizer.clean_up_tokenization_spaces = False
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = cfg["tokenizer"]["padding_side"]
     tokenizer.model_max_length = max_length
+    assert_tokenizer_preserves_code_whitespace(tokenizer)
 
     bnb = get_bnb_config(cfg)
     
