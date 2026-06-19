@@ -133,6 +133,12 @@ def main():
             yaml.dump(cfg, f, default_flow_style=False)
         
         if cfg["wandb"]["enabled"]:
+            # Never hang on a headless box: if no API key and no explicit mode is set,
+            # log offline instead of triggering an interactive login prompt.
+            # Set WANDB_API_KEY (or `wandb login`) for the live online dashboard.
+            if not os.environ.get("WANDB_API_KEY") and not os.environ.get("WANDB_MODE"):
+                os.environ["WANDB_MODE"] = "offline"
+                print("W&B: no WANDB_API_KEY -> logging offline (set WANDB_API_KEY for the live dashboard; `wandb sync` to upload later)")
             wandb.init(
                 project=cfg["wandb"]["project"],
                 name=run_name,
