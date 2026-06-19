@@ -88,6 +88,7 @@ def main():
     parser.add_argument("--model_size", default=None, choices=["deepseek-7B"], help="Override model size from config")
     parser.add_argument("--resume", type=str, default=None, help="Resume from checkpoint path")
     parser.add_argument("--epochs", type=int, default=None, help="Override number of epochs")
+    parser.add_argument("--max_train_samples", type=int, default=None, help="Cap number of training samples (for quick/validation runs)")
     parser.add_argument("--lr", type=float, default=None, help="Override learning rate")
     args = parser.parse_args()
 
@@ -178,9 +179,14 @@ def main():
     def fmt_with_tokens(ex):
         return format_fim(ex, fim_style, fim_tokens, tokenizer.eos_token)
     
-    train_ds = ds["train"].map(
+    train_split = ds["train"]
+    if args.max_train_samples and args.max_train_samples < len(train_split):
+        train_split = train_split.shuffle(seed=cfg["training"]["seed"]).select(range(args.max_train_samples))
+        if is_main:
+            print(f"Subsampled training set to {len(train_split):,} samples")
+    train_ds = train_split.map(
         fmt_with_tokens,
-        remove_columns=ds["train"].column_names,
+        remove_columns=train_split.column_names,
         load_from_cache_file=False,
     )
     eval_ds = ds["test"].map(
