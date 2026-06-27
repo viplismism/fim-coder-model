@@ -12,10 +12,22 @@ LoRA adapters trained with this framework on the [reth](https://github.com/parad
 
 | Model | Base | Adapter |
 |-------|------|---------|
-| [deepseek-coder-6.7b-fim-reth-v1](https://huggingface.co/viplismism/deepseek-coder-6.7b-fim-reth-v1) | DeepSeek-Coder-6.7B | 320 MB |
+| [deepseek-coder-6.7b-fim-reth-v1](https://huggingface.co/viplismism/deepseek-coder-6.7b-fim-reth-v1) | DeepSeek-Coder-6.7B | 320 MB (bf16) |
 | [Qwen2.5-Coder-32B-FIM](https://huggingface.co/viplismism/Qwen2.5-Coder-32B-FIM) | Qwen2.5-Coder-32B | 2.15 GB |
 
 Each repository contains the LoRA adapter only — load it on top of the corresponding base model (see the model card for a usage snippet).
+
+### Results (deepseek-coder-6.7b-fim-reth-v1)
+
+Held-out reth test split (200 samples), tuned adapter vs. base model:
+
+| Metric | Tuned | Base | Δ |
+|--------|-------|------|---|
+| pass@1 (exact match) | **31.0%** | 13.5% | **+17.5 pts (2.3×)** |
+| Edit similarity | **0.650** | 0.453 | +0.197 |
+| BLEU | **0.459** | 0.294 | +0.165 |
+
+Evaluate with `evaluation/benchmark.py`. **Note:** training and eval are pinned to `transformers==4.49.0` + `trl==0.17.0` — newer `transformers` silently corrupts code whitespace during tokenization (a tokenizer guard in `training/train.py` enforces this).
 
 ## Architecture
 
