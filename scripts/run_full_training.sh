@@ -31,12 +31,17 @@ HF_REPO="${HF_REPO:-viplismism/deepseek-coder-6.7b-fim-reth-v2}"
 NTFY_TOPIC="${NTFY_TOPIC:-}"
 WORKDIR="${WORKDIR:-$HOME/fim-run}"
 
-say() { echo -e "\n=== $* ===\n"; }
+CURRENT_STEP="starting"
+say() { CURRENT_STEP="$*"; echo -e "\n=== $* ===\n"; }
 ping_phone() { [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: $1" -d "$2" "ntfy.sh/$NTFY_TOPIC" >/dev/null || true; }
+# alert the phone if anything crashes, naming the step that failed
+trap 'ping_phone "❌ FIM run FAILED" "Died during: $CURRENT_STEP. Check run.log on the box."' ERR
 
 # ---- 0. sanity checks ----
 say "ENV CHECK"
-nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader || { echo "no GPU"; exit 1; }
+GPU_INFO=$(nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader) || { echo "no GPU"; exit 1; }
+echo "$GPU_INFO"
+ping_phone "🚀 FIM run started" "On: $GPU_INFO — installing deps + downloading data next (~10-15 min before training)."
 python3 -c "import sys; assert sys.version_info[:2]>=(3,10)" || { echo "need python>=3.10"; exit 1; }
 [ -z "${WANDB_API_KEY:-}" ] && echo "WARN: WANDB_API_KEY not set -> W&B will log offline"
 [ "$PUSH_TO_HF" = "1" ] && [ -z "${HF_TOKEN:-}" ] && { echo "PUSH_TO_HF=1 but HF_TOKEN not set"; exit 1; }
@@ -58,6 +63,7 @@ say "DOWNLOAD DATASET"
 mkdir -p data
 hf download "$DATASET" --repo-type dataset reth_train.jsonl reth_test.jsonl --local-dir data
 wc -l data/reth_train.jsonl data/reth_test.jsonl
+ping_phone "🏋️ Training starting" "Setup done (deps + data OK, tokenizer guard passed). Loading base model + training now — watch the live curve on W&B."
 
 # ---- 4. train (guard runs at startup; fails fast on a bad tokenizer stack) ----
 say "TRAIN (epochs=$EPOCHS, max_train_samples=${MAX_TRAIN_SAMPLES:-all})"
