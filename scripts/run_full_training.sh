@@ -102,6 +102,12 @@ if [ "$PUSH_TO_HF" = "1" ]; then
 fi
 
 say "ALL DONE"
-echo "adapter: $FINAL_MODEL"
-echo "results: evaluation/results/full_bench.json"
 echo "$SUMMARY"
+if [ "$PUSH_TO_HF" = "1" ]; then
+  echo "✅ Model + results pushed to https://huggingface.co/$HF_REPO (private)."
+  echo "   Nothing else to do — vipul has everything. You can exit the box."
+else
+  echo "⚠️  PUSH_TO_HF was off. Send vipul these 2 files:"
+  echo "     - $WORKDIR/$FINAL_MODEL   (the trained adapter folder)"
+  echo "     - $WORKDIR/evaluation/results/full_bench.json"
+fi
