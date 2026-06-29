@@ -55,13 +55,20 @@ say "INSTALL DEPS"
 python3 -m venv .venv && source .venv/bin/activate
 pip install -q --upgrade pip
 pip install -q -r requirements.txt
-pip install -q "huggingface_hub[cli]"
-python3 -c "import torch,transformers,trl,peft; print('torch',torch.__version__,'cuda',torch.cuda.is_available(),'| transformers',transformers.__version__,'trl',trl.__version__,'peft',peft.__version__)"
+# NOTE: do NOT force-upgrade huggingface_hub here — transformers 4.49 needs the
+# hub version it pulls in. We use the hub Python API (version-agnostic), not the CLI.
+python3 -c "import torch,transformers,trl,peft,huggingface_hub as h; print('torch',torch.__version__,'cuda',torch.cuda.is_available(),'| transformers',transformers.__version__,'trl',trl.__version__,'peft',peft.__version__,'hub',h.__version__)"
 
 # ---- 3. pull the exact dataset (same split behind the 5k baseline) ----
 say "DOWNLOAD DATASET"
 mkdir -p data
-hf download "$DATASET" --repo-type dataset reth_train.jsonl reth_test.jsonl --local-dir data
+DATASET="$DATASET" python3 - <<'PY'
+import os
+from huggingface_hub import hf_hub_download
+for f in ["reth_train.jsonl", "reth_test.jsonl"]:
+    p = hf_hub_download(repo_id=os.environ["DATASET"], repo_type="dataset", filename=f, local_dir="data")
+    print("downloaded", p)
+PY
 wc -l data/reth_train.jsonl data/reth_test.jsonl
 ping_phone "🏋️ Training starting" "Setup done (deps + data OK, tokenizer guard passed). Loading base model + training now — watch the live curve on W&B."
 
@@ -100,11 +107,18 @@ ping_phone "FIM benchmark done" "$SUMMARY"
 # ---- 7. optional: push adapter + results to HF ----
 if [ "$PUSH_TO_HF" = "1" ]; then
   say "PUSH TO HF: $HF_REPO (private)"
-  hf upload "$HF_REPO" "$FINAL_MODEL" . --repo-type model --private \
-    --commit-message "Full-data retrain adapter + eval ($SUMMARY)" --token "$HF_TOKEN"
-  hf upload "$HF_REPO" evaluation/results/full_bench.json full_bench.json \
-    --repo-type model --token "$HF_TOKEN"
-  echo "pushed to https://huggingface.co/$HF_REPO (private — review before making public)"
+  HF_REPO="$HF_REPO" FINAL_MODEL="$FINAL_MODEL" SUMMARY="$SUMMARY" HF_TOKEN="$HF_TOKEN" python3 - <<'PY'
+import os
+from huggingface_hub import HfApi
+api = HfApi(token=os.environ["HF_TOKEN"])
+repo = os.environ["HF_REPO"]
+api.create_repo(repo_id=repo, repo_type="model", private=True, exist_ok=True)
+api.upload_folder(folder_path=os.environ["FINAL_MODEL"], repo_id=repo, repo_type="model",
+                  commit_message="Full-data retrain adapter + eval (" + os.environ["SUMMARY"] + ")")
+api.upload_file(path_or_fileobj="evaluation/results/full_bench.json", path_in_repo="full_bench.json",
+                repo_id=repo, repo_type="model", commit_message="benchmark results")
+print("pushed to https://huggingface.co/" + repo + " (private — review before making public)")
+PY
 fi
 
 say "ALL DONE"
