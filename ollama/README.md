@@ -7,16 +7,20 @@ Deploy your fine-tuned FIM model with Ollama for local inference.
 - [Ollama](https://ollama.com) installed
 - GGUF model file (see conversion steps below)
 
-## Quick Start (if you have the GGUF)
+## Quickest start: pull the published GGUF
+
+Pre-built GGUF quants are published at
+[viplismism/deepseek-coder-6.7b-fim-reth-v1-GGUF](https://huggingface.co/viplismism/deepseek-coder-6.7b-fim-reth-v1-GGUF)
+(`q4_k_m` ~4 GB, `q8_0` ~7 GB) — no need to build anything:
 
 ```bash
-cd ollama/
-# Update Modelfile with correct path to your .gguf file
-ollama create deepseek-coder-6.7b-fim -f Modelfile
-ollama run deepseek-coder-6.7b-fim
+huggingface-cli download viplismism/deepseek-coder-6.7b-fim-reth-v1-GGUF \
+  fim-deepseek-6.7b-reth-v1.q4_k_m.gguf --local-dir .
+ollama create fim-reth -f Modelfile      # point Modelfile FROM at the .gguf
+ollama run fim-reth
 ```
 
-## Full Pipeline: LoRA -> Merged -> GGUF -> Ollama
+## Build it yourself: LoRA -> Merged -> GGUF -> Ollama
 
 ### Step 1: Merge LoRA (on GPU server)
 
@@ -41,20 +45,20 @@ python utils/convert_to_gguf.py \
 git clone https://github.com/ggerganov/llama.cpp
 cd llama.cpp && make -j && cd ..
 
-# Convert to GGUF with Q5_K_M quantization (~22GB, high quality)
+# Convert to GGUF with Q4_K_M quantization (~4GB, recommended default)
 export LLAMA_CPP_PATH=./llama.cpp
 python utils/convert_to_gguf.py \
   --adapter viplismism/deepseek-coder-6.7b-fim-reth-v1 \
   --base_model deepseek-ai/deepseek-coder-6.7b-base \
   --output_dir merged_model \
-  --quantization q5_k_m
+  --quantization q4_k_m
 ```
 
 ### Step 3: Download GGUF to Mac
 
 ```bash
 # From your Mac
-scp -P <port> user@server:/path/to/merged_model/deepseek-coder-6.7b-fim.q5_k_m.gguf ~/models/
+scp -P <port> user@server:/path/to/merged_model/*.q4_k_m.gguf ~/models/
 ```
 
 ### Step 4: Create Ollama Model
@@ -93,16 +97,16 @@ response = ollama.generate(
 print(response['response'])
 ```
 
-## Quantization Options
+## Quantization Options (DeepSeek-Coder-6.7B)
 
 | Type | Size | Quality | RAM Needed |
 |------|------|---------|------------|
-| Q4_K_M | ~18GB | Good | 24GB+ |
-| Q5_K_M | ~22GB | Better | 28GB+ |
-| Q6_K | ~26GB | High | 32GB+ |
-| Q8_0 | ~34GB | Highest | 40GB+ |
+| Q4_K_M | ~4 GB | Good — recommended default | 8 GB+ |
+| Q5_K_M | ~4.8 GB | Better | 8 GB+ |
+| Q8_0 | ~7 GB | Near-lossless | 12 GB+ |
+| f16 | ~13 GB | Full precision | 16 GB+ |
 
-For Mac M4 Max with 36GB RAM, use **Q5_K_M** for best quality/performance balance.
+The published repo ships **Q4_K_M** and **Q8_0**. Q4_K_M is the right default for laptops.
 
 ## VS Code Integration
 

@@ -46,7 +46,7 @@ tokenizer:
 
 # Training Hyperparameters
 training:
-  num_epochs: 3
+  num_epochs: 1
   learning_rate: 2.0e-5
   warmup_steps: 100
   lr_scheduler_type: "cosine"
