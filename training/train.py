@@ -168,7 +168,8 @@ def main():
         model_name, 
         quantization_config=bnb, 
         trust_remote_code=True,
-        torch_dtype=torch.bfloat16, 
+        torch_dtype=torch.bfloat16,
+        attn_implementation="flash_attention_2",
         use_cache=False,
     )
     model = get_peft_model(prepare_model_for_kbit_training(model), get_lora_config(cfg))
