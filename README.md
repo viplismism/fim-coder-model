@@ -1,158 +1,53 @@
 # FIM Coder Model
 
-A training framework for fine-tuning Large Language Models on Fill-in-the-Middle (FIM) code completion tasks using AST-aware data generation.
+**Question:** does AST-based fine-tuning improve a small coding model's Rust
+infilling on unseen code?
 
-## Overview
+Improvement is not assumed. The result is the measured comparison between the
+fine-tuned model and its base, on code held out from training.
 
-This framework extracts semantic code boundaries (functions, structs, impl blocks) from Rust codebases using AST parsing, generates FIM training samples, and fine-tunes models using LoRA with 4-bit quantization for efficient multi-GPU training.
+## Experiment (draft — open items marked TODO)
 
-## Released Models
+| | |
+|---|---|
+| Base model | `deepseek-ai/deepseek-coder-6.7b-base` |
+| Method | QLoRA (4-bit NF4, LoRA r=64 on all attention + MLP projections) |
+| Training data | FIM samples whose middle is an AST node (function, function body, impl, struct, enum, trait, const, use) from Rust source |
+| Source corpus | [reth](https://github.com/paradigmxyz/reth) — TODO: pin a commit |
+| "Unseen code" | TODO: decide the held-out set (see below) |
+| Metrics | exact match (pass@1), edit similarity; reported overall and by node type |
+| Comparison | fine-tuned adapter vs. the same base model, same prompts, greedy decoding |
 
-LoRA adapters trained with this framework on the [reth](https://github.com/paradigmxyz/reth) Rust codebase:
+### Decisions to make before the first run
 
-| Model | Base | Adapter |
-|-------|------|---------|
-| [deepseek-coder-6.7b-fim-reth-v1](https://huggingface.co/viplismism/deepseek-coder-6.7b-fim-reth-v1) | DeepSeek-Coder-6.7B | 320 MB (bf16) |
-| [Qwen2.5-Coder-32B-FIM](https://huggingface.co/viplismism/Qwen2.5-Coder-32B-FIM) | Qwen2.5-Coder-32B | 2.15 GB |
+1. **What counts as unseen.** The current split holds out whole files from the
+   same repo. Stricter options: a different Rust repo, or reth code written
+   after the base model's training cutoff (the base model may have seen reth).
+2. **Whether "AST-based" needs its own control.** Base vs. fine-tuned shows
+   that fine-tuning helps; showing that *AST-based span selection* helps also
+   needs a run fine-tuned on random-span FIM samples from the same files.
+3. **Fixed eval set size and seeds**, and whether to report confidence
+   intervals across samples.
 
-Each repository contains the LoRA adapter only — load it on top of the corresponding base model (see the model card for a usage snippet).
-
-### Results (deepseek-coder-6.7b-fim-reth-v1)
-
-Held-out reth test split (200 samples), tuned adapter vs. base model:
-
-| Metric | Tuned | Base | Δ |
-|--------|-------|------|---|
-| pass@1 (exact match) | **31.0%** | 13.5% | **+17.5 pts (2.3×)** |
-| Edit similarity | **0.650** | 0.453 | +0.197 |
-| BLEU | **0.459** | 0.294 | +0.165 |
-
-Evaluate with `evaluation/benchmark.py`. **Note:** training and eval are pinned to `transformers==4.49.0` + `trl==0.17.0` — newer `transformers` silently corrupts code whitespace during tokenization (a tokenizer guard in `training/train.py` enforces this).
-
-## Architecture
-
-### Data Preparation Pipeline
-
-![Data Preparation Pipeline](images/dataprep.png)
-
-### Training Pipeline
-
-![Training Pipeline](images/training.png)
-
-### Deployment Pipeline
-
-![Deployment Pipeline](images/deployment.png)
-
-## FIM Sample Format
-
-The training data follows the DeepSeek Coder FIM token format:
+## Pipeline
 
 ```
-<｜fim▁begin｜>impl Handler {
-    pub fn new(config: Config) -> Self {
-        <｜fim▁hole｜>
-    }
-}
-<｜fim▁end｜>Self { config, state: State::default() }<｜end▁of▁sentence｜>
+ast_extractor/   Rust: parse .rs files, emit AST node spans
+datagen/         build prefix/middle/suffix FIM samples, file-level split
+training/        QLoRA fine-tuning (config.yaml)
+evaluation/      benchmark tuned vs. base on the held-out split
+utils/           tokenizer whitespace guard (used by training and eval)
 ```
 
-### Node Types Extracted
+Training and eval are pinned to `transformers==4.49.0` + `trl==0.17.0`: newer
+`transformers` silently corrupts code whitespace during tokenization, and both
+scripts refuse to run if the tokenizer fails a whitespace round-trip check.
 
-![AST Node Types](images/astnodes.png)
+## Prior result (v1, before this experiment was defined)
 
-## Requirements
-
-- Python 3.9+
-- CUDA-capable GPU (24GB+ VRAM recommended for the default 6.7B QLoRA run)
-- Rust toolchain (for AST extractor)
-
-## Installation
-
-```bash
-python3 -m venv env && source env/bin/activate
-pip install -r requirements.txt
-
-# Build AST extractor
-cd ast_extractor && cargo build --release && cd ..
-```
-
-## Usage
-
-### Data Preparation
-
-```bash
-# Clone target repository
-git clone --depth 1 https://github.com/paradigmxyz/reth /tmp/reth
-
-# Extract AST nodes with spans
-./ast_extractor/target/release/ast_extractor /tmp/reth ./data/reth_ast.json
-
-# Generate FIM training samples
-python3 datagen/datagen.py --ast data/reth_ast.json --output_prefix reth
-```
-
-### Training
-
-```bash
-# Single GPU
-python3 training/train.py
-
-# Multi-GPU with accelerate
-accelerate launch --num_processes 4 training/train.py
-
-# Override config parameters
-python3 training/train.py --epochs 5 --lr 5e-5
-```
-
-### Post-Training
-
-```bash
-# Merge LoRA adapters into base model
-python3 utils/merging.py --run_dir training/runs/<run_name>
-
-# Deploy with Ollama
-ollama create <model_name> -f training/runs/<run_name>/modelfile
-```
-
-## Configuration
-
-All training parameters are defined in `config.yaml`:
-
-| Section | Parameters |
-|---------|------------|
-| `model` | Base model selection, batch sizes, gradient accumulation |
-| `lora` | Rank, alpha, dropout, target modules |
-| `quantization` | 4-bit quantization settings |
-| `training` | Epochs, learning rate, warmup, optimizer |
-| `checkpointing` | Save frequency, evaluation intervals |
-| `data` | Training/test file paths, repository name |
-
-## Project Structure
-
-```
-├── config.yaml              # Training configuration
-├── requirements.txt         # Python dependencies
-├── ast_extractor/           # Rust-based AST extraction
-│   ├── Cargo.toml
-│   └── src/main.rs
-├── datagen/
-│   └── datagen.py           # FIM sample generation
-├── training/
-│   ├── train.py             # Main training script
-│   └── runs/                # Training outputs
-├── inference/
-│   └── infer.py             # Model evaluation
-└── utils/
-    ├── merging.py           # LoRA adapter merging
-    └── gen_modelfile.py     # Ollama modelfile generation
-```
-
-## Supported Base Models
-
-| Model | Parameters | VRAM (4-bit) | Recommended GPUs |
-|-------|------------|--------------|------------------|
-| DeepSeek-Coder-6.7B Base | 6.7B | ~8GB | 1x RTX 4090 |
-| Qwen2.5-Coder-32B | 32B | ~24GB | 1x A100 / multi-GPU |
+Adapter [`viplismism/deepseek-coder-6.7b-fim-reth-v1`](https://huggingface.co/viplismism/deepseek-coder-6.7b-fim-reth-v1),
+200 held-out-file samples: pass@1 31.0% tuned vs. 13.5% base. Same-repo
+held-out files, no random-span control — treat as a pilot, not the result.
 
 ## License
 

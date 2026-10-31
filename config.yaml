@@ -80,14 +80,3 @@ distributed:
 wandb:
   project: "deepseek-fim"
   enabled: true
-
-# HuggingFace Hub (optional - disable if not logged in)
-huggingface:
-  push_to_hub: false
-  hub_model_id: "viplismism/deepseek-coder-6.7b-fim-reth-v1"
-
-# Ollama Modelfile Defaults
-modelfile:
-  temperature: 0.2
-  num_predict: 128
-  num_ctx: 4096

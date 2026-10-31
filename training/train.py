@@ -63,20 +63,6 @@ def format_fim(ex, fim_style, fim_tokens, eos_token):
     raise ValueError(f"Unsupported FIM style: {fim_style}")
 
 
-def format_fim_prompt(prefix: str, suffix: str, fim_style: str, fim_tokens: dict) -> str:
-    """Build inference prompt for model-specific FIM format."""
-    if fim_style == "deepseek":
-        return f"{fim_tokens['begin']}{prefix}{fim_tokens['hole']}{suffix}{fim_tokens['end']}"
-    raise ValueError(f"Unsupported FIM style: {fim_style}")
-
-
-def fim_stop_tokens(fim_style: str, fim_tokens: dict, eos_token: str) -> list[str]:
-    """Return FIM stop tokens for generated modelfiles."""
-    if fim_style == "deepseek":
-        return [fim_tokens["begin"], fim_tokens["hole"], fim_tokens["end"], eos_token]
-    raise ValueError(f"Unsupported FIM style: {fim_style}")
-
-
 def fmt_time(s):
     """Format seconds into human readable string."""
     return f"{int(s//3600)}h{int(s%3600//60)}m" if s >= 3600 else f"{int(s//60)}m{int(s%60)}s" if s >= 60 else f"{int(s)}s"
@@ -169,7 +155,6 @@ def main():
         quantization_config=bnb, 
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
-        attn_implementation="flash_attention_2",
         use_cache=False,
     )
     model = get_peft_model(prepare_model_for_kbit_training(model), get_lora_config(cfg))
@@ -237,8 +222,6 @@ def main():
         metric_for_best_model=ckpt_cfg["metric_for_best_model"],
         ddp_find_unused_parameters=dist_cfg["ddp_find_unused_parameters"],
         local_rank=local_rank,
-        push_to_hub=cfg.get("huggingface", {}).get("push_to_hub", False),
-        hub_model_id=cfg.get("huggingface", {}).get("hub_model_id", f"viplismism/fim-{model_size}"),
         report_to="wandb" if cfg.get("wandb", {}).get("enabled", True) else "none",
         max_length=max_length,
         dataset_text_field="text",
@@ -268,21 +251,6 @@ def main():
         tokenizer.save_pretrained(final_dir)
         print(f"Saved to {final_dir}")
         
-        modelfile_cfg = cfg.get("modelfile", {})
-        stop_params = "\n".join(f"PARAMETER stop {token}" for token in fim_stop_tokens(fim_style, fim_tokens, tokenizer.eos_token))
-        modelfile_content = f'''FROM {final_dir.resolve()}
-
-TEMPLATE """{{{{ .Prompt }}}}"""
-
-PARAMETER temperature {modelfile_cfg.get("temperature", 0.2)}
-PARAMETER num_predict {modelfile_cfg.get("num_predict", 128)}
-PARAMETER num_ctx {max_length}
-{stop_params}
-'''
-        modelfile_path = run_dir / "modelfile"
-        modelfile_path.write_text(modelfile_content)
-        print(f"Modelfile: {modelfile_path}")
-        print(f"   Run: ollama create {run_name} -f {modelfile_path}")
         if cfg["wandb"]["enabled"]:
             wandb.finish()
 
