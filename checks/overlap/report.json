@@ -1,0 +1,176 @@
+{
+  "inputs": {
+    "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+    "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+    "benchmark_sha256": {
+      "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+      "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+    }
+  },
+  "settings": {
+    "reth": {
+      "url": "https://github.com/paradigmxyz/reth",
+      "commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+      "file_glob": "**/*.rs"
+    },
+    "benchmark": {
+      "hf_dataset": "gonglinyuan/real_fim_eval",
+      "revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+      "splits": [
+        "add",
+        "edit"
+      ],
+      "lang": "rust"
+    },
+    "name_patterns": {
+      "repo": "reth|paradigmxyz|op-rs|op[-_]reth",
+      "content": {
+        "reth_word": "\\breth\\b",
+        "reth_crate_underscore": "\\breth_\\w+",
+        "reth_crate_dash": "\\breth-[a-z]",
+        "paradigmxyz": "paradigmxyz",
+        "op_reth": "op[-_]reth",
+        "revm": "\\brevm\\b",
+        "alloy": "\\balloy[_-]\\w+|\\balloy::"
+      }
+    },
+    "window": {
+      "lines": 5,
+      "min_chars": 150,
+      "normalization": "strip leading/trailing whitespace per line, drop blank lines"
+    },
+    "long_line": {
+      "min_chars": 60,
+      "boilerplate_regex": "^(#\\[derive|#\\[cfg_attr|fn (fmt|serialize|deserialize|visit_\\w+|source)\\b)"
+    },
+    "positive_control": {
+      "repo": "zed-industries/zed",
+      "reference_path_prefix": "crates/editor"
+    }
+  },
+  "generated_at": "2026-10-31T21:38:00Z",
+  "benchmark_rust": {
+    "examples": 4727,
+    "by_split": {
+      "add": 2747,
+      "edit": 1980
+    },
+    "repos": {
+      "zed-industries/zed": 788,
+      "pola-rs/polars": 501,
+      "servo/servo": 380,
+      "unionlabs/union": 363,
+      "surrealdb/surrealdb": 335,
+      "qdrant/qdrant": 333,
+      "nushell/nushell": 288,
+      "meilisearch/meilisearch": 250,
+      "linera-io/linera-protocol": 215,
+      "uutils/coreutils": 121,
+      "typst/typst": 117,
+      "influxdata/influxdb": 116,
+      "iced-rs/iced": 107,
+      "swc-project/swc": 92,
+      "vectordotdev/vector": 90,
+      "vercel/turborepo": 85,
+      "vercel/next.js": 66,
+      "mozilla/gecko-dev": 65,
+      "FuelLabs/fuel-core": 59,
+      "tikv/tikv": 54,
+      "helix-editor/helix": 43,
+      "lowRISC/opentitan": 41,
+      "tauri-apps/tauri": 37,
+      "tokio-rs/tokio": 26,
+      "bytecodealliance/wasmtime": 18,
+      "astral-sh/ruff": 15,
+      "astral-sh/uv": 15,
+      "rustdesk/rustdesk": 14,
+      "ijl/orjson": 12,
+      "huggingface/candle": 9,
+      "yewstack/yew": 9,
+      "TabbyML/tabby": 8,
+      "huggingface/tokenizers": 7,
+      "DioxusLabs/dioxus": 7,
+      "FuelLabs/sway": 6,
+      "rust-lang/mdBook": 5,
+      "FuelLabs/fuels-rs": 5,
+      "tokio-rs/axum": 4,
+      "hyperium/hyper": 3,
+      "microsoft/vscode": 3,
+      "ankitects/anki": 3,
+      "chroma-core/chroma": 3,
+      "starship/starship": 2,
+      "bevyengine/bevy": 2,
+      "pyca/cryptography": 1,
+      "facebook/relay": 1,
+      "lapce/lapce": 1,
+      "protocolbuffers/protobuf": 1,
+      "sharkdp/bat": 1
+    }
+  },
+  "repo_name_matches": [],
+  "content_mentions": {
+    "reth_word": {
+      "examples": 0,
+      "by_repo": {}
+    },
+    "reth_crate_underscore": {
+      "examples": 0,
+      "by_repo": {}
+    },
+    "reth_crate_dash": {
+      "examples": 0,
+      "by_repo": {}
+    },
+    "paradigmxyz": {
+      "examples": 0,
+      "by_repo": {}
+    },
+    "op_reth": {
+      "examples": 0,
+      "by_repo": {}
+    },
+    "revm": {
+      "examples": 0,
+      "by_repo": {}
+    },
+    "alloy": {
+      "examples": 84,
+      "by_repo": {
+        "linera-io/linera-protocol": 6,
+        "unionlabs/union": 78
+      }
+    }
+  },
+  "window_overlap": {
+    "reth_rs_files": 1326,
+    "reth_windows": 243999,
+    "examples_with_shared_window": 0,
+    "by_repo": {},
+    "examples_where_window_touches_middle": 0,
+    "examples": []
+  },
+  "long_line_overlap": {
+    "middle_line_hits": 64,
+    "by_repo": {
+      "huggingface/tokenizers": 1,
+      "influxdata/influxdb": 6,
+      "linera-io/linera-protocol": 2,
+      "microsoft/vscode": 1,
+      "pola-rs/polars": 16,
+      "surrealdb/surrealdb": 3,
+      "swc-project/swc": 1,
+      "unionlabs/union": 10,
+      "zed-industries/zed": 4,
+      "FuelLabs/fuel-core": 6,
+      "bytecodealliance/wasmtime": 12,
+      "meilisearch/meilisearch": 1,
+      "nushell/nushell": 1
+    },
+    "unique_lines": 12,
+    "non_boilerplate_lines": []
+  },
+  "positive_control": {
+    "same_repo_matches": 51,
+    "other_repo_matches": 0
+  }
+}
