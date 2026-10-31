@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """AST-based FIM dataset generator for Rust code."""
 
-import json, os, random, sys, time
+import json, random, sys, time
 from pathlib import Path
 
 TRAIN_SPLIT = 0.98
@@ -15,18 +15,19 @@ def parse_span(span_str):
     except (ValueError, AttributeError):
         return None, None
 
-def line_to_char(content, line_num, _cache={}):
-    cache_key = id(content)
-    if cache_key not in _cache:
-        positions = [0]
-        for line in content.split('\n'):
-            positions.append(positions[-1] + len(line) + 1)
-        _cache[cache_key] = positions
-    positions = _cache[cache_key]
+def line_offsets(content):
+    """Char offset of the start of each 1-indexed line (plus one past the end)."""
+    positions = [0]
+    for line in content.split('\n'):
+        positions.append(positions[-1] + len(line) + 1)
+    return positions
+
+def line_to_char(positions, line_num):
     return 0 if line_num <= 0 else positions[min(line_num - 1, len(positions) - 1)]
 
 def extract_blocks(content, ast_nodes):
     blocks = []
+    positions = line_offsets(content)
     max_span = max(len(content) // MAX_SPAN_RATIO, 30)
     
     for node in ast_nodes:
@@ -36,7 +37,7 @@ def extract_blocks(content, ast_nodes):
         if 'span' in data:
             s, e = parse_span(data['span'])
             if s and e:
-                start, end = line_to_char(content, s), line_to_char(content, e + 1)
+                start, end = line_to_char(positions, s), line_to_char(positions, e + 1)
                 if MIN_SPAN <= (end - start) <= max_span:
                     blocks.append({'type': node_type, 'start': start, 'end': end})
         
@@ -44,8 +45,8 @@ def extract_blocks(content, ast_nodes):
         if node_type == 'Function' and 'body' in data and 'span' in data:
             s, e = parse_span(data['span'])
             if s and e:
-                func_start = line_to_char(content, s)
-                func_end = min(line_to_char(content, e + 1), len(content))
+                func_start = line_to_char(positions, s)
+                func_end = min(line_to_char(positions, e + 1), len(content))
                 func_content = content[func_start:func_end]
                 
                 # Find the function body by locating the opening brace
@@ -87,7 +88,7 @@ def generate_dataset(ast_data, output_dir, prefix="ast"):
     output_dir.mkdir(parents=True, exist_ok=True)
     train_path, test_path = output_dir / f'{prefix}_train.jsonl', output_dir / f'{prefix}_test.jsonl'
     
-    file_paths = list(ast_data.keys())
+    file_paths = sorted(ast_data)  # extractor output order is nondeterministic
     random.shuffle(file_paths)
     split_idx = int(len(file_paths) * TRAIN_SPLIT)
     train_files = set(file_paths[:split_idx])
@@ -100,7 +101,8 @@ def generate_dataset(ast_data, output_dir, prefix="ast"):
     print(f"File-level split: {len(train_files):,} train, {len(test_files):,} test")
     
     with open(train_path, 'w') as train_f, open(test_path, 'w') as test_f:
-        for i, (path, data) in enumerate(ast_data.items()):
+        for i, path in enumerate(sorted(ast_data)):
+            data = ast_data[path]
             stats['files'] += 1
             
             if i % 500 == 0:
@@ -136,21 +138,24 @@ def generate_dataset(ast_data, output_dir, prefix="ast"):
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Generate FIM training data from AST")
-    parser.add_argument("--ast", type=str, default=None, help="Path to AST JSON file (default: data/reth_ast.json)")
+    parser.add_argument("--ast", type=str, default=None, help="Path to extractor NDJSON output (default: data/reth_ast.ndjson)")
     parser.add_argument("--output_prefix", type=str, default="ast", help="Output file prefix (default: ast)")
     args = parser.parse_args()
     
     random.seed(42)
     project_root = Path(__file__).parent.parent
     
-    ast_path = Path(args.ast) if args.ast else project_root / 'data' / 'reth_ast.json'
+    ast_path = Path(args.ast) if args.ast else project_root / 'data' / 'reth_ast.ndjson'
     
     if not ast_path.exists():
         sys.exit(f"ERROR: {ast_path} not found")
     
     print(f"Loading {ast_path}...")
+    ast_data = {}
     with open(ast_path) as f:
-        ast_data = json.load(f)
+        for line in f:
+            rec = json.loads(line)
+            ast_data[rec['path']] = {'code': rec['code'], 'ast': rec['ast']}
     print(f"Loaded {len(ast_data):,} files\n")
     
     generate_dataset(ast_data, project_root / 'data', args.output_prefix)

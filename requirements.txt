@@ -1,13 +1,10 @@
-# Dependencies for QLoRA FIM training + inference
-# Tested with CUDA 12.1, Python 3.10
-# Pin the training stack. TRL 0.17 keeps the current SFTConfig(max_length=...)
-# and processing_class API while allowing transformers 4.49, which preserves
-# DeepSeek Coder code whitespace in tokenizer round trips.
+# Dependencies for QLoRA FIM training + evaluation
+# transformers is pinned to 4.49: newer versions alter DeepSeek Coder code
+# whitespace in tokenizer round trips (guarded in utils/tokenizer_whitespace.py).
 
 # Core ML
 torch>=2.1.0
 transformers==4.49.0
-trl==0.17.0
 peft>=0.19.0
 accelerate>=1.0.0
 bitsandbytes>=0.45.0
@@ -19,5 +16,5 @@ pyyaml>=6.0
 rich>=13.0.0
 numpy<2
 
-# HuggingFace Hub (push/pull adapters & model cards)
+# HuggingFace Hub (download base model / dataset)
 huggingface_hub>=0.26.0

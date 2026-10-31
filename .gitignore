@@ -20,6 +20,7 @@ training/wandb/
 # Data (large files)
 data/*.json
 data/*.jsonl
+data/*.ndjson
 
 # Results & logs
 results/

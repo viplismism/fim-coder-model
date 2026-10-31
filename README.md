@@ -39,7 +39,7 @@ evaluation/      benchmark tuned vs. base on the held-out split
 utils/           tokenizer whitespace guard (used by training and eval)
 ```
 
-Training and eval are pinned to `transformers==4.49.0` + `trl==0.17.0`: newer
+Training and eval are pinned to `transformers==4.49.0`: newer
 `transformers` silently corrupts code whitespace during tokenization, and both
 scripts refuse to run if the tokenizer fails a whitespace round-trip check.
 

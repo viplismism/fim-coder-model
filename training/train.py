@@ -10,8 +10,10 @@ import torch.distributed as dist
 import wandb
 from pathlib import Path
 from datasets import load_dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
-from trl import SFTTrainer, SFTConfig
+from transformers import (
+    AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig,
+    DataCollatorForSeq2Seq, Trainer, TrainingArguments,
+)
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -49,18 +51,19 @@ def get_bnb_config(cfg: dict) -> BitsAndBytesConfig:
     )
 
 
-def format_fim(ex, fim_style, fim_tokens, eos_token):
-    """Format example into FIM format using model-specific tokens."""
-    if fim_style == "deepseek":
-        return {
-            "text": (
-                f"{fim_tokens['begin']}{ex['prefix']}"
-                f"{fim_tokens['hole']}{ex['suffix']}"
-                f"{fim_tokens['end']}{ex['middle']}"
-                f"{eos_token}"
-            )
-        }
-    raise ValueError(f"Unsupported FIM style: {fim_style}")
+def tokenize_fim(ex, fim_style, fim_tokens, tokenizer):
+    """Tokenize a FIM sample; loss is computed on the middle + EOS only."""
+    if fim_style != "deepseek":
+        raise ValueError(f"Unsupported FIM style: {fim_style}")
+    prompt = f"{fim_tokens['begin']}{ex['prefix']}{fim_tokens['hole']}{ex['suffix']}{fim_tokens['end']}"
+    prompt_ids = tokenizer(prompt, add_special_tokens=True)["input_ids"]
+    middle_ids = tokenizer(ex["middle"], add_special_tokens=False)["input_ids"] + [tokenizer.eos_token_id]
+    input_ids = prompt_ids + middle_ids
+    return {
+        "input_ids": input_ids,
+        "attention_mask": [1] * len(input_ids),
+        "labels": [-100] * len(prompt_ids) + middle_ids,
+    }
 
 
 def fmt_time(s):
@@ -168,25 +171,26 @@ def main():
         "test": str(project_root / data_cfg["test_file"]),
     })
     
-    def fmt_with_tokens(ex):
-        return format_fim(ex, fim_style, fim_tokens, tokenizer.eos_token)
-    
+    def tokenize(ex):
+        return tokenize_fim(ex, fim_style, fim_tokens, tokenizer)
+
+    def prepare(split, name):
+        # Drop samples longer than max_length rather than truncating: the middle
+        # sits at the end of the sequence, so truncation would cut the target.
+        tokenized = split.map(tokenize, remove_columns=split.column_names, load_from_cache_file=False)
+        kept = tokenized.filter(lambda ex: len(ex["input_ids"]) <= max_length)
+        if is_main:
+            print(f"{name}: kept {len(kept):,}/{len(tokenized):,} samples <= {max_length} tokens")
+        return kept
+
     train_split = ds["train"]
     if args.max_train_samples and args.max_train_samples < len(train_split):
         train_split = train_split.shuffle(seed=cfg["training"]["seed"]).select(range(args.max_train_samples))
         if is_main:
             print(f"Subsampled training set to {len(train_split):,} samples")
-    train_ds = train_split.map(
-        fmt_with_tokens,
-        remove_columns=train_split.column_names,
-        load_from_cache_file=False,
-    )
-    eval_ds = ds["test"].map(
-        fmt_with_tokens,
-        remove_columns=ds["test"].column_names,
-        load_from_cache_file=False,
-    )
-    
+    train_ds = prepare(train_split, "Train")
+    eval_ds = prepare(ds["test"], "Eval")
+
     if is_main:
         print(f"\nConfig: {config_path}")
         print(f"Train: {len(train_ds):,} | Eval: {len(eval_ds):,} | Model: {model_name}")
@@ -197,7 +201,7 @@ def main():
     ckpt_cfg = cfg["checkpointing"]
     dist_cfg = cfg["distributed"]
     
-    training_args = SFTConfig(
+    training_args = TrainingArguments(
         output_dir=str(run_dir / "checkpoints"),
         run_name=run_name,
         per_device_train_batch_size=batch_size,
@@ -212,25 +216,26 @@ def main():
         optim=train_cfg["optim"],
         bf16=train_cfg["bf16"],
         gradient_checkpointing=train_cfg.get("gradient_checkpointing", True),
+        gradient_checkpointing_kwargs={"use_reentrant": False},
         seed=train_cfg["seed"],
         save_steps=ckpt_cfg["save_steps"],
         save_total_limit=ckpt_cfg["save_total_limit"],
         eval_steps=ckpt_cfg["eval_steps"],
         eval_strategy=ckpt_cfg["eval_strategy"],
         logging_steps=ckpt_cfg["logging_steps"],
-        load_best_model_at_end=ckpt_cfg["load_best_model_at_end"] if is_main else False,
+        load_best_model_at_end=ckpt_cfg["load_best_model_at_end"],
         metric_for_best_model=ckpt_cfg["metric_for_best_model"],
         ddp_find_unused_parameters=dist_cfg["ddp_find_unused_parameters"],
         local_rank=local_rank,
         report_to="wandb" if cfg.get("wandb", {}).get("enabled", True) else "none",
-        max_length=max_length,
-        dataset_text_field="text",
+        prediction_loss_only=True,
+        remove_unused_columns=False,
     )
 
-    trainer = SFTTrainer(
+    trainer = Trainer(
         model=model, args=training_args,
         train_dataset=train_ds, eval_dataset=eval_ds,
-        processing_class=tokenizer,
+        data_collator=DataCollatorForSeq2Seq(tokenizer, padding=True, label_pad_token_id=-100),
     )
 
     if local_rank != -1:

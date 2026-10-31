@@ -1,9 +1,8 @@
 //! Streaming AST Extractor for Rust codebases
 //! Emits NDJSON (one JSON object per line) to stdout or a file.
-//! Uses `ignore` for fast parallel file walking and `rayon` for processing.
+//! Uses `ignore` for fast parallel file walking.
 
 use ignore::WalkBuilder;
-use rayon::prelude::*;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs::{self, File};
@@ -207,9 +206,16 @@ fn process_file(path: &Path, repo_root: &Path) -> Option<(String, FileData)> {
     Some((rel, FileData { code: content, ast: visitor.nodes }))
 }
 
+#[derive(Serialize)]
+struct Record<'a> {
+    path: &'a str,
+    code: &'a str,
+    ast: &'a [AstNode],
+}
+
 fn write_ndjson<W: Write>(w: &mut W, path: &str, data: &FileData) -> io::Result<()> {
-    let ast_json = serde_json::to_string(&data.ast).unwrap_or_else(|_| "[]".to_string());
-    writeln!(w, "{{\"path\":{:?},\"code\":{:?},\"ast\":{}}}", path, data.code, ast_json)
+    serde_json::to_writer(&mut *w, &Record { path, code: &data.code, ast: &data.ast })?;
+    writeln!(w)
 }
 
 fn main() {
@@ -223,26 +229,28 @@ fn main() {
     let out_path = PathBuf::from(&args[2]);
     if !repo_path.is_dir() { eprintln!("Repo path invalid"); std::process::exit(1); }
     let stdout_mode = out_path == Path::new("-");
-    let mut writer: Box<dyn Write> = if stdout_mode { Box::new(io::stdout()) } else { Box::new(BufWriter::new(File::create(&out_path).expect("create output"))) };
+    let mut writer: Box<dyn Write + Send> = if stdout_mode { Box::new(io::stdout()) } else { Box::new(BufWriter::new(File::create(&out_path).expect("create output"))) };
 
     let walker = WalkBuilder::new(&repo_path)
         .standard_filters(true)
         .follow_links(true)
         .build_parallel();
     let (tx, rx) = crossbeam_channel::unbounded::<(String, FileData)>();
-    let writer_handle = std::thread::spawn(move || { while let Ok((p, d)) = rx.recv() { let _ = write_ndjson(&mut writer, &p, &d); } });
+    let writer_handle = std::thread::spawn(move || { while let Ok((p, d)) = rx.recv() { write_ndjson(&mut writer, &p, &d).expect("write output"); } writer });
+    let root = repo_path.as_path();
     walker.run(|| {
         let tx = tx.clone();
         Box::new(move |res| {
             if let Ok(entry) = res {
                 let p = entry.path();
                 if p.extension().map_or(false, |e| e == "rs") {
-                    if let Some((rel, data)) = process_file(p, &repo_path) { let _ = tx.send((rel, data)); }
+                    if let Some((rel, data)) = process_file(p, root) { let _ = tx.send((rel, data)); }
                 }
             }
             ignore::WalkState::Continue
         })
     });
     drop(tx);
-    let _ = writer_handle.join();
+    let mut writer = writer_handle.join().expect("writer thread panicked");
+    writer.flush().expect("flush output");
 }
