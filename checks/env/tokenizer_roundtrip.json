@@ -1,0 +1,39 @@
+{
+ "model": "deepseek-ai/deepseek-coder-6.7b-base",
+ "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912",
+ "texts": 17456,
+ "tokens": 21875966,
+ "roundtrip_failures": [
+  "add:15814:prompt",
+  "add:15814:canonical_solution",
+  "add:15814:suffix",
+  "add:16002:prompt",
+  "add:16004:suffix",
+  "add:16255:prompt",
+  "add:17184:suffix",
+  "edit:12436:prompt",
+  "edit:12436:suffix",
+  "edit:12695:prompt",
+  "edit:12699:prompt"
+ ],
+ "failures_explained_by_byte_fragment_added_tokens": 11,
+ "unexplained_failures": [],
+ "ids_differ_from_raw_backend": [],
+ "byte_fragment_added_tokens": [
+  "À",
+  "Á",
+  "õ",
+  "ö",
+  "÷",
+  "ø",
+  "ù",
+  "ú",
+  "û",
+  "ü",
+  "ý",
+  "þ",
+  "ÿ"
+ ],
+ "default_encode_adds_bos": false,
+ "default_encode_adds_eos": false
+}

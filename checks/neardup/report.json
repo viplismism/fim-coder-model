@@ -1,0 +1,248 @@
+{
+ "inputs": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "settings": {
+  "n_grams": 10,
+  "num_buckets": 14,
+  "hashes_per_bucket": 8,
+  "norm": {
+   "lowercase": false,
+   "norm_whitespace": true,
+   "remove_punctuation": false,
+   "norm_unicode_diacritics": false,
+   "norm_numbers": true,
+   "norm_weekdays": false,
+   "norm_monthnames": false
+  },
+  "chunk_lines": 30,
+  "chunk_stride": 15,
+  "min_middle_lines": 5,
+  "min_doc_ngrams": 20,
+  "verify_jaccard": 0.5,
+  "max_pairs_per_cluster": 2000,
+  "planted_controls": 20,
+  "rationale": {
+   "tokens": "Rust-aware word tokens: identifiers, numbers and single punctuation characters (punctuation carries structure in code); whitespace and comment formatting do not matter.",
+   "normalization": "case kept (Rust identifiers are case-sensitive), numbers normalized to 0 so changed constants still match, no punctuation removal, no diacritic folding.",
+   "n_grams": "10 tokens is roughly one line of Rust: long enough that single generic lines (derives, fmt signatures) are not shared shingles by themselves.",
+   "units": "whole files plus 30-non-blank-line chunks (stride 15) on both sides so copied functions inside large files are comparable at similar size; benchmark answers (middles) of 5+ non-blank lines as their own unit; Edit examples contribute pre- and post-change files.",
+   "lsh": "14 bands x 8 rows: a pair with Jaccard ~0.72 has a 50% chance to become a candidate; ~0.5 rarely does.",
+   "verification": "every benchmark doc in a cluster with any reth doc is compared exactly (shingle Jaccard and containment) against its best reth partner; verified = Jaccard >= 0.5, then inspected by hand."
+  }
+ },
+ "split_json": "data/rust-fim-v1/split.json",
+ "datatrove_minhash": {
+  "n_grams": 10,
+  "num_buckets": 14,
+  "hashes_per_bucket": 8,
+  "approx_jaccard_at_50pct_detection": 0.719
+ },
+ "coverage": {
+  "reth_docs": {
+   "file": 1314,
+   "chunk": 28391
+  },
+  "bench_docs": {
+   "post_file": 4527,
+   "post_file_chunk": 74905,
+   "middle": 2876,
+   "pre_file": 1950,
+   "pre_file_chunk": 15651
+  },
+  "skipped_short_docs": {
+   "reth": 64,
+   "bench": 93
+  }
+ },
+ "clusters": 20681,
+ "positive_control": {
+  "planted": 20,
+  "found": 19,
+  "per_control": [
+   {
+    "path": "CONTROL:linera-client/src/lib.rs",
+    "found": false,
+    "file_jaccard_to_source": 0.465
+   },
+   {
+    "path": "CONTROL:lib/evm-in-cosmos-light-client-types/src/client_state.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.646
+   },
+   {
+    "path": "CONTROL:linera-service-graphql-client/src/service.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.669
+   },
+   {
+    "path": "CONTROL:crates/language_model/src/language_model.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.7
+   },
+   {
+    "path": "CONTROL:crates/services/executor/src/ports.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.714
+   },
+   {
+    "path": "CONTROL:tests/common/server.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.721
+   },
+   {
+    "path": "CONTROL:crates/polars-core/src/chunked_array/list/mod.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.725
+   },
+   {
+    "path": "CONTROL:src/config_files.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.749
+   },
+   {
+    "path": "CONTROL:crates/typst-library/src/foundations/args.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.751
+   },
+   {
+    "path": "CONTROL:helix-stdx/src/rope.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.752
+   },
+   {
+    "path": "CONTROL:crates/polars-expr/src/expressions/gather.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.762
+   },
+   {
+    "path": "CONTROL:crates/index-scheduler/src/scheduler/process_dump_creation.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.763
+   },
+   {
+    "path": "CONTROL:src/uucore/src/lib/features/format/escape.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.779
+   },
+   {
+    "path": "CONTROL:lib/blob_store/src/config.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.804
+   },
+   {
+    "path": "CONTROL:crates/polars-mem-engine/src/predicate.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.805
+   },
+   {
+    "path": "CONTROL:lib/collection/src/collection_manager/fixtures.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.822
+   },
+   {
+    "path": "CONTROL:crates/polars-utils/src/pl_serialize.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.834
+   },
+   {
+    "path": "CONTROL:sw/host/opentitanlib/src/app/config/mod.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.848
+   },
+   {
+    "path": "CONTROL:crates/meilisearch/src/routes/swap_indexes.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.889
+   },
+   {
+    "path": "CONTROL:src/common/auth/claims.rs",
+    "found": true,
+    "file_jaccard_to_source": 0.944
+   }
+  ]
+ },
+ "bench_vs_reth": {
+  "candidates_in_mixed_clusters": 0,
+  "verified": 0,
+  "verified_items": []
+ },
+ "reth_cross_split": {
+  "candidate_pairs": 3,
+  "verified": 2,
+  "by_split_pair": {
+   "test/train": 1,
+   "test/validation": 1
+  },
+  "exact_duplicate_files_across_splits": [],
+  "verbatim_5line_windows": {
+   "validation": {
+    "windows": 23909,
+    "also_in_train": 64,
+    "share": 0.0027
+   },
+   "test": {
+    "windows": 24929,
+    "also_in_train": 52,
+    "share": 0.0021
+   },
+   "validation_test_shared": 35
+  },
+  "verified_items": [
+   {
+    "jaccard": 0.715,
+    "splits": [
+     "test",
+     "train"
+    ],
+    "cluster_size": 13,
+    "a": {
+     "source": "reth",
+     "unit": "file",
+     "path": "crates/config/src/lib.rs",
+     "split": "test",
+     "text_head": "//! Standalone crate for Reth configuration types.\n\n#![doc(\n    html_logo_url = \"https://raw.githubusercontent.com/paradigmxyz/reth/main/assets/reth-docs.png\",\n    html_favicon_url = \"https://avatars0.githubusercontent.com/u/97369466?s=256\",\n    issue_tracker_base_url = \"https://github.com/paradigmxyz/reth/issues/\"\n)]\n#![cfg_attr(not(test), warn(unused_crate_dependencies))]\n#![cfg_attr(docsrs, feature(doc_cfg))]\n\npub mod config;\npub use config::{BodiesConfig, Config, PruneConfig};\n"
+    },
+    "b": {
+     "source": "reth",
+     "unit": "file",
+     "path": "crates/node/events/src/lib.rs",
+     "split": "train",
+     "text_head": "//! Various event handlers for the node.\n\n#![doc(\n    html_logo_url = \"https://raw.githubusercontent.com/paradigmxyz/reth/main/assets/reth-docs.png\",\n    html_favicon_url = \"https://avatars0.githubusercontent.com/u/97369466?s=256\",\n    issue_tracker_base_url = \"https://github.com/paradigmxyz/reth/issues/\"\n)]\n#![cfg_attr(not(test), warn(unused_crate_dependencies))]\n#![cfg_attr(docsrs, feature(doc_cfg))]\n\npub mod cl;\npub mod node;\n"
+    }
+   },
+   {
+    "jaccard": 0.575,
+    "splits": [
+     "test",
+     "validation"
+    ],
+    "cluster_size": 13,
+    "a": {
+     "source": "reth",
+     "unit": "file",
+     "path": "crates/rpc/ipc/src/lib.rs",
+     "split": "test",
+     "text_head": "//! Reth IPC transport implementation\n//!\n//! ## Feature Flags\n//!\n//! - `client`: Enables JSON-RPC client support.\n\n#![doc(\n    html_logo_url = \"https://raw.githubusercontent.com/paradigmxyz/reth/main/assets/reth-docs.png\",\n    html_favicon_url = \"https://avatars0.githubusercontent.com/u/97369466?s=256\",\n    issue_tracker_base_url = \"https://github.com/paradigmxyz/reth/issues/\"\n)]\n#![cfg_attr(not(test), warn(unused_crate_dependencies))]\n#![cfg_attr(docsrs, feature(doc_cfg))]\n\npub mod client;\npub mod server;\n\n/// Json codec implementation\npub mod stream_codec;\n"
+    },
+    "b": {
+     "source": "reth",
+     "unit": "chunk",
+     "path": "crates/rpc/rpc-api/src/lib.rs",
+     "split": "validation",
+     "lines": [
+      1,
+      32
+     ],
+     "text_head": "//! Reth RPC interface definitions\n//!\n//! Provides all RPC interfaces.\n//!\n//! ## Feature Flags\n//!\n//! - `client`: Enables JSON-RPC client support.\n#![doc(\n    html_logo_url = \"https://raw.githubusercontent.com/paradigmxyz/reth/main/assets/reth-docs.png\",\n    html_favicon_url = \"https://avatars0.githubusercontent.com/u/97369466?s=256\",\n    issue_tracker_base_url = \"https://github.com/paradigmxyz/reth/issues/\"\n)]\n#![cfg_attr(not(test), warn(unused_crate_dependencies))]\n#![cfg_attr(docsrs, feature(doc_cfg))]\nmod admin;\nmod anvil;\nmod debug;\nmod engine;\nmod hardhat;\nmod mev;\nmod miner;\nmod net;"
+    }
+   }
+  ]
+ },
+ "seconds": 42.8
+}

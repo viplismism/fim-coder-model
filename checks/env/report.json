@@ -1,0 +1,75 @@
+{
+ "time_utc": "2026-10-31T22:37:05Z",
+ "python": "3.12.3",
+ "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+ "packages": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "tokenizers": "0.23.3",
+  "trl": "1.17.1",
+  "peft": "0.21.2",
+  "accelerate": "1.15.0",
+  "datasets": "5.1.0",
+  "huggingface-hub": "2.4.0",
+  "bitsandbytes": "0.50.2",
+  "datatrove": "0.10.1",
+  "tree-sitter": "0.26.0",
+  "tree-sitter-rust": "0.24.2",
+  "xxhash": "3.8.2",
+  "numpy": "2.5.4",
+  "pytest": "9.1.1"
+ },
+ "nvidia_smi": "NVIDIA GB10, 580.178.04, 12.1",
+ "cuda": {
+  "available": true,
+  "torch_cuda": "13.0",
+  "device": "NVIDIA GB10",
+  "capability": [
+   12,
+   1
+  ],
+  "arch_list": [
+   "sm_80",
+   "sm_90",
+   "sm_100",
+   "sm_110",
+   "sm_120"
+  ],
+  "bf16_supported": true,
+  "cusparselt_available": true
+ },
+ "bitsandbytes": {
+  "version": "0.50.2",
+  "native_lib": "/home/vipul/Nova/projects/fim-coder-model/.venv/lib/python3.12/site-packages/bitsandbytes/libbitsandbytes_cuda130.so",
+  "nf4_matmul_rel_error": 0.092
+ },
+ "label_mask": {
+  "n_tokens": 43,
+  "n_supervised": 12,
+  "supervised_decoded": "self.value += 1;\n        self.value<\uff5cend\u2581of\u2581sentence\uff5c>"
+ },
+ "bf16_base_nll": 0.2273,
+ "load_seconds": 168.3,
+ "4bit_base_nll": 0.1933,
+ "4bit_memory_gb": 3.65,
+ "fresh_adapter_vs_base_max_abs_logit_diff": {
+  "no_prepare": 0.0,
+  "with_prepare_model_for_kbit_training": 2.8008241653442383
+ },
+ "lora_backward": {
+  "loss": 0.1933,
+  "trainable_params": 8388608,
+  "params_with_grad": 256,
+  "all_finite": true,
+  "grad_norm": 0.1713,
+  "optimizer_step_taken": false
+ },
+ "prepare_model_for_kbit_training_upcasts": [
+  "embed_tokens",
+  "input_layernorm",
+  "lm_head",
+  "norm",
+  "post_attention_layernorm"
+ ],
+ "peak_memory_gb": 12.62
+}

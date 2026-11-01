@@ -1,0 +1,53 @@
+{
+ "files": [
+  "wandb/debug-internal.log",
+  "wandb/debug.log",
+  "wandb/offline-run-20261101_090912-dakowkye/logs/debug-core.log",
+  "wandb/offline-run-20261101_090912-dakowkye/logs/debug-internal.log",
+  "wandb/offline-run-20261101_090912-dakowkye/logs/debug.log",
+  "wandb/offline-run-20261101_090912-dakowkye/run-dakowkye.wandb"
+ ],
+ "needle_hits": {},
+ "record_types": {
+  "header": 1,
+  "run": 1,
+  "telemetry": 3,
+  "summary": 7,
+  "history": 3,
+  "exit": 1
+ },
+ "history_keys": [
+  "_runtime",
+  "_step",
+  "_timestamp",
+  "grad_norm",
+  "loss"
+ ],
+ "config_keys": [
+  "base_precision",
+  "data",
+  "evaluation",
+  "format",
+  "lora",
+  "model",
+  "run",
+  "split",
+  "training"
+ ],
+ "telemetry": [
+  "feature {   offline: true   set_init_name: true   set_init_config: true } python_version: \"3.12.3\" cli_version: \"0.31.0\" platform: \"linux-aarch64\" ",
+  "feature {   offline: true   set_init_name: true   set_init_config: true   set_step_log: true } python_version: \"3.12.3\" cli_version: \"0.31.0\" platform: \"linux-aarch64\" ",
+  "feature {   finish: true   offline: true   set_init_name: true   set_init_config: true   set_step_log: true } python_version: \"3.12.3\" cli_version: \"0.31.0\" platform: \"linux-aarch64\" "
+ ],
+ "settings": {
+  "save_code": false,
+  "disable_code": true,
+  "disable_git": true,
+  "disable_job_creation": true,
+  "console": "off",
+  "x_disable_meta": true,
+  "x_disable_stats": true,
+  "x_disable_machine_info": true,
+  "x_save_requirements": false
+ }
+}

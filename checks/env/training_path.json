@@ -1,0 +1,300 @@
+{
+ "lora": {
+  "r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "bias": "none",
+  "task_type": "CAUSAL_LM",
+  "target_modules": [
+   "q_proj",
+   "k_proj",
+   "v_proj",
+   "o_proj",
+   "gate_proj",
+   "up_proj",
+   "down_proj"
+  ]
+ },
+ "data": "data/rust-fim-v1-repro",
+ "variants": [
+  {
+   "prepare_model_for_kbit_training": false,
+   "target_module_counts": {
+    "q_proj": 32,
+    "k_proj": 32,
+    "v_proj": 32,
+    "o_proj": 32,
+    "gate_proj": 32,
+    "up_proj": 32,
+    "down_proj": 32
+   },
+   "trainable_tensors": 448,
+   "trainable_params": 39976960,
+   "trainable_by_kind": {
+    "lora_A.lora_A": 224,
+    "lora_B.lora_B": 224
+   },
+   "unexpected_trainable": [],
+   "lora_param_dtypes": [
+    "torch.float32"
+   ],
+   "frozen_params": 3502510080,
+   "base_dtypes": {
+    "torch.bfloat16": 67,
+    "torch.uint8": 224
+   },
+   "examples": [
+    {
+     "id": "crates/chain-state/src/in_memory.rs#11:ast",
+     "arm": "ast",
+     "tokens": 4096,
+     "answer_tokens": 99,
+     "loss": 0.4125085771083832,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.5507969856262207,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 7.94
+    },
+    {
+     "id": "crates/chain-state/src/in_memory.rs#19:ast",
+     "arm": "ast",
+     "tokens": 4096,
+     "answer_tokens": 9,
+     "loss": 0.7065495848655701,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 2.9849274158477783,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 7.47
+    },
+    {
+     "id": "crates/era/src/ere/types/group.rs#4:ast",
+     "arm": "ast",
+     "tokens": 4093,
+     "answer_tokens": 4040,
+     "loss": 0.7523309588432312,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.24404746294021606,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 7.48
+    },
+    {
+     "id": "crates/chain-state/src/in_memory.rs#4:random",
+     "arm": "random",
+     "tokens": 4096,
+     "answer_tokens": 246,
+     "loss": 0.3048805296421051,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.25843775272369385,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 7.48
+    },
+    {
+     "id": "crates/chain-state/src/in_memory.rs#10:random",
+     "arm": "random",
+     "tokens": 4096,
+     "answer_tokens": 241,
+     "loss": 0.37641388177871704,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.20769956707954407,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 7.48
+    },
+    {
+     "id": "crates/trie/sparse/src/state.rs#19:random",
+     "arm": "random",
+     "tokens": 4094,
+     "answer_tokens": 4069,
+     "loss": 0.6683365702629089,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.19998084008693695,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 7.49
+    }
+   ],
+   "peak_memory_gb": 6.6,
+   "finite_difference_lora_B": {
+    "analytic_slope_grad_norm": 0.5919502973556519,
+    "repeat_forward_losses": [
+     0.6766411066055298,
+     0.6766411066055298,
+     0.6766411066055298
+    ],
+    "steps": [
+     {
+      "eps": 0.01,
+      "numeric_slope": -0.08901357650756836,
+      "ratio_to_analytic": -0.15037339605235098
+     },
+     {
+      "eps": 0.03,
+      "numeric_slope": 0.14128684997558594,
+      "ratio_to_analytic": 0.23868025847227314
+     },
+     {
+      "eps": 0.1,
+      "numeric_slope": 0.24313867092132568,
+      "ratio_to_analytic": 0.4107416991045865
+     },
+     {
+      "eps": 0.3,
+      "numeric_slope": 0.32448917627334595,
+      "ratio_to_analytic": 0.5481696313404981
+     }
+    ],
+    "example_tokens": 301
+   }
+  },
+  {
+   "prepare_model_for_kbit_training": true,
+   "target_module_counts": {
+    "q_proj": 32,
+    "k_proj": 32,
+    "v_proj": 32,
+    "o_proj": 32,
+    "gate_proj": 32,
+    "up_proj": 32,
+    "down_proj": 32
+   },
+   "trainable_tensors": 448,
+   "trainable_params": 39976960,
+   "trainable_by_kind": {
+    "lora_A.lora_A": 224,
+    "lora_B.lora_B": 224
+   },
+   "unexpected_trainable": [],
+   "lora_param_dtypes": [
+    "torch.float32"
+   ],
+   "frozen_params": 3502510080,
+   "base_dtypes": {
+    "torch.float32": 67,
+    "torch.uint8": 224
+   },
+   "examples": [
+    {
+     "id": "crates/chain-state/src/in_memory.rs#11:ast",
+     "arm": "ast",
+     "tokens": 4096,
+     "answer_tokens": 99,
+     "loss": 0.4089065194129944,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.4174761176109314,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 10.42
+    },
+    {
+     "id": "crates/chain-state/src/in_memory.rs#19:ast",
+     "arm": "ast",
+     "tokens": 4096,
+     "answer_tokens": 9,
+     "loss": 0.7149412631988525,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 3.0407888889312744,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 10.41
+    },
+    {
+     "id": "crates/era/src/ere/types/group.rs#4:ast",
+     "arm": "ast",
+     "tokens": 4093,
+     "answer_tokens": 4040,
+     "loss": 0.7537356019020081,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.13910922408103943,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 10.4
+    },
+    {
+     "id": "crates/chain-state/src/in_memory.rs#4:random",
+     "arm": "random",
+     "tokens": 4096,
+     "answer_tokens": 246,
+     "loss": 0.30527162551879883,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.2654588520526886,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 10.42
+    },
+    {
+     "id": "crates/chain-state/src/in_memory.rs#10:random",
+     "arm": "random",
+     "tokens": 4096,
+     "answer_tokens": 241,
+     "loss": 0.3768865764141083,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.2117287665605545,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 10.43
+    },
+    {
+     "id": "crates/trie/sparse/src/state.rs#19:random",
+     "arm": "random",
+     "tokens": 4094,
+     "answer_tokens": 4069,
+     "loss": 0.668091893196106,
+     "loss_finite": true,
+     "grads_finite": true,
+     "lora_A_grad_norm": 0.0,
+     "lora_B_grad_norm": 0.08206147700548172,
+     "tensors_with_grad": 448,
+     "fwd_bwd_seconds": 10.41
+    }
+   ],
+   "peak_memory_gb": 11.51,
+   "finite_difference_lora_B": {
+    "analytic_slope_grad_norm": 0.5975856781005859,
+    "repeat_forward_losses": [
+     0.6857194304466248,
+     0.6857194304466248,
+     0.6857194304466248
+    ],
+    "steps": [
+     {
+      "eps": 0.01,
+      "numeric_slope": 0.6239503622055054,
+      "ratio_to_analytic": 1.044118667951881
+     },
+     {
+      "eps": 0.03,
+      "numeric_slope": 0.605161984761556,
+      "ratio_to_analytic": 1.0126781931672981
+     },
+     {
+      "eps": 0.1,
+      "numeric_slope": 0.5860143899917603,
+      "ratio_to_analytic": 0.9806366040337433
+     },
+     {
+      "eps": 0.3,
+      "numeric_slope": 0.5806076526641846,
+      "ratio_to_analytic": 0.971588968647365
+     }
+    ],
+    "example_tokens": 301
+   }
+  }
+ ],
+ "lora_B_grad_cosine_between_variants": 1.0109376907348633
+}

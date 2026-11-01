@@ -1,46 +1,19 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
 .venv/
-*.egg-info/
-dist/
-build/
+.pytest_cache/
 
-# Training artifacts
-training/runs/*/checkpoints/
-training/runs/*/final_model/
-training/runs/*/merged_model/
-training/wandb/
-
-# Data (large files)
-data/*.json
-data/*.jsonl
-data/*.ndjson
-
-# Results & logs
-results/
-inference/results/
-evaluation/results/
+# Local, not committed: pinned source snapshots, model/tokenizer cache, generated data, runs
+sources/
+.cache/
+data/
+runs/
 logs/
 
-# Rust build
-ast_extractor/target/
-
-# IDE
+# Editors / OS
 .idea/
 .vscode/
 *.swp
-*.swo
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Secrets
 .env
-*.key

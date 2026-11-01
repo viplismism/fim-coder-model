@@ -1,0 +1,7 @@
+sequential start 09:10:05
+sequential ast exit 0
+sequential random exit 0
+concurrent start 09:27:27
+concurrent random exit 0
+concurrent ast exit 0
+done 09:45:49

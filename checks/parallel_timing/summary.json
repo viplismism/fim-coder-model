@@ -1,0 +1,178 @@
+{
+ "sequential_ast": {
+  "dir": "20261101T091006+0530_ast_timing_s42",
+  "status": "completed",
+  "updates": 5,
+  "steady_mean": 86.8375,
+  "steady": [
+   79.31,
+   87.53,
+   87.24,
+   93.27
+  ],
+  "first": 85.26,
+  "startup": 86.74,
+  "window": "(datetime.datetime(2026, 11, 1, 9, 12, 58, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800))), datetime.datetime(2026, 11, 1, 9, 18, 45, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800))))",
+  "tokens": [
+   58384,
+   54653,
+   60279,
+   59974,
+   64083
+  ],
+  "examples": [
+   16,
+   16,
+   16,
+   16,
+   16
+  ],
+  "peak": 15.76,
+  "loss": [
+   0.6576,
+   0.6386,
+   0.8159,
+   0.5978,
+   0.5887
+  ],
+  "gn": [
+   0.072,
+   0.144,
+   0.083,
+   0.072,
+   0.066
+  ]
+ },
+ "sequential_random": {
+  "dir": "20261101T091847+0530_random_timing_s42",
+  "status": "completed",
+  "updates": 5,
+  "steady_mean": 86.8125,
+  "steady": [
+   79.21,
+   87.41,
+   87.23,
+   93.4
+  ],
+  "first": 85.65,
+  "startup": 86.35,
+  "window": "(datetime.datetime(2026, 11, 1, 9, 21, 39, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800))), datetime.datetime(2026, 11, 1, 9, 27, 26, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800))))",
+  "tokens": [
+   58415,
+   54633,
+   60242,
+   60008,
+   64093
+  ],
+  "examples": [
+   16,
+   16,
+   16,
+   16,
+   16
+  ],
+  "peak": 15.76,
+  "loss": [
+   0.8255,
+   0.5984,
+   0.6109,
+   0.6538,
+   0.5849
+  ],
+  "gn": [
+   0.07,
+   0.1,
+   0.051,
+   0.116,
+   0.12
+  ]
+ },
+ "concurrent_ast": {
+  "dir": "20261101T092728+0530_ast_timing_s42",
+  "status": "completed",
+  "updates": 5,
+  "steady_mean": 201.82999999999998,
+  "steady": [
+   184.38,
+   203.77,
+   203.39,
+   215.78
+  ],
+  "first": 197.19,
+  "startup": 95.81,
+  "window": "(datetime.datetime(2026, 11, 1, 9, 32, 21, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800))), datetime.datetime(2026, 11, 1, 9, 45, 48, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800))))",
+  "tokens": [
+   58384,
+   54653,
+   60279,
+   59974,
+   64083
+  ],
+  "examples": [
+   16,
+   16,
+   16,
+   16,
+   16
+  ],
+  "peak": 15.76,
+  "loss": [
+   0.6576,
+   0.6386,
+   0.8154,
+   0.5978,
+   0.5889
+  ],
+  "gn": [
+   0.072,
+   0.144,
+   0.072,
+   0.076,
+   0.071
+  ]
+ },
+ "concurrent_random": {
+  "dir": "20261101T092728+0530_random_timing_s42",
+  "status": "completed",
+  "updates": 5,
+  "steady_mean": 201.105,
+  "steady": [
+   183.41,
+   202.67,
+   202.11,
+   216.23
+  ],
+  "first": 198.0,
+  "startup": 96.0,
+  "window": "(datetime.datetime(2026, 11, 1, 9, 32, 22, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800))), datetime.datetime(2026, 11, 1, 9, 45, 47, tzinfo=datetime.timezone(datetime.timedelta(seconds=19800))))",
+  "tokens": [
+   58415,
+   54633,
+   60242,
+   60008,
+   64093
+  ],
+  "examples": [
+   16,
+   16,
+   16,
+   16,
+   16
+  ],
+  "peak": 15.76,
+  "loss": [
+   0.8255,
+   0.5984,
+   0.6102,
+   0.6535,
+   0.585
+  ],
+  "gn": [
+   0.07,
+   0.101,
+   0.056,
+   0.131,
+   0.063
+  ]
+ }
+}
