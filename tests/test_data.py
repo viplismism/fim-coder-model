@@ -111,3 +111,35 @@ def test_window_fits_and_keeps_answer(psm):
     assert ws in src.line_starts and (we == len(text) or text[we - 1] == "\n")
     # an answer that cannot fit is rejected, never truncated
     assert w.window(src, lt, 0, len(text), len(psm.encode(text))) is None
+
+
+def test_structural_metrics():
+    from fimexp.structural import bracket_delta, error_count, score_completion
+    assert bracket_delta("fn f() { let s = \"{(\"; let c = '{'; // }\n }") == (0, 0, 0)
+    assert bracket_delta("if x { foo(") == (1, 0, 1)
+    assert bracket_delta("r#\"}}}\"# + 'a + x[0]") == (0, 0, 0)
+    good = "fn f() -> u32 {\n    1 + 2\n}\n"
+    assert error_count(good) == 0
+    s, e = good.index("1 + 2"), good.index("1 + 2") + 5
+    ok = score_completion(good, (s, e), "1 + 2", "1 + 2", 0)
+    assert ok["exact_match"] and ok["parse_clean"] and ok["bracket_balance_match"]
+    bad = score_completion(good, (s, e), "1 + 2", "1 + (2", 0)
+    assert not bad["parse_clean"] and not bad["bracket_balance_match"] and not bad["exact_match"]
+
+
+def test_aligned_span_is_node_aligned_and_reproducible():
+    import random as _r
+    from fimexp.holes import aligned_span
+    text = "fn a(x: u32) -> u32 {\n    let y = x + 1;\n    let z = y * 2;\n    z - 3\n}\n\nstruct S { a: u8, b: u16 }\n"
+    src = SourceText(text); tree = parser().parse(src.data)
+    starts, ends, stack = set(), set(), [tree.root_node]
+    while stack:
+        n = stack.pop(); starts.add(n.start_byte); ends.add(n.end_byte); stack.extend(n.children)
+    seen = set()
+    for seed in range(50):
+        r1 = aligned_span(tree, src, _r.Random(seed), EXEMPT); r2 = aligned_span(tree, src, _r.Random(seed), EXEMPT)
+        assert r1 == r2 and r1 is not None
+        s, e, _ = r1
+        assert src.byte_of_char(s) in starts and src.byte_of_char(e) in ends and text[s:e].strip()
+        seen.add(text[s:e])
+    assert any("\n" in x for x in seen) and len(seen) > 5   # multi-statement spans occur, and variety

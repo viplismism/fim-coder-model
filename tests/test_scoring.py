@@ -123,3 +123,12 @@ def test_update_counter_counts_model_inputs_per_update(psm, tmp_path):
     sizes = [r["tokens"]["total_with_eos"] for r in rows]
     assert [r["examples"] for r in logged] == [16, 16, 8]
     assert [r["tokens"] for r in logged] == [sum(sizes[:16]), sum(sizes[16:32]), sum(sizes[32:])]
+
+
+def test_trainer_dataset_handles_l2r_rows(psm):
+    from fimexp.train import FIMDataset
+    text = "fn main() {\n    println!(\"hi\");\n}\n"
+    n = len(psm.build_l2r(text)["input_ids"])
+    ds = FIMDataset([{"id": "x", "kind": "l2r", "text": text, "tokens": {"total_with_eos": n}}], psm, 4096)
+    x = ds[0]
+    assert x["labels"][0] == IGNORE and x["labels"][1:] == x["input_ids"][1:]

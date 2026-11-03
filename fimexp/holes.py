@@ -144,3 +144,42 @@ def sample_file(path: str, text: str, tree, n_examples: int, seed: int, exempt_t
 
 def n_examples_for(n_bytes: int, bytes_per_example: int) -> int:
     return max(1, math.ceil(n_bytes / bytes_per_example))
+
+
+def aligned_span(tree, src: SourceText, rng: random.Random, exempt_types, max_tries: int = 20):
+    """Aligned-span masking (AST-FIM): sample a character span with uniform random endpoints, take the smallest
+    eligible named node containing it, and return the contiguous run of that node's direct named children with the
+    largest character-level IoU with the span (the node itself if it has no named children).
+    Returns (start_char, end_char, node_type) on exact node boundaries, or None."""
+    n = len(src.text)
+    if n < 2:
+        return None
+    for _ in range(max_tries):
+        a, b = sorted(rng.sample(range(n + 1), 2))
+        if src.text[a:b].strip() == "":
+            continue
+        bs, be = src.byte_of_char(a), src.byte_of_char(b)
+        node = tree.root_node.named_descendant_for_byte_range(bs, be)
+        while node is not None and node.parent is not None and node.type in COMMENT_TYPES | {"ERROR"}:
+            node = node.parent
+        if node is None:
+            continue
+        kids = [c for c in node.named_children if c.end_byte > c.start_byte]
+        if not kids:
+            if node.parent is None:
+                continue
+            return src.char_of_byte(node.start_byte), src.char_of_byte(node.end_byte), node.type
+        best, best_iou = None, -1.0
+        for i in range(len(kids)):
+            for j in range(i, len(kids)):
+                s, e = kids[i].start_byte, kids[j].end_byte
+                inter = max(0, min(e, be) - max(s, bs)); union = max(e, be) - min(s, bs)
+                iou = inter / union if union else 0.0
+                if iou > best_iou:
+                    best, best_iou = (s, e, kids[i].type if i == j else f"{node.type}:children[{i}:{j + 1}]"), iou
+        s, e, t = best
+        txt = src.data[s:e].decode("utf-8").strip()
+        if txt in RUST_KEYWORDS or PUNCT_ONLY.fullmatch(txt or "x"):
+            continue
+        return src.char_of_byte(s), src.char_of_byte(e), t
+    return None

@@ -1,0 +1,405 @@
+{
+ "scope": "validation split only (518 pairs per hole type); test and benchmark not used",
+ "eval_dirs": {
+  "base": "/home/vipul/Nova/projects/fim-coder-model/logs/20261101T103704+0530_base_eval_validation",
+  "ast": "/home/vipul/Nova/projects/fim-coder-model/logs/20261101T222716+0530_ast_eval_validation",
+  "random": "/home/vipul/Nova/projects/fim-coder-model/logs/20261102T103143+0530_random_eval_validation"
+ },
+ "bootstrap_resamples": 2000,
+ "sets": {
+  "reth_ast": {
+   "overall": {
+    "n": 518,
+    "base": 1.2113,
+    "ast": 1.1534,
+    "random": 1.1534,
+    "ast_minus_random": -0.0,
+    "ci95": [
+     -0.0004,
+     0.0004
+    ],
+    "verdict": "no clear difference"
+   },
+   "hole size (answer tokens)": {
+    "1-8": {
+     "n": 52,
+     "base": 1.175,
+     "ast": 1.1233,
+     "random": 1.1277,
+     "ast_minus_random": -0.0044,
+     "ci95": [
+      -0.0183,
+      0.0063
+     ],
+     "verdict": "no clear difference"
+    },
+    "9-32": {
+     "n": 115,
+     "base": 1.2559,
+     "ast": 1.1856,
+     "random": 1.1783,
+     "ast_minus_random": 0.0073,
+     "ci95": [
+      -0.0001,
+      0.0158
+     ],
+     "verdict": "no clear difference"
+    },
+    "33-128": {
+     "n": 114,
+     "base": 1.1577,
+     "ast": 1.1013,
+     "random": 1.1029,
+     "ast_minus_random": -0.0017,
+     "ci95": [
+      -0.0044,
+      0.0006
+     ],
+     "verdict": "no clear difference"
+    },
+    "129-512": {
+     "n": 119,
+     "base": 1.1877,
+     "ast": 1.1304,
+     "random": 1.1304,
+     "ast_minus_random": 0.0,
+     "ci95": [
+      -0.0008,
+      0.0008
+     ],
+     "verdict": "no clear difference"
+    },
+    "513+": {
+     "n": 118,
+     "base": 1.2193,
+     "ast": 1.1613,
+     "random": 1.1614,
+     "ast_minus_random": -0.0,
+     "ci95": [
+      -0.0005,
+      0.0004
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "hole type": {
+    "code": {
+     "n": 494,
+     "base": 1.2108,
+     "ast": 1.1528,
+     "random": 1.1529,
+     "ast_minus_random": -0.0001,
+     "ci95": [
+      -0.0005,
+      0.0003
+     ],
+     "verdict": "no clear difference"
+    },
+    "comment": {
+     "n": 24,
+     "base": 1.402,
+     "ast": 1.3618,
+     "random": 1.3363,
+     "ast_minus_random": 0.0255,
+     "ci95": [
+      0.0126,
+      0.0405
+     ],
+     "verdict": "random better"
+    }
+   },
+   "line boundaries": {
+    "both mid-line": {
+     "n": 128,
+     "base": 1.2062,
+     "ast": 1.1467,
+     "random": 1.1473,
+     "ast_minus_random": -0.0006,
+     "ci95": [
+      -0.0023,
+      0.0013
+     ],
+     "verdict": "no clear difference"
+    },
+    "ends mid-line": {
+     "n": 69,
+     "base": 1.1803,
+     "ast": 1.1192,
+     "random": 1.1192,
+     "ast_minus_random": -0.0,
+     "ci95": [
+      -0.0019,
+      0.0034
+     ],
+     "verdict": "no clear difference"
+    },
+    "starts mid-line": {
+     "n": 121,
+     "base": 1.2281,
+     "ast": 1.1634,
+     "random": 1.1631,
+     "ast_minus_random": 0.0003,
+     "ci95": [
+      -0.0004,
+      0.0009
+     ],
+     "verdict": "no clear difference"
+    },
+    "whole lines": {
+     "n": 200,
+     "base": 1.2017,
+     "ast": 1.1488,
+     "random": 1.149,
+     "ast_minus_random": -0.0001,
+     "ci95": [
+      -0.0007,
+      0.0003
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "node boundaries": {
+    "both ends node-aligned": {
+     "n": 499,
+     "base": 1.2109,
+     "ast": 1.153,
+     "random": 1.153,
+     "ast_minus_random": -0.0001,
+     "ci95": [
+      -0.0004,
+      0.0003
+     ],
+     "verdict": "no clear difference"
+    },
+    "one end mid-node": {
+     "n": 19,
+     "base": 1.3961,
+     "ast": 1.3454,
+     "random": 1.3215,
+     "ast_minus_random": 0.0239,
+     "ci95": [
+      0.008,
+      0.0422
+     ],
+     "verdict": "random better"
+    }
+   }
+  },
+  "reth_random": {
+   "overall": {
+    "n": 518,
+    "base": 1.2138,
+    "ast": 1.1672,
+    "random": 1.1651,
+    "ast_minus_random": 0.0021,
+    "ci95": [
+     0.0016,
+     0.0027
+    ],
+    "verdict": "random better"
+   },
+   "hole size (answer tokens)": {
+    "1-8": {
+     "n": 58,
+     "base": 1.1348,
+     "ast": 1.0706,
+     "random": 1.0647,
+     "ast_minus_random": 0.006,
+     "ci95": [
+      -0.0034,
+      0.0169
+     ],
+     "verdict": "no clear difference"
+    },
+    "9-32": {
+     "n": 108,
+     "base": 1.1929,
+     "ast": 1.134,
+     "random": 1.1314,
+     "ast_minus_random": 0.0026,
+     "ci95": [
+      -0.0012,
+      0.0067
+     ],
+     "verdict": "no clear difference"
+    },
+    "33-128": {
+     "n": 109,
+     "base": 1.1666,
+     "ast": 1.1138,
+     "random": 1.1109,
+     "ast_minus_random": 0.0028,
+     "ci95": [
+      0.0004,
+      0.0056
+     ],
+     "verdict": "random better"
+    },
+    "129-512": {
+     "n": 120,
+     "base": 1.2105,
+     "ast": 1.164,
+     "random": 1.1602,
+     "ast_minus_random": 0.0038,
+     "ci95": [
+      0.0025,
+      0.0053
+     ],
+     "verdict": "random better"
+    },
+    "513+": {
+     "n": 123,
+     "base": 1.2171,
+     "ast": 1.1709,
+     "random": 1.1692,
+     "ast_minus_random": 0.0017,
+     "ci95": [
+      0.0011,
+      0.0023
+     ],
+     "verdict": "random better"
+    }
+   },
+   "hole type": {
+    "code": {
+     "n": 488,
+     "base": 1.2133,
+     "ast": 1.1666,
+     "random": 1.1645,
+     "ast_minus_random": 0.0021,
+     "ci95": [
+      0.0016,
+      0.0027
+     ],
+     "verdict": "random better"
+    },
+    "comment": {
+     "n": 30,
+     "base": 1.3481,
+     "ast": 1.3286,
+     "random": 1.3212,
+     "ast_minus_random": 0.0074,
+     "ci95": [
+      0.0006,
+      0.017
+     ],
+     "verdict": "random better"
+    }
+   },
+   "line boundaries": {
+    "both mid-line": {
+     "n": 420,
+     "base": 1.2124,
+     "ast": 1.1649,
+     "random": 1.1628,
+     "ast_minus_random": 0.0021,
+     "ci95": [
+      0.0015,
+      0.0028
+     ],
+     "verdict": "random better"
+    },
+    "ends mid-line": {
+     "n": 80,
+     "base": 1.2179,
+     "ast": 1.1798,
+     "random": 1.1775,
+     "ast_minus_random": 0.0023,
+     "ci95": [
+      0.0011,
+      0.0042
+     ],
+     "verdict": "random better"
+    },
+    "starts mid-line": {
+     "n": 16,
+     "base": 1.2447,
+     "ast": 1.1835,
+     "random": 1.183,
+     "ast_minus_random": 0.0006,
+     "ci95": [
+      -0.0016,
+      0.004
+     ],
+     "verdict": "no clear difference"
+    },
+    "whole lines": {
+     "n": 2,
+     "base": 1.7514,
+     "ast": 1.4858,
+     "random": 1.4949,
+     "ast_minus_random": -0.0091,
+     "ci95": [
+      -0.0726,
+      0.0061
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "node boundaries": {
+    "both ends mid-node": {
+     "n": 325,
+     "base": 1.2237,
+     "ast": 1.1761,
+     "random": 1.1739,
+     "ast_minus_random": 0.0022,
+     "ci95": [
+      0.0015,
+      0.003
+     ],
+     "verdict": "random better"
+    },
+    "both ends node-aligned": {
+     "n": 15,
+     "base": 1.2539,
+     "ast": 1.1998,
+     "random": 1.1962,
+     "ast_minus_random": 0.0036,
+     "ci95": [
+      0.001,
+      0.0074
+     ],
+     "verdict": "random better"
+    },
+    "one end mid-node": {
+     "n": 178,
+     "base": 1.1933,
+     "ast": 1.1489,
+     "random": 1.147,
+     "ast_minus_random": 0.0019,
+     "ci95": [
+      0.001,
+      0.0029
+     ],
+     "verdict": "random better"
+    }
+   }
+  }
+ },
+ "training_holes": {
+  "ast": {
+   "both ends mid-node": 0.0,
+   "both ends node-aligned": 0.968,
+   "both mid-line": 0.26,
+   "code": 0.958,
+   "comment": 0.042,
+   "ends mid-line": 0.112,
+   "one end mid-node": 0.032,
+   "starts mid-line": 0.213,
+   "whole lines": 0.414,
+   "n": 7549
+  },
+  "random": {
+   "both ends mid-node": 0.587,
+   "both ends node-aligned": 0.06,
+   "both mid-line": 0.785,
+   "code": 0.936,
+   "comment": 0.064,
+   "ends mid-line": 0.19,
+   "one end mid-node": 0.353,
+   "starts mid-line": 0.021,
+   "whole lines": 0.005,
+   "n": 7549
+  }
+ }
+}

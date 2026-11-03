@@ -1,0 +1,1067 @@
+{
+ "eval_dirs": {
+  "base": "logs/20261102T111831+0530_base_eval_final",
+  "ast": "logs/20261102T125801+0530_ast_eval_final",
+  "random": "logs/20261102T160820+0530_random_eval_final"
+ },
+ "tasks": {
+  "reth_ast": {
+   "n": 845,
+   "groups": 15,
+   "ppl": {
+    "base": 1.2188,
+    "ast": 1.1613,
+    "random": 1.161
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0575,
+     "ci_examples": [
+      -0.063,
+      -0.0519
+     ],
+     "ci_groups": [
+      -0.0773,
+      -0.0451
+     ]
+    },
+    "random-base": {
+     "value": -0.0579,
+     "ci_examples": [
+      -0.0635,
+      -0.0524
+     ],
+     "ci_groups": [
+      -0.0774,
+      -0.046
+     ]
+    },
+    "ast-random": {
+     "value": 0.0004,
+     "ci_examples": [
+      -0.0,
+      0.0008
+     ],
+     "ci_groups": [
+      -0.0003,
+      0.0006
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "4/15",
+   "per_group": {
+    "crates/stages/stages": {
+     "base": 1.2175,
+     "ast": 1.1753,
+     "random": 1.1746,
+     "n": 269
+    },
+    "crates/ethereum/node": {
+     "base": 1.2622,
+     "ast": 1.1779,
+     "random": 1.1775,
+     "n": 263
+    },
+    "crates/evm/evm": {
+     "base": 1.1911,
+     "ast": 1.138,
+     "random": 1.1372,
+     "n": 82
+    },
+    "crates/tasks": {
+     "base": 1.2252,
+     "ast": 1.1289,
+     "random": 1.1286,
+     "n": 76
+    },
+    "crates/evm/execution-types": {
+     "base": 1.1943,
+     "ast": 1.1467,
+     "random": 1.1479,
+     "n": 48
+    },
+    "crates/prune/types": {
+     "base": 1.177,
+     "ast": 1.1187,
+     "random": 1.1182,
+     "n": 31
+    },
+    "crates/engine/invalid-block-hooks": {
+     "base": 1.1928,
+     "ast": 1.1295,
+     "random": 1.1291,
+     "n": 18
+    },
+    "testing/testing-utils": {
+     "base": 1.2964,
+     "ast": 1.2436,
+     "random": 1.2417,
+     "n": 15
+    },
+    "crates/consensus/debug-client": {
+     "base": 1.1612,
+     "ast": 1.1189,
+     "random": 1.1258,
+     "n": 13
+    },
+    "examples/custom-rlpx-subprotocol": {
+     "base": 1.1928,
+     "ast": 1.1437,
+     "random": 1.1455,
+     "n": 12
+    },
+    "crates/node/api": {
+     "base": 1.1894,
+     "ast": 1.0475,
+     "random": 1.08,
+     "n": 6
+    },
+    "examples/beacon-api-sse": {
+     "base": 1.1783,
+     "ast": 1.081,
+     "random": 1.0804,
+     "n": 4
+    },
+    "crates/dst": {
+     "base": 1.2314,
+     "ast": 1.2194,
+     "random": 1.211,
+     "n": 3
+    },
+    "crates/errors": {
+     "base": 1.0871,
+     "ast": 1.0892,
+     "random": 1.0868,
+     "n": 3
+    },
+    "crates/ethereum/reth": {
+     "base": 1.3341,
+     "ast": 1.1236,
+     "random": 1.0415,
+     "n": 2
+    }
+   }
+  },
+  "reth_random": {
+   "n": 845,
+   "groups": 15,
+   "ppl": {
+    "base": 1.2126,
+    "ast": 1.1684,
+    "random": 1.1652
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0442,
+     "ci_examples": [
+      -0.0482,
+      -0.0405
+     ],
+     "ci_groups": [
+      -0.0579,
+      -0.0363
+     ]
+    },
+    "random-base": {
+     "value": -0.0474,
+     "ci_examples": [
+      -0.0514,
+      -0.0436
+     ],
+     "ci_groups": [
+      -0.0618,
+      -0.039
+     ]
+    },
+    "ast-random": {
+     "value": 0.0032,
+     "ci_examples": [
+      0.0028,
+      0.0037
+     ],
+     "ci_groups": [
+      0.0026,
+      0.0041
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "1/15",
+   "per_group": {
+    "crates/stages/stages": {
+     "base": 1.2186,
+     "ast": 1.1809,
+     "random": 1.1782,
+     "n": 269
+    },
+    "crates/ethereum/node": {
+     "base": 1.2438,
+     "ast": 1.1781,
+     "random": 1.1743,
+     "n": 263
+    },
+    "crates/evm/evm": {
+     "base": 1.176,
+     "ast": 1.1445,
+     "random": 1.1407,
+     "n": 82
+    },
+    "crates/tasks": {
+     "base": 1.1883,
+     "ast": 1.1439,
+     "random": 1.1394,
+     "n": 76
+    },
+    "crates/evm/execution-types": {
+     "base": 1.1728,
+     "ast": 1.141,
+     "random": 1.1398,
+     "n": 48
+    },
+    "crates/prune/types": {
+     "base": 1.2132,
+     "ast": 1.1655,
+     "random": 1.1615,
+     "n": 31
+    },
+    "crates/engine/invalid-block-hooks": {
+     "base": 1.2185,
+     "ast": 1.1538,
+     "random": 1.1511,
+     "n": 18
+    },
+    "testing/testing-utils": {
+     "base": 1.1966,
+     "ast": 1.1672,
+     "random": 1.1622,
+     "n": 15
+    },
+    "crates/consensus/debug-client": {
+     "base": 1.177,
+     "ast": 1.1396,
+     "random": 1.1377,
+     "n": 13
+    },
+    "examples/custom-rlpx-subprotocol": {
+     "base": 1.2077,
+     "ast": 1.1729,
+     "random": 1.1654,
+     "n": 12
+    },
+    "crates/node/api": {
+     "base": 1.0777,
+     "ast": 1.0779,
+     "random": 1.0738,
+     "n": 6
+    },
+    "examples/beacon-api-sse": {
+     "base": 1.2038,
+     "ast": 1.093,
+     "random": 1.0983,
+     "n": 4
+    },
+    "crates/dst": {
+     "base": 1.3237,
+     "ast": 1.2431,
+     "random": 1.2285,
+     "n": 3
+    },
+    "crates/errors": {
+     "base": 1.1924,
+     "ast": 1.2181,
+     "random": 1.2098,
+     "n": 3
+    },
+    "crates/ethereum/reth": {
+     "base": 1.1979,
+     "ast": 1.2627,
+     "random": 1.1776,
+     "n": 2
+    }
+   }
+  },
+  "reth_l2r": {
+   "n": 206,
+   "groups": 15,
+   "ppl": {
+    "base": 1.3185,
+    "ast": 1.2528,
+    "random": 1.2471
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0656,
+     "ci_examples": [
+      -0.0721,
+      -0.0598
+     ],
+     "ci_groups": [
+      -0.0819,
+      -0.0479
+     ]
+    },
+    "random-base": {
+     "value": -0.0714,
+     "ci_examples": [
+      -0.0782,
+      -0.0652
+     ],
+     "ci_groups": [
+      -0.0886,
+      -0.054
+     ]
+    },
+    "ast-random": {
+     "value": 0.0057,
+     "ci_examples": [
+      0.0049,
+      0.0067
+     ],
+     "ci_groups": [
+      0.0049,
+      0.0067
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "0/15",
+   "per_group": {
+    "crates/ethereum/node": {
+     "base": 1.3754,
+     "ast": 1.2836,
+     "random": 1.2772,
+     "n": 62
+    },
+    "crates/stages/stages": {
+     "base": 1.3203,
+     "ast": 1.262,
+     "random": 1.2567,
+     "n": 61
+    },
+    "crates/evm/evm": {
+     "base": 1.2624,
+     "ast": 1.2242,
+     "random": 1.2175,
+     "n": 19
+    },
+    "crates/tasks": {
+     "base": 1.277,
+     "ast": 1.2192,
+     "random": 1.2149,
+     "n": 16
+    },
+    "crates/evm/execution-types": {
+     "base": 1.2356,
+     "ast": 1.1888,
+     "random": 1.1861,
+     "n": 11
+    },
+    "crates/prune/types": {
+     "base": 1.2669,
+     "ast": 1.2135,
+     "random": 1.2086,
+     "n": 9
+    },
+    "examples/custom-rlpx-subprotocol": {
+     "base": 1.2997,
+     "ast": 1.2441,
+     "random": 1.2328,
+     "n": 8
+    },
+    "crates/consensus/debug-client": {
+     "base": 1.2885,
+     "ast": 1.2249,
+     "random": 1.2171,
+     "n": 5
+    },
+    "crates/engine/invalid-block-hooks": {
+     "base": 1.2659,
+     "ast": 1.1916,
+     "random": 1.1879,
+     "n": 4
+    },
+    "testing/testing-utils": {
+     "base": 1.2753,
+     "ast": 1.2399,
+     "random": 1.2343,
+     "n": 4
+    },
+    "crates/errors": {
+     "base": 1.3762,
+     "ast": 1.2641,
+     "random": 1.2377,
+     "n": 2
+    },
+    "crates/node/api": {
+     "base": 1.3746,
+     "ast": 1.3371,
+     "random": 1.3231,
+     "n": 2
+    },
+    "crates/dst": {
+     "base": 1.4583,
+     "ast": 1.3457,
+     "random": 1.3255,
+     "n": 1
+    },
+    "crates/ethereum/reth": {
+     "base": 1.2714,
+     "ast": 1.2198,
+     "random": 1.2038,
+     "n": 1
+    },
+    "examples/beacon-api-sse": {
+     "base": 1.3694,
+     "ast": 1.2171,
+     "random": 1.2062,
+     "n": 1
+    }
+   }
+  },
+  "bench_add": {
+   "n": 2747,
+   "groups": 46,
+   "ppl": {
+    "base": 1.1816,
+    "ast": 1.1534,
+    "random": 1.1507
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0282,
+     "ci_examples": [
+      -0.0317,
+      -0.0247
+     ],
+     "ci_groups": [
+      -0.0401,
+      -0.0202
+     ]
+    },
+    "random-base": {
+     "value": -0.0309,
+     "ci_examples": [
+      -0.0344,
+      -0.0275
+     ],
+     "ci_groups": [
+      -0.0428,
+      -0.0231
+     ]
+    },
+    "ast-random": {
+     "value": 0.0027,
+     "ci_examples": [
+      0.0025,
+      0.0029
+     ],
+     "ci_groups": [
+      0.0024,
+      0.0031
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "6/46",
+   "per_group": {
+    "zed-industries/zed": {
+     "base": 1.1334,
+     "ast": 1.1233,
+     "random": 1.121,
+     "n": 438
+    },
+    "pola-rs/polars": {
+     "base": 1.1997,
+     "ast": 1.1824,
+     "random": 1.1795,
+     "n": 301
+    },
+    "servo/servo": {
+     "base": 1.205,
+     "ast": 1.1895,
+     "random": 1.1856,
+     "n": 210
+    },
+    "unionlabs/union": {
+     "base": 1.1556,
+     "ast": 1.1362,
+     "random": 1.1335,
+     "n": 208
+    },
+    "surrealdb/surrealdb": {
+     "base": 1.2386,
+     "ast": 1.1958,
+     "random": 1.1917,
+     "n": 207
+    },
+    "qdrant/qdrant": {
+     "base": 1.1604,
+     "ast": 1.1356,
+     "random": 1.1336,
+     "n": 202
+    },
+    "meilisearch/meilisearch": {
+     "base": 1.2167,
+     "ast": 1.1707,
+     "random": 1.1684,
+     "n": 149
+    },
+    "nushell/nushell": {
+     "base": 1.2299,
+     "ast": 1.1507,
+     "random": 1.1482,
+     "n": 140
+    },
+    "linera-io/linera-protocol": {
+     "base": 1.1325,
+     "ast": 1.1206,
+     "random": 1.1182,
+     "n": 130
+    },
+    "influxdata/influxdb": {
+     "base": 1.1592,
+     "ast": 1.1187,
+     "random": 1.1173,
+     "n": 82
+    },
+    "uutils/coreutils": {
+     "base": 1.268,
+     "ast": 1.1878,
+     "random": 1.1855,
+     "n": 80
+    },
+    "iced-rs/iced": {
+     "base": 1.1662,
+     "ast": 1.1579,
+     "random": 1.1551,
+     "n": 72
+    },
+    "vectordotdev/vector": {
+     "base": 1.1715,
+     "ast": 1.1354,
+     "random": 1.1338,
+     "n": 61
+    },
+    "swc-project/swc": {
+     "base": 1.2228,
+     "ast": 1.1787,
+     "random": 1.1723,
+     "n": 59
+    },
+    "typst/typst": {
+     "base": 1.2298,
+     "ast": 1.2244,
+     "random": 1.2185,
+     "n": 57
+    },
+    "vercel/turborepo": {
+     "base": 1.1447,
+     "ast": 1.1092,
+     "random": 1.1067,
+     "n": 53
+    },
+    "FuelLabs/fuel-core": {
+     "base": 1.1302,
+     "ast": 1.1289,
+     "random": 1.1256,
+     "n": 36
+    },
+    "tikv/tikv": {
+     "base": 1.2832,
+     "ast": 1.2154,
+     "random": 1.2129,
+     "n": 32
+    },
+    "mozilla/gecko-dev": {
+     "base": 1.1487,
+     "ast": 1.1486,
+     "random": 1.1463,
+     "n": 30
+    },
+    "lowRISC/opentitan": {
+     "base": 1.1737,
+     "ast": 1.1596,
+     "random": 1.1592,
+     "n": 26
+    },
+    "helix-editor/helix": {
+     "base": 1.2064,
+     "ast": 1.166,
+     "random": 1.1629,
+     "n": 25
+    },
+    "vercel/next.js": {
+     "base": 1.1023,
+     "ast": 1.0832,
+     "random": 1.0832,
+     "n": 23
+    },
+    "tokio-rs/tokio": {
+     "base": 1.333,
+     "ast": 1.2138,
+     "random": 1.2116,
+     "n": 19
+    },
+    "tauri-apps/tauri": {
+     "base": 1.3439,
+     "ast": 1.2896,
+     "random": 1.2851,
+     "n": 18
+    },
+    "bytecodealliance/wasmtime": {
+     "base": 1.1801,
+     "ast": 1.1293,
+     "random": 1.1278,
+     "n": 16
+    },
+    "astral-sh/ruff": {
+     "base": 1.1748,
+     "ast": 1.1508,
+     "random": 1.1479,
+     "n": 9
+    },
+    "huggingface/candle": {
+     "base": 1.1634,
+     "ast": 1.1201,
+     "random": 1.1231,
+     "n": 7
+    },
+    "huggingface/tokenizers": {
+     "base": 1.0644,
+     "ast": 1.0659,
+     "random": 1.0624,
+     "n": 7
+    },
+    "ijl/orjson": {
+     "base": 1.1734,
+     "ast": 1.1302,
+     "random": 1.1253,
+     "n": 7
+    },
+    "rustdesk/rustdesk": {
+     "base": 1.1968,
+     "ast": 1.1502,
+     "random": 1.1504,
+     "n": 7
+    },
+    "TabbyML/tabby": {
+     "base": 1.2607,
+     "ast": 1.2076,
+     "random": 1.2065,
+     "n": 6
+    },
+    "yewstack/yew": {
+     "base": 1.1756,
+     "ast": 1.1094,
+     "random": 1.1041,
+     "n": 5
+    },
+    "FuelLabs/sway": {
+     "base": 1.2517,
+     "ast": 1.2568,
+     "random": 1.257,
+     "n": 4
+    },
+    "tokio-rs/axum": {
+     "base": 1.0528,
+     "ast": 1.0525,
+     "random": 1.056,
+     "n": 3
+    },
+    "DioxusLabs/dioxus": {
+     "base": 1.1096,
+     "ast": 1.0946,
+     "random": 1.0946,
+     "n": 3
+    },
+    "hyperium/hyper": {
+     "base": 1.2268,
+     "ast": 1.2518,
+     "random": 1.2376,
+     "n": 2
+    },
+    "microsoft/vscode": {
+     "base": 1.274,
+     "ast": 1.2381,
+     "random": 1.2279,
+     "n": 2
+    },
+    "ankitects/anki": {
+     "base": 1.2686,
+     "ast": 1.2158,
+     "random": 1.2095,
+     "n": 2
+    },
+    "chroma-core/chroma": {
+     "base": 1.0702,
+     "ast": 1.0773,
+     "random": 1.0752,
+     "n": 2
+    },
+    "pyca/cryptography": {
+     "base": 1.1593,
+     "ast": 1.1379,
+     "random": 1.1292,
+     "n": 1
+    },
+    "rust-lang/mdBook": {
+     "base": 1.0369,
+     "ast": 1.0589,
+     "random": 1.0525,
+     "n": 1
+    },
+    "starship/starship": {
+     "base": 1.6316,
+     "ast": 1.667,
+     "random": 1.6561,
+     "n": 1
+    },
+    "FuelLabs/fuels-rs": {
+     "base": 1.0681,
+     "ast": 1.0714,
+     "random": 1.0698,
+     "n": 1
+    },
+    "astral-sh/uv": {
+     "base": 1.0466,
+     "ast": 1.036,
+     "random": 1.044,
+     "n": 1
+    },
+    "bevyengine/bevy": {
+     "base": 1.2063,
+     "ast": 1.2161,
+     "random": 1.2051,
+     "n": 1
+    },
+    "facebook/relay": {
+     "base": 1.5547,
+     "ast": 1.5906,
+     "random": 1.5966,
+     "n": 1
+    }
+   }
+  },
+  "bench_edit": {
+   "n": 1980,
+   "groups": 46,
+   "ppl": {
+    "base": 1.1535,
+    "ast": 1.1307,
+    "random": 1.1303
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0228,
+     "ci_examples": [
+      -0.03,
+      -0.0178
+     ],
+     "ci_groups": [
+      -0.031,
+      -0.0167
+     ]
+    },
+    "random-base": {
+     "value": -0.0231,
+     "ci_examples": [
+      -0.0308,
+      -0.0177
+     ],
+     "ci_groups": [
+      -0.031,
+      -0.0166
+     ]
+    },
+    "ast-random": {
+     "value": 0.0003,
+     "ci_examples": [
+      0.0,
+      0.0006
+     ],
+     "ci_groups": [
+      -0.0002,
+      0.0006
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "16/46",
+   "per_group": {
+    "zed-industries/zed": {
+     "base": 1.1178,
+     "ast": 1.1097,
+     "random": 1.1089,
+     "n": 350
+    },
+    "pola-rs/polars": {
+     "base": 1.1824,
+     "ast": 1.1635,
+     "random": 1.1627,
+     "n": 200
+    },
+    "servo/servo": {
+     "base": 1.1422,
+     "ast": 1.1016,
+     "random": 1.1009,
+     "n": 170
+    },
+    "unionlabs/union": {
+     "base": 1.1406,
+     "ast": 1.113,
+     "random": 1.1139,
+     "n": 155
+    },
+    "nushell/nushell": {
+     "base": 1.1534,
+     "ast": 1.1275,
+     "random": 1.1266,
+     "n": 148
+    },
+    "qdrant/qdrant": {
+     "base": 1.1418,
+     "ast": 1.1196,
+     "random": 1.1192,
+     "n": 131
+    },
+    "surrealdb/surrealdb": {
+     "base": 1.1972,
+     "ast": 1.1715,
+     "random": 1.1723,
+     "n": 128
+    },
+    "meilisearch/meilisearch": {
+     "base": 1.1463,
+     "ast": 1.1259,
+     "random": 1.1266,
+     "n": 101
+    },
+    "linera-io/linera-protocol": {
+     "base": 1.1158,
+     "ast": 1.1036,
+     "random": 1.1029,
+     "n": 85
+    },
+    "typst/typst": {
+     "base": 1.2279,
+     "ast": 1.2126,
+     "random": 1.2132,
+     "n": 60
+    },
+    "vercel/next.js": {
+     "base": 1.1298,
+     "ast": 1.1199,
+     "random": 1.1194,
+     "n": 43
+    },
+    "uutils/coreutils": {
+     "base": 1.1766,
+     "ast": 1.1265,
+     "random": 1.1274,
+     "n": 41
+    },
+    "iced-rs/iced": {
+     "base": 1.117,
+     "ast": 1.1136,
+     "random": 1.1124,
+     "n": 35
+    },
+    "mozilla/gecko-dev": {
+     "base": 1.1657,
+     "ast": 1.135,
+     "random": 1.1355,
+     "n": 35
+    },
+    "influxdata/influxdb": {
+     "base": 1.1794,
+     "ast": 1.1482,
+     "random": 1.1477,
+     "n": 34
+    },
+    "swc-project/swc": {
+     "base": 1.1459,
+     "ast": 1.1432,
+     "random": 1.142,
+     "n": 33
+    },
+    "vercel/turborepo": {
+     "base": 1.161,
+     "ast": 1.1373,
+     "random": 1.1379,
+     "n": 32
+    },
+    "vectordotdev/vector": {
+     "base": 1.1659,
+     "ast": 1.1192,
+     "random": 1.1208,
+     "n": 29
+    },
+    "FuelLabs/fuel-core": {
+     "base": 1.1448,
+     "ast": 1.1331,
+     "random": 1.1344,
+     "n": 23
+    },
+    "tikv/tikv": {
+     "base": 1.2624,
+     "ast": 1.2231,
+     "random": 1.2222,
+     "n": 22
+    },
+    "tauri-apps/tauri": {
+     "base": 1.2101,
+     "ast": 1.163,
+     "random": 1.1622,
+     "n": 19
+    },
+    "helix-editor/helix": {
+     "base": 1.2509,
+     "ast": 1.2011,
+     "random": 1.2036,
+     "n": 18
+    },
+    "lowRISC/opentitan": {
+     "base": 1.3207,
+     "ast": 1.2003,
+     "random": 1.1992,
+     "n": 15
+    },
+    "astral-sh/uv": {
+     "base": 1.0989,
+     "ast": 1.09,
+     "random": 1.0893,
+     "n": 14
+    },
+    "rustdesk/rustdesk": {
+     "base": 1.264,
+     "ast": 1.2406,
+     "random": 1.2394,
+     "n": 7
+    },
+    "tokio-rs/tokio": {
+     "base": 1.1825,
+     "ast": 1.1915,
+     "random": 1.1872,
+     "n": 7
+    },
+    "astral-sh/ruff": {
+     "base": 1.1299,
+     "ast": 1.1345,
+     "random": 1.1313,
+     "n": 6
+    },
+    "ijl/orjson": {
+     "base": 1.1228,
+     "ast": 1.0932,
+     "random": 1.0893,
+     "n": 5
+    },
+    "rust-lang/mdBook": {
+     "base": 1.1726,
+     "ast": 1.1492,
+     "random": 1.1476,
+     "n": 4
+    },
+    "yewstack/yew": {
+     "base": 1.2247,
+     "ast": 1.2187,
+     "random": 1.2164,
+     "n": 4
+    },
+    "DioxusLabs/dioxus": {
+     "base": 1.0742,
+     "ast": 1.0623,
+     "random": 1.0619,
+     "n": 4
+    },
+    "FuelLabs/fuels-rs": {
+     "base": 1.1668,
+     "ast": 1.1252,
+     "random": 1.1229,
+     "n": 4
+    },
+    "huggingface/candle": {
+     "base": 1.1489,
+     "ast": 1.1526,
+     "random": 1.1555,
+     "n": 2
+    },
+    "FuelLabs/sway": {
+     "base": 1.1254,
+     "ast": 1.1223,
+     "random": 1.1314,
+     "n": 2
+    },
+    "TabbyML/tabby": {
+     "base": 1.2486,
+     "ast": 1.1695,
+     "random": 1.1737,
+     "n": 2
+    },
+    "bytecodealliance/wasmtime": {
+     "base": 1.4609,
+     "ast": 1.1993,
+     "random": 1.199,
+     "n": 2
+    },
+    "hyperium/hyper": {
+     "base": 1.2027,
+     "ast": 1.2201,
+     "random": 1.2143,
+     "n": 1
+    },
+    "lapce/lapce": {
+     "base": 1.1679,
+     "ast": 1.0856,
+     "random": 1.0911,
+     "n": 1
+    },
+    "microsoft/vscode": {
+     "base": 1.1783,
+     "ast": 1.2001,
+     "random": 1.1924,
+     "n": 1
+    },
+    "protocolbuffers/protobuf": {
+     "base": 1.2138,
+     "ast": 1.051,
+     "random": 1.0502,
+     "n": 1
+    },
+    "sharkdp/bat": {
+     "base": 1.229,
+     "ast": 1.2282,
+     "random": 1.2417,
+     "n": 1
+    },
+    "starship/starship": {
+     "base": 1.2656,
+     "ast": 1.2628,
+     "random": 1.261,
+     "n": 1
+    },
+    "tokio-rs/axum": {
+     "base": 1.2417,
+     "ast": 1.2458,
+     "random": 1.2345,
+     "n": 1
+    },
+    "ankitects/anki": {
+     "base": 1.207,
+     "ast": 1.2205,
+     "random": 1.2186,
+     "n": 1
+    },
+    "bevyengine/bevy": {
+     "base": 1.0748,
+     "ast": 1.0612,
+     "random": 1.0701,
+     "n": 1
+    },
+    "chroma-core/chroma": {
+     "base": 1.1609,
+     "ast": 1.1698,
+     "random": 1.1677,
+     "n": 1
+    }
+   },
+   "status": "PROVISIONAL (inferred prompt layout)"
+  }
+ }
+}

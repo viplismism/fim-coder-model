@@ -17,3 +17,10 @@ logs/
 *.swp
 .DS_Store
 .env
+scratch/
+
+# Generated outputs containing dataset/benchmark code text, and in-progress step-0 work (kept locally)
+results/generations/*.jsonl
+results/generations.console.log
+results/completions_report.html
+results/val_structural/

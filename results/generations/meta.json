@@ -1,0 +1,28 @@
+{
+ "created": "2026-11-02T22:56:47+0530",
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "base_precision": "bf16",
+ "adapters": {
+  "base": null,
+  "ast": "/home/vipul/Nova/projects/fim-coder-model/logs/20261101T105542+0530_ast_train_s42/checkpoints/final_adapter",
+  "random": "/home/vipul/Nova/projects/fim-coder-model/logs/20261101T230132+0530_random_train_s42/checkpoints/final_adapter"
+ },
+ "decoding": "greedy; stop at EOS or any FIM sentinel; max_new_tokens=min(512, 2*answer_tokens+32)",
+ "sets": {
+  "reth_ast": 40,
+  "reth_random": 40,
+  "bench_add": 40
+ },
+ "edit_template_note": "Edit not included (provisional)"
+}

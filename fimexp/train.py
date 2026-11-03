@@ -45,7 +45,10 @@ class FIMDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, i):
         r = self.rows[i]
-        b = self.psm.build(r["prefix"], r["suffix"], r["middle"], add_eos=True)
+        if r.get("kind") == "l2r":  # plain left-to-right window: every token after BOS is supervised
+            b = self.psm.build_l2r(r["text"])
+        else:
+            b = self.psm.build(r["prefix"], r["suffix"], r["middle"], add_eos=True)
         if len(b["input_ids"]) != r["tokens"]["total_with_eos"] or len(b["input_ids"]) > self.max_tokens:
             raise RuntimeError(f"{r['id']}: token length {len(b['input_ids'])} disagrees with the data manifest")
         return {"input_ids": b["input_ids"], "labels": b["labels"]}
@@ -180,7 +183,8 @@ def main():
         sys.exit(f"{data_dir} is an inspection build")
     stamp = datetime.datetime.now().astimezone()
     kind = "timing" if timing else "smoke" if smoke else "train"
-    run_name = f"{stamp.strftime('%Y%m%dT%H%M%S%z')}_{args.arm}_{kind}_s{t['seed']}"
+    tag = f"{cfg['run_tag']}-" if cfg.get("run_tag") else ""
+    run_name = f"{stamp.strftime('%Y%m%dT%H%M%S%z')}_{tag}{args.arm}_{kind}_s{t['seed']}"
     run_dir = LOGS / run_name
     run_dir.mkdir(parents=True)
     console = open(run_dir / "console.log", "a")

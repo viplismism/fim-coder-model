@@ -91,13 +91,34 @@ def l2r_items(cfg, version, split, psm):
             yield {"id": f"{path}#w{w}", "text": text, "crate": crate}
 
 
+HELDOUT_VERSION = "heldout-v1"
+
+
+def heldout_fim_items(cfg, arm):
+    path = sources.ROOT / cfg["data"]["output_dir"] / HELDOUT_VERSION / f"heldout_{arm}.jsonl"
+    for line in open(path):
+        e = json.loads(line)
+        yield {"id": e["id"], "crate": e["crate"], "prefix": e["prefix"], "suffix": e["suffix"], "middle": e["middle"]}
+
+
+def heldout_l2r_items(cfg, psm):
+    files = json.loads((sources.ROOT / cfg["data"]["output_dir"] / HELDOUT_VERSION / "l2r_files.json").read_text())
+    limit = cfg["evaluation"]["l2r_window_tokens"]
+    for repo, rels in files.items():
+        d = sources.ROOT / "sources" / "heldout" / repo.replace("/", "__")
+        for rel in rels:
+            windows, _ = l2r_windows(SourceText(sources.read_source(d / rel)), psm, limit)
+            for w, text in enumerate(windows):
+                yield {"id": f"{repo}/{rel}#w{w}", "text": text, "crate": repo}
+
+
 def run_task(model, psm, task, items, max_tokens, out_path):
     tot_lp = tot_chars = tot_tok = 0.0
     n = 0
     groups = {}
     with open(out_path, "w") as f:
         for it in items:
-            if task == "reth_l2r":
+            if task in ("reth_l2r", "heldout_l2r"):
                 b = psm.build_l2r(it["text"]); n_chars = len(it["text"])
             else:
                 b = psm.build(it["prefix"], it["suffix"], it["middle"], add_eos=False); n_chars = len(it["middle"])
@@ -126,13 +147,17 @@ def main():
     ap.add_argument("--split", default="validation", choices=["validation", "test"])
     ap.add_argument("--final", action="store_true", help="required for --split test (final reporting only)")
     ap.add_argument("--adapter", default=None)
+    ap.add_argument("--config", default=None)
     ap.add_argument("--limit", type=int, default=None, help="score only the first N items per task (inspection)")
+    ap.add_argument("--final_heldout", action="store_true", help="required for heldout_* tasks (LOCKED set; final run only)")
     ap.add_argument("--pair_subset", default=None, help="validation_subset.json in the data dir: score only these pair ids")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
     if args.split == "test" and not args.final:
         sys.exit("test split is for final reporting only; pass --final")
-    cfg = sources.load_config()
+    if any(t.startswith("heldout_") for t in args.tasks.split(",")) and not args.final_heldout:
+        sys.exit("heldout_* tasks score the LOCKED fresh held-out set; only in the final run, with --final_heldout")
+    cfg = sources.load_config(args.config)
     out = Path(args.out)
     if out.exists():
         sys.exit(f"{out} exists; refusing to overwrite")
@@ -158,6 +183,10 @@ def main():
             items = reth_fim_items(cfg, args.data_version, args.split, task.split("_")[1], ids)
         elif task == "reth_l2r":
             items = l2r_items(cfg, args.data_version, args.split, psm)
+        elif task in ("heldout_ast", "heldout_random"):
+            items = heldout_fim_items(cfg, task.split("_")[1])
+        elif task == "heldout_l2r":
+            items = heldout_l2r_items(cfg, psm)
         else:
             sys.exit(f"unknown task {task}")
         if args.limit:
