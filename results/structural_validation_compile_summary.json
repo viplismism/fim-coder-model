@@ -1,0 +1,25 @@
+{
+ "pairs_selected": 120,
+ "items": 240,
+ "packages": [
+  "crates/cli/runner",
+  "crates/e2e-test-utils",
+  "crates/net/eth-wire-types",
+  "crates/node/types",
+  "crates/payload/basic",
+  "crates/static-file/types",
+  "crates/storage/db-common",
+  "examples/custom-dev-node",
+  "examples/exex-subscription",
+  "examples/full-contract-state",
+  "testing/ef-tests"
+ ],
+ "eligible_pairs": 358,
+ "all_pairs_in_generation": 393,
+ "not_checkable_packages": [
+  "bin/reth",
+  "docs/vocs/docs/snippets/sources/exex/remote",
+  "docs/vocs/docs/snippets/sources/exex/tracking-state"
+ ],
+ "cargo_runs": 471
+}

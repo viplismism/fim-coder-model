@@ -1,0 +1,63 @@
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (45564 > 16384). Running this sequence through the model will result in indexing errors
+{
+ "aligned_span": {
+  "mode": "matched",
+  "max_tokens": null,
+  "chars_per_token": 3.4813,
+  "max_span_chars": null,
+  "rule": "length-matched: center ~ U[0,n], target length = the same slot's single-node hole length (chars), then snapped to the best-IoU run of direct named children of the smallest containing node"
+ },
+ "slots_tried": {
+  "train": 8263,
+  "validation": 553
+ },
+ "slot_drop_rate": {
+  "train": 0.1025,
+  "validation": 0.0687
+ },
+ "fim_slots_per_arm": 7416,
+ "l2r_examples_per_arm": 2472,
+ "l2r_share": 0.25,
+ "hole_kinds": {
+  "R": {
+   "random": 7416
+  },
+  "S": {
+   "single": 6620,
+   "random": 796
+  },
+  "A": {
+   "aligned": 6620,
+   "random": 796
+  },
+  "M": {
+   "aligned": 3356,
+   "random": 796,
+   "single": 3264
+  }
+ },
+ "validation_aligned": 515,
+ "drops": {
+  "train: slot dropped (an arm's answer does not fit)": 847,
+  "train: parse-error file": 3,
+  "validation: slot dropped (an arm's answer does not fit)": 38
+ }
+}
+  size classes A/aligned              tiny  6.1%  small 22.3%  medium 23.1%  large 23.1%  very_large 25.4%
+  size classes A/random               tiny  8.5%  small 20.4%  medium 21.1%  large 25.8%  very_large 24.2%
+  size classes M/aligned              tiny  6.1%  small 22.3%  medium 23.3%  large 23.0%  very_large 25.2%
+  size classes M/random               tiny 10.2%  small 20.2%  medium 22.6%  large 24.9%  very_large 22.1%
+  size classes M/single               tiny 13.1%  small 21.8%  medium 23.0%  large 22.6%  very_large 19.5%
+  size classes R/random               tiny  9.9%  small 21.7%  medium 22.5%  large 22.9%  very_large 23.0%
+  size classes S/random               tiny 12.2%  small 20.9%  medium 21.6%  large 25.3%  very_large 20.1%
+  size classes S/single               tiny 12.8%  small 22.2%  medium 22.5%  large 22.9%  very_large 19.6%
+  size classes validation/aligned     tiny  5.2%  small 20.6%  medium 20.6%  large 25.8%  very_large 27.8%
+  answer tokens A/aligned              n= 6620 p10    12 p50   118 p90  1395 max  4078
+  answer tokens A/random               n=  796 p10    10 p50   129 p90  1327 max  4065
+  answer tokens M/aligned              n= 3356 p10    12 p50   116 p90  1392 max  4061
+  answer tokens M/random               n=  796 p10     8 p50   107 p90  1152 max  3906
+  answer tokens M/single               n= 3264 p10     6 p50    80 p90  1024 max  3982
+  answer tokens R/random               n= 7416 p10     9 p50   103 p90  1214 max  4035
+  answer tokens S/random               n=  796 p10     8 p50    98 p90  1028 max  3929
+  answer tokens S/single               n= 6620 p10     7 p50    79 p90  1009 max  3983
+  answer tokens validation/aligned     n=  515 p10    13 p50   162 p90  1509 max  4082

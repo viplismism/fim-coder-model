@@ -1,0 +1,113 @@
+items scored: 786; original files with parse errors: 0
+
+== reth_ast | all  (n=393)
+   exact_match            n= 393  base 0.145  ast 0.305  random 0.290 | AST-random +0.015 [-0.008,+0.036] no clear difference | AST-base +0.160 higher
+   edit_similarity        n= 393  base 0.520  ast 0.678  random 0.646 | AST-random +0.032 [+0.016,+0.049] higher              | AST-base +0.158 higher
+   parse_clean            n= 393  base 0.532  ast 0.865  random 0.819 | AST-random +0.046 [+0.008,+0.084] higher              | AST-base +0.333 higher
+   bracket_balance_match  n= 393  base 0.613  ast 0.868  random 0.840 | AST-random +0.028 [-0.008,+0.064] no clear difference | AST-base +0.255 higher
+   stopped                n= 393  base 0.456  ast 0.852  random 0.776 | AST-random +0.076 [+0.036,+0.117] higher              | AST-base +0.397 higher
+   compile_pass           n= 120  base 0.350  ast 0.625  random 0.583 | AST-random +0.042 [-0.025,+0.108] no clear difference | AST-base +0.275 higher
+
+== reth_ast | both mid-line  (n=121)
+   exact_match            n= 121  base 0.223  ast 0.455  random 0.438 | AST-random +0.017 [-0.025,+0.058] no clear difference | AST-base +0.231 higher
+   edit_similarity        n= 121  base 0.546  ast 0.775  random 0.739 | AST-random +0.036 [+0.011,+0.067] higher              | AST-base +0.229 higher
+   parse_clean            n= 121  base 0.579  ast 0.926  random 0.893 | AST-random +0.033 [-0.033,+0.099] no clear difference | AST-base +0.347 higher
+   bracket_balance_match  n= 121  base 0.603  ast 0.934  random 0.893 | AST-random +0.041 [-0.017,+0.099] no clear difference | AST-base +0.331 higher
+   stopped                n= 121  base 0.488  ast 0.934  random 0.860 | AST-random +0.074 [+0.008,+0.141] higher              | AST-base +0.446 higher
+   compile_pass           n=  37  base 0.486  ast 0.703  random 0.622 | AST-random +0.081 [+0.000,+0.162] no clear difference | AST-base +0.216 higher
+
+== reth_ast | ends mid-line  (n=66)
+   exact_match            n=  66  base 0.167  ast 0.364  random 0.364 | AST-random +0.000 [-0.076,+0.076] no clear difference | AST-base +0.197 higher
+   edit_similarity        n=  66  base 0.516  ast 0.682  random 0.663 | AST-random +0.019 [-0.037,+0.073] no clear difference | AST-base +0.166 higher
+   parse_clean            n=  66  base 0.530  ast 0.909  random 0.849 | AST-random +0.061 [-0.030,+0.151] no clear difference | AST-base +0.379 higher
+   bracket_balance_match  n=  66  base 0.712  ast 0.909  random 0.894 | AST-random +0.015 [-0.076,+0.106] no clear difference | AST-base +0.197 higher
+   stopped                n=  66  base 0.455  ast 0.818  random 0.712 | AST-random +0.106 [+0.000,+0.212] no clear difference | AST-base +0.364 higher
+   compile_pass           n=  24  base 0.292  ast 0.792  random 0.625 | AST-random +0.167 [+0.000,+0.333] no clear difference | AST-base +0.500 higher
+
+== reth_ast | starts mid-line  (n=76)
+   exact_match            n=  76  base 0.118  ast 0.263  random 0.237 | AST-random +0.026 [+0.000,+0.066] no clear difference | AST-base +0.145 higher
+   edit_similarity        n=  76  base 0.541  ast 0.634  random 0.607 | AST-random +0.027 [-0.001,+0.056] no clear difference | AST-base +0.093 higher
+   parse_clean            n=  76  base 0.526  ast 0.803  random 0.776 | AST-random +0.026 [-0.066,+0.118] no clear difference | AST-base +0.276 higher
+   bracket_balance_match  n=  76  base 0.592  ast 0.803  random 0.776 | AST-random +0.026 [-0.066,+0.118] no clear difference | AST-base +0.210 higher
+   stopped                n=  76  base 0.474  ast 0.816  random 0.750 | AST-random +0.066 [-0.040,+0.158] no clear difference | AST-base +0.342 higher
+   compile_pass           n=  21  base 0.143  ast 0.333  random 0.476 | AST-random -0.143 [-0.286,+0.000] no clear difference | AST-base +0.191 no clear difference
+
+== reth_ast | whole lines  (n=130)
+   exact_match            n= 130  base 0.077  ast 0.162  random 0.146 | AST-random +0.015 [-0.023,+0.054] no clear difference | AST-base +0.085 higher
+   edit_similarity        n= 130  base 0.486  ast 0.611  random 0.575 | AST-random +0.036 [+0.007,+0.067] higher              | AST-base +0.125 higher
+   parse_clean            n= 130  base 0.492  ast 0.823  random 0.761 | AST-random +0.061 [+0.000,+0.123] no clear difference | AST-base +0.331 higher
+   bracket_balance_match  n= 130  base 0.585  ast 0.823  random 0.800 | AST-random +0.023 [-0.038,+0.085] no clear difference | AST-base +0.238 higher
+   stopped                n= 130  base 0.415  ast 0.815  random 0.746 | AST-random +0.069 [+0.000,+0.139] no clear difference | AST-base +0.400 higher
+   compile_pass           n=  38  base 0.368  ast 0.605  random 0.579 | AST-random +0.026 [-0.079,+0.158] no clear difference | AST-base +0.237 higher
+
+== reth_ast | both ends node-aligned  (n=374)
+   exact_match            n= 374  base 0.147  ast 0.316  random 0.294 | AST-random +0.021 [+0.000,+0.045] no clear difference | AST-base +0.168 higher
+   edit_similarity        n= 374  base 0.525  ast 0.687  random 0.653 | AST-random +0.034 [+0.018,+0.052] higher              | AST-base +0.162 higher
+   parse_clean            n= 374  base 0.524  ast 0.861  random 0.813 | AST-random +0.048 [+0.008,+0.091] higher              | AST-base +0.337 higher
+   bracket_balance_match  n= 374  base 0.604  ast 0.864  random 0.832 | AST-random +0.032 [-0.003,+0.070] no clear difference | AST-base +0.259 higher
+   stopped                n= 374  base 0.463  ast 0.864  random 0.786 | AST-random +0.077 [+0.037,+0.118] higher              | AST-base +0.401 higher
+   compile_pass           n= 111  base 0.333  ast 0.604  random 0.549 | AST-random +0.054 [-0.018,+0.117] no clear difference | AST-base +0.270 higher
+
+== reth_ast | one end mid-node  (n=19)
+   exact_match            n=  19  base 0.105  ast 0.105  random 0.210 | AST-random -0.105 [-0.263,+0.000] no clear difference | AST-base +0.000 no clear difference
+   edit_similarity        n=  19  base 0.419  ast 0.496  random 0.516 | AST-random -0.020 [-0.112,+0.054] no clear difference | AST-base +0.076 no clear difference
+   parse_clean            n=  19  base 0.684  ast 0.947  random 0.947 | AST-random +0.000 [+0.000,+0.000] no clear difference | AST-base +0.263 higher
+   bracket_balance_match  n=  19  base 0.789  ast 0.947  random 1.000 | AST-random -0.053 [-0.158,+0.000] no clear difference | AST-base +0.158 no clear difference
+   stopped                n=  19  base 0.316  ast 0.632  random 0.579 | AST-random +0.053 [-0.105,+0.210] no clear difference | AST-base +0.316 higher
+   compile_pass           n=   9  base 0.556  ast 0.889  random 1.000 | AST-random -0.111 [-0.333,+0.000] no clear difference | AST-base +0.333 higher
+
+== reth_random | all  (n=393)
+   exact_match            n= 393  base 0.196  ast 0.277  random 0.282 | AST-random -0.005 [-0.023,+0.015] no clear difference | AST-base +0.081 higher
+   edit_similarity        n= 393  base 0.610  ast 0.673  random 0.697 | AST-random -0.024 [-0.040,-0.007] lower               | AST-base +0.064 higher
+   parse_clean            n= 393  base 0.646  ast 0.827  random 0.875 | AST-random -0.048 [-0.084,-0.013] lower               | AST-base +0.181 higher
+   bracket_balance_match  n= 393  base 0.746  ast 0.885  random 0.913 | AST-random -0.028 [-0.059,+0.005] no clear difference | AST-base +0.140 higher
+   stopped                n= 393  base 0.588  ast 0.819  random 0.819 | AST-random +0.000 [-0.036,+0.033] no clear difference | AST-base +0.232 higher
+   compile_pass           n= 120  base 0.408  ast 0.558  random 0.617 | AST-random -0.058 [-0.117,-0.008] lower               | AST-base +0.150 higher
+
+== reth_random | both mid-line  (n=314)
+   exact_match            n= 314  base 0.172  ast 0.248  random 0.258 | AST-random -0.010 [-0.032,+0.010] no clear difference | AST-base +0.076 higher
+   edit_similarity        n= 314  base 0.594  ast 0.660  random 0.680 | AST-random -0.019 [-0.036,-0.003] lower               | AST-base +0.067 higher
+   parse_clean            n= 314  base 0.656  ast 0.822  random 0.863 | AST-random -0.041 [-0.076,-0.006] lower               | AST-base +0.166 higher
+   bracket_balance_match  n= 314  base 0.761  ast 0.888  random 0.904 | AST-random -0.016 [-0.048,+0.016] no clear difference | AST-base +0.127 higher
+   stopped                n= 314  base 0.580  ast 0.809  random 0.812 | AST-random -0.003 [-0.041,+0.038] no clear difference | AST-base +0.229 higher
+   compile_pass           n=  93  base 0.409  ast 0.559  random 0.634 | AST-random -0.075 [-0.140,-0.021] lower               | AST-base +0.150 higher
+
+== reth_random | ends mid-line  (n=64)
+   exact_match            n=  64  base 0.328  ast 0.453  random 0.438 | AST-random +0.016 [-0.031,+0.078] no clear difference | AST-base +0.125 higher
+   edit_similarity        n=  64  base 0.703  ast 0.765  random 0.792 | AST-random -0.028 [-0.077,+0.026] no clear difference | AST-base +0.062 no clear difference
+   parse_clean            n=  64  base 0.578  ast 0.844  random 0.953 | AST-random -0.109 [-0.219,+0.000] no clear difference | AST-base +0.266 higher
+   bracket_balance_match  n=  64  base 0.656  ast 0.875  random 0.953 | AST-random -0.078 [-0.172,+0.016] no clear difference | AST-base +0.219 higher
+   stopped                n=  64  base 0.625  ast 0.859  random 0.875 | AST-random -0.016 [-0.094,+0.062] no clear difference | AST-base +0.234 higher
+   compile_pass           n=  24  base 0.458  ast 0.625  random 0.583 | AST-random +0.042 [+0.000,+0.125] no clear difference | AST-base +0.167 no clear difference
+
+== reth_random | starts mid-line  (n=13)
+   exact_match            n=  13  base 0.154  ast 0.154  random 0.154 | AST-random +0.000 [+0.000,+0.000] no clear difference | AST-base +0.000 no clear difference
+   edit_similarity        n=  13  base 0.584  ast 0.607  random 0.697 | AST-random -0.091 [-0.228,+0.038] no clear difference | AST-base +0.022 no clear difference
+   parse_clean            n=  13  base 0.692  ast 0.846  random 0.769 | AST-random +0.077 [-0.231,+0.385] no clear difference | AST-base +0.154 no clear difference
+   bracket_balance_match  n=  13  base 0.769  ast 0.846  random 0.923 | AST-random -0.077 [-0.308,+0.154] no clear difference | AST-base +0.077 no clear difference
+   stopped                n=  13  base 0.615  ast 0.846  random 0.769 | AST-random +0.077 [-0.231,+0.385] no clear difference | AST-base +0.231 no clear difference
+
+== reth_random | whole lines  (n=2)
+
+== reth_random | both ends mid-node  (n=247)
+   exact_match            n= 247  base 0.170  ast 0.247  random 0.251 | AST-random -0.004 [-0.024,+0.016] no clear difference | AST-base +0.077 higher
+   edit_similarity        n= 247  base 0.586  ast 0.653  random 0.669 | AST-random -0.016 [-0.037,+0.003] no clear difference | AST-base +0.067 higher
+   parse_clean            n= 247  base 0.644  ast 0.826  random 0.858 | AST-random -0.032 [-0.073,+0.008] no clear difference | AST-base +0.182 higher
+   bracket_balance_match  n= 247  base 0.753  ast 0.899  random 0.903 | AST-random -0.004 [-0.044,+0.036] no clear difference | AST-base +0.146 higher
+   stopped                n= 247  base 0.559  ast 0.806  random 0.789 | AST-random +0.016 [-0.028,+0.061] no clear difference | AST-base +0.247 higher
+   compile_pass           n=  76  base 0.421  ast 0.592  random 0.618 | AST-random -0.026 [-0.079,+0.026] no clear difference | AST-base +0.171 higher
+
+== reth_random | both ends node-aligned  (n=12)
+   exact_match            n=  12  base 0.167  ast 0.167  random 0.167 | AST-random +0.000 [+0.000,+0.000] no clear difference | AST-base +0.000 no clear difference
+   edit_similarity        n=  12  base 0.531  ast 0.451  random 0.496 | AST-random -0.045 [-0.121,+0.023] no clear difference | AST-base -0.080 lower
+   parse_clean            n=  12  base 0.750  ast 0.583  random 0.750 | AST-random -0.167 [-0.417,+0.000] no clear difference | AST-base -0.167 no clear difference
+   bracket_balance_match  n=  12  base 0.750  ast 0.583  random 0.750 | AST-random -0.167 [-0.417,+0.000] no clear difference | AST-base -0.167 no clear difference
+   stopped                n=  12  base 0.750  ast 0.583  random 0.750 | AST-random -0.167 [-0.417,+0.000] no clear difference | AST-base -0.167 no clear difference
+
+== reth_random | one end mid-node  (n=134)
+   exact_match            n= 134  base 0.246  ast 0.343  random 0.351 | AST-random -0.007 [-0.045,+0.030] no clear difference | AST-base +0.097 higher
+   edit_similarity        n= 134  base 0.661  ast 0.731  random 0.765 | AST-random -0.035 [-0.066,-0.004] lower               | AST-base +0.070 higher
+   parse_clean            n= 134  base 0.642  ast 0.851  random 0.918 | AST-random -0.067 [-0.134,+0.000] no clear difference | AST-base +0.209 higher
+   bracket_balance_match  n= 134  base 0.731  ast 0.888  random 0.948 | AST-random -0.060 [-0.119,-0.007] lower               | AST-base +0.157 higher
+   stopped                n= 134  base 0.627  ast 0.866  random 0.881 | AST-random -0.015 [-0.075,+0.052] no clear difference | AST-base +0.239 higher
+   compile_pass           n=  40  base 0.375  ast 0.525  random 0.650 | AST-random -0.125 [-0.250,+0.000] no clear difference | AST-base +0.150 no clear difference

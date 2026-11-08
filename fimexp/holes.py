@@ -146,16 +146,25 @@ def n_examples_for(n_bytes: int, bytes_per_example: int) -> int:
     return max(1, math.ceil(n_bytes / bytes_per_example))
 
 
-def aligned_span(tree, src: SourceText, rng: random.Random, exempt_types, max_tries: int = 20):
+def aligned_span(tree, src: SourceText, rng: random.Random, exempt_types, max_tries: int = 20, max_span_chars: int | None = None,
+                 target_chars: int | None = None):
     """Aligned-span masking (AST-FIM): sample a character span with uniform random endpoints, take the smallest
     eligible named node containing it, and return the contiguous run of that node's direct named children with the
     largest character-level IoU with the span (the node itself if it has no named children).
-    Returns (start_char, end_char, node_type) on exact node boundaries, or None."""
+    Returns (start_char, end_char, node_type) on exact node boundaries, or None.
+
+    max_span_chars (windowed variant, adapted to a fixed context length): instead of two endpoints anywhere in the
+    file, draw a uniform random center and a uniform random length in [1, max_span_chars], then snap as above.
+    target_chars (length-matched variant): random center, span length = target_chars, then snap as above."""
     n = len(src.text)
     if n < 2:
         return None
     for _ in range(max_tries):
-        a, b = sorted(rng.sample(range(n + 1), 2))
+        if target_chars is None and max_span_chars is None:
+            a, b = sorted(rng.sample(range(n + 1), 2))
+        else:
+            length = max(1, min(target_chars, n)) if target_chars is not None else rng.randint(1, min(max_span_chars, n))
+            a = max(0, min(rng.randint(0, n) - length // 2, n - length)); b = a + length
         if src.text[a:b].strip() == "":
             continue
         bs, be = src.byte_of_char(a), src.byte_of_char(b)

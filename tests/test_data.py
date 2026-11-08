@@ -143,3 +143,27 @@ def test_aligned_span_is_node_aligned_and_reproducible():
         assert src.byte_of_char(s) in starts and src.byte_of_char(e) in ends and text[s:e].strip()
         seen.add(text[s:e])
     assert any("\n" in x for x in seen) and len(seen) > 5   # multi-statement spans occur, and variety
+
+
+def test_windowed_aligned_span_respects_cap_before_snapping():
+    import random as _r
+    from fimexp.holes import aligned_span
+    text = "".join(f"fn f{i}(x: u32) -> u32 {{\n    let y = x + {i};\n    y * 2\n}}\n\n" for i in range(300))
+    src = SourceText(text); tree = parser().parse(src.data)
+    lit = [aligned_span(tree, src, _r.Random(s), EXEMPT) for s in range(200)]
+    win = [aligned_span(tree, src, _r.Random(s), EXEMPT, max_span_chars=400) for s in range(200)]
+    mean = lambda xs: sum(e - s for s, e, _ in xs) / len(xs)
+    assert all(w is not None for w in win)
+    assert mean(win) < mean(lit) / 5          # windowed spans are much smaller than file-wide random endpoints
+    assert aligned_span(tree, src, _r.Random(3), EXEMPT, max_span_chars=400) == aligned_span(tree, src, _r.Random(3), EXEMPT, max_span_chars=400)
+
+
+def test_length_matched_aligned_span():
+    import random as _r
+    from fimexp.holes import aligned_span
+    text = "".join(f"fn f{i}(x: u32) -> u32 {{\n    let y = x + {i};\n    y * 2\n}}\n\n" for i in range(300))
+    src = SourceText(text); tree = parser().parse(src.data)
+    for target in (5, 40, 400):
+        spans = [aligned_span(tree, src, _r.Random(s), EXEMPT, target_chars=target) for s in range(100)]
+        med = sorted(e - s for s, e, _ in spans)[50]
+        assert target / 4 <= med <= target * 4, (target, med)   # snapped lengths track the target

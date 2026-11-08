@@ -22,6 +22,7 @@ from .psm import PSM
 from .score import l2r_windows
 
 ARMS = ("R", "S", "A", "M")
+SIZE_CLASSES = [(1, 8, "tiny"), (9, 32, "small"), (33, 128, "medium"), (129, 512, "large"), (513, 10**9, "very_large")]
 
 
 def main():
@@ -30,6 +31,10 @@ def main():
     ap.add_argument("--base_version", default="rust-fim-v2")
     ap.add_argument("--l2r_share", type=float, default=0.25)
     ap.add_argument("--seed", type=int, default=20261103)
+    ap.add_argument("--l2r_window_tokens", type=int, default=None, help="left-to-right window size (default: max_seq_tokens)")
+    ap.add_argument("--aligned_mode", choices=["matched", "windowed", "literal"], default="matched",
+                    help="windowed: random center + random length <= aligned_max_tokens (adapted); literal: endpoints anywhere in the file")
+    ap.add_argument("--aligned_max_tokens", type=int, default=3000)
     args = ap.parse_args()
     cfg = sources.load_config(); dcfg = cfg["data"]
     out = sources.ROOT / dcfg["output_dir"] / args.version
@@ -41,10 +46,18 @@ def main():
     reth = sources.ROOT / cfg["sources"]["reth"]["path"]
     psm = PSM(load_tokenizer(cfg), cfg["format"]); win = Windower(psm, dcfg["max_seq_tokens"]); ts = parser()
     exempt = set(dcfg["keyword_text_exempt_types"]); crate_of = split["crate_to_split"]
+    c = t = 0
+    for line in open(base / "train_ast.jsonl"):
+        r = json.loads(line); c += len(r["middle"]); t += r["tokens"]["middle"]
+    chars_per_token = c / t
+    max_span_chars = round(args.aligned_max_tokens * chars_per_token) if args.aligned_mode == "windowed" else None
+    l2r_tokens = args.l2r_window_tokens or dcfg["max_seq_tokens"]
     out.mkdir(parents=True)
     w = {a: open(out / f"train_{a}.jsonl", "w") for a in ARMS}
     w_val = open(out / "validation_aligned.jsonl", "w")
     drops, kinds, kept_slots = collections.Counter(), {a: collections.Counter() for a in ARMS}, 0
+    sizes = collections.defaultdict(list)  # (arm, hole kind) -> answer tokens
+    slots_tried = collections.Counter()
     l2r_pool, val_n = [], 0
 
     def crate_for(path):
@@ -62,10 +75,13 @@ def main():
             f = {"path": path, "crate": crate_for(path)}
             line_tok = None
             for k in range(n_examples_for(len(data), dcfg["bytes_per_example"])):
+                slots_tried[split_name] += 1
                 rng = random.Random(f"{args.seed}:{path}:{k}")
                 single = rng.choices(nodes, weights=[x["end_byte"] - x["start_byte"] for x in nodes])[0]
                 sh = (src.char_of_byte(single["start_byte"]), src.char_of_byte(single["end_byte"]), single["type"], "single", single["is_comment"])
-                al = aligned_span(tree, src, random.Random(f"{args.seed}:{path}:{k}:aligned"), exempt)
+                target = (sh[1] - sh[0]) if args.aligned_mode == "matched" else None
+                al = aligned_span(tree, src, random.Random(f"{args.seed}:{path}:{k}:aligned"), exempt,
+                                  max_span_chars=max_span_chars, target_chars=target)
                 if al is None:
                     drops[f"{split_name}: no aligned span"] += 1; continue
                 if split_name == "validation":
@@ -95,13 +111,15 @@ def main():
                     drops[f"{split_name}: slot dropped (an arm's answer does not fit)"] += 1; continue
                 if split_name == "validation":
                     w_val.write(json.dumps(built["V"], ensure_ascii=False) + "\n"); val_n += 1
+                    sizes[("validation", "aligned")].append(built["V"]["tokens"]["middle"])
                 else:
                     kept_slots += 1
                     for arm in ARMS:
                         kinds[arm][built[arm]["hole_kind"]] += 1
+                        sizes[(arm, built[arm]["hole_kind"])].append(built[arm]["tokens"]["middle"])
                         w[arm].write(json.dumps(built[arm], ensure_ascii=False) + "\n")
             if split_name == "train":
-                for i, t in enumerate(l2r_windows(src, psm, dcfg["max_seq_tokens"])[0]):
+                for i, t in enumerate(l2r_windows(src, psm, l2r_tokens)[0]):
                     l2r_pool.append({"id": f"{path}#l2r{i}", "kind": "l2r", "path": path, "crate": f["crate"], "split": "train", "text": t})
     n_l2r = round(kept_slots * args.l2r_share / (1 - args.l2r_share))
     l2r = random.Random(args.seed).sample(l2r_pool, min(n_l2r, len(l2r_pool)))
@@ -114,11 +132,28 @@ def main():
     w_val.close()
     manifest = {"version": args.version, "base_version": args.base_version, "created_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                 "plan": "checks/screening/PLAN.md", "sources": pins, "code": code_revision(), "seed": args.seed,
+                "l2r_window_tokens": l2r_tokens, "l2r_pool": len(l2r_pool),
+                "aligned_span": {"mode": args.aligned_mode, "max_tokens": args.aligned_max_tokens if max_span_chars else None,
+                                 "chars_per_token": round(chars_per_token, 4), "max_span_chars": max_span_chars,
+                                 "rule": {"matched": "length-matched: center ~ U[0,n], target length = the same slot's single-node hole length (chars), "
+                                                     "then snapped to the best-IoU run of direct named children of the smallest containing node",
+                                          "windowed": "windowed: center ~ U[0,n], length ~ U[1, max_span_chars], then snapped as above",
+                                          "literal": "paper-literal: endpoints ~ U over the whole file, then snapped as above"}[args.aligned_mode]},
+                "slots_tried": dict(slots_tried),
+                "slot_drop_rate": {k: round(sum(v for d, v in drops.items() if d.startswith(k) and "slot dropped" in d) / slots_tried[k], 4) for k in slots_tried},
+                "answer_tokens": {f"{a}/{k}": quantiles(v) for (a, k), v in sorted(sizes.items())},
+                "size_classes": {f"{a}/{k}": {name: sum(lo <= x <= hi for x in v) for lo, hi, name in SIZE_CLASSES} for (a, k), v in sorted(sizes.items())},
                 "fim_slots_per_arm": kept_slots, "l2r_examples_per_arm": len(l2r), "l2r_share": round(len(l2r) / (kept_slots + len(l2r)), 4),
                 "hole_kinds": {a: dict(kinds[a]) for a in ARMS}, "validation_aligned": val_n, "drops": dict(drops),
                 "split_sha256": sources.sha256_file(base / "split.json")}
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
-    print(json.dumps({k: manifest[k] for k in ("fim_slots_per_arm", "l2r_examples_per_arm", "l2r_share", "hole_kinds", "validation_aligned", "drops")}, indent=1))
+    print(json.dumps({k: manifest[k] for k in ("aligned_span", "slots_tried", "slot_drop_rate", "fim_slots_per_arm", "l2r_examples_per_arm",
+                                               "l2r_share", "hole_kinds", "validation_aligned", "drops")}, indent=1))
+    for k, sc in manifest["size_classes"].items():
+        tot = sum(sc.values()) or 1
+        print(f"  size classes {k:22s} " + "  ".join(f"{n} {100*v/tot:4.1f}%" for n, v in sc.items()))
+    for k, q in manifest["answer_tokens"].items():
+        print(f"  answer tokens {k:22s} n={q['n']:5d} p10 {q['p10']:5d} p50 {q['p50']:5d} p90 {q['p90']:5d} max {q['max']:5d}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,54 @@
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (34304 > 16384). Running this sequence through the model will result in indexing errors
+{
+ "aligned_span": {
+  "mode": "windowed",
+  "max_tokens": 3000,
+  "chars_per_token": 3.4813,
+  "max_span_chars": 10444,
+  "rule": "windowed: center ~ U[0,n], length ~ U[1, max_span_chars], then snapped to the best-IoU run of direct named children of the smallest containing node"
+ },
+ "slots_tried": {
+  "train": 8263,
+  "validation": 553
+ },
+ "slot_drop_rate": {
+  "train": 0.1461,
+  "validation": 0.0615
+ },
+ "fim_slots_per_arm": 7056,
+ "l2r_examples_per_arm": 1920,
+ "l2r_share": 0.2139,
+ "hole_kinds": {
+  "R": {
+   "random": 7056
+  },
+  "S": {
+   "single": 6314,
+   "random": 742
+  },
+  "A": {
+   "aligned": 6314,
+   "random": 742
+  },
+  "M": {
+   "aligned": 3183,
+   "random": 742,
+   "single": 3131
+  }
+ },
+ "validation_aligned": 519,
+ "drops": {
+  "train: slot dropped (an arm's answer does not fit)": 1207,
+  "train: parse-error file": 3,
+  "validation: slot dropped (an arm's answer does not fit)": 34
+ }
+}
+  answer tokens A/aligned              n= 6314 p10   208 p50  1344 p90  2990 max  4081
+  answer tokens A/random               n=  742 p10   175 p50  1397 p90  2969 max  4073
+  answer tokens M/aligned              n= 3183 p10   220 p50  1346 p90  2986 max  4081
+  answer tokens M/random               n=  742 p10    14 p50   420 p90  2612 max  3906
+  answer tokens M/single               n= 3131 p10     7 p50    83 p90  1155 max  3985
+  answer tokens R/random               n= 7056 p10    13 p50   504 p90  2629 max  4081
+  answer tokens S/random               n=  742 p10     8 p50   101 p90  1138 max  3929
+  answer tokens S/single               n= 6314 p10     7 p50    83 p90  1108 max  4030
+  answer tokens validation/aligned     n=  519 p10   240 p50  1433 p90  2991 max  3961

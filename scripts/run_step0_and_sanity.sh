@@ -13,7 +13,7 @@ LOG=results/val_structural/chain.log
 log() { echo "[$(date '+%F %T %Z')] $*" | tee -a "$LOG"; }
 
 log "waiting for generation processes"
-while pgrep -f "fimexp.gen_batch" >/dev/null; do sleep 30; done
+while pgrep -f "python -m fimexp.gen_batch" >/dev/null; do sleep 30; done
 for m in base ast random; do test "$(wc -l < $GEN/$m.jsonl)" -eq "$(wc -l < $GEN/items.jsonl)" || { log "generation for $m incomplete"; exit 1; }; done
 log "generation complete"
 
