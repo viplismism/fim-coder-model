@@ -1,0 +1,1107 @@
+{
+ "rule": "PROPOSE training-pool and fresh held-out repos per language from GitHub search metadata (read-only, no cloning).\n\nRule (fixed before running):\n- Search: language:<L>, not a fork, not archived, sorted by stars (desc).\n  - training pool: stars >= 2000, pushed >= 2025-01-01 (active), any creation date\n  - fresh held-out: created 2024-01-01..2025-06-30 (after the base model's data; >= 16 months of history), stars >= 500\n- Keep: licence MIT, Apache-2.0, BSD-2-Clause or BSD-3-Clause; GitHub primary language == <L>;\n  repo size between 2 MB and 300 MB (metadata `size`; exact code bytes are verified later with sparse clones).\n- Exclude: every Real-FIM-Eval repo (all languages), every repo in heldout-v1, owners already picked (one repo per\n  owner, across the training pool and held-out of the same language), and non-library repos by name/description\n  keywords (awesome lists, tutorials, courses, books, interview/leetcode collections).\n- Take, in star order: 12 training-pool repos, then 10 held-out repos. Rust: reth is kept as one of the 12 (continuity\n  with the earlier experiment); the other 11 come from the search.\nWrites checks/multilang/proposed_repos.json and .md.\n",
+ "searched": "2026-11-11",
+ "languages": {
+  "rust": {
+   "train": {
+    "picked": [
+     {
+      "repo": "paradigmxyz/reth",
+      "note": "kept for continuity with the earlier experiment"
+     },
+     {
+      "repo": "ultraworkers/claw-code",
+      "stars": 194792,
+      "licence": "MIT",
+      "created": "2026-03-31",
+      "pushed": "2026-11-10",
+      "size_mb": 27.4,
+      "description": "An agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex \u2014 developed and"
+     },
+     {
+      "repo": "farion1231/cc-switch",
+      "stars": 153490,
+      "licence": "MIT",
+      "created": "2025-08-04",
+      "pushed": "2026-11-11",
+      "size_mb": 115.7,
+      "description": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode,DeepSeek Ha"
+     },
+     {
+      "repo": "rtk-ai/rtk",
+      "stars": 86157,
+      "licence": "Apache-2.0",
+      "created": "2026-01-22",
+      "pushed": "2026-11-11",
+      "size_mb": 18.1,
+      "description": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust"
+     },
+     {
+      "repo": "storytold/photocraft",
+      "stars": 78574,
+      "licence": "Apache-2.0",
+      "created": "2026-09-30",
+      "pushed": "2026-11-11",
+      "size_mb": 173.3,
+      "description": "PhotoCraft: An open-source photo editor written from scratch in pure Rust"
+     },
+     {
+      "repo": "openinterpreter/openinterpreter",
+      "stars": 68859,
+      "licence": "Apache-2.0",
+      "created": "2023-07-14",
+      "pushed": "2026-11-11",
+      "size_mb": 285.2,
+      "description": "A coding agent for open models like Kimi K3 and GLM 5.3"
+     },
+     {
+      "repo": "alacritty/alacritty",
+      "stars": 66164,
+      "licence": "Apache-2.0",
+      "created": "2016-02-18",
+      "pushed": "2026-11-06",
+      "size_mb": 14.6,
+      "description": "A cross-platform, OpenGL terminal emulator."
+     },
+     {
+      "repo": "herdrdev/herdr",
+      "stars": 50089,
+      "licence": "Apache-2.0",
+      "created": "2026-03-27",
+      "pushed": "2026-11-07",
+      "size_mb": 49.7,
+      "description": "the runtime your coding agents live on"
+     },
+     {
+      "repo": "vercel-labs/agent-browser",
+      "stars": 49449,
+      "licence": "Apache-2.0",
+      "created": "2026-01-11",
+      "pushed": "2026-11-11",
+      "size_mb": 33.3,
+      "description": "Browser automation CLI for AI agents"
+     },
+     {
+      "repo": "sharkdp/fd",
+      "stars": 45149,
+      "licence": "Apache-2.0",
+      "created": "2017-05-09",
+      "pushed": "2026-11-09",
+      "size_mb": 2.6,
+      "description": "A simple, fast and user-friendly alternative to 'find'"
+     },
+     {
+      "repo": "parcel-bundler/parcel",
+      "stars": 44012,
+      "licence": "MIT",
+      "created": "2017-08-07",
+      "pushed": "2026-11-11",
+      "size_mb": 69.5,
+      "description": "The zero configuration build tool for the web. \ud83d\udce6\ud83d\ude80"
+     },
+     {
+      "repo": "sxyazi/yazi",
+      "stars": 43348,
+      "licence": "MIT",
+      "created": "2023-07-08",
+      "pushed": "2026-11-10",
+      "size_mb": 10.3,
+      "description": "\ud83d\udca5 Blazing fast terminal file manager written in Rust, based on async I/O."
+     }
+    ],
+    "skipped_count": 31,
+    "skipped_reasons": {
+     "in": 15,
+     "licence": 8,
+     "not": 1,
+     "repo": 7
+    }
+   },
+   "heldout": {
+    "picked": [
+     {
+      "repo": "0xPlaygrounds/rig",
+      "stars": 9112,
+      "licence": "MIT",
+      "created": "2024-06-05",
+      "pushed": "2026-11-11",
+      "size_mb": 155.2,
+      "description": "\u2699\ufe0f\ud83e\udd80 Build modular and scalable LLM Applications in Rust"
+     },
+     {
+      "repo": "EricLBuehler/mistral.rs",
+      "stars": 7827,
+      "licence": "MIT",
+      "created": "2024-02-26",
+      "pushed": "2026-11-09",
+      "size_mb": 245.8,
+      "description": "Fast, flexible LLM inference"
+     },
+     {
+      "repo": "alexpasmantier/television",
+      "stars": 6414,
+      "licence": "MIT",
+      "created": "2024-09-15",
+      "pushed": "2026-11-03",
+      "size_mb": 44.3,
+      "description": "A very fast, portable and hackable fuzzy finder."
+     },
+     {
+      "repo": "denoland/celld",
+      "stars": 6288,
+      "licence": "Apache-2.0",
+      "created": "2025-04-25",
+      "pushed": "2026-10-21",
+      "size_mb": 3.7,
+      "description": "self-hosted, distributed Durable Objects"
+     },
+     {
+      "repo": "HelixDB/helix-db",
+      "stars": 6281,
+      "licence": "Apache-2.0",
+      "created": "2024-11-23",
+      "pushed": "2026-11-10",
+      "size_mb": 56.5,
+      "description": "HelixDB is an OLTP graph database with native vector and full-text search built in Rust on"
+     },
+     {
+      "repo": "zensical/zensical",
+      "stars": 6137,
+      "licence": "MIT",
+      "created": "2025-05-18",
+      "pushed": "2026-11-10",
+      "size_mb": 4.1,
+      "description": "A modern static site generator by the Material for MkDocs team"
+     },
+     {
+      "repo": "agentgateway/agentgateway",
+      "stars": 6106,
+      "licence": "Apache-2.0",
+      "created": "2025-03-18",
+      "pushed": "2026-11-10",
+      "size_mb": 70.5,
+      "description": "Next Generation Agentic Proxy for AI Agents and MCP servers"
+     },
+     {
+      "repo": "microsoft/sudo",
+      "stars": 5863,
+      "licence": "MIT",
+      "created": "2024-02-01",
+      "pushed": "2026-11-04",
+      "size_mb": 2.5,
+      "description": "It's sudo, for Windows"
+     },
+     {
+      "repo": "achristmascarl/rainfrog",
+      "stars": 5399,
+      "licence": "MIT",
+      "created": "2024-05-15",
+      "pushed": "2026-11-11",
+      "size_mb": 17.8,
+      "description": "\ud83d\udc38 a database tool for the terminal"
+     },
+     {
+      "repo": "ArthurBrussee/brush",
+      "stars": 5282,
+      "licence": "Apache-2.0",
+      "created": "2024-02-23",
+      "pushed": "2026-10-03",
+      "size_mb": 235.7,
+      "description": "3D Reconstruction for all"
+     }
+    ],
+    "skipped_count": 47,
+    "skipped_reasons": {
+     "in": 15,
+     "licence": 20,
+     "repo": 12
+    }
+   }
+  },
+  "python": {
+   "train": {
+    "picked": [
+     {
+      "repo": "public-apis/public-apis",
+      "stars": 498061,
+      "licence": "MIT",
+      "created": "2016-03-20",
+      "pushed": "2026-11-07",
+      "size_mb": 15.8,
+      "description": "A collective list of free APIs"
+     },
+     {
+      "repo": "TheAlgorithms/Python",
+      "stars": 226011,
+      "licence": "MIT",
+      "created": "2016-07-16",
+      "pushed": "2026-11-02",
+      "size_mb": 18.3,
+      "description": "All Algorithms implemented in Python"
+     },
+     {
+      "repo": "microsoft/markitdown",
+      "stars": 194871,
+      "licence": "MIT",
+      "created": "2024-11-13",
+      "pushed": "2026-11-07",
+      "size_mb": 6.0,
+      "description": "Python tool for converting files and office documents to Markdown."
+     },
+     {
+      "repo": "github/spec-kit",
+      "stars": 149248,
+      "licence": "MIT",
+      "created": "2025-08-21",
+      "pushed": "2026-11-10",
+      "size_mb": 23.3,
+      "description": "\ud83d\udcab Toolkit to help you get started with SDD or any other process!"
+     },
+     {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "stars": 147933,
+      "licence": "MIT",
+      "created": "2025-11-30",
+      "pushed": "2026-11-10",
+      "size_mb": 8.7,
+      "description": "An AI skill that provides design intelligence for building professional UI/UX across multi"
+     },
+     {
+      "repo": "Graphify-Labs/graphify",
+      "stars": 145794,
+      "licence": "Apache-2.0",
+      "created": "2026-04-03",
+      "pushed": "2026-11-10",
+      "size_mb": 35.0,
+      "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowled"
+     },
+     {
+      "repo": "TauricResearch/TradingAgents",
+      "stars": 121920,
+      "licence": "Apache-2.0",
+      "created": "2024-12-28",
+      "pushed": "2026-11-04",
+      "size_mb": 6.6,
+      "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework"
+     },
+     {
+      "repo": "browser-use/browser-use",
+      "stars": 120656,
+      "licence": "MIT",
+      "created": "2024-10-31",
+      "pushed": "2026-11-11",
+      "size_mb": 40.1,
+      "description": "Open-source Python library for AI browser agents, plus Browser Use Cloud: stealth browsers"
+     },
+     {
+      "repo": "openai/whisper",
+      "stars": 112400,
+      "licence": "MIT",
+      "created": "2022-09-16",
+      "pushed": "2026-08-31",
+      "size_mb": 12.8,
+      "description": "Robust Speech Recognition via Large-Scale Weak Supervision"
+     },
+     {
+      "repo": "Panniantong/Agent-Reach",
+      "stars": 110972,
+      "licence": "MIT",
+      "created": "2026-02-24",
+      "pushed": "2026-11-08",
+      "size_mb": 3.4,
+      "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube"
+     },
+     {
+      "repo": "sherlock-project/sherlock",
+      "stars": 109440,
+      "licence": "MIT",
+      "created": "2018-12-24",
+      "pushed": "2026-11-11",
+      "size_mb": 19.1,
+      "description": "Hunt down social media accounts by username across social networks"
+     },
+     {
+      "repo": "fastapi/fastapi",
+      "stars": 104655,
+      "licence": "MIT",
+      "created": "2018-12-08",
+      "pushed": "2026-11-10",
+      "size_mb": 60.7,
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+     }
+    ],
+    "skipped_count": 22,
+    "skipped_reasons": {
+     "in": 3,
+     "licence": 13,
+     "not": 1,
+     "repo": 5
+    }
+   },
+   "heldout": {
+    "picked": [
+     {
+      "repo": "D4Vinci/Scrapling",
+      "stars": 101310,
+      "licence": "BSD-3-Clause",
+      "created": "2024-10-13",
+      "pushed": "2026-11-09",
+      "size_mb": 16.3,
+      "description": "\ud83d\udd77\ufe0f The BEST Web Scraping framework that handles everything from a single request to a full"
+     },
+     {
+      "repo": "unclecode/crawl4ai",
+      "stars": 87201,
+      "licence": "Apache-2.0",
+      "created": "2024-05-09",
+      "pushed": "2026-11-10",
+      "size_mb": 151.9,
+      "description": "Official Crawl4AI Cloud: a hosted web scraping, extraction, and search API for AI agents. "
+     },
+     {
+      "repo": "bytedance/deer-flow",
+      "stars": 85235,
+      "licence": "MIT",
+      "created": "2025-05-07",
+      "pushed": "2026-11-11",
+      "size_mb": 102.3,
+      "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With t"
+     },
+     {
+      "repo": "jingyaogong/minimind",
+      "stars": 65112,
+      "licence": "Apache-2.0",
+      "created": "2024-07-27",
+      "pushed": "2026-10-27",
+      "size_mb": 39.5,
+      "description": "\ud83e\udde0 Train a 64M-parameter LLM from scratch in just 2h!"
+     },
+     {
+      "repo": "RVC-Boss/GPT-SoVITS",
+      "stars": 64745,
+      "licence": "MIT",
+      "created": "2024-01-14",
+      "pushed": "2026-11-09",
+      "size_mb": 14.9,
+      "description": "1 min voice data can also be used to train a good TTS model! (few shot voice cloning)"
+     },
+     {
+      "repo": "virattt/ai-hedge-fund",
+      "stars": 64630,
+      "licence": "MIT",
+      "created": "2024-11-29",
+      "pushed": "2026-11-09",
+      "size_mb": 4.6,
+      "description": "An AI Hedge Fund Team"
+     },
+     {
+      "repo": "FoundationAgents/OpenManus",
+      "stars": 58947,
+      "licence": "MIT",
+      "created": "2025-03-06",
+      "pushed": "2026-11-02",
+      "size_mb": 4.7,
+      "description": "No fortress, purely open ground.  OpenManus is Coming."
+     },
+     {
+      "repo": "Zie619/n8n-workflows",
+      "stars": 57216,
+      "licence": "MIT",
+      "created": "2025-05-14",
+      "pushed": "2026-06-24",
+      "size_mb": 52.5,
+      "description": "all of the workflows of n8n i could find (also from the site itself)"
+     },
+     {
+      "repo": "exo-explore/exo",
+      "stars": 48294,
+      "licence": "Apache-2.0",
+      "created": "2024-06-24",
+      "pushed": "2026-11-06",
+      "size_mb": 43.7,
+      "description": "Run frontier AI locally."
+     },
+     {
+      "repo": "HKUDS/LightRAG",
+      "stars": 40646,
+      "licence": "MIT",
+      "created": "2024-10-02",
+      "pushed": "2026-11-11",
+      "size_mb": 120.0,
+      "description": "[EMNLP2025] LightRAG: Simple and Fast Retrieval-Augmented Generation"
+     }
+    ],
+    "skipped_count": 15,
+    "skipped_reasons": {
+     "licence": 6,
+     "not": 2,
+     "owner": 3,
+     "repo": 4
+    }
+   }
+  },
+  "typescript": {
+   "train": {
+    "picked": [
+     {
+      "repo": "morluto/rea",
+      "stars": 450817,
+      "licence": "MIT",
+      "created": "2026-04-14",
+      "pushed": "2026-11-11",
+      "size_mb": 154.9,
+      "description": "Reverse engineer anything with agents, from app behavior down to native binaries."
+     },
+     {
+      "repo": "garrytan/gstack",
+      "stars": 141138,
+      "licence": "MIT",
+      "created": "2026-03-11",
+      "pushed": "2026-11-11",
+      "size_mb": 268.8,
+      "description": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer,"
+     },
+     {
+      "repo": "excalidraw/excalidraw",
+      "stars": 135485,
+      "licence": "MIT",
+      "created": "2020-01-02",
+      "pushed": "2026-11-11",
+      "size_mb": 109.2,
+      "description": "Virtual whiteboard for sketching hand-drawn like diagrams"
+     },
+     {
+      "repo": "shadcn-ui/ui",
+      "stars": 127878,
+      "licence": "MIT",
+      "created": "2023-01-04",
+      "pushed": "2026-11-10",
+      "size_mb": 75.2,
+      "description": "Composable, accessible components with thoughtful defaults. Build your own component libra"
+     },
+     {
+      "repo": "earendil-works/pi",
+      "stars": 121330,
+      "licence": "MIT",
+      "created": "2025-08-09",
+      "pushed": "2026-11-11",
+      "size_mb": 106.6,
+      "description": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI"
+     },
+     {
+      "repo": "google-gemini/gemini-cli",
+      "stars": 108768,
+      "licence": "Apache-2.0",
+      "created": "2025-04-17",
+      "pushed": "2026-11-11",
+      "size_mb": 105.5,
+      "description": "An open-source AI agent that brings the power of Gemini directly into your terminal."
+     },
+     {
+      "repo": "ant-design/ant-design",
+      "stars": 100150,
+      "licence": "MIT",
+      "created": "2015-04-24",
+      "pushed": "2026-11-11",
+      "size_mb": 285.2,
+      "description": "An enterprise-class UI design language and React UI library"
+     },
+     {
+      "repo": "microsoft/playwright",
+      "stars": 99823,
+      "licence": "Apache-2.0",
+      "created": "2019-11-15",
+      "pushed": "2026-11-11",
+      "size_mb": 247.6,
+      "description": "Playwright is a framework for Web Testing and Automation. It allows testing Chromium, Fire"
+     },
+     {
+      "repo": "tailwindlabs/tailwindcss",
+      "stars": 98674,
+      "licence": "MIT",
+      "created": "2017-10-06",
+      "pushed": "2026-11-11",
+      "size_mb": 115.0,
+      "description": "A utility-first CSS framework for rapid UI development."
+     },
+     {
+      "repo": "OpenCut-app/OpenCut",
+      "stars": 98057,
+      "licence": "MIT",
+      "created": "2025-06-22",
+      "pushed": "2026-09-24",
+      "size_mb": 28.2,
+      "description": "The open-source CapCut alternative"
+     },
+     {
+      "repo": "Egonex-AI/Understand-Anything",
+      "stars": 91951,
+      "licence": "MIT",
+      "created": "2026-03-15",
+      "pushed": "2026-11-11",
+      "size_mb": 35.6,
+      "description": "Graphs that teach > graphs that impress. Turn any code into an interactive knowledge graph"
+     },
+     {
+      "repo": "mermaid-js/mermaid",
+      "stars": 91074,
+      "licence": "MIT",
+      "created": "2014-11-01",
+      "pushed": "2026-11-11",
+      "size_mb": 283.8,
+      "description": "Generation of diagrams like flowcharts or sequence diagrams from text in a similar manner "
+     }
+    ],
+    "skipped_count": 23,
+    "skipped_reasons": {
+     "in": 2,
+     "licence": 8,
+     "not": 1,
+     "repo": 12
+    }
+   },
+   "heldout": {
+    "picked": [
+     {
+      "repo": "upstash/context7",
+      "stars": 64556,
+      "licence": "MIT",
+      "created": "2025-03-26",
+      "pushed": "2026-11-10",
+      "size_mb": 48.5,
+      "description": "Context7 Platform -- Up-to-date docs for AI agents"
+     },
+     {
+      "repo": "ItzCrazyKns/Vane",
+      "stars": 38156,
+      "licence": "MIT",
+      "created": "2024-04-09",
+      "pushed": "2026-09-01",
+      "size_mb": 113.1,
+      "description": "Vane is an AI-powered answering engine."
+     },
+     {
+      "repo": "musistudio/claude-code-router",
+      "stars": 38093,
+      "licence": "MIT",
+      "created": "2025-02-25",
+      "pushed": "2026-10-10",
+      "size_mb": 46.8,
+      "description": "One local control plane for every AI agent: route across models, fuse new capabilities, or"
+     },
+     {
+      "repo": "DayuanJiang/next-ai-draw-io",
+      "stars": 36876,
+      "licence": "Apache-2.0",
+      "created": "2025-03-23",
+      "pushed": "2026-11-10",
+      "size_mb": 11.8,
+      "description": "Draw and edit draw.io diagrams by chatting with an AI. Web app, desktop app, and an MCP se"
+     },
+     {
+      "repo": "supermemoryai/supermemory",
+      "stars": 31593,
+      "licence": "MIT",
+      "created": "2024-02-27",
+      "pushed": "2026-11-11",
+      "size_mb": 215.3,
+      "description": "Memory and context engine + app that is extremely fast, scalable, and can be run fully loc"
+     },
+     {
+      "repo": "shardeum/shardeum",
+      "stars": 31172,
+      "licence": "MIT",
+      "created": "2024-04-16",
+      "pushed": "2025-09-15",
+      "size_mb": 29.3,
+      "description": "Shardeum is an EVM based autoscaling blockchain"
+     },
+     {
+      "repo": "better-auth/better-auth",
+      "stars": 30703,
+      "licence": "MIT",
+      "created": "2024-05-19",
+      "pushed": "2026-11-11",
+      "size_mb": 172.5,
+      "description": "The most comprehensive authentication framework"
+     },
+     {
+      "repo": "yamadashy/repomix",
+      "stars": 29226,
+      "licence": "MIT",
+      "created": "2024-07-13",
+      "pushed": "2026-11-08",
+      "size_mb": 30.5,
+      "description": "\ud83d\udce6 Repomix is a powerful tool that packs your entire repository into a single, AI-friendly "
+     },
+     {
+      "repo": "onlook-dev/onlook",
+      "stars": 27169,
+      "licence": "Apache-2.0",
+      "created": "2024-06-25",
+      "pushed": "2026-10-21",
+      "size_mb": 83.0,
+      "description": "The Developer Tool for Visual Engineers \u2022 An Open-Source AI-First Design tool \u2022 Visually b"
+     },
+     {
+      "repo": "browserbase/stagehand",
+      "stars": 25995,
+      "licence": "MIT",
+      "created": "2024-03-24",
+      "pushed": "2026-11-11",
+      "size_mb": 206.6,
+      "description": "The SDK to extract data and interact with any site on the web. Get started with Claude Cod"
+     }
+    ],
+    "skipped_count": 28,
+    "skipped_reasons": {
+     "licence": 13,
+     "not": 2,
+     "owner": 3,
+     "repo": 10
+    }
+   }
+  },
+  "go": {
+   "train": {
+    "picked": [
+     {
+      "repo": "JuliusBrussee/caveman",
+      "stars": 118965,
+      "licence": "Apache-2.0",
+      "created": "2026-04-04",
+      "pushed": "2026-11-10",
+      "size_mb": 21.8,
+      "description": "\ud83e\udea8 why use many token when few token do trick. Viral skill + proxy for coding agents that c"
+     },
+     {
+      "repo": "fatedier/frp",
+      "stars": 110529,
+      "licence": "Apache-2.0",
+      "created": "2015-12-21",
+      "pushed": "2026-11-10",
+      "size_mb": 33.2,
+      "description": "A fast reverse proxy to help you expose a local server behind a NAT or firewall to the int"
+     },
+     {
+      "repo": "infiniflow/ragflow",
+      "stars": 93998,
+      "licence": "Apache-2.0",
+      "created": "2023-12-12",
+      "pushed": "2026-11-11",
+      "size_mb": 192.3,
+      "description": "RAGFlow is an agent-native database: a Retrieval-Augmented Generation (RAG) engine that gr"
+     },
+     {
+      "repo": "gin-gonic/gin",
+      "stars": 89619,
+      "licence": "MIT",
+      "created": "2014-06-16",
+      "pushed": "2026-10-10",
+      "size_mb": 10.7,
+      "description": "Gin is a high-performance HTTP web framework written in Go. It provides a Martini-like API"
+     },
+     {
+      "repo": "junegunn/fzf",
+      "stars": 84147,
+      "licence": "MIT",
+      "created": "2013-10-23",
+      "pushed": "2026-11-07",
+      "size_mb": 8.5,
+      "description": ":cherry_blossom: A command-line fuzzy finder"
+     },
+     {
+      "repo": "jesseduffield/lazygit",
+      "stars": 83818,
+      "licence": "MIT",
+      "created": "2018-05-19",
+      "pushed": "2026-11-11",
+      "size_mb": 169.2,
+      "description": "simple terminal UI for git commands"
+     },
+     {
+      "repo": "nektos/act",
+      "stars": 72642,
+      "licence": "MIT",
+      "created": "2019-01-02",
+      "pushed": "2026-11-04",
+      "size_mb": 20.1,
+      "description": "Run your GitHub Actions locally \ud83d\ude80"
+     },
+     {
+      "repo": "moby/moby",
+      "stars": 72369,
+      "licence": "Apache-2.0",
+      "created": "2013-01-18",
+      "pushed": "2026-11-10",
+      "size_mb": 280.2,
+      "description": "The Moby Project - a collaborative project for the container ecosystem to assemble contain"
+     },
+     {
+      "repo": "prometheus/prometheus",
+      "stars": 67630,
+      "licence": "Apache-2.0",
+      "created": "2012-11-24",
+      "pushed": "2026-11-11",
+      "size_mb": 296.7,
+      "description": "The Prometheus monitoring system and time series database."
+     },
+     {
+      "repo": "usememos/memos",
+      "stars": 64394,
+      "licence": "MIT",
+      "created": "2021-12-08",
+      "pushed": "2026-11-11",
+      "size_mb": 49.9,
+      "description": "Memos is an open-source, self-hosted note-taking app that brings your everyday thoughts to"
+     },
+     {
+      "repo": "router-for-me/CLIProxyAPI",
+      "stars": 58230,
+      "licence": "MIT",
+      "created": "2025-07-01",
+      "pushed": "2026-11-11",
+      "size_mb": 52.1,
+      "description": "Wrap Antigravity, ChatGPT Codex, Claude Code, Grok Build, Muse Code, Devin as an OpenAI/Ge"
+     },
+     {
+      "repo": "wagoodman/dive",
+      "stars": 54718,
+      "licence": "MIT",
+      "created": "2018-05-13",
+      "pushed": "2026-11-02",
+      "size_mb": 7.1,
+      "description": "A tool for exploring each layer in a docker image"
+     }
+    ],
+    "skipped_count": 13,
+    "skipped_reasons": {
+     "in": 6,
+     "licence": 3,
+     "not": 1,
+     "repo": 3
+    }
+   },
+   "heldout": {
+    "picked": [
+     {
+      "repo": "danielmiessler/Fabric",
+      "stars": 44599,
+      "licence": "MIT",
+      "created": "2024-01-03",
+      "pushed": "2026-11-10",
+      "size_mb": 171.5,
+      "description": "Fabric is an open-source framework for augmenting humans using AI. It provides a modular s"
+     },
+     {
+      "repo": "github/github-mcp-server",
+      "stars": 34382,
+      "licence": "MIT",
+      "created": "2025-03-04",
+      "pushed": "2026-11-10",
+      "size_mb": 58.1,
+      "description": "GitHub's official MCP Server"
+     },
+     {
+      "repo": "vxcontrol/pentagi",
+      "stars": 33905,
+      "licence": "MIT",
+      "created": "2025-01-06",
+      "pushed": "2026-10-22",
+      "size_mb": 60.6,
+      "description": "Fully autonomous AI Agents system capable of performing complex penetration testing tasks"
+     },
+     {
+      "repo": "henrygd/beszel",
+      "stars": 27161,
+      "licence": "MIT",
+      "created": "2024-07-07",
+      "pushed": "2026-11-10",
+      "size_mb": 13.9,
+      "description": "Lightweight server monitoring with historical data, docker stats, and alerts."
+     },
+     {
+      "repo": "TecharoHQ/anubis",
+      "stars": 24085,
+      "licence": "MIT",
+      "created": "2025-03-17",
+      "pushed": "2026-11-09",
+      "size_mb": 31.1,
+      "description": "Weighs the soul of incoming HTTP requests to stop AI crawlers"
+     },
+     {
+      "repo": "yorukot/superfile",
+      "stars": 24053,
+      "licence": "MIT",
+      "created": "2024-03-19",
+      "pushed": "2026-11-06",
+      "size_mb": 91.4,
+      "description": "Pretty fancy and modern terminal file manager"
+     },
+     {
+      "repo": "canopy-network/canopy",
+      "stars": 14704,
+      "licence": "MIT",
+      "created": "2024-10-30",
+      "pushed": "2026-11-11",
+      "size_mb": 40.1,
+      "description": "The official go implementation of the Canopy Network protocol"
+     },
+     {
+      "repo": "cloudwego/eino",
+      "stars": 13611,
+      "licence": "Apache-2.0",
+      "created": "2024-12-04",
+      "pushed": "2026-11-09",
+      "size_mb": 15.8,
+      "description": "The ultimate LLM/AI application development framework in Go."
+     },
+     {
+      "repo": "darrenburns/posting",
+      "stars": 12618,
+      "licence": "Apache-2.0",
+      "created": "2024-05-26",
+      "pushed": "2026-10-16",
+      "size_mb": 50.8,
+      "description": "The modern API client that lives in your terminal."
+     },
+     {
+      "repo": "pocket-id/pocket-id",
+      "stars": 10252,
+      "licence": "BSD-2-Clause",
+      "created": "2024-08-11",
+      "pushed": "2026-11-10",
+      "size_mb": 88.0,
+      "description": "The most user-friendly OpenID Connect Certified\u2122 and OAuth 2.0 provider that lets users si"
+     }
+    ],
+    "skipped_count": 7,
+    "skipped_reasons": {
+     "licence": 6,
+     "repo": 1
+    }
+   }
+  },
+  "cpp": {
+   "train": {
+    "picked": [
+     {
+      "repo": "tesseract-ocr/tesseract",
+      "stars": 77456,
+      "licence": "Apache-2.0",
+      "created": "2014-08-12",
+      "pushed": "2026-11-10",
+      "size_mb": 54.8,
+      "description": "Tesseract Open Source OCR Engine (main repository)"
+     },
+     {
+      "repo": "nomic-ai/gpt4all",
+      "stars": 77354,
+      "licence": "MIT",
+      "created": "2023-03-27",
+      "pushed": "2025-05-27",
+      "size_mb": 44.7,
+      "description": "GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use."
+     },
+     {
+      "repo": "ocornut/imgui",
+      "stars": 77057,
+      "licence": "MIT",
+      "created": "2014-07-21",
+      "pushed": "2026-11-10",
+      "size_mb": 134.4,
+      "description": "Dear ImGui: Bloat-free Graphical User interface for C++ with minimal dependencies"
+     },
+     {
+      "repo": "ggml-org/whisper.cpp",
+      "stars": 55084,
+      "licence": "MIT",
+      "created": "2022-09-25",
+      "pushed": "2026-11-10",
+      "size_mb": 50.0,
+      "description": "Port of OpenAI's Whisper model in C/C++"
+     },
+     {
+      "repo": "Niko1221/Strata",
+      "stars": 42993,
+      "licence": "MIT",
+      "created": "2026-09-24",
+      "pushed": "2026-11-10",
+      "size_mb": 97.7,
+      "description": "Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata"
+     },
+     {
+      "repo": "microsoft/BitNet",
+      "stars": 41517,
+      "licence": "MIT",
+      "created": "2024-08-05",
+      "pushed": "2026-07-27",
+      "size_mb": 8.7,
+      "description": "Official inference framework for 1-bit LLMs"
+     },
+     {
+      "repo": "hyprwm/Hyprland",
+      "stars": 40607,
+      "licence": "BSD-3-Clause",
+      "created": "2022-03-16",
+      "pushed": "2026-11-11",
+      "size_mb": 83.4,
+      "description": "Hyprland is an independent, highly customizable, dynamic tiling Wayland compositor that do"
+     },
+     {
+      "repo": "google/googletest",
+      "stars": 39727,
+      "licence": "BSD-3-Clause",
+      "created": "2015-07-28",
+      "pushed": "2026-11-11",
+      "size_mb": 14.2,
+      "description": "GoogleTest - Google Testing and Mocking Framework"
+     },
+     {
+      "repo": "aristocratos/btop",
+      "stars": 35337,
+      "licence": "Apache-2.0",
+      "created": "2021-05-06",
+      "pushed": "2026-11-10",
+      "size_mb": 10.5,
+      "description": "A monitor of resources"
+     },
+     {
+      "repo": "TheAlgorithms/C-Plus-Plus",
+      "stars": 34872,
+      "licence": "MIT",
+      "created": "2016-07-16",
+      "pushed": "2026-10-03",
+      "size_mb": 144.0,
+      "description": "Collection of various algorithms in mathematics, machine learning, computer science and ph"
+     },
+     {
+      "repo": "SerenityOS/serenity",
+      "stars": 33960,
+      "licence": "BSD-2-Clause",
+      "created": "2018-12-02",
+      "pushed": "2026-11-09",
+      "size_mb": 244.3,
+      "description": "The Serenity Operating System \ud83d\udc1e"
+     },
+     {
+      "repo": "78/xiaozhi-esp32",
+      "stars": 33033,
+      "licence": "MIT",
+      "created": "2024-08-31",
+      "pushed": "2026-11-07",
+      "size_mb": 12.1,
+      "description": "An MCP-based chatbot | \u4e00\u4e2a\u57fa\u4e8eMCP\u7684\u804a\u5929\u673a\u5668\u4eba"
+     }
+    ],
+    "skipped_count": 34,
+    "skipped_reasons": {
+     "in": 8,
+     "licence": 15,
+     "owner": 2,
+     "repo": 9
+    }
+   },
+   "heldout": {
+    "picked": [
+     {
+      "repo": "lynx-family/lynx",
+      "stars": 15252,
+      "licence": "Apache-2.0",
+      "created": "2025-03-04",
+      "pushed": "2026-11-11",
+      "size_mb": 92.4,
+      "description": "Empower the Web community and invite more to build across platforms."
+     },
+     {
+      "repo": "deepseek-ai/3FS",
+      "stars": 10450,
+      "licence": "MIT",
+      "created": "2025-02-27",
+      "pushed": "2026-11-08",
+      "size_mb": 6.1,
+      "description": " A high-performance distributed file system designed to address the challenges of AI train"
+     },
+     {
+      "repo": "kvcache-ai/Mooncake",
+      "stars": 7019,
+      "licence": "Apache-2.0",
+      "created": "2024-06-25",
+      "pushed": "2026-11-11",
+      "size_mb": 68.1,
+      "description": "Mooncake is the serving platform for Kimi, a leading LLM service provided by Moonshot AI."
+     },
+     {
+      "repo": "hedge-dev/XenonRecomp",
+      "stars": 6701,
+      "licence": "MIT",
+      "created": "2024-09-07",
+      "pushed": "2025-08-04",
+      "size_mb": 9.4,
+      "description": "A tool for recompiling Xbox 360 games to native executables."
+     },
+     {
+      "repo": "lemonade-sdk/lemonade",
+      "stars": 6178,
+      "licence": "Apache-2.0",
+      "created": "2025-05-15",
+      "pushed": "2026-11-11",
+      "size_mb": 167.5,
+      "description": "Lemonade helps users discover and run local AI apps by serving optimized LLMs right from t"
+     },
+     {
+      "repo": "xxnuo/MTranServer",
+      "stars": 4749,
+      "licence": "Apache-2.0",
+      "created": "2025-02-06",
+      "pushed": "2026-11-10",
+      "size_mb": 14.0,
+      "description": "Offline translation model server with low resource consumption, fast speed, and private de"
+     },
+     {
+      "repo": "AhmadHassan-BTed/ThreadRace",
+      "stars": 4682,
+      "licence": "MIT",
+      "created": "2024-05-03",
+      "pushed": "2026-08-07",
+      "size_mb": 3.2,
+      "description": "Quantifying the pulse of parallelism: A C++ concurrency telemetry framework measuring the "
+     },
+     {
+      "repo": "AnswerDotAI/gpu.cpp",
+      "stars": 3996,
+      "licence": "Apache-2.0",
+      "created": "2024-05-30",
+      "pushed": "2026-08-21",
+      "size_mb": 6.6,
+      "description": "A lightweight library for portable low-level GPU computation using WebGPU. "
+     },
+     {
+      "repo": "ikawrakow/ik_llama.cpp",
+      "stars": 3385,
+      "licence": "MIT",
+      "created": "2024-06-27",
+      "pushed": "2026-11-11",
+      "size_mb": 101.1,
+      "description": "llama.cpp fork with additional SOTA quants and improved performance"
+     },
+     {
+      "repo": "duckdb/ducklake",
+      "stars": 3361,
+      "licence": "MIT",
+      "created": "2025-03-03",
+      "pushed": "2026-11-10",
+      "size_mb": 9.7,
+      "description": "DuckLake is an integrated data lake and catalog format"
+     }
+    ],
+    "skipped_count": 32,
+    "skipped_reasons": {
+     "licence": 24,
+     "owner": 4,
+     "repo": 4
+    }
+   }
+  }
+ }
+}

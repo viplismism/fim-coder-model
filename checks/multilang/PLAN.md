@@ -1,7 +1,8 @@
 # Multi-language plan: AST-aware vs random holes, diverse data, 6.7B
 
-Status: **plan agreed in discussion (2026-11-11), not started.** Nothing below has been built or trained. Steps that
-produce something for review (repo lists, data counts) stop for approval before the next step.
+Status: **step 1 (code + tests) done 2026-11-11; nothing built or trained.** Approval is per stage and per language:
+the first language is chosen by you, and **the full five-language training run is not approved yet**. Nothing is
+pushed or merged without an explicit go.
 
 ## 1. Question
 
@@ -20,11 +21,11 @@ training data came from a single repo.
 | Model | **DeepSeek-Coder-6.7B base only** (bf16, frozen) + LoRA adapter; no 1.3B runs |
 | Languages | **Rust, Python, TypeScript, Go, C++**: only languages Real-FIM-Eval covers as its own subset (C excluded) |
 | Final test | **Real-FIM-Eval** per language (Add; Edit labelled provisional) + a **fresh locked held-out set** per language; used once, never for training or choosing settings |
-| Recipes | **R, S, M** per language (A dropped: M contains aligned-span and is the paper's actual recipe) |
+| Recipes | **R, S, M** per language (A dropped). **M is a paper-style mix, not an exact reproduction** of the paper's recipe |
 | Training per run | the same as the Rust run that worked: about **7,500 examples**, 1 epoch, identical settings for every run |
-| Order | **one language at a time** (R, S, M, then scoring), so each language finishes before the next starts |
+| Order | **one training run at a time**; one language at a time (R, S, M, then scoring); you approve each stage |
 
-What dropping A loses: only "is aligned-span alone better than the mix?" (A vs M). Still answered: AST vs random
+What dropping A loses (M is the paper-style mix): only "is aligned-span alone better than the mix?" (A vs M). Still answered: AST vs random
 (S vs R, M vs R), the paper's recipe vs random (M vs R), and whether aligned-span adds value on top of single-node
 (M vs S).
 
@@ -40,6 +41,10 @@ What dropping A loses: only "is aligned-span alone better than the mix?" (A vs M
 
 Other Real-FIM-Eval languages (Java, Ruby, C#, JavaScript, Kotlin, PHP, Scala) can be added later with the same pipeline.
 
+- TypeScript: Real-FIM-Eval contains only `.ts` files, so training also uses `.ts` only (TypeScript grammar).
+- C++: the 315 `.c` files inside Real-FIM-Eval's cpp subset are excluded (C is not a Real-FIM-Eval language), leaving
+  2,950 C++ examples (1,643 Add + 1,307 Edit).
+
 ## 4. Recipes (identical rules in every language)
 
 Every arm: **25% plain left-to-right examples** (2,048-token windows, identical across arms); same files, same slots,
@@ -50,7 +55,7 @@ truncated; a slot is dropped from all arms if any arm's example does not fit; co
 |---|---|
 | **R** (control) | 100% random character spans, each matched in file and length to the M arm's hole |
 | **S** | 90% single-node + 10% random |
-| **M** (paper's recipe) | 45% single-node + 45% aligned-span + 10% random |
+| **M** (paper-style mix) | 45% single-node + 45% aligned-span + 10% random |
 
 - Single-node: one eligible named node, probability proportional to byte size; comments included; the root and
   keyword/punctuation leaves excluded.
@@ -58,10 +63,25 @@ truncated; a slot is dropped from all arms if any arm's example does not fit; co
   snapped to the best-IoU run of direct named children of the smallest containing node.
 - Results reported per hole-size class (tiny / small / medium / large / very large).
 
+**Separate adapters (to confirm before any training).** Every arm is its own training run: a **fresh LoRA adapter
+starting from the same untouched base model**, trained once on that arm's data. R, S and M are never trained in
+sequence through one adapter (not R then S then M). Comparisons are between independently trained adapters.
+
+**How fair each comparison is (measured on the Rust `screen-v3` construction):**
+- **M vs R is length-matched:** R's hole has the same file and length as M's in 100% of slots.
+- **S vs R is not fully matched:** same length in only 50% of slots; S answers are shorter (median 277 vs 321
+  characters, mean 1,162 vs 1,308) and S has about 15% fewer answer tokens to learn from (2.50 M vs 2.95 M).
+  So **S vs R compares whole recipes, not syntax boundaries alone**, and is reported that way. Optional fix (adds one
+  run per language): a separate random control R_S length-matched to S.
+
 ## 5. Data per language (diverse)
 
 **Repo selection by a fixed rule, written down before cloning** (as for `heldout-v1`):
-- GitHub search per language: permissive licence (MIT / Apache-2.0 / BSD), not a fork, not archived, sorted by stars.
+- GitHub search per language: permissive licence (MIT / Apache-2.0 / BSD), not a fork, not archived, sorted by stars,
+  primary language = the language. **Training pool: created before 2024-01-01, pushed since 2025-01-01, ≥ 2,000 stars**
+  (established projects; a clean time split from the 2024–25 held-out repos). **Held-out: created 2024-01-01 to
+  2025-06-30, ≥ 500 stars.** Lists, tutorials, prompt/workflow/skill collections and algorithm compilations excluded.
+  Proposals: `checks/multilang/proposed_repos_v2.md` (rule: `propose_repos.py`; v1 kept for transparency).
 - **Excluded:** every Real-FIM-Eval repo (all 186, any language), every repo in any held-out set, at most one repo per
   owner; generated/vendored files and files > 300 KB.
 - A size window per repo plus a per-repo cap on examples, so no repo dominates (important for C++).
@@ -92,20 +112,28 @@ truncated; a slot is dropped from all arms if any arm's example does not fit; co
 
 ## 8. Evaluation
 
-**Validation (the only data used for decisions):**
-- Character-level perplexity per language on fixed sets: single-node holes, random holes, aligned holes, left-to-right
-  windows. Paired bootstrap 95% CIs, by example and by repo.
-- Structural metrics from greedy generation on a fixed 150-pair subset per language: parse-clean after splicing,
-  bracket balance, exact match, edit similarity, stop rate; plus the cheap syntax check from section 3.
-- Per language, per repo, per size class.
+**Kept as they are:** the earlier Rust evaluations, scorer, prompts (PSM format, inferred Edit layout) and results, so
+new runs are directly comparable. Real-FIM-Eval stays alongside the new tests. Other languages use **the same method**
+with their own language-specific examples. **Disclosure:** Rust Real-FIM-Eval has already been used once (for the 6.7B
+seed-42 models); nothing was tuned on it. The new locked held-out sets (including Rust `heldout-v2`) are fresh.
+No setting is ever chosen or changed using final-test results.
 
-**Winner rule per language (S vs R, M vs R), fixed before any run:**
-1. arm − R ≤ 0 on single-node, random and aligned validation holes, with the CI excluding 0 on at least one;
-2. left-to-right not worse than R by more than 0.005;
-3. parse-clean, bracket balance and exact match not worse than R by more than 2 points (CI lower bound ≥ −0.02).
+**Primary score per comparison (proposed; frozen before any run):** character-level perplexity on the language's
+**Real-FIM-Eval Add** subset (the paper's metric on real developer additions, neutral to all hole recipes), arm − R,
+with a paired bootstrap 95% CI resampling **benchmark repos** (examples within a repo are correlated).
+- **Winner rule:** arm X beats R in language L if and only if the point estimate of X − R is below 0 **and** the
+  upper bound of its 95% repo-level CI is below 0. Otherwise: "no evidence X beats R" (with the estimate and CI).
+- Comparisons: S vs R and M vs R in each language (also M vs S, descriptive). 2 decisions per language, 10 in total;
+  results are reported with this count in mind.
 
-**Final, once per language, after its runs:** Real-FIM-Eval (Add; Edit provisional) and the language's locked held-out
-set, for base, R, S and M. Every arm reported regardless of outcome.
+**Reported too, never used to decide (including negative results):**
+- Real-FIM-Eval Edit (provisional layout), the locked held-out set (single-node holes, random holes, left-to-right),
+  validation perplexity (single-node, random, aligned, left-to-right; per repo and size class).
+- **Generated-code checks (150 pairs per language) are descriptive only.** A paired sample-size check on the Rust
+  structural data gives 95% CI half-widths of about ±5–6 points (parse-clean, bracket balance) and ±3–4 points (exact
+  match) at n = 150; a ±2-point tolerance would need about 1,000–1,450 pairs. So no structural tolerance is used to
+  pick winners.
+- Validation has 2 repos per language, so validation CIs are by example only (monitoring, not decisions).
 
 ## 9. Time
 
@@ -117,9 +145,10 @@ set, for base, R, S and M. Every arm reported regardless of outcome.
 
 ## 10. Order of work
 
-1. Code changes + tests for the language configs (no data, no training).
-2. Repo selection per language (rule recorded, commits pinned) → **review the repo lists**.
+1. Code changes + tests for the language configs (no data, no training). **Done 2026-11-11.**
+2. Repo selection per language (rule recorded, commits pinned) → **review the repo lists** (proposals ready).
 3. Overlap checks → report.
 4. Build data per language (R/S/M + validation + held-out) → **review counts and size classes**.
-5. Per language, in order Rust, Python, TypeScript, Go, C++: train R, S, M → validation scoring → final evaluation → report.
+5. For the language you choose first: confirm the separate-adapter setup, then train R, S, M one run at a time →
+   validation scoring → final evaluation → report. Each next language is approved separately.
 6. Final write-up across all languages.

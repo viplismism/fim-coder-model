@@ -16,8 +16,21 @@ PUNCT_ONLY = re.compile(r"[^\w\s]+")
 _LANG = ts.Language(tsr.language())
 
 
-def parser() -> ts.Parser:
-    return ts.Parser(_LANG)
+def parser(lang: str = "rust") -> ts.Parser:
+    """tree-sitter parser; Rust by default (the original experiment), other languages via fimexp.langs."""
+    if lang == "rust":
+        return ts.Parser(_LANG)
+    from .langs import parser as lang_parser
+    return lang_parser(lang)
+
+
+def lang_rules(lang: str = "rust"):
+    """(comment node types, keyword set) for a language; Rust values are the original module constants."""
+    if lang == "rust":
+        return COMMENT_TYPES, RUST_KEYWORDS
+    from .langs import get
+    c = get(lang)
+    return c["comment_types"], c["keywords"]
 
 
 class SourceText:
@@ -47,8 +60,9 @@ class SourceText:
         return c if self.ascii else self._byte_at[c]
 
 
-def eligible_nodes(tree, src: SourceText, exempt_types) -> list[dict]:
+def eligible_nodes(tree, src: SourceText, exempt_types, lang: str = "rust") -> list[dict]:
     """Named nodes eligible as a hole (see configs/experiment.yaml, data: node eligibility)."""
+    comment_types, keywords = lang_rules(lang)
     out, stack = [], [(tree.root_node, False)]
     while stack:
         n, in_comment = stack.pop()
@@ -57,11 +71,11 @@ def eligible_nodes(tree, src: SourceText, exempt_types) -> list[dict]:
             ok = True
             if not any(c.is_named for c in n.children) and n.type not in exempt_types:
                 txt = src.data[n.start_byte:n.end_byte].decode("utf-8").strip()
-                ok = txt not in RUST_KEYWORDS and not PUNCT_ONLY.fullmatch(txt)
+                ok = txt not in keywords and not PUNCT_ONLY.fullmatch(txt)
             if ok:
                 out.append({"type": n.type, "start_byte": n.start_byte, "end_byte": n.end_byte,
-                            "is_comment": n.type in COMMENT_TYPES})
-        child_in_comment = in_comment or n.type in COMMENT_TYPES
+                            "is_comment": n.type in comment_types})
+        child_in_comment = in_comment or n.type in comment_types
         stack.extend((c, child_in_comment) for c in reversed(n.children))
     return out
 
@@ -124,10 +138,10 @@ def line_token_counts(src: SourceText, psm) -> list[int]:
     return [len(psm.encode(src.text[ls[i]:ls[i + 1]])) for i in range(len(ls) - 1)]
 
 
-def sample_file(path: str, text: str, tree, n_examples: int, seed: int, exempt_types) -> list[dict]:
+def sample_file(path: str, text: str, tree, n_examples: int, seed: int, exempt_types, lang: str = "rust") -> list[dict]:
     """Draw `n_examples` AST holes (prob. proportional to byte size) and a matched random hole for each."""
     src = SourceText(text)
-    nodes = eligible_nodes(tree, src, exempt_types)
+    nodes = eligible_nodes(tree, src, exempt_types, lang)
     if not nodes:
         return []
     rng = random.Random(f"{seed}:{path}:ast")
@@ -147,7 +161,7 @@ def n_examples_for(n_bytes: int, bytes_per_example: int) -> int:
 
 
 def aligned_span(tree, src: SourceText, rng: random.Random, exempt_types, max_tries: int = 20, max_span_chars: int | None = None,
-                 target_chars: int | None = None):
+                 target_chars: int | None = None, lang: str = "rust"):
     """Aligned-span masking (AST-FIM): sample a character span with uniform random endpoints, take the smallest
     eligible named node containing it, and return the contiguous run of that node's direct named children with the
     largest character-level IoU with the span (the node itself if it has no named children).
@@ -156,6 +170,7 @@ def aligned_span(tree, src: SourceText, rng: random.Random, exempt_types, max_tr
     max_span_chars (windowed variant, adapted to a fixed context length): instead of two endpoints anywhere in the
     file, draw a uniform random center and a uniform random length in [1, max_span_chars], then snap as above.
     target_chars (length-matched variant): random center, span length = target_chars, then snap as above."""
+    comment_types, keywords = lang_rules(lang)
     n = len(src.text)
     if n < 2:
         return None
@@ -169,7 +184,7 @@ def aligned_span(tree, src: SourceText, rng: random.Random, exempt_types, max_tr
             continue
         bs, be = src.byte_of_char(a), src.byte_of_char(b)
         node = tree.root_node.named_descendant_for_byte_range(bs, be)
-        while node is not None and node.parent is not None and node.type in COMMENT_TYPES | {"ERROR"}:
+        while node is not None and node.parent is not None and node.type in comment_types | {"ERROR"}:
             node = node.parent
         if node is None:
             continue
@@ -188,7 +203,7 @@ def aligned_span(tree, src: SourceText, rng: random.Random, exempt_types, max_tr
                     best, best_iou = (s, e, kids[i].type if i == j else f"{node.type}:children[{i}:{j + 1}]"), iou
         s, e, t = best
         txt = src.data[s:e].decode("utf-8").strip()
-        if txt in RUST_KEYWORDS or PUNCT_ONLY.fullmatch(txt or "x"):
+        if txt in keywords or PUNCT_ONLY.fullmatch(txt or "x"):
             continue
         return src.char_of_byte(s), src.char_of_byte(e), t
     return None
