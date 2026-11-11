@@ -4,6 +4,15 @@ Status: **step 1 (code + tests) done 2026-11-11; nothing built or trained.** App
 the first language is chosen by you, and **the full five-language training run is not approved yet**. Nothing is
 pushed or merged without an explicit go.
 
+
+> **Decision 2026-11-11 (supersedes the R/S/M sections below):** each language repeats the **original Rust experiment
+> exactly**: two arms, **AST** (100% single-node holes, size-weighted) and **random** (a span of the same length in the
+> same file), no extra random share, no plain-code share, same 6.7B settings, fresh adapter per arm per language.
+> **Main comparison: AST vs random** (exactly length-matched by construction). R/S/M and R_S are not run.
+> Python training pool: `Z4nzu/hackingtool` and `pathwaycom/serviette` removed (replaced by the next two by rule).
+> Per language: 2 runs × about 11.5 h ≈ 1 day, plus scoring. Goal: test whether the earlier approach holds across the
+> selected languages, without assuming it does.
+
 ## 1. Question
 
 Does AST-aware hole selection beat matched random holes when fine-tuning a code model, **across the Real-FIM-Eval
