@@ -24,6 +24,8 @@ training data came from a single repo.
 | Recipes | **R, S, M** per language (A dropped). **M is a paper-style mix, not an exact reproduction** of the paper's recipe |
 | Training per run | the same as the Rust run that worked: about **7,500 examples**, 1 epoch, identical settings for every run |
 | Order | **one training run at a time**; one language at a time (R, S, M, then scoring); you approve each stage |
+| First language | **Python** for the 6.7B pilot (largest benchmark, not used in earlier experiments); proposed by you, pending final go |
+| Main comparison | **to be fixed before any run** (proposal: **M vs R**, the exactly length-matched paper-style mix vs random); all others secondary |
 
 What dropping A loses (M is the paper-style mix): only "is aligned-span alone better than the mix?" (A vs M). Still answered: AST vs random
 (S vs R, M vs R), the paper's recipe vs random (M vs R), and whether aligned-span adds value on top of single-node
@@ -63,7 +65,7 @@ truncated; a slot is dropped from all arms if any arm's example does not fit; co
   snapped to the best-IoU run of direct named children of the smallest containing node.
 - Results reported per hole-size class (tiny / small / medium / large / very large).
 
-**Separate adapters (to confirm before any training).** Every arm is its own training run: a **fresh LoRA adapter
+**Separate adapters (confirmed 2026-11-11).** Every arm is its own training run: a **fresh LoRA adapter
 starting from the same untouched base model**, trained once on that arm's data. R, S and M are never trained in
 sequence through one adapter (not R then S then M). Comparisons are between independently trained adapters.
 
@@ -72,7 +74,8 @@ sequence through one adapter (not R then S then M). Comparisons are between inde
 - **S vs R is not fully matched:** same length in only 50% of slots; S answers are shorter (median 277 vs 321
   characters, mean 1,162 vs 1,308) and S has about 15% fewer answer tokens to learn from (2.50 M vs 2.95 M).
   So **S vs R compares whole recipes, not syntax boundaries alone**, and is reported that way. Optional fix (adds one
-  run per language): a separate random control R_S length-matched to S.
+  run per language): a separate random control R_S length-matched to S. **Decision: R_S is worth adding to test whether
+  syntax-aligned holes help (S vs R_S); it is not started yet and will be scheduled as its own approved run.**
 
 ## 5. Data per language (diverse)
 
@@ -118,13 +121,14 @@ with their own language-specific examples. **Disclosure:** Rust Real-FIM-Eval ha
 seed-42 models); nothing was tuned on it. The new locked held-out sets (including Rust `heldout-v2`) are fresh.
 No setting is ever chosen or changed using final-test results.
 
-**Primary score per comparison (proposed; frozen before any run):** character-level perplexity on the language's
+**Primary score per comparison (approved 2026-11-11; frozen before any run):** character-level perplexity on the language's
 **Real-FIM-Eval Add** subset (the paper's metric on real developer additions, neutral to all hole recipes), arm − R,
 with a paired bootstrap 95% CI resampling **benchmark repos** (examples within a repo are correlated).
 - **Winner rule:** arm X beats R in language L if and only if the point estimate of X − R is below 0 **and** the
   upper bound of its 95% repo-level CI is below 0. Otherwise: "no evidence X beats R" (with the estimate and CI).
-- Comparisons: S vs R and M vs R in each language (also M vs S, descriptive). 2 decisions per language, 10 in total;
-  results are reported with this count in mind.
+- **Main comparison: chosen and written here before the first run, never after seeing results** (proposal: M vs R).
+  Secondary: S vs R (whole-recipe comparison), S vs R_S if R_S is run (syntax-aligned holes, length-matched), M vs S.
+  Secondary results are reported with the number of comparisons in mind; the earlier Rust tests are reported alongside.
 
 **Reported too, never used to decide (including negative results):**
 - Real-FIM-Eval Edit (provisional layout), the locked held-out set (single-node holes, random holes, left-to-right),
@@ -146,7 +150,9 @@ with a paired bootstrap 95% CI resampling **benchmark repos** (examples within a
 ## 10. Order of work
 
 1. Code changes + tests for the language configs (no data, no training). **Done 2026-11-11.**
-2. Repo selection per language (rule recorded, commits pinned) → **review the repo lists** (proposals ready).
+2. Repo selection per language (rule recorded, commits pinned) → **review the repo lists**. v1/v2 not approved; v3 rule
+   (`propose_repos_v3.py`): one repo per owner across all languages and lists, same-name benchmark repos excluded (e.g.
+   `Eugeny/tabby`, same name as Real-FIM-Eval's `TabbyML/tabby`), target-language code 0.3–30 MB and ≥ 50% of the repo.
 3. Overlap checks → report.
 4. Build data per language (R/S/M + validation + held-out) → **review counts and size classes**.
 5. For the language you choose first: confirm the separate-adapter setup, then train R, S, M one run at a time →
