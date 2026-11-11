@@ -87,7 +87,16 @@ def _load_benchmark(path: str, lang: str) -> tuple:
     return tuple(rows)
 
 
-def benchmark_rows(cfg: dict) -> list[dict]:
-    """Rust rows of both benchmark splits; `index` is the line number in the split file."""
+def benchmark_rows(cfg: dict, lang: str | None = None) -> list[dict]:
+    """Real-FIM-Eval rows of one language (both splits); `index` is the line number in the split file.
+    `lang` defaults to the config's language (rust, as in the original experiment). For languages with a
+    benchmark_extensions filter in fimexp.langs (C++: the .c files are excluded), only those files are kept."""
     b = cfg["sources"]["benchmark"]
-    return list(_load_benchmark(str(ROOT / b["path"]), b["lang"]))
+    lang = lang or b["lang"]
+    rows = list(_load_benchmark(str(ROOT / b["path"]), lang))
+    if lang != b["lang"] or lang == "cpp":
+        from .langs import LANGS
+        exts = next((c["benchmark_extensions"] for c in LANGS.values() if c["real_fim_eval"] == lang), None)
+        if exts:
+            rows = [r for r in rows if r["path"].endswith(exts)]
+    return rows

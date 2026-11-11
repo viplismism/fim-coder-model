@@ -138,3 +138,29 @@ def test_known_tokenizer_quirk_is_limited_to_byte_fragment_tokens(psm):
         assert psm.tok.decode(psm.encode(ch), skip_special_tokens=False, clean_up_tokenization_spaces=False) == "�"
     for ch in "éñçß—中":
         assert psm.tok.decode(psm.encode(ch), skip_special_tokens=False, clean_up_tokenization_spaces=False) == ch
+
+
+@pytest.mark.parametrize("lang", sorted(LANGS))
+def test_benchmark_rows_are_that_language_only(lang):
+    rows = sources.benchmark_rows(CFG, lang)
+    assert rows and all(r["lang"] == lang for r in rows)
+    assert all(r["path"].endswith(get(lang)["benchmark_extensions"]) for r in rows)
+    if lang == "cpp":
+        assert not any(r["path"].endswith(".c") for r in rows) and len(rows) == 2950
+    if lang == "rust":
+        assert len(rows) == 4727 and rows == sources.benchmark_rows(CFG)   # default unchanged
+
+
+@pytest.mark.parametrize("lang", sorted(LANGS))
+def test_benchmark_prompt_is_language_neutral(lang, psm):
+    from fimexp.score import bench_items
+    f = CFG["format"]
+    for split in ("add", "edit"):
+        it = next(bench_items(CFG, split, lang))
+        assert it["lang"] == lang
+        b = psm.build(it["prefix"], it["suffix"], it["middle"], add_eos=False)
+        text = psm.tok.decode(b["input_ids"][:b["n_prompt"]], skip_special_tokens=False, clean_up_tokenization_spaces=False)
+        # exact layout: BOS, FIM begin, prefix, FIM hole, suffix, FIM end — nothing else is added
+        assert text == f["bos"] + f["fim_begin"] + it["prefix"] + f["fim_hole"] + it["suffix"] + f["fim_end"] or "�" in text
+        for word in ("Rust", "rust", "Python", "TypeScript", "language", "Complete", "Fill"):
+            assert word not in (text.replace(it["prefix"], "").replace(it["suffix"], ""))

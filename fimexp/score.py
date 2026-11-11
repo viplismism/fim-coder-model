@@ -37,13 +37,16 @@ def edit_layout(r, t):
     return prefix, t["suffix_start"] + r["suffix"]
 
 
-def bench_items(cfg, split):
+def bench_items(cfg, split, lang=None):
+    """Real-FIM-Eval items of one language. The prompt is language-neutral: only code plus the three FIM markers
+    (and, for Edit, the conflict-merge markers); the language is never named."""
     t = cfg["evaluation"]["edit_template"]
-    for r in sources.benchmark_rows(cfg):
+    for r in sources.benchmark_rows(cfg, lang):
         if r["split"] != split:
             continue
         prefix, suffix = (r["prompt"], r["suffix"]) if split == "add" else edit_layout(r, t)
-        yield {"id": f"{split}:{r['index']}", "repo": r["repo"], "prefix": prefix, "suffix": suffix, "middle": r["canonical_solution"]}
+        yield {"id": f"{split}:{r['index']}", "repo": r["repo"], "lang": r["lang"], "prefix": prefix, "suffix": suffix,
+               "middle": r["canonical_solution"]}
 
 
 def reth_fim_items(cfg, version, split, arm, pair_ids=None):
@@ -148,6 +151,7 @@ def main():
     ap.add_argument("--final", action="store_true", help="required for --split test (final reporting only)")
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--config", default=None)
+    ap.add_argument("--lang", default=None, help="Real-FIM-Eval language for bench_* tasks (default: config, i.e. rust)")
     ap.add_argument("--limit", type=int, default=None, help="score only the first N items per task (inspection)")
     ap.add_argument("--final_heldout", action="store_true", help="required for heldout_* tasks (LOCKED set; final run only)")
     ap.add_argument("--pair_subset", default=None, help="validation_subset.json in the data dir: score only these pair ids")
@@ -170,12 +174,13 @@ def main():
     summary = {"created_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "sources": pins, "code": code_revision(),
                "model": cfg["model"], "adapter": args.adapter,
                "base_precision": cfg["base_precision"], "data_version": args.data_version, "split": args.split,
+               "benchmark_lang": args.lang or cfg["sources"]["benchmark"]["lang"],
                "pair_subset": args.pair_subset, "edit_template": cfg["evaluation"]["edit_template"],
                "rules": {"metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
                          "context": f"full context up to {ctx} tokens, error otherwise"}, "tasks": {}}
     for task in args.tasks.split(","):
         if task in ("bench_add", "bench_edit"):
-            items = bench_items(cfg, task.split("_")[1])
+            items = bench_items(cfg, task.split("_")[1], args.lang)
         elif task in ("reth_ast", "reth_random"):
             ids = None
             if args.pair_subset:
