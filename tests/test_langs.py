@@ -164,3 +164,13 @@ def test_benchmark_prompt_is_language_neutral(lang, psm):
         assert text == f["bos"] + f["fim_begin"] + it["prefix"] + f["fim_hole"] + it["suffix"] + f["fim_end"] or "�" in text
         for word in ("Rust", "rust", "Python", "TypeScript", "language", "Complete", "Fill"):
             assert word not in (text.replace(it["prefix"], "").replace(it["suffix"], ""))
+
+
+def test_water_fill_balances_repos():
+    from fimexp.build_lang_data import water_fill
+    t = water_fill({"a": 100, "b": 5000, "c": 5000}, 3000)
+    assert sum(t.values()) == 3000 and t["a"] == 100 and abs(t["b"] - t["c"]) <= 1
+    t = water_fill({"a": 10, "b": 20}, 1000)
+    assert t == {"a": 10, "b": 20}
+    t = water_fill({r: 10_000 for r in "abcdefghij"}, 7549)
+    assert sum(t.values()) == 7549 and max(t.values()) - min(t.values()) <= 1

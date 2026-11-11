@@ -1,0 +1,557 @@
+{
+ "rule": "only a leading licence/copyright comment block is removed; all other comments are kept",
+ "verdict_threshold_jaccard_after": 0.3,
+ "minhash_summary": {
+  "pool_vs_benchmark | boilerplate exception: matching text is the licence header": 19,
+  "pool_vs_heldout | boilerplate exception: matching text is the licence header": 19
+ },
+ "max_jaccard_after_licence_removed": 0.0,
+ "minhash_matches": [
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/third_party/muon/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.747,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/dpo/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.747,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/kto/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.747,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/ppo/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.747,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/pt/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.747,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/rm/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.747,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/sft/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.747,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/lr_scheduler.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.727,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 3,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.718,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.718,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/chat/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.704,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 3,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/mca/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.691,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.651,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 8,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/train.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.613,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 8,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/tests/train/megatron_bridge/test_config_builder.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.578,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 159,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/webui/common.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.564,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 216,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/webui/components/__init__.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.546,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 16,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/fsdp2.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.542,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 608,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/model/loader.py",
+   "other": "huggingface/transformers:src/transformers/quantizers/__init__.py",
+   "jaccard_before": 0.529,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 196,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/third_party/muon/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.755,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/dpo/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.755,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/kto/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.755,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/ppo/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.755,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/pt/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.755,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/rm/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.755,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/sft/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.755,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/lr_scheduler.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.735,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 3,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.725,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.725,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/chat/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.712,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 3,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/train/mca/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.698,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.657,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 8,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/train.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.627,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 8,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/tests/train/megatron_bridge/test_config_builder.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.59,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 159,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/webui/common.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.576,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 216,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/fsdp2.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.553,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 608,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/webui/components/__init__.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.55,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 16,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "hiyouga/LlamaFactory/src/llamafactory/model/loader.py",
+   "other": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+   "jaccard_before": 0.539,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 196,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  }
+ ],
+ "exact_windows": {
+  "benchmark": {
+   "shared_windows": 66,
+   "licence_wording": 66,
+   "other": 0,
+   "other_windows": []
+  },
+  "heldout": {
+   "shared_windows": 11,
+   "licence_wording": 11,
+   "other": 0,
+   "other_windows": []
+  }
+ }
+}

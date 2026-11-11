@@ -1,0 +1,109 @@
+run_tag: python
+# PYTHON PILOT (checks/multilang/PLAN.md): identical to experiment.yaml (6.7B, two-arm recipe, same settings);
+# only the run tag differs. Data: data/python-fim-v1 (+ -heldout). Real-FIM-Eval is scored with --lang python.
+# Rust FIM experiment: AST single-node holes vs. matched random holes.
+# Values marked `null  # TO DECIDE` must be set before training; the trainer refuses to run otherwise.
+# Values marked `# provisional` are used for data inspection only and are also up for review.
+
+sources:
+  reth:
+    url: https://github.com/paradigmxyz/reth
+    commit: 84caec584e79ddef33572394f787d2d1203a23c7
+    path: sources/reth
+  benchmark:
+    hf_dataset: gonglinyuan/real_fim_eval
+    revision: a36062544c7ed6c4e5ffb8dad8536fc7777e1f36
+    path: sources/real_fim_eval
+    sha256:
+      add: bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22
+      edit: b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5
+    lang: rust
+
+model:
+  name: deepseek-ai/deepseek-coder-6.7b-base
+  revision: ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912
+
+# DeepSeek-Coder PSM (the only FIM layout documented for this model):
+#   BOS <｜fim▁begin｜> prefix <｜fim▁hole｜> suffix <｜fim▁end｜> middle [EOS]
+# BOS is added explicitly: transformers 5.x does not add it by default for this tokenizer.
+format:
+  bos: "<｜begin▁of▁sentence｜>"
+  eos: "<｜end▁of▁sentence｜>"
+  fim_begin: "<｜fim▁begin｜>"
+  fim_hole: "<｜fim▁hole｜>"
+  fim_end: "<｜fim▁end｜>"
+
+split:
+  unit: package_count         # package = dir of nearest Cargo.toml with [package]; whole packages stay together
+  seed: 20261101              # sorted package dirs shuffled once with this seed
+  fractions: {train: 0.8, validation: 0.1, test: 0.1}   # of PACKAGES: train=floor(0.8N), validation=floor(0.1N), test=rest
+  # Accepted 2026-11-01. Notes kept for reporting: by bytes the split is 85.4/5.6/9.1%; validation is 38% e2e-test-utils
+  # + 29% eth-wire-types, test is 35% stages + 30% node-ethereum; e2e-test-utils and ef-tests are test scaffolding.
+  # Report results per package as well as overall.
+
+data:
+  seed: 20261101
+  bytes_per_example: 2048     # examples per file = ceil(file_bytes / this); provisional
+  max_seq_tokens: 4096        # shared length rule for both arms, incl. BOS/FIM/EOS; provisional
+  max_middle_tokens: null     # optional extra cap on answer length (both arms); null = only max_seq_tokens
+  context_trim: line          # prefix trimmed from the left, suffix from the right, at line boundaries
+  # Node eligibility (tree-sitter-rust): named nodes only (anonymous keyword/punctuation tokens excluded),
+  # not the source_file root, not inside a comment (comments are atomic), and not a named node without
+  # named children whose whole text is a Rust keyword or punctuation only (e.g. `self`, `pub`, `()`).
+  keyword_text_exempt_types: [string_content, escape_sequence, char_literal]
+  output_dir: data
+
+# Base model precision, shared by both arms AND the evaluation baseline.
+#   bf16: unquantized bf16 base (being smoke-tested; avoids adding base-weight quantization to the experiment)
+#   nf4 : 4-bit NF4 base (QLoRA); then prepare_model_for_kbit_training applies (fp32 norms/embeddings/lm_head)
+base_precision: bf16          # chosen 2026-11-01 for both arms and the baseline (no base-weight quantization)
+quantization:                 # used only when base_precision: nf4
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  bnb_4bit_compute_dtype: bfloat16
+prepare_model_for_kbit_training: true   # nf4 only; see checks/env/training_path.json
+
+lora:                         # proposed starting settings (exploratory, not tuned)
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+training:
+  num_train_epochs: 1         # optimizer updates = ceil(train examples / (batch * accumulation)), computed at run time
+  per_device_batch_size: 1
+  gradient_accumulation_steps: 16
+  learning_rate: 1.0e-4
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.05          # of optimizer updates
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optim: adamw_torch          # plain AdamW, chosen with base_precision: bf16
+  seed: 42
+  eval_steps: 50              # optimizer updates; validation split only
+  save_steps: 50              # plus the final checkpoint
+  checkpoint_policy: final    # the final checkpoint is the one evaluated
+  validation_subset: validation_subset.json   # fixed pair ids in the data version dir; full validation at the end
+  gradient_checkpointing: true
+  bf16: true
+  report_to: none             # wandb comes after the smoke runs
+
+wandb:                        # private project; configs + scalar metrics only (see fimexp/wandb_log.py)
+  enabled: true               # project verified PRIVATE on 2026-11-01 before any upload
+  entity: vipulmaheshwari     # W&B entity holding the project (the org "vipulmaheshwari-org" is not an entity name)
+  project: ast-aware-fim-finetuning
+  mode: online
+  allowed_access: [PRIVATE]   # runs refuse to start unless the existing project's access is one of these
+
+evaluation:
+  context_tokens: 16384       # DeepSeek-Coder window. Measured: all Rust Add/Edit examples fit (max 10,633 tokens),
+                              # so benchmark examples are scored with full context; the scorer errors if any do not fit.
+  l2r_window_tokens: 4096     # left-to-right check: files split at line boundaries into windows of at most this; provisional
+  # Real-FIM-Eval Edit layout. INFERRED from the dataset card's figure (example.png); the authors' code is unavailable.
+  # All 1,980 Rust Edit rows are line-aligned (prompt ends at a line start; to_remove and answer end with "\n").
+  edit_template:
+    status: inferred
+    before_removed: "<<<<<<< ORIGINAL\n"
+    after_removed: "=======\n"
+    suffix_start: ">>>>>>> UPDATED\n"

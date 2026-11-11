@@ -1,0 +1,1157 @@
+{
+ "rule": "PROPOSE repos per language, v3 rule (read-only GitHub metadata, no cloning).\n\nSame as v2 (propose_repos.py) plus:\n1. One repo per owner across ALL languages and ALL lists (training pools and held-out sets).\n2. Exclude a candidate whose repo NAME equals a Real-FIM-Eval repo name under any owner (catches renames/forks and\n   same-name projects, e.g. Eugeny/tabby vs TabbyML/tabby).\n3. Code-size check with GitHub's language-bytes API: the target language must have >= 300 KB and <= 30 MB of code\n   and be >= 50% of the repo's code bytes.\nLanguages are processed in the order python, rust, typescript, go, cpp (python first: the planned pilot), training pool\nbefore held-out, candidates in star order. GitHub core API: 60 requests/hour unauthenticated, so this paces itself.\nWrites checks/multilang/proposed_repos_v3.json and .md.\n",
+ "searched": "2026-11-11",
+ "languages": {
+  "python": {
+   "train": {
+    "picked": [
+     {
+      "repo": "fastapi/fastapi",
+      "stars": 104659,
+      "licence": "MIT",
+      "created": "2018-12-08",
+      "code_mb": 4.62,
+      "code_share": 1.0,
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+     },
+     {
+      "repo": "3b1b/manim",
+      "stars": 96348,
+      "licence": "MIT",
+      "created": "2015-03-22",
+      "code_mb": 0.98,
+      "code_share": 0.95,
+      "description": "Animation engine for explanatory math videos"
+     },
+     {
+      "repo": "Z4nzu/hackingtool",
+      "stars": 81854,
+      "licence": "MIT",
+      "created": "2020-04-11",
+      "code_mb": 0.58,
+      "code_share": 0.99,
+      "description": "ALL IN ONE Hacking Tool For Hackers"
+     },
+     {
+      "repo": "abi/screenshot-to-code",
+      "stars": 81147,
+      "licence": "MIT",
+      "created": "2023-11-14",
+      "code_mb": 0.76,
+      "code_share": 0.54,
+      "description": "Drop in a screenshot and convert it to clean code (HTML/Tailwind/React/Vue)"
+     },
+     {
+      "repo": "hiyouga/LlamaFactory",
+      "stars": 75991,
+      "licence": "Apache-2.0",
+      "created": "2023-05-28",
+      "code_mb": 2.44,
+      "code_share": 1.0,
+      "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)"
+     },
+     {
+      "repo": "pallets/flask",
+      "stars": 75120,
+      "licence": "BSD-3-Clause",
+      "created": "2010-04-06",
+      "code_mb": 0.57,
+      "code_share": 1.0,
+      "description": "The Python micro framework for building web applications."
+     },
+     {
+      "repo": "FoundationAgents/MetaGPT",
+      "stars": 71241,
+      "licence": "MIT",
+      "created": "2023-06-30",
+      "code_mb": 3.21,
+      "code_share": 0.97,
+      "description": "\ud83c\udf1f The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programmi"
+     },
+     {
+      "repo": "mem0ai/mem0",
+      "stars": 68789,
+      "licence": "Apache-2.0",
+      "created": "2023-06-20",
+      "code_mb": 4.7,
+      "code_share": 0.58,
+      "description": "The Memory Layer for AI Agents - Drop-in memory infrastructure for AI agents and apps. Con"
+     },
+     {
+      "repo": "keras-team/keras",
+      "stars": 64422,
+      "licence": "Apache-2.0",
+      "created": "2015-03-28",
+      "code_mb": 11.77,
+      "code_share": 1.0,
+      "description": "Deep Learning for humans"
+     },
+     {
+      "repo": "pathwaycom/serviette",
+      "stars": 58714,
+      "licence": "MIT",
+      "created": "2023-07-19",
+      "code_mb": 0.82,
+      "code_share": 0.97,
+      "description": "A no-code RAG server that keeps answers in sync with your documents. Works with 8 vector d"
+     },
+     {
+      "repo": "Textualize/rich",
+      "stars": 57786,
+      "licence": "MIT",
+      "created": "2019-11-10",
+      "code_mb": 1.7,
+      "code_share": 1.0,
+      "description": "Rich is a Python library for rich text and beautiful formatting in the terminal."
+     },
+     {
+      "repo": "psf/requests",
+      "stars": 54765,
+      "licence": "Apache-2.0",
+      "created": "2011-02-13",
+      "code_mb": 0.39,
+      "code_share": 0.99,
+      "description": "A simple, yet elegant, HTTP library."
+     }
+    ],
+    "skipped": [
+     {
+      "repo": "public-apis/public-apis",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "EbookFoundation/free-programming-books",
+      "reason": "licence CC-BY-4.0"
+     },
+     {
+      "repo": "donnemartin/system-design-primer",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "vinta/awesome-python",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "practical-tutorials/project-based-learning",
+      "reason": "repo size 0 MB"
+     },
+     {
+      "repo": "TheAlgorithms/Python",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "yt-dlp/yt-dlp",
+      "reason": "licence Unlicense"
+     },
+     {
+      "repo": "521xueweihan/HelloGitHub",
+      "reason": "licence None"
+     },
+     {
+      "repo": "Significant-Gravitas/AutoGPT",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "huggingface/transformers",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "AUTOMATIC1111/stable-diffusion-webui",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "langgenius/dify",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "langflow-ai/langflow",
+      "reason": "repo size 1723 MB"
+     },
+     {
+      "repo": "langchain-ai/langchain",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "Comfy-Org/ComfyUI",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "ytdl-org/youtube-dl",
+      "reason": "licence Unlicense"
+     },
+     {
+      "repo": "krahets/hello-algo",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "openai/whisper",
+      "reason": "Python code 0.16 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "sherlock-project/sherlock",
+      "reason": "Python code 0.08 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "pytorch/pytorch",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "hacksider/Deep-Live-Cam",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "vllm-project/vllm",
+      "reason": "repo size 359 MB"
+     },
+     {
+      "repo": "PaddlePaddle/PaddleOCR",
+      "reason": "repo size 1970 MB"
+     },
+     {
+      "repo": "home-assistant/core",
+      "reason": "repo size 939 MB"
+     },
+     {
+      "repo": "django/django",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "bregman-arie/devops-exercises",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "swisskyrepo/PayloadsAllTheThings",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "unslothai/unsloth",
+      "reason": "repo size 676 MB"
+     },
+     {
+      "repo": "Asabeneh/30-Days-Of-Python",
+      "reason": "licence None"
+     },
+     {
+      "repo": "python/cpython",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "tensorflow/models",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "apache/superset",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "openbq-org/OpenBB",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "josephmisiti/awesome-machine-learning",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "binary-husky/gpt_academic",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "ansible/ansible",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "NanmiCoder/MediaCrawler",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "scikit-learn/scikit-learn",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "labmlai/annotated_deep_learning_paper_implementations",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "xtekky/gpt4free",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "scrapy/scrapy",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "karpathy/nanoGPT",
+      "reason": "repo size 0 MB"
+     },
+     {
+      "repo": "commaai/openpilot",
+      "reason": "repo size 1327 MB"
+     },
+     {
+      "repo": "ultralytics/ultralytics",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "BerriAI/litellm",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "pathwaycom/pathway",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "microsoft/autogen",
+      "reason": "licence CC-BY-4.0"
+     },
+     {
+      "repo": "crewAIInc/crewAI",
+      "reason": "repo size 306 MB"
+     },
+     {
+      "repo": "CorentinJ/Real-Time-Voice-Cloning",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "meta-llama/llama",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "ultralytics/yolov5",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "zylon-ai/private-gpt",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "deepfakes/faceswap",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "ageitgey/face_recognition",
+      "reason": "Python code 0.04 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "soimort/you-get",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "freqtrade/freqtrade",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "odoo/odoo",
+      "reason": "licence NOASSERTION"
+     }
+    ]
+   },
+   "heldout": {
+    "picked": [
+     {
+      "repo": "microsoft/markitdown",
+      "stars": 194872,
+      "licence": "MIT",
+      "created": "2024-11-13",
+      "code_mb": 0.8,
+      "code_share": 1.0,
+      "description": "Python tool for converting files and office documents to Markdown."
+     },
+     {
+      "repo": "TauricResearch/TradingAgents",
+      "stars": 121920,
+      "licence": "Apache-2.0",
+      "created": "2024-12-28",
+      "code_mb": 1.1,
+      "code_share": 1.0,
+      "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework"
+     },
+     {
+      "repo": "browser-use/browser-use",
+      "stars": 120655,
+      "licence": "MIT",
+      "created": "2024-10-31",
+      "code_mb": 1.51,
+      "code_share": 0.99,
+      "description": "Open-source Python library for AI browser agents, plus Browser Use Cloud: stealth browsers"
+     },
+     {
+      "repo": "D4Vinci/Scrapling",
+      "stars": 101317,
+      "licence": "BSD-3-Clause",
+      "created": "2024-10-13",
+      "code_mb": 1.78,
+      "code_share": 1.0,
+      "description": "\ud83d\udd77\ufe0f The BEST Web Scraping framework that handles everything from a single request to a full"
+     },
+     {
+      "repo": "unclecode/crawl4ai",
+      "stars": 87202,
+      "licence": "Apache-2.0",
+      "created": "2024-05-09",
+      "code_mb": 4.65,
+      "code_share": 0.99,
+      "description": "Official Crawl4AI Cloud: a hosted web scraping, extraction, and search API for AI agents. "
+     },
+     {
+      "repo": "RVC-Boss/GPT-SoVITS",
+      "stars": 64747,
+      "licence": "MIT",
+      "created": "2024-01-14",
+      "code_mb": 1.89,
+      "code_share": 0.98,
+      "description": "1 min voice data can also be used to train a good TTS model! (few shot voice cloning)"
+     },
+     {
+      "repo": "virattt/ai-hedge-fund",
+      "stars": 64632,
+      "licence": "MIT",
+      "created": "2024-11-29",
+      "code_mb": 1.0,
+      "code_share": 1.0,
+      "description": "An AI Hedge Fund Team"
+     },
+     {
+      "repo": "exo-explore/exo",
+      "stars": 48294,
+      "licence": "Apache-2.0",
+      "created": "2024-06-24",
+      "code_mb": 4.93,
+      "code_share": 0.74,
+      "description": "Run frontier AI locally."
+     },
+     {
+      "repo": "HKUDS/LightRAG",
+      "stars": 40647,
+      "licence": "MIT",
+      "created": "2024-10-02",
+      "code_mb": 15.58,
+      "code_share": 0.9,
+      "description": "[EMNLP2025] LightRAG: Simple and Fast Retrieval-Augmented Generation"
+     },
+     {
+      "repo": "VectifyAI/PageIndex",
+      "stars": 40358,
+      "licence": "MIT",
+      "created": "2025-04-01",
+      "code_mb": 2.45,
+      "code_share": 1.0,
+      "description": "\ud83d\udcd1 PageIndex: Document Index for Vectorless, Reasoning-based RAG"
+     }
+    ],
+    "skipped": [
+     {
+      "repo": "Shubhamsaboo/awesome-llm-apps",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "harry0703/MoneyPrinterTurbo",
+      "reason": "repo size 541 MB"
+     },
+     {
+      "repo": "deepseek-ai/DeepSeek-V3",
+      "reason": "repo size 1 MB"
+     },
+     {
+      "repo": "bytedance/deer-flow",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "opendatalab/MinerU",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "shareAI-lab/learn-claude-code",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "asgeirtj/system_prompts_leaks",
+      "reason": "licence CC0-1.0"
+     },
+     {
+      "repo": "docling-project/docling",
+      "reason": "repo size 482 MB"
+     },
+     {
+      "repo": "jingyaogong/minimind",
+      "reason": "Python code 0.27 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "sansan0/TrendRadar",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "FoundationAgents/OpenManus",
+      "reason": "owner already used (any language/list)"
+     },
+     {
+      "repo": "hesreallyhim/awesome-claude-code",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "Zie619/n8n-workflows",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "bmad-code-org/BMAD-METHOD",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "xai-org/grok-1",
+      "reason": "repo size 1 MB"
+     },
+     {
+      "repo": "666ghj/BettaFish",
+      "reason": "licence GPL-2.0"
+     }
+    ]
+   }
+  },
+  "rust": {
+   "train": {
+    "picked": [
+     {
+      "repo": "paradigmxyz/reth",
+      "note": "kept for continuity with the earlier experiment"
+     },
+     {
+      "repo": "alacritty/alacritty",
+      "stars": 66165,
+      "licence": "Apache-2.0",
+      "created": "2016-02-18",
+      "code_mb": 1.15,
+      "code_share": 0.96,
+      "description": "A cross-platform, OpenGL terminal emulator."
+     },
+     {
+      "repo": "parcel-bundler/parcel",
+      "stars": 44012,
+      "licence": "MIT",
+      "created": "2017-08-07",
+      "code_mb": 3.51,
+      "code_share": 0.8,
+      "description": "The zero configuration build tool for the web. \ud83d\udce6\ud83d\ude80"
+     },
+     {
+      "repo": "sxyazi/yazi",
+      "stars": 43347,
+      "licence": "MIT",
+      "created": "2023-07-08",
+      "code_mb": 2.18,
+      "code_share": 0.94,
+      "description": "\ud83d\udca5 Blazing fast terminal file manager written in Rust, based on async I/O."
+     },
+     {
+      "repo": "spacedriveapp/spacedrive",
+      "stars": 39484,
+      "licence": "Apache-2.0",
+      "created": "2021-09-27",
+      "code_mb": 7.44,
+      "code_share": 0.79,
+      "description": "Spacedrive is an open source cross-platform file explorer, powered by a virtual distribute"
+     },
+     {
+      "repo": "jdx/mise",
+      "stars": 36027,
+      "licence": "MIT",
+      "created": "2023-01-09",
+      "code_mb": 22.94,
+      "code_share": 0.81,
+      "description": "dev tools, env vars, task runner"
+     },
+     {
+      "repo": "dandavison/delta",
+      "stars": 32716,
+      "licence": "MIT",
+      "created": "2019-06-24",
+      "code_mb": 1.16,
+      "code_share": 0.96,
+      "description": "A syntax-highlighting pager for git, diff, grep, rg --json, and blame output"
+     },
+     {
+      "repo": "jj-vcs/jj",
+      "stars": 32444,
+      "licence": "Apache-2.0",
+      "created": "2020-12-18",
+      "code_mb": 10.16,
+      "code_share": 0.99,
+      "description": "A Git-compatible VCS that is both simple and powerful"
+     },
+     {
+      "repo": "atuinsh/atuin",
+      "stars": 32263,
+      "licence": "MIT",
+      "created": "2020-10-04",
+      "code_mb": 9.82,
+      "code_share": 0.98,
+      "description": "\u2728 Making your shell magical"
+     },
+     {
+      "repo": "emilk/egui",
+      "stars": 32209,
+      "licence": "Apache-2.0",
+      "created": "2019-01-13",
+      "code_mb": 5.02,
+      "code_share": 0.99,
+      "description": "egui: an easy-to-use immediate mode GUI in Rust that runs on both web and native"
+     },
+     {
+      "repo": "GraphiteEditor/Graphite",
+      "stars": 27903,
+      "licence": "Apache-2.0",
+      "created": "2020-04-26",
+      "code_mb": 11.61,
+      "code_share": 0.9,
+      "description": "Community-built comprehensive 2D content creation appplication for graphic design, digital"
+     },
+     {
+      "repo": "cloudflare/pingora",
+      "stars": 27858,
+      "licence": "Apache-2.0",
+      "created": "2023-05-05",
+      "code_mb": 5.74,
+      "code_share": 1.0,
+      "description": "A library for building fast, reliable and evolvable network services."
+     }
+    ],
+    "skipped": [
+     {
+      "repo": "clash-verge-rev/clash-verge-rev",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "rustdesk/rustdesk",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "rust-lang/rust",
+      "reason": "repo size 1044 MB"
+     },
+     {
+      "repo": "tauri-apps/tauri",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "denoland/deno",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "oven-sh/bun",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "zed-industries/zed",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "astral-sh/uv",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "unionlabs/union",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "dani-garcia/vaultwarden",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "BurntSushi/ripgrep",
+      "reason": "licence Unlicense"
+     },
+     {
+      "repo": "openinterpreter/openinterpreter",
+      "reason": "Rust code 69.96 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "warpdotdev/warp",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "rust-lang/rustlings",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "tw93/Pake",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "FuelLabs/sway",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "sharkdp/bat",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "starship/starship",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "rust-unofficial/awesome-rust",
+      "reason": "licence CC0-1.0"
+     },
+     {
+      "repo": "meilisearch/meilisearch",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "typst/typst",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "FuelLabs/fuel-core",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "astral-sh/ruff",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "bevyengine/bevy",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "helix-editor/helix",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "juspay/hyperswitch",
+      "reason": "repo size 487 MB"
+     },
+     {
+      "repo": "janhq/jan",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "sharkdp/fd",
+      "reason": "Rust code 0.29 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "FuelLabs/fuels-rs",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "GyulyVGC/sniffnet",
+      "reason": "repo size 352 MB"
+     },
+     {
+      "repo": "nushell/nushell",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "storytold/artcraft",
+      "reason": "repo size 1375 MB"
+     },
+     {
+      "repo": "ajeetdsouza/zoxide",
+      "reason": "Rust code 0.09 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "pola-rs/polars",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "DioxusLabs/dioxus",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "lapce/lapce",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "servo/servo",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "firecracker-microvm/firecracker",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "pnpm/pnpm",
+      "reason": "repo size 304 MB"
+     },
+     {
+      "repo": "casey/just",
+      "reason": "licence CC0-1.0"
+     },
+     {
+      "repo": "zellij-org/zellij",
+      "reason": "repo size 347 MB"
+     },
+     {
+      "repo": "rustfs/rustfs",
+      "reason": "Rust code 80.28 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "qdrant/qdrant",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "fish-shell/fish-shell",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "swc-project/swc",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "TabbyML/tabby",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "tokio-rs/tokio",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "google/comprehensive-rust",
+      "reason": "not a library/application repo"
+     },
+     {
+      "repo": "surrealdb/surrealdb",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "yewstack/yew",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "ankitects/anki",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "linera-io/linera-protocol",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "iced-rs/iced",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "influxdata/influxdb",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "nautechsystems/nautilus_trader",
+      "reason": "licence LGPL-3.0"
+     },
+     {
+      "repo": "vercel/turborepo",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "sunface/rust-course",
+      "reason": "licence None"
+     },
+     {
+      "repo": "chroma-core/chroma",
+      "reason": "in Real-FIM-Eval"
+     },
+     {
+      "repo": "wezterm/wezterm",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "sharkdp/hyperfine",
+      "reason": "Rust code 0.29 MB outside 0.3-30 MB"
+     },
+     {
+      "repo": "niri-wm/niri",
+      "reason": "licence GPL-3.0"
+     }
+    ]
+   },
+   "heldout": {
+    "picked": [
+     {
+      "repo": "0xPlaygrounds/rig",
+      "stars": 9112,
+      "licence": "MIT",
+      "created": "2024-06-05",
+      "code_mb": 27.0,
+      "code_share": 0.99,
+      "description": "\u2699\ufe0f\ud83e\udd80 Build modular and scalable LLM Applications in Rust"
+     },
+     {
+      "repo": "EricLBuehler/mistral.rs",
+      "stars": 7827,
+      "licence": "MIT",
+      "created": "2024-02-26",
+      "code_mb": 21.1,
+      "code_share": 0.81,
+      "description": "Fast, flexible LLM inference"
+     },
+     {
+      "repo": "alexpasmantier/television",
+      "stars": 6414,
+      "licence": "MIT",
+      "created": "2024-09-15",
+      "code_mb": 0.95,
+      "code_share": 0.91,
+      "description": "A very fast, portable and hackable fuzzy finder."
+     },
+     {
+      "repo": "denoland/celld",
+      "stars": 6288,
+      "licence": "Apache-2.0",
+      "created": "2025-04-25",
+      "code_mb": 4.66,
+      "code_share": 0.79,
+      "description": "self-hosted, distributed Durable Objects"
+     },
+     {
+      "repo": "HelixDB/helix-db",
+      "stars": 6281,
+      "licence": "Apache-2.0",
+      "created": "2024-11-23",
+      "code_mb": 25.19,
+      "code_share": 0.94,
+      "description": "HelixDB is an OLTP graph database with native vector and full-text search built in Rust on"
+     },
+     {
+      "repo": "zensical/zensical",
+      "stars": 6138,
+      "licence": "MIT",
+      "created": "2025-05-18",
+      "code_mb": 2.08,
+      "code_share": 0.85,
+      "description": "A modern static site generator by the Material for MkDocs team"
+     },
+     {
+      "repo": "agentgateway/agentgateway",
+      "stars": 6106,
+      "licence": "Apache-2.0",
+      "created": "2025-03-18",
+      "code_mb": 8.82,
+      "code_share": 0.66,
+      "description": "Next Generation Agentic Proxy for AI Agents and MCP servers"
+     },
+     {
+      "repo": "achristmascarl/rainfrog",
+      "stars": 5399,
+      "licence": "MIT",
+      "created": "2024-05-15",
+      "code_mb": 0.57,
+      "code_share": 0.96,
+      "description": "\ud83d\udc38 a database tool for the terminal"
+     },
+     {
+      "repo": "ArthurBrussee/brush",
+      "stars": 5283,
+      "licence": "Apache-2.0",
+      "created": "2024-02-23",
+      "code_mb": 1.13,
+      "code_share": 0.96,
+      "description": "3D Reconstruction for all"
+     },
+     {
+      "repo": "domcyrus/rustnet",
+      "stars": 5230,
+      "licence": "Apache-2.0",
+      "created": "2025-04-27",
+      "code_mb": 3.45,
+      "code_share": 0.98,
+      "description": "Per-process network monitoring for your terminal with deep packet inspection. Cross-platfo"
+     }
+    ],
+    "skipped": [
+     {
+      "repo": "openai/codex",
+      "reason": "repo size 744 MB"
+     },
+     {
+      "repo": "ruvnet/RuView",
+      "reason": "repo size 428 MB"
+     },
+     {
+      "repo": "LadybirdBrowser/ladybird",
+      "reason": "repo size 605 MB"
+     },
+     {
+      "repo": "aaif-goose/goose",
+      "reason": "repo size 993 MB"
+     },
+     {
+      "repo": "cjpais/Handy",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "Zackriya-Solutions/meetily",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "trycua/cua",
+      "reason": "repo size 763 MB"
+     },
+     {
+      "repo": "BloopAI/vibe-kanban",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "zama-ai/fhevm",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "ayangweb/BongoCat",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "screenpipe/screenpipe",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "longbridge/gpui-kit",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "ccusage/ccusage",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "iii-hq/iii",
+      "reason": "licence None"
+     },
+     {
+      "repo": "eythaann/Seelen-UI",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "memvid/memvid",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "microsoft/edit",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "Pumpkin-MC/Pumpkin",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "cocoindex-io/cocoindex",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "QuipNetwork/hashsigs-rs",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "fastrepl/anarlog",
+      "reason": "repo size 909 MB"
+     },
+     {
+      "repo": "funstory-ai/BabelDOC",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "mainmatter/100-exercises-to-learn-rust",
+      "reason": "licence None"
+     },
+     {
+      "repo": "xberg-io/xberg",
+      "reason": "repo size 1059 MB"
+     },
+     {
+      "repo": "sinelaw/fresh",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "wealthfolio/wealthfolio",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "superradcompany/microsandbox",
+      "reason": "repo size 1103 MB"
+     },
+     {
+      "repo": "j178/prek",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "ai-dynamo/dynamo",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "datahaven-xyz/datahaven",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "mufeedvh/code2prompt",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "tailcallhq/forgecode",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "EcoPasteHub/EcoPaste",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "meta/pyrefly",
+      "reason": "repo size 2261 MB"
+     },
+     {
+      "repo": "katanemo/plano",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "zizmorcore/zizmor",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "koharu-rs/koharu",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "voidzero-dev/vite-plus",
+      "reason": "in heldout-v1"
+     },
+     {
+      "repo": "shuakami/qq-chat-exporter",
+      "reason": "licence GPL-3.0"
+     },
+     {
+      "repo": "ynqa/jnv",
+      "reason": "repo size 1 MB"
+     },
+     {
+      "repo": "agentcodee/cursor-free-everyday",
+      "reason": "repo size 0 MB"
+     },
+     {
+      "repo": "microsoft/sudo",
+      "reason": "owner already used (any language/list)"
+     },
+     {
+      "repo": "trailbaseio/trailbase",
+      "reason": "licence OSL-3.0"
+     },
+     {
+      "repo": "pgdogdev/pgdog",
+      "reason": "licence AGPL-3.0"
+     },
+     {
+      "repo": "amadeusprotocol/node",
+      "reason": "licence None"
+     },
+     {
+      "repo": "Speykious/cve-rs",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "spaceandtimefdn/sxt-proof-of-sql",
+      "reason": "licence NOASSERTION"
+     },
+     {
+      "repo": "winfunc/deepreasoning",
+      "reason": "repo size 0 MB"
+     },
+     {
+      "repo": "cordx56/rustowl",
+      "reason": "licence MPL-2.0"
+     }
+    ]
+   }
+  }
+ }
+}

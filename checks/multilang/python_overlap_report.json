@@ -1,0 +1,1321 @@
+{
+ "lang": "python",
+ "data_version": "python-fim-v2",
+ "docs": {
+  "pool": 51624,
+  "benchmark_and_heldout": 157891
+ },
+ "positive_control": {
+  "planted": 20,
+  "found": 19
+ },
+ "minhash_verified": {
+  "pool_vs_benchmark": 34,
+  "pool_vs_heldout": 34,
+  "train_vs_validation": 0
+ },
+ "verified_items": {
+  "pool_vs_benchmark": [
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/third_party/muon/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/third_party/muon/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/dpo/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/dpo/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/kto/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/kto/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/ppo/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/ppo/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/pt/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/pt/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/rm/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/rm/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/sft/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.747,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/sft/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.727,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/lr_scheduler.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.727,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/lr_scheduler.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.718,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.718,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.718,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.718,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.704,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/chat/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.704,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/chat/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.691,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/mca/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.691,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/mca/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.651,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.651,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.613,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/train.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.613,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/train.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.578,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/tests/train/megatron_bridge/test_config_builder.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.564,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/webui/common.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.546,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/webui/components/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.546,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/webui/components/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.542,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/fsdp2.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2026 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   },
+   {
+    "jaccard": 0.529,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/model/loader.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "bench",
+     "split": null,
+     "repo": "huggingface/transformers",
+     "path": "src/transformers/quantizers/__init__.py",
+     "unit": "pre_file",
+     "text_head": "# Copyright 2024 The HuggingFace Inc. team. All rights reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unl"
+    }
+   }
+  ],
+  "pool_vs_heldout": [
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/third_party/muon/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/third_party/muon/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/dpo/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/dpo/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/kto/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/kto/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/ppo/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/ppo/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/pt/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/pt/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/rm/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/rm/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/sft/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.755,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/sft/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.735,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/lr_scheduler.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.735,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/lr_scheduler.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.725,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.725,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.725,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.725,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.712,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/chat/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.712,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/chat/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.698,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/mca/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.698,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/train/mca/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.657,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.657,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.627,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/train.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.627,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/train.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.59,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/tests/train/megatron_bridge/test_config_builder.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.576,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/webui/common.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.553,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/fsdp2.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2026 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.55,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/webui/components/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.55,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/webui/components/__init__.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   },
+   {
+    "jaccard": 0.539,
+    "a": {
+     "source": "pool",
+     "split": "train",
+     "repo": null,
+     "path": "hiyouga/LlamaFactory/src/llamafactory/model/loader.py",
+     "unit": "chunk",
+     "text_head": "# Copyright 2025 the LlamaFactory team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicabl"
+    },
+    "b": {
+     "source": "heldout",
+     "split": null,
+     "repo": null,
+     "path": "RVC-Boss/GPT-SoVITS/GPT_SoVITS/text/zh_normalization/__init__.py",
+     "unit": "file",
+     "text_head": "# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unle"
+    }
+   }
+  ]
+ },
+ "exact_5line_windows": {
+  "pool_windows": 347976,
+  "shared_with_benchmark": 67,
+  "shared_with_heldout": 11,
+  "train_validation_shared": 7
+ }
+}

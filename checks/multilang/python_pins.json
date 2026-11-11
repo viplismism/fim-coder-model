@@ -1,0 +1,225 @@
+{
+ "lang": "python",
+ "repos": {
+  "fastapi/fastapi": {
+   "kind": "train",
+   "commit": "e1144f6954eb8dd8c306f8dd2f5f0a14bbeb2cfd",
+   "files": 1220,
+   "bytes": 4621746,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/fastapi__fastapi"
+  },
+  "3b1b/manim": {
+   "kind": "train",
+   "commit": "fafa083a4fb274bba9cabde0b6e2f50ba6da0622",
+   "files": 116,
+   "bytes": 986371,
+   "licence_files": [
+    "LICENSE.md"
+   ],
+   "path": "sources/multilang/python/3b1b__manim"
+  },
+  "abi/screenshot-to-code": {
+   "kind": "train",
+   "commit": "a8139779f7c5ae231b7f2a86fa7f83ddc5f7badc",
+   "files": 135,
+   "bytes": 755839,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/abi__screenshot-to-code"
+  },
+  "hiyouga/LlamaFactory": {
+   "kind": "train",
+   "commit": "42b2a546a339b514fd8b88d63959be8fbe297485",
+   "files": 319,
+   "bytes": 2561201,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/hiyouga__LlamaFactory"
+  },
+  "pallets/flask": {
+   "kind": "train",
+   "commit": "49943b5a94413a530761350f04e896f76e8d620e",
+   "files": 83,
+   "bytes": 591255,
+   "licence_files": [
+    "LICENSE.txt"
+   ],
+   "path": "sources/multilang/python/pallets__flask"
+  },
+  "FoundationAgents/MetaGPT": {
+   "kind": "train",
+   "commit": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+   "files": 890,
+   "bytes": 3375786,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/FoundationAgents__MetaGPT"
+  },
+  "mem0ai/mem0": {
+   "kind": "train",
+   "commit": "f1791daa86d469249c9b002f62644d58a1eb96a0",
+   "files": 421,
+   "bytes": 4791519,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/mem0ai__mem0"
+  },
+  "keras-team/keras": {
+   "kind": "train",
+   "commit": "a4a9199bc0d2beabf77882f615d2e64dd20bf9f6",
+   "files": 993,
+   "bytes": 11801776,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/keras-team__keras"
+  },
+  "Textualize/rich": {
+   "kind": "train",
+   "commit": "3a109ccdffe5b2d0e30684a304fbd388e99ce57b",
+   "files": 212,
+   "bytes": 1739820,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/Textualize__rich"
+  },
+  "psf/requests": {
+   "kind": "train",
+   "commit": "3c7baaa05ab4aa49cc819ce3a819d260de19c157",
+   "files": 37,
+   "bytes": 407127,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/psf__requests"
+  },
+  "microsoft/markitdown": {
+   "kind": "heldout",
+   "commit": "ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+   "files": 93,
+   "bytes": 801677,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/microsoft__markitdown"
+  },
+  "TauricResearch/TradingAgents": {
+   "kind": "heldout",
+   "commit": "9fa1196fffbcfd9de5146d2dd2869df84ab99838",
+   "files": 184,
+   "bytes": 1220955,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/TauricResearch__TradingAgents"
+  },
+  "browser-use/browser-use": {
+   "kind": "heldout",
+   "commit": "7fdd63c03fd342aab4fe44507c77c3221ffd43c6",
+   "files": 70,
+   "bytes": 1513205,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/browser-use__browser-use"
+  },
+  "D4Vinci/Scrapling": {
+   "kind": "heldout",
+   "commit": "c5121c7c06a8595ed3a0a9b7b7dcd6802b5ebfc5",
+   "files": 171,
+   "bytes": 1777539,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/D4Vinci__Scrapling"
+  },
+  "unclecode/crawl4ai": {
+   "kind": "heldout",
+   "commit": "cae74b203a33994f7e13b9052c3b0d5c93daa0e6",
+   "files": 513,
+   "bytes": 5811036,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/unclecode__crawl4ai"
+  },
+  "RVC-Boss/GPT-SoVITS": {
+   "kind": "heldout",
+   "commit": "59c44686f5cb9ffca9d8f1dec8b9c6836a129754",
+   "files": 186,
+   "bytes": 1886360,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/RVC-Boss__GPT-SoVITS"
+  },
+  "virattt/ai-hedge-fund": {
+   "kind": "heldout",
+   "commit": "5c553b5222044f6a5527bd377b4104c50ee0ad28",
+   "files": 130,
+   "bytes": 1000795,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/virattt__ai-hedge-fund"
+  },
+  "exo-explore/exo": {
+   "kind": "heldout",
+   "commit": "a60b95698ca81737d367443674dd5563cbc9559b",
+   "files": 552,
+   "bytes": 4274622,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/exo-explore__exo"
+  },
+  "HKUDS/LightRAG": {
+   "kind": "heldout",
+   "commit": "6328eb0c3001f90a188660f2033ece59b548c74f",
+   "files": 826,
+   "bytes": 16225456,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/HKUDS__LightRAG"
+  },
+  "VectifyAI/PageIndex": {
+   "kind": "heldout",
+   "commit": "2ac8694bf8fe89a3840dda9bdb88db5119b77fc4",
+   "files": 113,
+   "bytes": 2452134,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/VectifyAI__PageIndex"
+  },
+  "Aider-AI/aider": {
+   "kind": "train",
+   "commit": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+   "files": 147,
+   "bytes": 1336223,
+   "licence_files": [
+    "LICENSE.txt"
+   ],
+   "path": "sources/multilang/python/Aider-AI__aider"
+  },
+  "hiroi-sora/Umi-OCR": {
+   "kind": "train",
+   "commit": "83173efc4f4453b41223ea96d63d44534bf0505c",
+   "files": 87,
+   "bytes": 486665,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/python/hiroi-sora__Umi-OCR"
+  }
+ }
+}

@@ -1,0 +1,182 @@
+[
+ {
+  "control": "mozilla/gecko-dev:third_party/python/aiohttp/examples/curl.py",
+  "tokens": 244,
+  "lines_deleted": 0.105,
+  "file_jaccard": 0.726,
+  "best_chunk_jaccard": 0.726,
+  "p_detect_file": 0.675,
+  "p_detect_best_unit": 0.675
+ },
+ {
+  "control": "huggingface/transformers:src/transformers/models/yolos/feature_extraction_yolos.py",
+  "tokens": 303,
+  "lines_deleted": 0.106,
+  "file_jaccard": 0.744,
+  "best_chunk_jaccard": 0.728,
+  "p_detect_file": 0.747,
+  "p_detect_best_unit": 0.747
+ },
+ {
+  "control": "ray-project/ray:python/ray/data/context.py",
+  "tokens": 3606,
+  "lines_deleted": 0.107,
+  "file_jaccard": 0.678,
+  "best_chunk_jaccard": 0.745,
+  "p_detect_file": 0.472,
+  "p_detect_best_unit": 0.752
+ },
+ {
+  "control": "huggingface/transformers:src/transformers/models/clvp/configuration_clvp.py",
+  "tokens": 3683,
+  "lines_deleted": 0.117,
+  "file_jaccard": 0.718,
+  "best_chunk_jaccard": 0.799,
+  "p_detect_file": 0.642,
+  "p_detect_best_unit": 0.922
+ },
+ {
+  "control": "streamlit/streamlit:lib/streamlit/elements/spinner.py",
+  "tokens": 780,
+  "lines_deleted": 0.088,
+  "file_jaccard": 0.801,
+  "best_chunk_jaccard": 0.768,
+  "p_detect_file": 0.925,
+  "p_detect_best_unit": 0.925
+ },
+ {
+  "control": "apache/airflow:scripts/ci/pre_commit/template_context_key_sync.py",
+  "tokens": 1247,
+  "lines_deleted": 0.089,
+  "file_jaccard": 0.801,
+  "best_chunk_jaccard": 0.608,
+  "p_detect_file": 0.927,
+  "p_detect_best_unit": 0.927
+ },
+ {
+  "control": "sphinx-doc/sphinx:tests/test_application.py",
+  "tokens": 1371,
+  "lines_deleted": 0.101,
+  "file_jaccard": 0.779,
+  "best_chunk_jaccard": 0.806,
+  "p_detect_file": 0.871,
+  "p_detect_best_unit": 0.936
+ },
+ {
+  "control": "apache/airflow:providers/tests/amazon/aws/operators/test_emr_add_steps.py",
+  "tokens": 1980,
+  "lines_deleted": 0.1,
+  "file_jaccard": 0.755,
+  "best_chunk_jaccard": 0.825,
+  "p_detect_file": 0.791,
+  "p_detect_best_unit": 0.966
+ },
+ {
+  "control": "apache/airflow:tests/api_fastapi/core_api/routes/public/test_dag_parsing.py",
+  "tokens": 625,
+  "lines_deleted": 0.08,
+  "file_jaccard": 0.816,
+  "best_chunk_jaccard": 0.837,
+  "p_detect_file": 0.953,
+  "p_detect_best_unit": 0.979
+ },
+ {
+  "control": "huggingface/accelerate:src/accelerate/commands/utils.py",
+  "tokens": 847,
+  "lines_deleted": 0.113,
+  "file_jaccard": 0.758,
+  "best_chunk_jaccard": 0.843,
+  "p_detect_file": 0.802,
+  "p_detect_best_unit": 0.984
+ },
+ {
+  "control": "pytorch/pytorch:test/dynamo/test_compile.py",
+  "tokens": 1547,
+  "lines_deleted": 0.142,
+  "file_jaccard": 0.698,
+  "best_chunk_jaccard": 0.848,
+  "p_detect_file": 0.556,
+  "p_detect_best_unit": 0.987
+ },
+ {
+  "control": "sympy/sympy:sympy/ntheory/qs.py",
+  "tokens": 4118,
+  "lines_deleted": 0.102,
+  "file_jaccard": 0.752,
+  "best_chunk_jaccard": 0.875,
+  "p_detect_file": 0.778,
+  "p_detect_best_unit": 0.997
+ },
+ {
+  "control": "ray-project/ray:python/ray/tune/execution/class_cache.py",
+  "tokens": 345,
+  "lines_deleted": 0.049,
+  "file_jaccard": 0.876,
+  "best_chunk_jaccard": 0.823,
+  "p_detect_file": 0.997,
+  "p_detect_best_unit": 0.997
+ },
+ {
+  "control": "streamlit/streamlit:e2e_playwright/st_dialog_test.py",
+  "tokens": 3311,
+  "lines_deleted": 0.108,
+  "file_jaccard": 0.766,
+  "best_chunk_jaccard": 0.877,
+  "p_detect_file": 0.83,
+  "p_detect_best_unit": 0.998
+ },
+ {
+  "control": "NVIDIA/Megatron-LM:megatron/core/transformer/moe/router.py",
+  "tokens": 2284,
+  "lines_deleted": 0.083,
+  "file_jaccard": 0.759,
+  "best_chunk_jaccard": 0.877,
+  "p_detect_file": 0.804,
+  "p_detect_best_unit": 0.998
+ },
+ {
+  "control": "huggingface/transformers:src/transformers/models/speecht5/configuration_speecht5.py",
+  "tokens": 4234,
+  "lines_deleted": 0.111,
+  "file_jaccard": 0.755,
+  "best_chunk_jaccard": 0.884,
+  "p_detect_file": 0.791,
+  "p_detect_best_unit": 0.999
+ },
+ {
+  "control": "huggingface/datasets:src/datasets/packaged_modules/webdataset/webdataset.py",
+  "tokens": 2258,
+  "lines_deleted": 0.1,
+  "file_jaccard": 0.748,
+  "best_chunk_jaccard": 0.902,
+  "p_detect_file": 0.764,
+  "p_detect_best_unit": 1.0
+ },
+ {
+  "control": "apache/airflow:providers/tests/google/cloud/links/test_alloy_db.py",
+  "tokens": 517,
+  "lines_deleted": 0.073,
+  "file_jaccard": 0.816,
+  "best_chunk_jaccard": 1.0,
+  "p_detect_file": 0.953,
+  "p_detect_best_unit": 1.0
+ },
+ {
+  "control": "apache/airflow:tests/dag_processing/test_dag_bundles.py",
+  "tokens": 3026,
+  "lines_deleted": 0.124,
+  "file_jaccard": 0.67,
+  "best_chunk_jaccard": 0.929,
+  "p_detect_file": 0.439,
+  "p_detect_best_unit": 1.0
+ },
+ {
+  "control": "huggingface/transformers:src/transformers/models/llama/tokenization_llama_fast.py",
+  "tokens": 2181,
+  "lines_deleted": 0.093,
+  "file_jaccard": 0.761,
+  "best_chunk_jaccard": 0.963,
+  "p_detect_file": 0.811,
+  "p_detect_best_unit": 1.0
+ }
+]

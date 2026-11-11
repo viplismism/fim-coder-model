@@ -1,0 +1,1413 @@
+{
+ "rule": "checks/multilang/DECONTAMINATION.md",
+ "lang": "python",
+ "pool_files": 4185,
+ "targets": 14450,
+ "units": {
+  "pool": 195337,
+  "targets": 712159
+ },
+ "removed_files": {},
+ "removed_by_repo": {
+  "3b1b/manim": "0/109",
+  "Aider-AI/aider": "0/142",
+  "FoundationAgents/MetaGPT": "0/868",
+  "Textualize/rich": "0/196",
+  "abi/screenshot-to-code": "0/128",
+  "fastapi/fastapi": "0/1032",
+  "hiroi-sora/Umi-OCR": "0/80",
+  "hiyouga/LlamaFactory": "0/285",
+  "keras-team/keras": "0/832",
+  "mem0ai/mem0": "0/398",
+  "pallets/flask": "0/80",
+  "psf/requests": "0/35"
+ },
+ "removed_by_rule": {},
+ "licence_header_exceptions": {
+  "hiyouga/LlamaFactory/scripts/api_example/test_image.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/scripts/api_example/test_toolcall.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/scripts/bench_qwen.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/collections/llm/common.py [add:12159]"
+  ],
+  "hiyouga/LlamaFactory/scripts/convert_ckpt/llamafy_baichuan2.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/scripts/convert_ckpt/llamafy_qwen.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/scripts/convert_ckpt/tiny_llama4.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/scripts/convert_ckpt/tiny_qwen3.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/scripts/dcp2hf.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/scripts/eval_bleu_rouge.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]",
+   "benchmark post-file NVIDIA/NeMo:nemo/export/vllm_exporter.py [edit:7893]"
+  ],
+  "hiyouga/LlamaFactory/scripts/hf2dcp.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/scripts/llama_pro.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/scripts/loftq_init.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/scripts/megatron_merge.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/scripts/pissa_init.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/scripts/qwen_omni_merge.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/scripts/stat_utils/cal_flops.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/scripts/stat_utils/cal_lr.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/models/flux/layers.py [add:536]"
+  ],
+  "hiyouga/LlamaFactory/scripts/stat_utils/cal_mfu.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/scripts/stat_utils/cal_ppl.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/gpt/data/packed_sequence.py [add:569]"
+  ],
+  "hiyouga/LlamaFactory/scripts/stat_utils/length_cdf.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/pytorch/callbacks/progress_printer.py [add:531]"
+  ],
+  "hiyouga/LlamaFactory/scripts/vllm_infer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/export/vllm/model_loader.py [edit:7891]"
+  ],
+  "hiyouga/LlamaFactory/src/api.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/api/app.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/accelerate:src/accelerate/test_utils/testing.py [add:11014]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/api/chat.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/accelerate:src/accelerate/utils/deepspeed.py [edit:3397]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/api/common.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/api/protocol.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/gpt/model/hf_auto_model_for_causal_lm.py [add:13295]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/chat/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/chat/base_engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/audio/parts/submodules/flow.py [edit:7886]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/chat/chat_model.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/accelerate:src/accelerate/test_utils/testing.py [add:11014]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/chat/hf_engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/accelerate:src/accelerate/test_utils/testing.py [add:11014]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/chat/sglang_engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/accelerate:src/accelerate/test_utils/testing.py [add:11014]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/chat/vllm_engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/cli.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/collator.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:examples/nlp/language_modeling/megatron_gpt_distillation.py [edit:9527]",
+   "benchmark post-file huggingface/transformers:tests/models/timm_backbone/test_modeling_timm_backbone.py [add:4678]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/converter.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/data_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/formatter.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/loader.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/mm_plugin.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/inference/base.py [edit:13674]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/parser.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/resume.py [edit:460]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/processor/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/processor/feedback.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/pytorch/callbacks/progress_printer.py [add:531]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/processor/pairwise.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/pytorch/callbacks/progress_printer.py [add:531]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/processor/pretrain.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/utils/flux_pipeline_utils.py [edit:461]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/processor/processor_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/processor/supervised.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/pytorch/callbacks/progress_printer.py [add:531]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/processor/unsupervised.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/pytorch/callbacks/progress_printer.py [add:531]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/template.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/evaluation/base.py [add:582]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/data/tool_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/eval/template.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/utils/flux_pipeline_utils.py [edit:461]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/extras/constants.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/extras/env.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/extras/logging.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/utils.py [add:9871]",
+   "benchmark post-file NVIDIA/NeMo:tests/conftest.py [add:581]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/extras/misc.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/utils/te_utils.py [add:9895]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/extras/packages.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/extras/ploting.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/data_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/evaluation_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/finetuning_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/generating_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/megatron_bridge_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/model_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/parser.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/hparams/training_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/launcher.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/deploy/base.py [add:543]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/adapter.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/evaluation/base.py [add:582]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/loader.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/attention.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/checkpointing.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/inference/base.py [edit:13674]",
+   "benchmark post-file huggingface/transformers:utils/check_config_attributes.py [add:4605]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/embedding.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/models/flux/layers.py [add:536]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/kv_cache.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/liger_kernel.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/inference/base.py [edit:13674]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/misc.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/mod.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/moe.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/quantization.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/rope.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/models/flux/layers.py [add:536]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/unsloth.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/valuehead.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/model_utils/visual.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/utils/flux_pipeline_utils.py [edit:461]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/model/patcher.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/pytorch/accelerate/transformer_engine.py [add:12167]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/muon/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/triton/chunk_delta_h.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/recipes/hf_auto_model_for_causal_lm.py [edit:7897]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/triton/chunk_gated_delta_rule.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/peft:src/peft/tuners/adalora/config.py [add:4570]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/triton/chunk_o.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/recipes/hf_auto_model_for_causal_lm.py [edit:7897]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/triton/chunk_scaled_dot_kkt.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/recipes/hf_auto_model_for_causal_lm.py [edit:7897]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/triton/cumsum.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/recipes/hf_auto_model_for_causal_lm.py [edit:7897]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/triton/solve_tril.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/triton/utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/commands/env.py [add:11061]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/third_party/triton/wy_fast.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/recipes/hf_auto_model_for_causal_lm.py [edit:7897]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/callbacks.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/dpo/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/dpo/trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/peft:src/peft/tuners/adalora/config.py [add:4570]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/dpo/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/fp8_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/loader.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/TensorRT:demo/Diffusion/demo_img2img_flux.py [edit:487]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/model_registry.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/hyper_parallel/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/models/flux/layers.py [add:536]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/kto/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/kto/trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/peft:src/peft/tuners/adalora/config.py [add:4570]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/kto/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/mca/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/mca/trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/mca/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/utils/te_utils.py [add:9895]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/config_builder.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/models/flux/layers.py [add:536]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/dataset_export.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/inference/base.py [edit:13674]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/megatron_bridge/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/ppo/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/ppo/ppo_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/ppo/trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/models/flux/layers.py [add:536]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/ppo/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/pt/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/pt/trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/pytorch/accelerate/transformer_engine.py [add:12167]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/pt/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/models/flux/layers.py [add:536]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/rm/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/rm/metric.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/utils/flux_pipeline_utils.py [edit:461]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/rm/trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/rm/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/sft/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/sft/metric.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/utils/flux_pipeline_utils.py [edit:461]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/sft/trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/sft/workflow.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/test_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/trainer_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/train/tuner.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/nlp/modules/common/megatron/megatron_utils.py [add:9875]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/accelerator/helper.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/accelerator/interface.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/config/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/config/arg_parser.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/config/arg_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/config/data_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:examples/nlp/machine_translation/enc_dec_nmt.py [edit:7917]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/config/model_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:examples/nlp/machine_translation/enc_dec_nmt.py [edit:7917]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/config/sample_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:examples/nlp/machine_translation/enc_dec_nmt.py [edit:7917]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/config/training_args.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/base_sampler.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/base_trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/data_engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/model_engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/rendering/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/rendering/escape.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/rendering/format.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/rendering/rendering.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/utils/batching.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/utils/checkpoint.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/utils/collation.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/core/utils/inference_engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/accelerate:src/accelerate/test_utils/testing.py [add:11014]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/launcher.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/deploy/base.py [add:543]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/data_plugins/converter.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/data_plugins/loader.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/chunk_loss.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/deepspeed_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/initialization.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/modules/sortformer_modules.py [edit:7894]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/base.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/audio/parts/submodules/flow.py [edit:7886]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/interface.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/liger_kernel_ops.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/ops/linear_attention/fla.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/ops/mlp/cuda_fused_moe.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/ops/mlp/npu_fused_moe.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/ops/mlp/npu_swiglu.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/ops/mlp/triton_grouped_gemm.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/TensorRT:demo/Diffusion/demo_img2img_flux.py [edit:487]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/ops/rms_norm/npu_rms_norm.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/ops/rms_norm/supa_rms_norm.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/kernels/ops/rope/npu_rope.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/parallelization/batch.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/parallelization/gdn_attention.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/modules/sortformer_modules.py [edit:7894]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/parallelization/hook.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/parallelization/seq_comm.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/peft:src/peft/tuners/lora/gptq.py [edit:3433]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/parallelization/sequence_parallel.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/modules/sortformer_modules.py [edit:7894]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/parallelization/ulysses.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/datasets:src/datasets/formatting/np_formatter.py [edit:3401]",
+   "benchmark post-file huggingface/datasets:src/datasets/formatting/polars_formatter.py [edit:3399]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/peft.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/evaluation/base.py [add:582]",
+   "benchmark post-file huggingface/open-r1:src/open_r1/grpo.py [add:4566]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/model_plugins/quantization.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/utils/flux_pipeline_utils.py [edit:461]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/batching.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/audio/parts/submodules/flow.py [edit:7886]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/base.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/peft:src/peft/auto.py [add:4578]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/deepspeed.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/fsdp2.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:examples/nlp/language_modeling/megatron_gpt_distillation.py [edit:9527]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/fsdpturbo.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/distributed/interface.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/lr_scheduler.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/plugins/trainer_plugins/optimizers/optimizer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/peft:src/peft/auto.py [add:4578]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/fsdp.py [add:4688]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/samplers/cli_sampler.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/accelerate:src/accelerate/test_utils/testing.py [add:11014]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/trainers/dpo_trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:examples/nlp/language_modeling/megatron_gpt_distillation.py [edit:9527]",
+   "benchmark post-file NVIDIA/NeMo:nemo/lightning/run/plugins.py [add:504]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/trainers/rm_trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/modules/sortformer_modules.py [edit:7894]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/trainers/sft_trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/logging_callback.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/peft:src/peft/auto.py [add:4578]",
+   "benchmark post-file streamlit/streamlit:lib/streamlit/elements/deck_gl_json_chart.py [add:8785]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/callbacks/trainer_callback.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/peft:src/peft/auto.py [add:4578]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/constants.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/dtype.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/env.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/helper.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/data/diffusion_taskencoder.py [add:534]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/nlp/modules/common/megatron/megatron_init.py [add:549]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/logging.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/utils.py [add:9871]",
+   "benchmark post-file NVIDIA/NeMo:tests/conftest.py [add:581]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/objects.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/packages.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/plugin.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/pytest.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/v1/utils/types.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/chatter.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/common.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/__init__.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/chatbot.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/inference/base.py [edit:13674]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/data.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/eval.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/export.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/footer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/infer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/top.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/components/train.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/transformers:src/transformers/integrations/__init__.py [add:11052]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/control.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/css.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/interface.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/locales.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/manager.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/llamafactory/webui/runner.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/src/train.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/src/webui.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests/check_license.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/datasets:src/datasets/formatting/np_formatter.py [edit:3401]"
+  ],
+  "hiyouga/LlamaFactory/tests/conftest.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/processor/test_feedback.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/processor/test_pairwise.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/processor/test_processor_utils.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/_io/test_state.py [edit:7885]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/processor/test_supervised.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/processor/test_unsupervised.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/test_collator.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/inference/base.py [edit:13674]",
+   "benchmark post-file huggingface/transformers:utils/check_config_attributes.py [add:4605]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/test_converter.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/_io/test_state.py [edit:7885]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/test_formatter.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/test_loader.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/test_mm_plugin.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/test_moss_vl_plugin.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/test_moss_vl_training_configs.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/bert/data/core.py [add:9867]"
+  ],
+  "hiyouga/LlamaFactory/tests/data/test_template.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests/e2e/test_chat.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/e2e/test_sglang.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/datasets:src/datasets/formatting/np_formatter.py [edit:3401]"
+  ],
+  "hiyouga/LlamaFactory/tests/e2e/test_train.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/eval/test_eval_template.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/_io/test_state.py [edit:7885]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/model_utils/test_add_tokens.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/model_utils/test_attention.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/model_utils/test_checkpointing.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/model_utils/test_embedding.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/modules/sortformer_modules.py [edit:7894]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/model_utils/test_misc.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/model_utils/test_packing.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/_io/test_state.py [edit:7885]",
+   "benchmark post-file huggingface/peft:tests/test_helpers.py [add:4569]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/model_utils/test_visual.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/test_base.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/test_freeze.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/utils/flux_ckpt_converter.py [add:537]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/test_full.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/utils/flux_ckpt_converter.py [add:537]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/test_lora.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/model/test_pissa.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests/train/megatron_bridge/conftest.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests/train/megatron_bridge/test_config_builder.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests/train/megatron_bridge/test_dataset_export.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/peft/api.py [add:12145]"
+  ],
+  "hiyouga/LlamaFactory/tests/train/megatron_bridge/test_megatron_bridge_gpu.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/_io/test_state.py [edit:7885]"
+  ],
+  "hiyouga/LlamaFactory/tests/train/megatron_bridge/test_model_support.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests/train/test_hyper_parallel.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/TensorRT:demo/Diffusion/demo_img2img_flux.py [edit:487]"
+  ],
+  "hiyouga/LlamaFactory/tests/train/test_sft_trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/accelerator/test_interface.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/test_nemo_resume_from_ckpt.py [add:567]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/config/test_args_parser.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/datasets:src/datasets/formatting/np_formatter.py [edit:3401]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/conftest.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/core/rendering/test_rendering.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/models/clustering_diarizer.py [add:17505]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/core/test_data_engine.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/data/diffusion_taskencoder.py [add:534]",
+   "benchmark post-file NVIDIA/NeMo:tests/collections/nlp/test_flash_attention.py [add:523]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/core/test_model_loader.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/asr/modules/sortformer_modules.py [edit:7894]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/core/utils/test_batching.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/data_plugins/test_converter.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/diffusion/data/diffusion_taskencoder.py [add:534]",
+   "benchmark post-file NVIDIA/NeMo:tests/collections/nlp/test_flash_attention.py [add:523]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/model_plugins/test_chunk_loss.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/multimodal/data/energon/base.py [add:12154]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/model_plugins/test_init_plugin.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/model_plugins/test_kernel_plugin.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file huggingface/datasets:src/datasets/formatting/np_formatter.py [edit:3401]",
+   "benchmark post-file huggingface/datasets:src/datasets/formatting/polars_formatter.py [edit:3399]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/model_plugins/test_peft.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/_io/test_state.py [edit:7885]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/model_plugins/test_quantization_plugin.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/_io/test_state.py [edit:7885]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/model_plugins/test_ulysses_cp.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/trainer_plugins/distributed/test_fsdp2.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/trainer_plugins/distributed/test_fsdp2_weight_convert.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/plugins/trainer_plugins/distributed/test_fsdpturbo_ep.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/sampler/test_cli_sampler.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:tests/lightning/_io/test_state.py [edit:7885]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/trainers/test_dpo_loss_precision.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/trainers/test_fsdp2_dpo_trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/deploy/base.py [add:543]"
+  ],
+  "hiyouga/LlamaFactory/tests_v1/trainers/test_fsdp2_sft_trainer.py": [
+   "benchmark post-file NVIDIA/NeMo:examples/llm/peft/hf.py [add:12163]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/common/tokenizers/canary_tokenizer.py [add:528]",
+   "benchmark post-file NVIDIA/NeMo:nemo/collections/llm/deploy/base.py [add:543]"
+  ]
+ },
+ "planted_controls": {
+  "CONTROL-FILE:benchmark post-file sympy/sympy:sympy/ntheory/qs.py [edit:12602]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file huggingface/datasets:src/datasets/packaged_modules/webdataset/webdataset.py [add:4540]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file huggingface/transformers:src/transformers/models/clvp/configuration_clvp.py [add:4743]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file huggingface/accelerate:src/accelerate/commands/utils.py [add:13335]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file apache/airflow:providers/tests/google/cloud/links/test_alloy_db.py [add:1182]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file sphinx-doc/sphinx:tests/test_application.py [edit:9328]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file apache/airflow:providers/tests/amazon/aws/operators/test_emr_add_steps.py [add:1046]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file apache/airflow:tests/dag_processing/test_dag_bundles.py [add:1105]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file streamlit/streamlit:lib/streamlit/elements/spinner.py [edit:7051]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file ray-project/ray:python/ray/data/context.py [add:8187]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file streamlit/streamlit:e2e_playwright/st_dialog_test.py [add:8902]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file pytorch/pytorch:test/dynamo/test_compile.py [add:11567]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file huggingface/transformers:src/transformers/models/llama/tokenization_llama_fast.py [add:4821]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file huggingface/transformers:src/transformers/models/yolos/feature_extraction_yolos.py [add:4958]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file apache/airflow:tests/api_fastapi/core_api/routes/public/test_dag_parsing.py [add:17585]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file mozilla/gecko-dev:third_party/python/aiohttp/examples/curl.py [edit:4873]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file apache/airflow:scripts/ci/pre_commit/template_context_key_sync.py [edit:980]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file huggingface/transformers:src/transformers/models/speecht5/configuration_speecht5.py [add:4911]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file ray-project/ray:python/ray/tune/execution/class_cache.py [edit:6644]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file NVIDIA/Megatron-LM:megatron/core/transformer/moe/router.py [add:419]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(19 lines):benchmark post-file ray-project/ray:python/ray/llm/_internal/batch/stages/base.py [edit:6485]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  },
+  "CONTROL-FRAGMENT(13 lines):benchmark post-file apache/superset:tests/unit_tests/commands/databases/update_test.py [add:1828]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(20 lines):benchmark post-file lowRISC/opentitan:util/ipgen/renderer.py [add:13285]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  },
+  "CONTROL-FRAGMENT(14 lines):benchmark post-file apache/airflow:providers/microsoft/winrm/src/airflow/providers/microsoft/winrm/operators/winrm.py [edit:8122]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  },
+  "CONTROL-FRAGMENT(20 lines):benchmark post-file python-pillow/Pillow:Tests/test_file_ico.py [edit:9172]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(17 lines):benchmark post-file pandas-dev/pandas:pandas/core/arrays/numpy_.py [add:7193]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(16 lines):benchmark post-file huggingface/transformers:src/transformers/models/musicgen/configuration_musicgen.py [add:4856]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file ray-project/ray:python/ray/data/_internal/execution/interfaces/physical_operator.py [add:15486]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file apache/airflow:airflow/api/common/mark_tasks.py [add:1071]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(16 lines):benchmark post-file scipy/scipy:scipy/stats/_quantile.py [edit:9292]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(13 lines):benchmark post-file pytorch/pytorch:test/inductor/test_mps_basic.py [add:8031]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file pytorch/pytorch:torch/testing/_internal/triton_utils.py [add:15178]": {
+   "kind": "fragment",
+   "caught_by": [
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file mozilla/gecko-dev:testing/mozharness/configs/raptor/mac_config.py [edit:4767]": {
+   "kind": "fragment",
+   "caught_by": [
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file NVIDIA/Megatron-LM:examples/multimodal/image_processing.py [edit:7871]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FRAGMENT(19 lines):benchmark post-file apache/airflow:providers/src/airflow/providers/sftp/sensors/sftp.py [edit:939]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(13 lines):benchmark post-file pytorch/pytorch:test/inductor/test_mps_basic.py [add:7936]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  },
+  "CONTROL-FRAGMENT(17 lines):benchmark post-file sphinx-doc/sphinx:tests/test_builders/test_build_html_copyright.py [edit:6963]": {
+   "kind": "fragment",
+   "caught_by": [
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(20 lines):benchmark post-file pytorch/pytorch:test/inductor/test_mps_basic.py [add:7877]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(15 lines):benchmark post-file pytorch/pytorch:test/export/test_lift_unlift.py [edit:6327]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file pytorch/pytorch:torch/_inductor/codegen/cpp_wrapper_gpu.py [add:15197]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  }
+ },
+ "planted_summary": {
+  "whole file": {
+   "planted": 20,
+   "caught": 20,
+   "exact 5-line window": 20,
+   "near-duplicate (whole file)": 14,
+   "near-duplicate (30-line chunk)": 19,
+   "near-duplicate (10-line chunk)": 20
+  },
+  "fragment": {
+   "planted": 20,
+   "caught": 15,
+   "exact 5-line window": 12,
+   "near-duplicate (whole file)": 1,
+   "near-duplicate (30-line chunk)": 1,
+   "near-duplicate (10-line chunk)": 10
+  }
+ },
+ "missed_controls": [
+  "CONTROL-FRAGMENT(13 lines):benchmark post-file pytorch/pytorch:test/inductor/test_mps_basic.py [add:8031]",
+  "CONTROL-FRAGMENT(15 lines):benchmark post-file pytorch/pytorch:test/export/test_lift_unlift.py [edit:6327]",
+  "CONTROL-FRAGMENT(16 lines):benchmark post-file huggingface/transformers:src/transformers/models/musicgen/configuration_musicgen.py [add:4856]",
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file apache/airflow:airflow/api/common/mark_tasks.py [add:1071]",
+  "CONTROL-FRAGMENT(20 lines):benchmark post-file python-pillow/Pillow:Tests/test_file_ico.py [edit:9172]"
+ ]
+}
