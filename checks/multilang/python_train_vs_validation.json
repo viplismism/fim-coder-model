@@ -1,0 +1,9 @@
+{
+ "rule": "DECONTAMINATION.md addendum (train vs validation)",
+ "removed_validation_files": {
+  "FoundationAgents/MetaGPT/metagpt/tools/libs/linter.py": [
+   "exact 5-line window",
+   "near-duplicate (chunk10) of Aider-AI/aider/aider/linter.py"
+  ]
+ }
+}

@@ -31,3 +31,11 @@ rerun on the rebuilt data.
 file) and 20 altered fragments (12–20 lines of a benchmark file spliced into the middle of a training-pool file) are
 placed on the training-pool side. Each is reported as caught by the exact-window rule, the 30-line check, the 10-line
 check, or missed.
+
+## Addendum (2026-11-11): train vs validation
+
+Written before applying it, after finding that `FoundationAgents/MetaGPT/metagpt/tools/libs/linter.py` (validation) is a
+copy of `Aider-AI/aider/aider/linter.py` (train). **A validation file is removed if it shares, with any training file,
+a non-licence exact 5-line window or a verified near-duplicate (whole file, 30-line or 10-line chunk; Jaccard ≥ 0.5 after
+licence-header removal).** Training files are not removed for this reason, so the training data is unchanged. The
+dataset is rebuilt as a new version and every overlap check, including train vs validation, is rerun.

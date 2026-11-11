@@ -1,8 +1,8 @@
 {
  "lang": "python",
- "data_version": "python-fim-v2",
+ "data_version": "python-fim-v3",
  "docs": {
-  "pool": 51624,
+  "pool": 51611,
   "benchmark_and_heldout": 157891
  },
  "positive_control": {
@@ -1313,9 +1313,9 @@
   ]
  },
  "exact_5line_windows": {
-  "pool_windows": 347976,
+  "pool_windows": 347923,
   "shared_with_benchmark": 67,
   "shared_with_heldout": 11,
-  "train_validation_shared": 7
+  "train_validation_shared": 0
  }
 }
