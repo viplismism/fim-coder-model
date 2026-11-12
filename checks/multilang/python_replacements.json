@@ -1,0 +1,276 @@
+{
+ "picked": [
+  {
+   "repo": "Aider-AI/aider",
+   "stars": 50061,
+   "licence": "Apache-2.0",
+   "created": "2023-05-09",
+   "code_mb": 1.33,
+   "code_share": 0.8,
+   "description": "aider is AI pair programming in your terminal"
+  },
+  {
+   "repo": "hiroi-sora/Umi-OCR",
+   "stars": 48578,
+   "licence": "MIT",
+   "created": "2022-03-28",
+   "code_mb": 0.48,
+   "code_share": 0.51,
+   "description": "OCR software, free and offline. \u5f00\u6e90\u3001\u514d\u8d39\u7684\u79bb\u7ebfOCR\u8f6f\u4ef6\u3002\u652f\u6301\u622a\u5c4f/\u6279\u91cf\u5bfc\u5165\u56fe\u7247\uff0cPDF\u6587\u6863\u8bc6\u522b\uff0c\u6392\u9664\u6c34\u5370/\u9875\u7709\u9875\u811a\uff0c\u626b\u63cf/\u751f\u6210\u4e8c\u7ef4\u7801\u3002\u5185\u7f6e\u591a\u56fd\u8bed"
+  }
+ ],
+ "skipped": [
+  [
+   "public-apis/public-apis",
+   "not a library"
+  ],
+  [
+   "EbookFoundation/free-programming-books",
+   "licence CC-BY-4.0"
+  ],
+  [
+   "donnemartin/system-design-primer",
+   "licence NOASSERTION"
+  ],
+  [
+   "vinta/awesome-python",
+   "licence NOASSERTION"
+  ],
+  [
+   "practical-tutorials/project-based-learning",
+   "repo size"
+  ],
+  [
+   "TheAlgorithms/Python",
+   "not a library"
+  ],
+  [
+   "yt-dlp/yt-dlp",
+   "licence Unlicense"
+  ],
+  [
+   "521xueweihan/HelloGitHub",
+   "licence None"
+  ],
+  [
+   "Significant-Gravitas/AutoGPT",
+   "licence NOASSERTION"
+  ],
+  [
+   "huggingface/transformers",
+   "benchmark name"
+  ],
+  [
+   "AUTOMATIC1111/stable-diffusion-webui",
+   "licence AGPL-3.0"
+  ],
+  [
+   "langgenius/dify",
+   "licence NOASSERTION"
+  ],
+  [
+   "langflow-ai/langflow",
+   "repo size"
+  ],
+  [
+   "langchain-ai/langchain",
+   "benchmark name"
+  ],
+  [
+   "Comfy-Org/ComfyUI",
+   "licence GPL-3.0"
+  ],
+  [
+   "ytdl-org/youtube-dl",
+   "licence Unlicense"
+  ],
+  [
+   "krahets/hello-algo",
+   "licence NOASSERTION"
+  ],
+  [
+   "openai/whisper",
+   "code 0.16 MB"
+  ],
+  [
+   "sherlock-project/sherlock",
+   "code 0.08 MB"
+  ],
+  [
+   "pytorch/pytorch",
+   "benchmark name"
+  ],
+  [
+   "hacksider/Deep-Live-Cam",
+   "licence AGPL-3.0"
+  ],
+  [
+   "vllm-project/vllm",
+   "repo size"
+  ],
+  [
+   "PaddlePaddle/PaddleOCR",
+   "repo size"
+  ],
+  [
+   "home-assistant/core",
+   "repo size"
+  ],
+  [
+   "django/django",
+   "benchmark name"
+  ],
+  [
+   "bregman-arie/devops-exercises",
+   "licence NOASSERTION"
+  ],
+  [
+   "swisskyrepo/PayloadsAllTheThings",
+   "not a library"
+  ],
+  [
+   "unslothai/unsloth",
+   "repo size"
+  ],
+  [
+   "Asabeneh/30-Days-Of-Python",
+   "licence None"
+  ],
+  [
+   "python/cpython",
+   "licence NOASSERTION"
+  ],
+  [
+   "tensorflow/models",
+   "licence NOASSERTION"
+  ],
+  [
+   "apache/superset",
+   "benchmark name"
+  ],
+  [
+   "openbq-org/OpenBB",
+   "licence NOASSERTION"
+  ],
+  [
+   "josephmisiti/awesome-machine-learning",
+   "licence NOASSERTION"
+  ],
+  [
+   "binary-husky/gpt_academic",
+   "licence GPL-3.0"
+  ],
+  [
+   "ansible/ansible",
+   "benchmark name"
+  ],
+  [
+   "NanmiCoder/MediaCrawler",
+   "licence NOASSERTION"
+  ],
+  [
+   "scikit-learn/scikit-learn",
+   "benchmark name"
+  ],
+  [
+   "labmlai/annotated_deep_learning_paper_implementations",
+   "not a library"
+  ],
+  [
+   "xtekky/gpt4free",
+   "licence GPL-3.0"
+  ],
+  [
+   "scrapy/scrapy",
+   "benchmark name"
+  ],
+  [
+   "karpathy/nanoGPT",
+   "repo size"
+  ],
+  [
+   "commaai/openpilot",
+   "repo size"
+  ],
+  [
+   "ultralytics/ultralytics",
+   "licence AGPL-3.0"
+  ],
+  [
+   "BerriAI/litellm",
+   "licence NOASSERTION"
+  ],
+  [
+   "pathwaycom/pathway",
+   "owner used"
+  ],
+  [
+   "microsoft/autogen",
+   "owner used"
+  ],
+  [
+   "crewAIInc/crewAI",
+   "repo size"
+  ],
+  [
+   "CorentinJ/Real-Time-Voice-Cloning",
+   "licence NOASSERTION"
+  ],
+  [
+   "meta-llama/llama",
+   "licence NOASSERTION"
+  ],
+  [
+   "ultralytics/yolov5",
+   "licence AGPL-3.0"
+  ],
+  [
+   "zylon-ai/private-gpt",
+   "not a library"
+  ],
+  [
+   "deepfakes/faceswap",
+   "licence GPL-3.0"
+  ],
+  [
+   "ageitgey/face_recognition",
+   "code 0.04 MB"
+  ],
+  [
+   "soimort/you-get",
+   "licence NOASSERTION"
+  ],
+  [
+   "freqtrade/freqtrade",
+   "licence GPL-3.0"
+  ],
+  [
+   "odoo/odoo",
+   "licence NOASSERTION"
+  ],
+  [
+   "lllyasviel/Fooocus",
+   "licence GPL-3.0"
+  ],
+  [
+   "run-llama/llama_index",
+   "repo size"
+  ],
+  [
+   "charlax/professional-programming",
+   "not a library"
+  ],
+  [
+   "roboflow/supervision",
+   "repo size"
+  ],
+  [
+   "pandas-dev/pandas",
+   "benchmark name"
+  ],
+  [
+   "microsoft/qlib",
+   "owner used"
+  ]
+ ]
+}

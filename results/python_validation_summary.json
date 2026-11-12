@@ -1,0 +1,114 @@
+{
+ "eval_dirs": {
+  "base": "logs/20261112T134018+0530_python-base_eval_validation",
+  "ast": "logs/20261112T135837+0530_python-ast_eval_validation",
+  "random": "logs/20261112T143147+0530_python-random_eval_validation"
+ },
+ "tasks": {
+  "reth_ast": {
+   "n": 518,
+   "ppl": {
+    "base": 1.2197,
+    "ast": 1.2181,
+    "random": 1.2183
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0063,
+    "random": 0.0055
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0015,
+     "ci_examples": [
+      -0.0025,
+      -0.0006
+     ]
+    },
+    "random-base": {
+     "value": -0.0013,
+     "ci_examples": [
+      -0.0022,
+      -0.0006
+     ]
+    },
+    "ast-random": {
+     "value": -0.0002,
+     "ci_examples": [
+      -0.0004,
+      0.0
+     ]
+    }
+   }
+  },
+  "reth_random": {
+   "n": 518,
+   "ppl": {
+    "base": 1.2019,
+    "ast": 1.2008,
+    "random": 1.2001
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0049,
+    "random": 0.0082
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0011,
+     "ci_examples": [
+      -0.002,
+      -0.0003
+     ]
+    },
+    "random-base": {
+     "value": -0.0018,
+     "ci_examples": [
+      -0.0026,
+      -0.0011
+     ]
+    },
+    "ast-random": {
+     "value": 0.0007,
+     "ci_examples": [
+      0.0004,
+      0.001
+     ]
+    }
+   }
+  },
+  "reth_l2r": {
+   "n": 1080,
+   "ppl": {
+    "base": 1.2831,
+    "ast": 1.2823,
+    "random": 1.2819
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0024,
+    "random": 0.0036
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0008,
+     "ci_examples": [
+      -0.0012,
+      -0.0004
+     ]
+    },
+    "random-base": {
+     "value": -0.0011,
+     "ci_examples": [
+      -0.0016,
+      -0.0007
+     ]
+    },
+    "ast-random": {
+     "value": 0.0004,
+     "ci_examples": [
+      0.0002,
+      0.0005
+     ]
+    }
+   }
+  }
+ }
+}
