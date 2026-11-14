@@ -1,0 +1,566 @@
+{
+ "rule": "checks/multilang/DECONTAMINATION.md",
+ "lang": "typescript",
+ "pool_files": 8417,
+ "targets": 13178,
+ "units": {
+  "pool": 334152,
+  "targets": 683338
+ },
+ "removed_files": {
+  "excalidraw/excalidraw/packages/excalidraw/data/blob.ts": {
+   "rules": [
+    "exact 5-line window"
+   ],
+   "examples": [
+    [
+     "exact 5-line window",
+     "held-out onlook-dev/onlook/packages/utility/src/image.ts"
+    ]
+   ]
+  },
+  "excalidraw/excalidraw/packages/excalidraw/fonts/ComicShanns/index.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.621"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark pre-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.693"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.6"
+    ]
+   ]
+  },
+  "excalidraw/excalidraw/packages/excalidraw/subset/woff2/woff2-bindings.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.6"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file vercel/next.js:packages/next/src/build/webpack/loaders/next-swc-loader.ts [add:9574]",
+     "0.67"
+    ]
+   ]
+  },
+  "excalidraw/excalidraw/setupTests.ts": {
+   "rules": [
+    "exact 5-line window"
+   ],
+   "examples": [
+    [
+     "exact 5-line window",
+     "benchmark post-file streamlit/streamlit:frontend/lib/src/theme/utils.test.ts [add:15800]"
+    ]
+   ]
+  },
+  "hoppscotch/hoppscotch/packages/hoppscotch-data/src/rest/v/13/auth.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (10-line chunk)",
+     "held-out better-auth/better-auth/packages/core/src/oauth2/client-assertion.ts",
+     "0.828"
+    ]
+   ]
+  },
+  "marktext/marktext/packages/desktop/src/renderer/src/assets/window-controls.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark pre-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.599"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.637"
+    ]
+   ]
+  },
+  "shadcn-ui/ui/apps/v4/lib/registry-health/network.ts": {
+   "rules": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ],
+   "examples": [
+    [
+     "exact 5-line window",
+     "held-out musistudio/claude-code-router/packages/core/src/providers/manifest-service.ts"
+    ],
+    [
+     "exact 5-line window",
+     "held-out musistudio/claude-code-router/packages/core/src/providers/manifest-service.ts"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "held-out musistudio/claude-code-router/packages/core/src/providers/manifest-service.ts",
+     "0.505"
+    ]
+   ]
+  },
+  "shadcn-ui/ui/templates/next-monorepo/apps/web/next-env.d.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (10-line chunk)",
+     "held-out ItzCrazyKns/Vane/next-env.d.ts",
+     "0.568"
+    ],
+    [
+     "near-duplicate (whole file)",
+     "held-out ItzCrazyKns/Vane/next-env.d.ts",
+     "0.568"
+    ],
+    [
+     "near-duplicate (30-line chunk)",
+     "held-out ItzCrazyKns/Vane/next-env.d.ts",
+     "0.568"
+    ]
+   ]
+  },
+  "tailwindlabs/tailwindcss/packages/tailwindcss/src/utilities.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file apache/superset:superset-frontend/src/SqlLab/reducers/getInitialState.test.ts [edit:1383]",
+     "1.0"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file apache/superset:superset-frontend/src/SqlLab/reducers/getInitialState.test.ts [edit:1383]",
+     "1.0"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file apache/superset:superset-frontend/src/SqlLab/reducers/getInitialState.test.ts [edit:1383]",
+     "1.0"
+    ]
+   ]
+  },
+  "tailwindlabs/tailwindcss/packages/tailwindcss/src/utils/is-color.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (30-line chunk)",
+     "held-out onlook-dev/onlook/packages/utility/src/tailwind.ts",
+     "0.708"
+    ],
+    [
+     "near-duplicate (30-line chunk)",
+     "held-out onlook-dev/onlook/packages/utility/src/tailwind.ts",
+     "0.748"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "held-out onlook-dev/onlook/packages/utility/src/tailwind.ts",
+     "0.771"
+    ]
+   ]
+  },
+  "vitejs/vite/packages/vite/src/node/server/pluginContainer.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.513"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file vercel/next.js:packages/next/src/build/webpack/loaders/next-swc-loader.ts [add:9574]",
+     "0.539"
+    ]
+   ]
+  },
+  "vitejs/vite/packages/vite/src/types/alias.d.ts": {
+   "rules": [
+    "near-duplicate (10-line chunk)"
+   ],
+   "examples": [
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark pre-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.699"
+    ],
+    [
+     "near-duplicate (10-line chunk)",
+     "benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/wellknown-errors-plugin/parseNotFoundError.ts [edit:9407]",
+     "0.552"
+    ]
+   ]
+  }
+ },
+ "removed_by_repo": {
+  "ChatGPTNextWeb/NextChat": "0/154",
+  "ant-design/ant-design": "0/1073",
+  "coder/code-server": "0/86",
+  "excalidraw/excalidraw": "4/366",
+  "hoppscotch/hoppscotch": "1/1119",
+  "marktext/marktext": "1/1454",
+  "mermaid-js/mermaid": "0/1083",
+  "nuxt/nuxt": "0/1369",
+  "shadcn-ui/ui": "2/618",
+  "socketio/socket.io": "0/180",
+  "tailwindlabs/tailwindcss": "2/307",
+  "vitejs/vite": "2/608"
+ },
+ "removed_by_rule": {
+  "exact 5-line window": 3,
+  "near-duplicate (10-line chunk)": 10,
+  "near-duplicate (30-line chunk)": 2,
+  "near-duplicate (whole file)": 1
+ },
+ "licence_header_exceptions": {},
+ "planted_controls": {
+  "CONTROL-FILE:benchmark post-file unionlabs/union:typescript-sdk/src/evm/client.ts [edit:12988]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file grafana/grafana:public/app/plugins/datasource/tempo/dataquery.gen.ts [add:4467]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file microsoft/vscode:src/vs/workbench/contrib/chat/browser/chatEditorActions.ts [add:5550]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file vercel/turborepo:packages/create-turbo/src/commands/create/index.ts [add:16939]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file github/docs:src/archives/middleware/archived-enterprise-versions.ts [add:3367]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file microsoft/vscode:src/vs/workbench/services/treeSitter/browser/treeSitterCodeEditors.ts [edit:11303]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file chromium/chromium:content/browser/resources/traces_internals/tracing_scenarios_config.html.ts [add:2106]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file electron/electron:typings/internal-electron.d.ts [add:2708]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file microsoft/vscode:src/vs/editor/contrib/lineSelection/test/browser/lineSelection.test.ts [edit:10133]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file angular/angular:packages/core/src/core_private_export.ts [add:9967]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file angular/angular:packages/core/src/render3/component_ref.ts [add:12189]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file lichess-org/lila:ui/.build/src/main.ts [add:13961]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file microsoft/vscode:src/vs/workbench/contrib/chat/browser/chatAttachmentModel/chatInstructionAttachmentsModel.ts [add:5589]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file microsoft/vscode:src/vs/workbench/contrib/welcomeGettingStarted/browser/gettingStartedDetailsRenderer.ts [add:5664]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file electron/electron:spec/api-content-tracing-spec.ts [edit:2134]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file vercel/next.js:test/e2e/app-dir/metadata-streaming/metadata-streaming-customized-rule.test.ts [edit:7663]": {
+   "kind": "whole file",
+   "caught_by": [
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file microsoft/vscode:src/vscode-dts/vscode.proposed.chatReferenceBinaryData.d.ts [edit:4204]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file microsoft/vscode:src/vs/editor/contrib/hover/browser/contentHoverWidgetWrapper.ts [add:5641]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file microsoft/vscode:src/vs/workbench/contrib/chat/browser/promptSyntax/contributions/createPromptCommand/utils/createPromptFile.ts [edit:10016]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FILE:benchmark post-file angular/angular:packages/platform-browser/animations/async/src/providers.ts [add:778]": {
+   "kind": "whole file",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file microsoft/vscode:src/vs/editor/common/model/tokenStore.ts [edit:8863]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(13 lines):benchmark post-file grafana/grafana:packages/grafana-schema/src/veneer/dashboard.types.ts [add:4235]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)",
+    "near-duplicate (30-line chunk)",
+    "near-duplicate (whole file)"
+   ]
+  },
+  "CONTROL-FRAGMENT(12 lines):benchmark post-file angular/angular:packages/core/src/render3/component_ref.ts [add:17551]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(14 lines):benchmark post-file microsoft/vscode:src/vs/platform/extensionManagement/test/common/extensionGalleryService.test.ts [edit:10180]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(14 lines):benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/build-manifest-plugin.ts [edit:10449]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(12 lines):benchmark post-file mozilla/gecko-dev:dom/webgpu/tests/cts/checkout/src/webgpu/api/operation/texture_view/write.spec.ts [add:6526]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(17 lines):benchmark post-file microsoft/vscode:src/vs/workbench/services/output/common/output.ts [add:5605]": {
+   "kind": "fragment",
+   "caught_by": [
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(16 lines):benchmark post-file apache/superset:superset-frontend/src/dashboard/components/nativeFilters/utils.test.ts [edit:1417]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file chromium/chromium:ash/webui/recorder_app_ui/resources/core/utils/utils.ts [add:2297]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file lichess-org/lila:ui/analyse/src/keyboard.ts [edit:10867]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(16 lines):benchmark post-file vercel/next.js:test/development/acceptance-app/ReactRefreshRequire.test.ts [add:9630]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(17 lines):benchmark post-file angular/angular:adev/src/app/app-scroller.ts [edit:736]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(14 lines):benchmark post-file streamlit/streamlit:frontend/lib/src/components/widgets/DataFrame/hooks/useDataExporter.test.ts [edit:7121]": {
+   "kind": "fragment",
+   "caught_by": [
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file microsoft/vscode:src/vs/editor/contrib/gotoSymbol/browser/peek/referencesTree.ts [edit:10117]": {
+   "kind": "fragment",
+   "caught_by": []
+  },
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file microsoft/vscode:src/vs/workbench/contrib/terminalContrib/suggest/test/browser/terminalCompletionService.test.ts [edit:4215]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(19 lines):benchmark post-file vercel/next.js:packages/next/src/build/webpack-build/impl.ts [add:9573]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(13 lines):benchmark post-file microsoft/vscode:src/vs/workbench/contrib/chat/browser/chat.contribution.ts [edit:10028]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window"
+   ]
+  },
+  "CONTROL-FRAGMENT(17 lines):benchmark post-file vercel/next.js:test/e2e/app-dir/use-cache/use-cache.test.ts [add:9544]": {
+   "kind": "fragment",
+   "caught_by": [
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(20 lines):benchmark post-file vercel/next.js:test/production/app-dir/build-output-tree-view/build-output-tree-view.test.ts [edit:13113]": {
+   "kind": "fragment",
+   "caught_by": [
+    "exact 5-line window",
+    "near-duplicate (10-line chunk)"
+   ]
+  },
+  "CONTROL-FRAGMENT(15 lines):benchmark post-file microsoft/vscode:src/vs/workbench/contrib/chat/browser/chatEditing/chatEditingEditorActions.ts [edit:8833]": {
+   "kind": "fragment",
+   "caught_by": []
+  }
+ },
+ "planted_summary": {
+  "whole file": {
+   "planted": 20,
+   "caught": 20,
+   "exact 5-line window": 19,
+   "near-duplicate (whole file)": 15,
+   "near-duplicate (30-line chunk)": 18,
+   "near-duplicate (10-line chunk)": 19
+  },
+  "fragment": {
+   "planted": 20,
+   "caught": 15,
+   "exact 5-line window": 12,
+   "near-duplicate (whole file)": 1,
+   "near-duplicate (30-line chunk)": 1,
+   "near-duplicate (10-line chunk)": 12
+  }
+ },
+ "missed_controls": [
+  "CONTROL-FRAGMENT(12 lines):benchmark post-file angular/angular:packages/core/src/render3/component_ref.ts [add:17551]",
+  "CONTROL-FRAGMENT(14 lines):benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/build-manifest-plugin.ts [edit:10449]",
+  "CONTROL-FRAGMENT(15 lines):benchmark post-file microsoft/vscode:src/vs/workbench/contrib/chat/browser/chatEditing/chatEditingEditorActions.ts [edit:8833]",
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file microsoft/vscode:src/vs/editor/common/model/tokenStore.ts [edit:8863]",
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file microsoft/vscode:src/vs/editor/contrib/gotoSymbol/browser/peek/referencesTree.ts [edit:10117]"
+ ]
+}

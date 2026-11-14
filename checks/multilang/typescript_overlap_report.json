@@ -1,0 +1,24 @@
+{
+ "lang": "typescript",
+ "data_version": "typescript-fim-v2",
+ "docs": {
+  "pool": 88368,
+  "benchmark_and_heldout": 163000
+ },
+ "positive_control": {
+  "planted": 20,
+  "found": 19
+ },
+ "minhash_verified": {
+  "pool_vs_benchmark": 0,
+  "pool_vs_heldout": 0,
+  "train_vs_validation": 0
+ },
+ "verified_items": {},
+ "exact_5line_windows": {
+  "pool_windows": 511101,
+  "shared_with_benchmark": 0,
+  "shared_with_heldout": 0,
+  "train_validation_shared": 0
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "rule": "only a leading licence/copyright comment block is removed; all other comments are kept",
+ "verdict_threshold_jaccard_after": 0.3,
+ "minhash_summary": {},
+ "max_jaccard_after_licence_removed": 0.0,
+ "minhash_matches": [],
+ "exact_windows": {
+  "benchmark": {
+   "shared_windows": 0,
+   "licence_wording": 0,
+   "other": 0,
+   "other_windows": []
+  },
+  "heldout": {
+   "shared_windows": 0,
+   "licence_wording": 0,
+   "other": 0,
+   "other_windows": []
+  }
+ }
+}

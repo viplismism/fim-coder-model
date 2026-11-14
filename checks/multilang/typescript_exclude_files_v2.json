@@ -1,0 +1,15 @@
+[
+ "excalidraw/excalidraw/packages/excalidraw/data/blob.ts",
+ "excalidraw/excalidraw/packages/excalidraw/fonts/ComicShanns/index.ts",
+ "excalidraw/excalidraw/packages/excalidraw/subset/woff2/woff2-bindings.ts",
+ "excalidraw/excalidraw/setupTests.ts",
+ "hoppscotch/hoppscotch/packages/hoppscotch-backend/test/app.e2e-spec.ts",
+ "hoppscotch/hoppscotch/packages/hoppscotch-data/src/rest/v/13/auth.ts",
+ "marktext/marktext/packages/desktop/src/renderer/src/assets/window-controls.ts",
+ "shadcn-ui/ui/apps/v4/lib/registry-health/network.ts",
+ "shadcn-ui/ui/templates/next-monorepo/apps/web/next-env.d.ts",
+ "tailwindlabs/tailwindcss/packages/tailwindcss/src/utilities.ts",
+ "tailwindlabs/tailwindcss/packages/tailwindcss/src/utils/is-color.ts",
+ "vitejs/vite/packages/vite/src/node/server/pluginContainer.ts",
+ "vitejs/vite/packages/vite/src/types/alias.d.ts"
+]

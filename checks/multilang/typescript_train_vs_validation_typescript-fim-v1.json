@@ -1,0 +1,14 @@
+{
+ "rule": "DECONTAMINATION.md addendum (train vs validation)",
+ "data_version": "typescript-fim-v1",
+ "train_files": 7201,
+ "validation_files": 1204,
+ "removed_validation_files": {
+  "hoppscotch/hoppscotch/packages/hoppscotch-backend/test/app.e2e-spec.ts": [
+   "exact 5-line window with socketio/socket.io/examples/nestjs-example/test/app.e2e-spec.ts",
+   "near-duplicate (chunk10) of socketio/socket.io/examples/nestjs-example/test/app.e2e-spec.ts",
+   "near-duplicate (chunk30) of socketio/socket.io/examples/nestjs-example/test/app.e2e-spec.ts",
+   "near-duplicate (file) of socketio/socket.io/examples/nestjs-example/test/app.e2e-spec.ts"
+  ]
+ }
+}

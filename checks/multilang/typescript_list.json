@@ -1,0 +1,28 @@
+{
+ "train": [
+  "excalidraw/excalidraw",
+  "shadcn-ui/ui",
+  "ant-design/ant-design",
+  "tailwindlabs/tailwindcss",
+  "mermaid-js/mermaid",
+  "ChatGPTNextWeb/NextChat",
+  "vitejs/vite",
+  "hoppscotch/hoppscotch",
+  "coder/code-server",
+  "marktext/marktext",
+  "socketio/socket.io",
+  "nuxt/nuxt"
+ ],
+ "heldout": [
+  "google-gemini/gemini-cli",
+  "upstash/context7",
+  "ItzCrazyKns/Vane",
+  "musistudio/claude-code-router",
+  "DayuanJiang/next-ai-draw-io",
+  "shardeum/shardeum",
+  "better-auth/better-auth",
+  "yamadashy/repomix",
+  "onlook-dev/onlook",
+  "browserbase/stagehand"
+ ]
+}

@@ -1,0 +1,225 @@
+{
+ "lang": "typescript",
+ "repos": {
+  "excalidraw/excalidraw": {
+   "kind": "train",
+   "commit": "82d5847e57dcb6fb5982833ea9ec2137fe0b2bd5",
+   "files": 370,
+   "bytes": 5289259,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/excalidraw__excalidraw"
+  },
+  "shadcn-ui/ui": {
+   "kind": "train",
+   "commit": "dd41d19e2f80ff6891951f7ced74c2c9a650b065",
+   "files": 627,
+   "bytes": 4383577,
+   "licence_files": [
+    "LICENSE.md"
+   ],
+   "path": "sources/multilang/typescript/shadcn-ui__ui"
+  },
+  "ant-design/ant-design": {
+   "kind": "train",
+   "commit": "94ae623993a0c55570a683e7c78be5a094966dee",
+   "files": 1073,
+   "bytes": 2382158,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/ant-design__ant-design"
+  },
+  "tailwindlabs/tailwindcss": {
+   "kind": "train",
+   "commit": "b08bf83a327271dfb7e3cd485fd793da15013f7c",
+   "files": 309,
+   "bytes": 4018497,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/tailwindlabs__tailwindcss"
+  },
+  "mermaid-js/mermaid": {
+   "kind": "train",
+   "commit": "04cc38560ea42784226f17adc265de956846491d",
+   "files": 1085,
+   "bytes": 6703813,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/mermaid-js__mermaid"
+  },
+  "ChatGPTNextWeb/NextChat": {
+   "kind": "train",
+   "commit": "1d3dc331512929a4b1d3e82354e72acce33b5c7a",
+   "files": 154,
+   "bytes": 975749,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/ChatGPTNextWeb__NextChat"
+  },
+  "vitejs/vite": {
+   "kind": "train",
+   "commit": "61622b8df68b7a8e657caa6f98d9b70069643abf",
+   "files": 608,
+   "bytes": 3089054,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/vitejs__vite"
+  },
+  "hoppscotch/hoppscotch": {
+   "kind": "train",
+   "commit": "55908a76a1d0555c9bbb5d74244c14173df95b06",
+   "files": 1119,
+   "bytes": 7310858,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/hoppscotch__hoppscotch"
+  },
+  "coder/code-server": {
+   "kind": "train",
+   "commit": "dda09f22fa51926c6c9c8a9fc26a6ad00759b2dc",
+   "files": 86,
+   "bytes": 395245,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/coder__code-server"
+  },
+  "marktext/marktext": {
+   "kind": "train",
+   "commit": "f3b15b9411a98eb6008cb2d3e399044ed1fb172e",
+   "files": 1455,
+   "bytes": 7439325,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/marktext__marktext"
+  },
+  "socketio/socket.io": {
+   "kind": "train",
+   "commit": "545e9848500d6133c9a1cdb6fee87009d0150f9c",
+   "files": 180,
+   "bytes": 892866,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/socketio__socket.io"
+  },
+  "nuxt/nuxt": {
+   "kind": "train",
+   "commit": "850bce0e4a0498b60a5595b0d723bcd9ead2cfd1",
+   "files": 1374,
+   "bytes": 5814392,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/nuxt__nuxt"
+  },
+  "google-gemini/gemini-cli": {
+   "kind": "heldout",
+   "commit": "b9776560ea5710bc673891499aaec68c737d160a",
+   "files": 1788,
+   "bytes": 19109072,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/google-gemini__gemini-cli"
+  },
+  "upstash/context7": {
+   "kind": "heldout",
+   "commit": "c5e26f6919055d29b8d3ead20500eb06e8036295",
+   "files": 178,
+   "bytes": 1449672,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/upstash__context7"
+  },
+  "ItzCrazyKns/Vane": {
+   "kind": "heldout",
+   "commit": "348feca3e378fb4157b217724ed508dc707f853f",
+   "files": 101,
+   "bytes": 280419,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/ItzCrazyKns__Vane"
+  },
+  "musistudio/claude-code-router": {
+   "kind": "heldout",
+   "commit": "057abaa1f95519ab8faf999e1ccef2b80ccdeb9e",
+   "files": 291,
+   "bytes": 4867534,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/musistudio__claude-code-router"
+  },
+  "DayuanJiang/next-ai-draw-io": {
+   "kind": "heldout",
+   "commit": "f82d8c7b732a90e31a27fa9f6c0d2ea6f22d18f4",
+   "files": 306,
+   "bytes": 3108680,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/DayuanJiang__next-ai-draw-io"
+  },
+  "shardeum/shardeum": {
+   "kind": "heldout",
+   "commit": "0c454caf067f7b896569eabdd5f47cb8b61738b3",
+   "files": 305,
+   "bytes": 2674425,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/shardeum__shardeum"
+  },
+  "better-auth/better-auth": {
+   "kind": "heldout",
+   "commit": "0a014aef61c83a293da224b5d926a0e43253b732",
+   "files": 1501,
+   "bytes": 13644845,
+   "licence_files": [
+    "LICENSE.md"
+   ],
+   "path": "sources/multilang/typescript/better-auth__better-auth"
+  },
+  "yamadashy/repomix": {
+   "kind": "heldout",
+   "commit": "758c3d716907abff2b902aff0447c347e455a2da",
+   "files": 403,
+   "bytes": 2348330,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/yamadashy__repomix"
+  },
+  "onlook-dev/onlook": {
+   "kind": "heldout",
+   "commit": "423e2e924366419e418ee049093872d535eea41a",
+   "files": 667,
+   "bytes": 2915714,
+   "licence_files": [
+    "LICENSE.md"
+   ],
+   "path": "sources/multilang/typescript/onlook-dev__onlook"
+  },
+  "browserbase/stagehand": {
+   "kind": "heldout",
+   "commit": "58a6cc14954503c96aba979ca76bcc0ecdf04bbf",
+   "files": 1201,
+   "bytes": 7841605,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/typescript/browserbase__stagehand"
+  }
+ }
+}
