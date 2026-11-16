@@ -1,0 +1,226 @@
+{
+ "lang": "cpp",
+ "repos": {
+  "tesseract-ocr/tesseract": {
+   "kind": "train",
+   "commit": "34f4e3ffc25847740a4b1d52d39d40e8013ace83",
+   "files": 602,
+   "bytes": 7764106,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/tesseract-ocr__tesseract"
+  },
+  "nomic-ai/gpt4all": {
+   "kind": "train",
+   "commit": "b666d16db5aeab8b91aaf7963adcee9c643734d7",
+   "files": 68,
+   "bytes": 831443,
+   "licence_files": [
+    "LICENSE.txt"
+   ],
+   "path": "sources/multilang/cpp/nomic-ai__gpt4all"
+  },
+  "ocornut/imgui": {
+   "kind": "train",
+   "commit": "36682babdf082e2ede9d74ef2d9602af2dbd3b7f",
+   "files": 95,
+   "bytes": 5627706,
+   "licence_files": [
+    "LICENSE.txt"
+   ],
+   "path": "sources/multilang/cpp/ocornut__imgui"
+  },
+  "ggml-org/whisper.cpp": {
+   "kind": "train",
+   "commit": "5922450fbce1ed9d1648babd0d5ac4520055b436",
+   "files": 649,
+   "bytes": 20431028,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/ggml-org__whisper.cpp"
+  },
+  "hyprwm/Hyprland": {
+   "kind": "train",
+   "commit": "8333bb7546c80e13b5c57e66ab72191d43b21505",
+   "files": 1170,
+   "bytes": 7773554,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/hyprwm__Hyprland"
+  },
+  "google/googletest": {
+   "kind": "train",
+   "commit": "845e54d32d86ee1bb872ebb5b1c755e6e3a94c34",
+   "files": 157,
+   "bytes": 3199231,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/google__googletest"
+  },
+  "aristocratos/btop": {
+   "kind": "train",
+   "commit": "5d03929a45e0720a4c8e2d189360ff1eb9ce1731",
+   "files": 59,
+   "bytes": 1628770,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/aristocratos__btop"
+  },
+  "ossrs/srs": {
+   "kind": "train",
+   "commit": "2438f668e2a52b1561df9f08b0d11bfa53dfa8a1",
+   "files": 1456,
+   "bytes": 25142259,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/ossrs__srs"
+  },
+  "ml-explore/mlx": {
+   "kind": "train",
+   "commit": "fc344c986c4169d99f76b5d95ae6b4a58a359a63",
+   "files": 499,
+   "bytes": 5110943,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/ml-explore__mlx"
+  },
+  "taichi-dev/taichi": {
+   "kind": "train",
+   "commit": "ba0e81dce559fb63a5958bf82feb1d00c55c02fe",
+   "files": 683,
+   "bytes": 5985855,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/taichi-dev__taichi"
+  },
+  "fmtlib/fmt": {
+   "kind": "train",
+   "commit": "4229eb5820af49bf797641168624c8a754a1a4eb",
+   "files": 73,
+   "bytes": 2589796,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/fmtlib__fmt"
+  },
+  "uNetworking/uWebSockets": {
+   "kind": "train",
+   "commit": "838754e2b2e1cc5b580d737843c15e8eeae426a4",
+   "files": 84,
+   "bytes": 523352,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/uNetworking__uWebSockets"
+  },
+  "78/xiaozhi-esp32": {
+   "kind": "heldout",
+   "commit": "67ca62d4bb7d91e514d7ccd5e6977745002f41f4",
+   "files": 670,
+   "bytes": 4383946,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/78__xiaozhi-esp32"
+  },
+  "deepseek-ai/3FS": {
+   "kind": "heldout",
+   "commit": "1aabc71b4b2e882e00807495be8458f4c2106093",
+   "files": 1006,
+   "bytes": 5285517,
+   "licence_files": [
+    "LICENSE",
+    "licenses"
+   ],
+   "path": "sources/multilang/cpp/deepseek-ai__3FS"
+  },
+  "kvcache-ai/Mooncake": {
+   "kind": "heldout",
+   "commit": "3f732b158e991fa6b7625258710f7e3195f5a340",
+   "files": 1687,
+   "bytes": 26418359,
+   "licence_files": [
+    "LICENSE-APACHE"
+   ],
+   "path": "sources/multilang/cpp/kvcache-ai__Mooncake"
+  },
+  "lemonade-sdk/lemonade": {
+   "kind": "heldout",
+   "commit": "8560a810db0b6c4cdf92c0b88133e12213b12e8b",
+   "files": 684,
+   "bytes": 6464019,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/lemonade-sdk__lemonade"
+  },
+  "xxnuo/MTranServer": {
+   "kind": "heldout",
+   "commit": "b363cba7aa9121515e360e83104050a1dbb8a87d",
+   "files": 52,
+   "bytes": 6813578,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/xxnuo__MTranServer"
+  },
+  "ikawrakow/ik_llama.cpp": {
+   "kind": "heldout",
+   "commit": "9513b3d44f480fd83fe26fa55eaad77f582019ba",
+   "files": 448,
+   "bytes": 20861592,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/ikawrakow__ik_llama.cpp"
+  },
+  "duckdb/ducklake": {
+   "kind": "heldout",
+   "commit": "2ba4e3485a0ffc7b9e09b6d273a0ef674c8d36aa",
+   "files": 134,
+   "bytes": 1811504,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/duckdb__ducklake"
+  },
+  "Liniyous/ElaWidgetTools": {
+   "kind": "heldout",
+   "commit": "aae58f5d0d98e05eabe10c263aa7da5f2491d702",
+   "files": 455,
+   "bytes": 1468395,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/Liniyous__ElaWidgetTools"
+  },
+  "lupinemachines/lupine": {
+   "kind": "heldout",
+   "commit": "993a97ffd062d8b8ef385e9f5954dcfdb0c90755",
+   "files": 153,
+   "bytes": 3711966,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/lupinemachines__lupine"
+  },
+  "bmorcelli/Launcher": {
+   "kind": "heldout",
+   "commit": "6b432e4e185ceaebad14fb902d750d699b380bbd",
+   "files": 193,
+   "bytes": 1507464,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "sources/multilang/cpp/bmorcelli__Launcher"
+  }
+ }
+}

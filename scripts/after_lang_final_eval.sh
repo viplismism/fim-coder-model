@@ -8,7 +8,7 @@ log() { echo "[$(date '+%F %T %Z')] $*" | tee -a "$LOG"; }
 log "waiting for $PIPE"
 until grep -qE "final evaluation finished|FAILED" "$PIPE"; do sleep 120; done
 if grep -q FAILED "$PIPE"; then log "pipeline FAILED; not summarising"; tail -3 "$PIPE" >> "$LOG"; exit 1; fi
-dir() { grep "done: logs/.*_${LANG_}-$1_eval_final" "$PIPE" | tail -1 | sed 's/.*done: //'; }
+dir() { grep "done: logs/.*_${LANG_}-$1_eval_final" "$PIPE" | tail -1 | sed 's/.*done: //; s/ .*//'; }
 B=$(dir base); A=$(dir ast); R=$(dir random)
 log "dirs: base=$B ast=$A random=$R"
 .venv/bin/python checks/multilang/summarize_final.py "$LANG_" "$B" "$A" "$R" "$OUT" >> "$LOG" 2>&1 || { log "summary FAILED"; exit 1; }

@@ -61,6 +61,8 @@ def main():
                                    "ci_groups": ci(bs_g[(a, b)])} for a, b in pairs},
              "ast_better_than_random_groups": f"{sum(per_group[g]['ast'] < per_group[g]['random'] for g in groups)}/{len(groups)}",
              "per_group": per_group}
+        sk = Path(dirs["base"]) / "summary.json"
+        t["skipped_over_context"] = json.loads(sk.read_text())["tasks"].get(task, {}).get("skipped_over_context", []) if sk.exists() else []
         if task == "bench_edit":
             t["note"] = "provisional"
         res["tasks"][task] = t

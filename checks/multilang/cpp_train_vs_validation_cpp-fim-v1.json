@@ -1,0 +1,7 @@
+{
+ "rule": "DECONTAMINATION.md addendum (train vs validation)",
+ "data_version": "cpp-fim-v1",
+ "train_files": 3243,
+ "validation_files": 1674,
+ "removed_validation_files": {}
+}

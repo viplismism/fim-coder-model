@@ -1,0 +1,55 @@
+{
+ "lang": "cpp",
+ "status": "STOP",
+ "problems": [
+  "3 MinHash matches not explained by licence headers (max J after removal 0.333)"
+ ],
+ "data_version": "cpp-fim-v1",
+ "heldout_version": "cpp-fim-v1-heldout",
+ "pairs": {
+  "train": 7549,
+  "validation": 518,
+  "heldout": 1000
+ },
+ "decontamination_removed_files": 560,
+ "licence_header_exceptions": 415,
+ "planted": {
+  "whole file": {
+   "planted": 20,
+   "caught": 20,
+   "exact 5-line window": 20,
+   "near-duplicate (whole file)": 16,
+   "near-duplicate (30-line chunk)": 20,
+   "near-duplicate (10-line chunk)": 20
+  },
+  "fragment": {
+   "planted": 20,
+   "caught": 18,
+   "exact 5-line window": 12,
+   "near-duplicate (whole file)": 2,
+   "near-duplicate (30-line chunk)": 3,
+   "near-duplicate (10-line chunk)": 13
+  }
+ },
+ "raw_minhash_matches": {
+  "pool_vs_benchmark": 0,
+  "pool_vs_heldout": 6,
+  "train_vs_validation": 0
+ },
+ "train_repos": [
+  "aristocratos/btop",
+  "fmtlib/fmt",
+  "google/googletest",
+  "ml-explore/mlx",
+  "nomic-ai/gpt4all",
+  "ocornut/imgui",
+  "ossrs/srs",
+  "taichi-dev/taichi",
+  "tesseract-ocr/tesseract",
+  "uNetworking/uWebSockets"
+ ],
+ "validation_repos": [
+  "ggml-org/whisper.cpp",
+  "hyprwm/Hyprland"
+ ]
+}
