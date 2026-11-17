@@ -128,15 +128,21 @@ def heldout_l2r_items(cfg, psm, version=HELDOUT_VERSION):
 
 
 def run_task(model, psm, task, items, max_tokens, out_path):
+    """Benchmark examples longer than the context are SKIPPED (identically for every model) and listed in the summary;
+    any other task errors instead (its items are built to fit). No example is ever truncated."""
     tot_lp = tot_chars = tot_tok = 0.0
     n = 0
     groups = {}
+    skipped = []
     with open(out_path, "w") as f:
         for it in items:
             if task in ("reth_l2r", "heldout_l2r"):
                 b = psm.build_l2r(it["text"]); n_chars = len(it["text"])
             else:
                 b = psm.build(it["prefix"], it["suffix"], it["middle"], add_eos=False); n_chars = len(it["middle"])
+            if len(b["input_ids"]) > max_tokens and task in ("bench_add", "bench_edit"):
+                skipped.append({"id": it["id"], "repo": it.get("repo"), "tokens": len(b["input_ids"])})
+                continue
             if len(b["input_ids"]) > max_tokens:
                 raise RuntimeError(f"{it['id']}: {len(b['input_ids'])} tokens exceeds context {max_tokens}; no silent truncation")
             lps = answer_logprobs(model, b)
@@ -148,7 +154,7 @@ def run_task(model, psm, task, items, max_tokens, out_path):
             tot_lp += s; tot_chars += n_chars; tot_tok += len(lps); n += 1
             g = groups.setdefault(rec.get("crate") or rec.get("repo") or "all", [0, 0.0, 0])
             g[0] += 1; g[1] += s; g[2] += n_chars
-    return {"examples": n, "chars": tot_chars, "answer_tokens": tot_tok,
+    return {"examples": n, "skipped_over_context": skipped, "chars": tot_chars, "answer_tokens": tot_tok,
             "corpus_char_ppl": char_perplexity(tot_lp, tot_chars) if n else None,
             "token_nll": -tot_lp / tot_tok if n else None,
             "per_package": {k: {"examples": v[0], "chars": v[2], "corpus_char_ppl": char_perplexity(v[1], v[2])}
@@ -190,7 +196,7 @@ def main():
                "benchmark_lang": args.lang or cfg["sources"]["benchmark"]["lang"],
                "pair_subset": args.pair_subset, "edit_template": cfg["evaluation"]["edit_template"],
                "rules": {"metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
-                         "context": f"full context up to {ctx} tokens, error otherwise"}, "tasks": {}}
+                         "context": f"full context up to {ctx} tokens; benchmark examples that do not fit are skipped and listed, never truncated"}, "tasks": {}}
     for task in args.tasks.split(","):
         if task in ("bench_add", "bench_edit"):
             items = bench_items(cfg, task.split("_")[1], args.lang)

@@ -16,6 +16,7 @@ from datatrove.pipeline.dedup.minhash import MinhashConfig, MinhashDedupSignatur
 from datatrove.utils.hashing import HashConfig  # noqa: E402
 from datatrove.utils.text import TextNormConfig  # noqa: E402
 from fimexp import sources  # noqa: E402
+from fimexp.langs import get  # noqa: E402
 
 COMMENT = {"python": "#"}
 LICENCE_WORDS = re.compile(r"copyright|licensed under|\blicen[cs]e\b|spdx-license-identifier|permission is hereby granted|all rights reserved", re.I)
@@ -39,7 +40,7 @@ def windows(text):
 
 def main():
     lang, version = sys.argv[1], sys.argv[2]
-    comment = COMMENT.get(lang, "//")
+    comment = COMMENT.get(lang, ("//", "/*", "*"))  # C-family licence headers: // lines or a /* ... */ block
     st = json.loads((ROOT / "checks/neardup/settings.json").read_text())
     mh = MinhashConfig(n_grams=st["n_grams"], num_buckets=st["num_buckets"], hashes_per_bucket=st["hashes_per_bucket"],
                        hash_config=HashConfig(precision=64), norm_config=TextNormConfig(**st["norm"]))
@@ -89,7 +90,7 @@ def main():
     for repo, p in pins.items():
         if p["kind"] == "heldout":
             for f in (ROOT / p["path"]).rglob("*"):
-                if f.is_file() and f.suffix == ".py":
+                if f.is_file() and f.suffix in get(lang)["extensions"]:
                     try:
                         held_w.update(windows(f.read_text()))
                     except UnicodeDecodeError:

@@ -58,7 +58,8 @@ def main():
     ap.add_argument("lang"); ap.add_argument("pins")
     ap.add_argument("--pool_only", default=None, help="check only the files of this built data version (post-rebuild verification)")
     args = ap.parse_args()
-    lang = args.lang; comment = COMMENT.get(lang, "//"); exts = get(lang)["extensions"]
+    lang = args.lang; exts = get(lang)["extensions"]
+    comment = COMMENT.get(lang, ("//", "/*", "*"))  # C-family licence headers: // lines or a /* ... */ block
     st = json.loads((ROOT / "checks/neardup/settings.json").read_text())
     cfg = sources.load_config(); pins = json.loads(Path(args.pins).read_text())["repos"]
 

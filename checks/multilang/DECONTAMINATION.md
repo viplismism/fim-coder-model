@@ -39,3 +39,13 @@ copy of `Aider-AI/aider/aider/linter.py` (train). **A validation file is removed
 a non-licence exact 5-line window or a verified near-duplicate (whole file, 30-line or 10-line chunk; Jaccard ≥ 0.5 after
 licence-header removal).** Training files are not removed for this reason, so the training data is unchanged. The
 dataset is rebuilt as a new version and every overlap check, including train vs validation, is rerun.
+
+## Addendum (2026-11-13): short stubs that trip the review threshold (C++)
+
+Written before applying it. The C++ review flagged 3 validation files in `ggml-org/whisper.cpp`
+(`ggml/src/ggml-sycl/{concat,tsembd,conv}.hpp`) whose licence-stripped text (5 lines: include guard + one `#include`) has
+shingle Jaccard 0.333 with the same files in held-out `ikawrakow/ik_llama.cpp` (both vendor the ggml library). This is
+below the 0.5 removal rule, but at or above the 0.3 review threshold. **Decision: remove such files anyway** (stricter
+than rule 2/3): any training-pool file whose licence-stripped review Jaccard against a benchmark or held-out file is
+>= 0.3 is removed. Test sets unchanged; the data is rebuilt as a new version reusing the locked held-out set, and every
+check is rerun.
