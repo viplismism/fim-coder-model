@@ -1,0 +1,1253 @@
+{
+ "rule": "only a leading licence/copyright comment block is removed; all other comments are kept",
+ "verdict_threshold_jaccard_after": 0.3,
+ "minhash_summary": {
+  "pool_vs_benchmark | boilerplate exception: matching text is the licence header": 52,
+  "pool_vs_heldout | boilerplate exception: matching text is the licence header": 32
+ },
+ "max_jaccard_after_licence_removed": 0.013,
+ "minhash_matches": [
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/grpcutil/grpcutil.go",
+   "other": "containers/podman:vendor/google.golang.org/grpc/balancer/pickfirst/internal/internal.go",
+   "jaccard_before": 0.682,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/health/producer.go",
+   "other": "containers/podman:vendor/google.golang.org/grpc/balancer_wrapper.go",
+   "jaccard_before": 0.651,
+   "jaccard_after_licence_removed": 0.013,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 74,
+   "shared_non_blank_lines_after": [
+    "\"context\"",
+    "\"google.golang.org/grpc/balancer\"",
+    "\"google.golang.org/grpc/codes\"",
+    "\"google.golang.org/grpc/connectivity\"",
+    "\"google.golang.org/grpc/internal\"",
+    "\"google.golang.org/grpc/status\"",
+    "\"sync\"",
+    ")",
+    "if listener == nil {",
+    "import (",
+    "mu     sync.Mutex",
+    "return",
+    "}",
+    "})"
+   ],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/tests/integration/clientv3/connectivity/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.642,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/tests/integration/clientv3/lease/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.642,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/version.go",
+   "other": "containers/podman:vendor/google.golang.org/grpc/balancer/pickfirst/internal/internal.go",
+   "jaccard_before": 0.64,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 3,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/clientconn.go",
+   "other": "containers/podman:vendor/google.golang.org/grpc/internal/channelz/trace.go",
+   "jaccard_before": 0.626,
+   "jaccard_after_licence_removed": 0.001,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1764,
+   "shared_non_blank_lines_after": [
+    "\"fmt\"",
+    "\"sync\"",
+    "\"sync/atomic\"",
+    "\"time\"",
+    ")",
+    "//",
+    "const (",
+    "go func() {",
+    "import (",
+    "return",
+    "}",
+    "}()"
+   ],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/health/logging.go",
+   "other": "containers/podman:vendor/google.golang.org/grpc/internal/channelz/trace.go",
+   "jaccard_before": 0.62,
+   "jaccard_after_licence_removed": 0.002,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 3,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/channelz/server.go",
+   "other": "containers/podman:vendor/google.golang.org/grpc/internal/channelz/trace.go",
+   "jaccard_before": 0.613,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 88,
+   "shared_non_blank_lines_after": [
+    "\"fmt\"",
+    "\"sync/atomic\"",
+    ")",
+    "RefName string",
+    "import (",
+    "package channelz",
+    "return",
+    "}"
+   ],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/github.com/sigstore/sigstore/pkg/signature/dsse/doc.go",
+   "other": "containers/podman:vendor/github.com/sigstore/rekor/pkg/util/signed_note.go",
+   "jaccard_before": 0.612,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/github.com/sigstore/sigstore/pkg/signature/options/doc.go",
+   "other": "containers/podman:vendor/github.com/sigstore/rekor/pkg/util/signed_note.go",
+   "jaccard_before": 0.612,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/service_config.go",
+   "other": "containers/podman:vendor/google.golang.org/grpc/balancer_wrapper.go",
+   "jaccard_before": 0.611,
+   "jaccard_after_licence_removed": 0.007,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 310,
+   "shared_non_blank_lines_after": [
+    "\"fmt\"",
+    "\"google.golang.org/grpc/balancer\"",
+    "\"google.golang.org/grpc/codes\"",
+    "\"google.golang.org/grpc/internal\"",
+    "\"google.golang.org/grpc/internal/balancer/gracefulswitch\"",
+    ")",
+    "//",
+    "if !ok {",
+    "if err != nil {",
+    "import (",
+    "package grpc",
+    "}"
+   ],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/github.com/sigstore/sigstore/pkg/cryptoutils/doc.go",
+   "other": "containers/podman:vendor/github.com/sigstore/rekor/pkg/util/signed_note.go",
+   "jaccard_before": 0.609,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/github.com/sigstore/sigstore/pkg/signature/doc.go",
+   "other": "containers/podman:vendor/github.com/sigstore/rekor/pkg/util/signed_note.go",
+   "jaccard_before": 0.606,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/stringutil/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.605,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/client/pkg/logutil/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.602,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/client/pkg/systemd/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.602,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/client/v3/snapshot/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.602,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/etcdutl/snapshot/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.602,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/adt/adt.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.602,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/debugutil/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.602,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/github.com/sigstore/sigstore/pkg/signature/payload/doc.go",
+   "other": "containers/podman:vendor/github.com/sigstore/rekor/pkg/util/signed_note.go",
+   "jaccard_before": 0.601,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/client/pkg/tlsutil/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.599,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/contention/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.599,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/netutil/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.599,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/report/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.599,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/etcdserver/api/etcdhttp/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.599,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "fatedier/frp/pkg/config/v1/api.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.598,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 4,
+   "shared_non_blank_lines_after": [
+    "}"
+   ],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/proxy/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.596,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/etcdserver/api/rafthttp/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.596,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/lease/leasehttp/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.596,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/mock/mockwait/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.596,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/storage/mvcc/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.596,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/tools/etcd-dump-db/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.596,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/github.com/prometheus/procfs/cpuinfo_loong64.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.595,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/github.com/prometheus/procfs/cpuinfo_s390x.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.595,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/client/pkg/fileutil/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/cpuutil/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/etcdserver/api/membership/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/etcdserver/api/v3election/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/etcdserver/api/v3lock/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/etcdserver/version/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/mock/mockstore/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/tools/benchmark/cmd/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/tools/benchmark/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "moby/moby/vendor/go.etcd.io/etcd/client/pkg/v3/fileutil/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.593,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/storage/datadir/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.592,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 2,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/client/v3/mock/mockserver/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.59,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/etcdctl/ctlv3/command/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.59,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/pkg/schedule/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.59,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/auth/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.59,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/etcdmain/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.59,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_benchmark",
+   "pool_file": "etcd-io/etcd/server/etcdserver/doc.go",
+   "other": "kubernetes/kubernetes:vendor/github.com/google/cel-go/parser/options.go",
+   "jaccard_before": 0.59,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/grpcutil/grpcutil.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.753,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/version.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.733,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 3,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/health/logging.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.705,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 3,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/channelz/server.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.632,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 88,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/transport/http2_client.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.632,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1814,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/transport/http_util.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.632,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 578,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/credentials/google/idtoken.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.625,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 142,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/grpclog/internal/grpclog.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.615,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 5,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/clientconn.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.611,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1764,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/doc.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.611,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 4,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/channelz/subchannel.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.579,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 116,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/credentials/alts/internal/common.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.573,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 39,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/grpcutil/compressor.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.57,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 20,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/encoding/gzip/gzip.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.567,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 84,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/attributes/attributes.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.564,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 138,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/credentials/alts/internal/conn/common.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.561,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 56,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/transport/controlbuf.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.561,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 1001,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/googlecloud/googlecloud.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.556,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 46,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/trace.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.553,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 107,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/balancer/grpclb/grpclb_remote_balancer.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.55,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 402,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/balancer/endpointsharding/endpointsharding.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.537,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 320,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/serviceconfig/duration.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.537,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 102,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/stats/handlers.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.537,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 49,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/credentials/alts/internal/handshaker/handshaker.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.534,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 334,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/channelz/channelmap.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.531,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 343,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/idle/idle.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.524,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 232,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/encoding/encoding.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.521,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 113,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/transport/flowcontrol.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.521,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 175,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/serviceconfig/serviceconfig.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.521,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 16,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/health/producer.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.516,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 74,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/internal/proxyattributes/proxyattributes.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.507,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 27,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  },
+  {
+   "check": "pool_vs_heldout",
+   "pool_file": "moby/moby/vendor/google.golang.org/grpc/service_config.go",
+   "other": "cloudwego/eino/flow/agent/react/doc.go",
+   "jaccard_before": 0.502,
+   "jaccard_after_licence_removed": 0.0,
+   "licence_header_removed": {
+    "pool": true,
+    "other": true
+   },
+   "pool_lines_after": 310,
+   "shared_non_blank_lines_after": [],
+   "verdict": "boilerplate exception: matching text is the licence header"
+  }
+ ],
+ "exact_windows": {
+  "benchmark": {
+   "shared_windows": 97,
+   "licence_wording": 97,
+   "other": 0,
+   "other_windows": []
+  },
+  "heldout": {
+   "shared_windows": 17,
+   "licence_wording": 17,
+   "other": 0,
+   "other_windows": []
+  }
+ }
+}

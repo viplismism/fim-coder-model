@@ -1,0 +1,33 @@
+{
+ "rule": "DECONTAMINATION.md addendum (train vs validation)",
+ "data_version": "go-fim-v1",
+ "train_files": 14411,
+ "validation_files": 724,
+ "removed_validation_files": {
+  "fatedier/frp/pkg/policy/featuregate/feature_gate.go": [
+   "exact 5-line window with etcd-io/etcd/pkg/featuregate/feature_gate.go",
+   "near-duplicate (chunk10) of etcd-io/etcd/pkg/featuregate/feature_gate.go"
+  ],
+  "fatedier/frp/pkg/sdk/client/client.go": [
+   "near-duplicate (chunk10) of prometheus/prometheus/cmd/prometheus/query_log_test.go"
+  ],
+  "fatedier/frp/server/metrics_server_test.go": [
+   "exact 5-line window with prometheus/prometheus/cmd/prometheus/features_test.go"
+  ],
+  "gogs/gogs/internal/database/backup.go": [
+   "near-duplicate (chunk10) of nektos/act/pkg/runner/runner_test.go"
+  ],
+  "gogs/gogs/internal/database/mirror_test.go": [
+   "near-duplicate (chunk10) of cli/cli/pkg/search/result_test.go"
+  ],
+  "gogs/gogs/internal/git/repo_index.go": [
+   "near-duplicate (chunk10) of moby/moby/vendor/github.com/moby/buildkit/util/overlay/overlay_linux.go"
+  ],
+  "gogs/gogs/internal/git/repo_sha256_test.go": [
+   "near-duplicate (chunk10) of cli/cli/pkg/cmdutil/args_test.go"
+  ],
+  "gogs/gogs/internal/lazyregexp/lazyre.go": [
+   "exact 5-line window with jesseduffield/lazygit/vendor/golang.org/x/mod/internal/lazyregexp/lazyre.go"
+  ]
+ }
+}
