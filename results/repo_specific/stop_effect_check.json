@@ -1,0 +1,134 @@
+{
+ "build_test_pass/all/full": {
+  "n": 632,
+  "ft": 0.587,
+  "base": 0.5443,
+  "diff": 0.0427,
+  "ci": [
+   0.018,
+   0.0681
+  ],
+  "significant": true
+ },
+ "build_test_pass/all/neither_hit_limit": {
+  "n": 520,
+  "ft": 0.6769,
+  "base": 0.6596,
+  "diff": 0.0173,
+  "ci": [
+   -0.0076,
+   0.0423
+  ],
+  "significant": false
+ },
+ "build_test_pass/source/full": {
+  "n": 403,
+  "ft": 0.5459,
+  "base": 0.5112,
+  "diff": 0.0347,
+  "ci": [
+   0.0053,
+   0.0645
+  ],
+  "significant": true
+ },
+ "build_test_pass/source/neither_hit_limit": {
+  "n": 336,
+  "ft": 0.625,
+  "base": 0.6101,
+  "diff": 0.0149,
+  "ci": [
+   -0.0179,
+   0.0471
+  ],
+  "significant": false
+ },
+ "build_test_pass/test/full": {
+  "n": 229,
+  "ft": 0.6594,
+  "base": 0.6026,
+  "diff": 0.0568,
+  "ci": [
+   0.0128,
+   0.1084
+  ],
+  "significant": true
+ },
+ "build_test_pass/test/neither_hit_limit": {
+  "n": 184,
+  "ft": 0.7717,
+  "base": 0.75,
+  "diff": 0.0217,
+  "ci": [
+   -0.0221,
+   0.0659
+  ],
+  "significant": false
+ },
+ "exact_match/all/full": {
+  "n": 891,
+  "ft": 0.3659,
+  "base": 0.3423,
+  "diff": 0.0236,
+  "ci": [
+   0.0068,
+   0.04
+  ],
+  "significant": true
+ },
+ "exact_match/all/neither_hit_limit": {
+  "n": 714,
+  "ft": 0.4412,
+  "base": 0.4272,
+  "diff": 0.014,
+  "ci": [
+   -0.0042,
+   0.0329
+  ],
+  "significant": false
+ },
+ "exact_match/source/full": {
+  "n": 550,
+  "ft": 0.3455,
+  "base": 0.3382,
+  "diff": 0.0073,
+  "ci": [
+   -0.0106,
+   0.0245
+  ],
+  "significant": false
+ },
+ "exact_match/source/neither_hit_limit": {
+  "n": 458,
+  "ft": 0.4127,
+  "base": 0.4061,
+  "diff": 0.0066,
+  "ci": [
+   -0.0141,
+   0.0268
+  ],
+  "significant": false
+ },
+ "exact_match/test/full": {
+  "n": 341,
+  "ft": 0.3988,
+  "base": 0.349,
+  "diff": 0.0499,
+  "ci": [
+   0.0131,
+   0.0841
+  ],
+  "significant": true
+ },
+ "exact_match/test/neither_hit_limit": {
+  "n": 256,
+  "ft": 0.4922,
+  "base": 0.4648,
+  "diff": 0.0273,
+  "ci": [
+   -0.0109,
+   0.0661
+  ],
+  "significant": false
+ }
+}
