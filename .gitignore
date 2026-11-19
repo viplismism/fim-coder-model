@@ -24,3 +24,7 @@ results/generations/*.jsonl
 results/generations.console.log
 results/completions_report.html
 results/val_structural/
+sources_repo_specific/
+tools/
+models/
+results/repo_specific/compare_*.html

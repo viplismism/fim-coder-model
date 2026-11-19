@@ -1,0 +1,254 @@
+{
+ "models": [
+  "qwen14b-ft",
+  "qwen14b-base",
+  "deepseek67b-base",
+  "qwen32b-base"
+ ],
+ "examples_common": 10,
+ "bootstrap": {
+  "resample": "commits",
+  "B": 2000,
+  "seed": 20261118
+ },
+ "metrics": {
+  "build_test_pass/all": {
+   "n": 10,
+   "commits": 10,
+   "rate": {
+    "qwen14b-ft": 0.6,
+    "qwen14b-base": 0.5,
+    "deepseek67b-base": 0.6,
+    "qwen32b-base": 0.5
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.1,
+     "ci": [
+      0.0,
+      0.3
+     ],
+     "finetuned_beats": false
+    },
+    "deepseek67b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "qwen32b-base": {
+     "value": 0.1,
+     "ci": [
+      0.0,
+      0.3
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "build_test_pass/source": {
+   "n": 6,
+   "commits": 6,
+   "rate": {
+    "qwen14b-ft": 0.6667,
+    "qwen14b-base": 0.5,
+    "deepseek67b-base": 0.6667,
+    "qwen32b-base": 0.5
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.1667,
+     "ci": [
+      0.0,
+      0.5
+     ],
+     "finetuned_beats": false
+    },
+    "deepseek67b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "qwen32b-base": {
+     "value": 0.1667,
+     "ci": [
+      0.0,
+      0.5
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "build_test_pass/test": {
+   "n": 4,
+   "commits": 4,
+   "rate": {
+    "qwen14b-ft": 0.5,
+    "qwen14b-base": 0.5,
+    "deepseek67b-base": 0.5,
+    "qwen32b-base": 0.5
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "deepseek67b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "qwen32b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "exact_match/all": {
+   "n": 10,
+   "commits": 10,
+   "rate": {
+    "qwen14b-ft": 0.3,
+    "qwen14b-base": 0.3,
+    "deepseek67b-base": 0.4,
+    "qwen32b-base": 0.3
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "deepseek67b-base": {
+     "value": -0.1,
+     "ci": [
+      -0.3,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "qwen32b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "exact_match/source": {
+   "n": 6,
+   "commits": 6,
+   "rate": {
+    "qwen14b-ft": 0.3333,
+    "qwen14b-base": 0.3333,
+    "deepseek67b-base": 0.5,
+    "qwen32b-base": 0.3333
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "deepseek67b-base": {
+     "value": -0.1667,
+     "ci": [
+      -0.5,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "qwen32b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "exact_match/test": {
+   "n": 4,
+   "commits": 4,
+   "rate": {
+    "qwen14b-ft": 0.25,
+    "qwen14b-base": 0.25,
+    "deepseek67b-base": 0.25,
+    "qwen32b-base": 0.25
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "deepseek67b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    },
+    "qwen32b-base": {
+     "value": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "finetuned_beats": false
+    }
+   }
+  }
+ },
+ "generation": {
+  "qwen14b-ft": {
+   "mean_seconds": 11.87,
+   "hit_256_token_limit": 1,
+   "skipped_over_context": 0
+  },
+  "qwen14b-base": {
+   "mean_seconds": 14.64,
+   "hit_256_token_limit": 3,
+   "skipped_over_context": 0
+  },
+  "deepseek67b-base": {
+   "mean_seconds": 6.59,
+   "hit_256_token_limit": 0,
+   "skipped_over_context": 0
+  },
+  "qwen32b-base": {
+   "mean_seconds": 14.43,
+   "hit_256_token_limit": 0,
+   "skipped_over_context": 0
+  }
+ }
+}

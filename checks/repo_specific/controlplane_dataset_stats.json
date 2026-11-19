@@ -1,0 +1,49 @@
+{
+ "repo": "telekom/controlplane",
+ "cutoff": "2026-05-01",
+ "cutoff_commit": "9164dcafe005913bf2c6e4870db776548c66662f",
+ "head": "cf866975bcaec72810622aa1f8869ead03c6fced",
+ "training_snapshot": {
+  "go_source_files": 716,
+  "go_test_files": 438,
+  "bytes": 5071056,
+  "lines": 157228,
+  "generated_files_excluded": 163,
+  "generated_bytes_excluded": 6031421
+ },
+ "test_funnel": {
+  "commits_after_cutoff": 410,
+  "commits_dropped_date_or_ancestry": 0,
+  "added_blocks": 33383,
+  "dropped_generated": 20790,
+  "dropped_new_file": 861,
+  "dropped_over_30_lines": 457,
+  "dropped_blank": 74,
+  "dropped_already_in_cutoff_snapshot": 992,
+  "candidates": 10209,
+  "after_cap_5_per_commit": 941,
+  "reference_build_fail": 1,
+  "reference_test_fail": 30,
+  "usable_reference_passes": 910,
+  "sensitive": 641
+ },
+ "sensitive_set": {
+  "examples": 641,
+  "commits": 193,
+  "test_file_examples": 238,
+  "hole_lines": {
+   "1": 316,
+   "2": 89,
+   "3": 45,
+   "4": 35,
+   "5": 26,
+   "6": 27,
+   "7": 9,
+   "8": 11,
+   "9": 8,
+   "10": 9,
+   "11": 66
+  },
+  "modules": 32
+ }
+}
