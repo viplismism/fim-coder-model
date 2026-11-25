@@ -1,0 +1,55 @@
+{
+ "cutoff": "2026-01-01T00:00:00Z",
+ "cutoff_commit": "d3cd33f75da7b80fc0134ec7346c26512d3ada72",
+ "stats": {
+  "commits": 2797,
+  "root_commit_skipped": 1,
+  "blocks": 57231,
+  "drop_over_30_lines": 1747,
+  "drop_new_file": 1396,
+  "drop_blank": 182,
+  "drop_generated_or_unreadable": 6244
+ },
+ "holes_before_filters": 47662,
+ "dropped_validation_file": 960,
+ "dropped_crate_not_in_snapshot": 11351,
+ "usable_holes": 35351,
+ "commits_with_holes": 1445,
+ "usable_if_cap_5_per_commit": 5576,
+ "usable_if_cap_10_per_commit": 8898,
+ "test_file_holes": 7323,
+ "hole_text_survives_into_cutoff_snapshot_pct": 25.0,
+ "hole_lines": {
+  "median": 1,
+  "mean": 3.1,
+  "buckets_pct": {
+   "1": 60.7,
+   "2": 12.0,
+   "3": 5.9,
+   "4": 4.0,
+   "5": 2.9,
+   "6": 2.5,
+   "7": 1.7,
+   "8": 1.6,
+   "9": 1.2,
+   "10": 1.0,
+   "11": 6.7
+  }
+ },
+ "test_set_hole_lines": {
+  "median": 2,
+  "buckets_pct": {
+   "1": 49.5,
+   "2": 10.9,
+   "3": 6.3,
+   "4": 8.0,
+   "5": 4.4,
+   "6": 3.5,
+   "7": 2.0,
+   "8": 2.3,
+   "9": 2.2,
+   "10": 1.2,
+   "11": 9.6
+  }
+ }
+}

@@ -28,3 +28,6 @@ sources_repo_specific/
 tools/
 models/
 results/repo_specific/compare_*.html
+# facet eval: completions/scores/ppl and split test sets contain facet source code; only summaries are committed
+results/repo_specific/facet/*.jsonl
+results/repo_specific/facet/valstyle/

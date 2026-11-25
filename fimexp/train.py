@@ -161,6 +161,8 @@ def main():
     ap.add_argument("--config", default=None)
     ap.add_argument("--smoke_updates", type=int, default=None, help="smoke run: this many optimizer updates, longest sequences first")
     ap.add_argument("--timing_updates", type=int, default=None, help="timing run: this many updates on a fixed seeded sample; no eval/save/wandb")
+    ap.add_argument("--resume_run_dir", default=None, help="continue an interrupted full run from its latest checkpoint "
+                    "(same run dir, same settings; HF Trainer restores optimizer, scheduler, RNG state and data position)")
     args = ap.parse_args()
 
     cfg = sources.load_config(args.config)
@@ -184,12 +186,26 @@ def main():
     stamp = datetime.datetime.now().astimezone()
     kind = "timing" if timing else "smoke" if smoke else "train"
     tag = f"{cfg['run_tag']}-" if cfg.get("run_tag") else ""
-    run_name = f"{stamp.strftime('%Y%m%dT%H%M%S%z')}_{tag}{args.arm}_{kind}_s{t['seed']}"
-    run_dir = LOGS / run_name
-    run_dir.mkdir(parents=True)
+    resume_ckpt, prev_manifest = None, {}
+    if args.resume_run_dir:
+        if smoke or timing:
+            sys.exit("--resume_run_dir is only for full runs")
+        run_dir = Path(args.resume_run_dir).resolve(); run_name = run_dir.name
+        if not run_name.endswith(f"_{tag}{args.arm}_train_s{t['seed']}"):
+            sys.exit(f"{run_name} is not a full {tag}{args.arm} run with seed {t['seed']}")
+        ckpts = sorted((run_dir / "checkpoints").glob("checkpoint-*"), key=lambda p: int(p.name.split("-")[1]))
+        if not ckpts:
+            sys.exit(f"no checkpoint to resume from in {run_dir}/checkpoints")
+        resume_ckpt = str(ckpts[-1])
+        prev_manifest = json.loads((run_dir / "manifest.json").read_text())
+        shutil.copy(run_dir / "manifest.json", run_dir / f"manifest.before_resume_{stamp.strftime('%Y%m%dT%H%M%S')}.json")
+    else:
+        run_name = f"{stamp.strftime('%Y%m%dT%H%M%S%z')}_{tag}{args.arm}_{kind}_s{t['seed']}"
+        run_dir = LOGS / run_name
+        run_dir.mkdir(parents=True)
     console = open(run_dir / "console.log", "a")
     sys.stdout = Tee(sys.__stdout__, console); sys.stderr = Tee(sys.__stderr__, console)
-    print(f"run {run_name}")
+    print(f"run {run_name}" + (f" (resuming from {resume_ckpt})" if resume_ckpt else ""))
 
     pins = sources.verify_pins(cfg)
     tok = load_tokenizer(cfg)
@@ -276,7 +292,11 @@ def main():
           f"{updates} optimizer updates, warmup {warmup}")
 
     from . import wandb_log
-    wrun = wandb_log.init(cfg.get("wandb"), run_name, effective, run_dir)
+    wrun = wandb_log.init(cfg.get("wandb"), run_name, effective, run_dir,
+                          resume_id=(prev_manifest.get("wandb") or {}).get("run_id") if resume_ckpt else None)
+    if resume_ckpt:
+        manifest["started"] = prev_manifest.get("started", manifest["started"])
+        manifest["resumes"] = prev_manifest.get("resumes", []) + [{"at": stamp.isoformat(timespec="seconds"), "from": resume_ckpt}]
     manifest["wandb"] = {"enabled": wrun is not None, "entity": cfg["wandb"].get("entity"), "project": cfg["wandb"].get("project"),
                          "settings": wandb_log.PRIVATE_SETTINGS, "run_id": wrun.id if wrun else None}
     (run_dir / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
@@ -289,7 +309,7 @@ def main():
     t0 = time.time()
     status = "completed"
     try:
-        trainer.train()
+        trainer.train(resume_from_checkpoint=resume_ckpt)
         if cb.failed:
             status = "stopped: " + cb.failed
         elif not (smoke or timing):  # full validation split once, at the end (own hole type)

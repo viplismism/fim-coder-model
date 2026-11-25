@@ -14,6 +14,10 @@
       build+tests (sensitive examples only): the file at the example's commit with the completion in the hole
       (a final newline is added if missing, since holes are whole lines) -> `go build ./...` in the module, then
       `go test -count=1 <package>`; pass = both succeed.
+      --lang rust: same, with `cargo build -p <crate> --all-targets` then `cargo test -p <crate>` at the workspace root
+      (exec_check_rust.check; each worker thread keeps its own CARGO_TARGET_DIR). A completion byte-identical to the
+      reference is not rebuilt: it is the reference file, which passed at exec-check time (recorded as reused_reference).
+      Resumable: ids already in <out.jsonl> are skipped.
 Examples are the usable set (reference passes build+tests at its commit), with the `sensitive` flag from exec_check.
 """
 import argparse, collections, json, os, sys, time
@@ -95,43 +99,72 @@ def ppl(args):
 
 def score(args):
     from concurrent.futures import ThreadPoolExecutor
-    import shutil, subprocess, tempfile
-    from exec_check import check, P
+    import queue, shutil, subprocess, tempfile, threading
+    rust = args.lang == "rust"
+    if rust:
+        import exec_check_rust as X
+        P = X.P
+    else:
+        from exec_check import check, P
     exs = {json.loads(l)["id"]: json.loads(l) for l in open(args.examples)}
-    comps = {c["id"]: c for c in map(json.loads, open(args.completions))}
+    comps = {c["id"]: c for c in map(json.loads, open(args.completions)) if c["id"] in exs}
+    out = Path(args.out)
+    done = {json.loads(l)["id"] for l in open(out)} if out.exists() else set()
     by_c = collections.defaultdict(list)
-    for i, c in comps.items():
-        by_c[exs[i]["commit"]].append(i)
+    for i in comps:
+        if i not in done:
+            by_c[exs[i]["commit"]].append(i)
+    wlock, olock = threading.Lock(), threading.Lock()
+    slots = queue.Queue()
+    for w in range(args.workers):
+        slots.put(w)
 
     def do(commit, ids):
+        w = slots.get()
         res = []
-        wt = Path(tempfile.mkdtemp(prefix=f"score_{commit[:10]}_", dir=P / "sources_repo_specific")); shutil.rmtree(wt)
-        subprocess.run(["git", "-C", args.repo, "worktree", "add", "-q", "--detach", str(wt), commit], check=True)
         try:
-            for i in ids:
-                e, c = exs[i], comps[i]
-                r = {"id": i, "is_test_file": e["is_test_file"], "sensitive": e["sensitive"], "hole_lines": e["hole_lines"]}
-                if "completion" not in c:
-                    res.append({**r, "skipped": True}); continue
-                comp = c["completion"] if c["completion"].endswith("\n") else c["completion"] + "\n"
-                r["exact_match"] = norm_lines(comp) == norm_lines(e["middle"])
-                if e["sensitive"]:
-                    mod_dir = wt / (e["module"] if e["module"] != "." else "")
-                    pkg = "./" + os.path.relpath(os.path.dirname(wt / e["path"]), mod_dir)
-                    f = wt / e["path"]; orig = f.read_text()
-                    f.write_text(e["prefix"] + comp + e["suffix"])
-                    ch = check(mod_dir, pkg); f.write_text(orig)
-                    r.update({"build": ch["build"], "test": ch["test"], "build_test_pass": ch["build"] and ch["test"],
-                              "log": ch["log"][-400:]})
-                res.append(r)
+            wt = Path(tempfile.mkdtemp(prefix=f"score_{commit[:10]}_", dir=P / "sources_repo_specific")); shutil.rmtree(wt)
+            with wlock:
+                subprocess.run(["git", "-C", args.repo, "worktree", "add", "-q", "--detach", str(wt), commit], check=True)
+            try:
+                for i in ids:
+                    e, c = exs[i], comps[i]
+                    r = {"id": i, "commit": commit, "is_test_file": e["is_test_file"], "sensitive": e["sensitive"],
+                         "hole_lines": e["hole_lines"], "ai_tagged": e.get("ai_tagged", False), "bot_author": e.get("bot_author", False)}
+                    if "completion" not in c:
+                        res.append({**r, "skipped": True}); continue
+                    comp = c["completion"] if c["completion"].endswith("\n") else c["completion"] + "\n"
+                    r["exact_match"] = norm_lines(comp) == norm_lines(e["middle"])
+                    r["stopped"] = c.get("stopped")
+                    if e["sensitive"]:
+                        if rust and comp == e["middle"]:
+                            r.update({"build": True, "test": True, "build_test_pass": True, "reused_reference": True, "log": ""})
+                        else:
+                            f = wt / e["path"]; orig = f.read_text()
+                            assert orig == e["prefix"] + e["middle"] + e["suffix"], i
+                            f.write_text(e["prefix"] + comp + e["suffix"])
+                            if rust:
+                                ch = X.check(wt, e["crate_name"], w)
+                            else:
+                                mod_dir = wt / (e["module"] if e["module"] != "." else "")
+                                ch = check(mod_dir, "./" + os.path.relpath(os.path.dirname(wt / e["path"]), mod_dir))
+                            f.write_text(orig)
+                            r.update({"build": ch["build"], "test": ch["test"], "build_test_pass": ch["build"] and ch["test"],
+                                      "log": ch["log"][-400:]})
+                    res.append(r)
+            finally:
+                with wlock:
+                    subprocess.run(["git", "-C", args.repo, "worktree", "remove", "--force", str(wt)])
         finally:
-            subprocess.run(["git", "-C", args.repo, "worktree", "remove", "--force", str(wt)])
-        return res
-
-    with open(args.out, "w") as fo, ThreadPoolExecutor(args.workers) as pool:
-        for rs in pool.map(lambda kv: do(*kv), sorted(by_c.items())):
-            for r in rs:
+            slots.put(w)
+        with olock, open(out, "a") as fo:
+            for r in res:
                 fo.write(json.dumps(r) + "\n")
+        print(commit[:10], len(res), sum(bool(r.get("build_test_pass")) for r in res if r.get("sensitive")), flush=True)
+        return len(res)
+
+    with ThreadPoolExecutor(args.workers) as pool:
+        list(pool.map(lambda kv: do(*kv), sorted(by_c.items())))
 
 
 def main():
@@ -142,6 +175,7 @@ def main():
     q.add_argument("out_dir"); q.add_argument("--adapter")
     s = sub.add_parser("score"); s.add_argument("repo"); s.add_argument("examples"); s.add_argument("completions")
     s.add_argument("out"); s.add_argument("workers", type=int, nargs="?", default=4)
+    s.add_argument("--lang", choices=["go", "rust"], default="go")
     a = ap.parse_args()
     {"generate": generate, "ppl": ppl, "score": score}[a.cmd](a)
 

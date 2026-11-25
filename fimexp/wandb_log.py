@@ -43,7 +43,7 @@ def safe_config(effective: dict) -> dict:
     return {k: effective[k] for k in SAFE_CONFIG_KEYS if k in effective}
 
 
-def init(wcfg: dict, run_name: str, effective: dict, out_dir):
+def init(wcfg: dict, run_name: str, effective: dict, out_dir, resume_id=None):
     """Start a W&B run (or return None if disabled). `out_dir` holds wandb's local files."""
     if not wcfg or not wcfg.get("enabled"):
         return None
@@ -60,5 +60,6 @@ def init(wcfg: dict, run_name: str, effective: dict, out_dir):
             raise RuntimeError(f"W&B project {wcfg['entity']}/{wcfg['project']} does not exist; create it as private first")
         if access not in wcfg["allowed_access"]:
             raise RuntimeError(f"W&B project access is {access!r}, not in {wcfg['allowed_access']}; refusing to upload")
+    extra = {"id": resume_id, "resume": "must"} if resume_id else {}
     return wandb.init(entity=wcfg.get("entity"), project=wcfg["project"], name=run_name, dir=str(out_dir), mode=mode,
-                      config=safe_config(effective), settings=wandb.Settings(**PRIVATE_SETTINGS))
+                      config=safe_config(effective), settings=wandb.Settings(**PRIVATE_SETTINGS), **extra)
