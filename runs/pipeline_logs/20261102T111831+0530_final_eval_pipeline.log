@@ -1,0 +1,9 @@
+[2026-11-02 11:18:31 IST] adapters: ast=logs/20261101T105542+0530_ast_train_s42/checkpoints/final_adapter random=logs/20261101T230132+0530_random_train_s42/checkpoints/final_adapter
+{'reth_commit': '84caec584e79ddef33572394f787d2d1203a23c7', 'benchmark_revision': 'a36062544c7ed6c4e5ffb8dad8536fc7777e1f36', 'benchmark_sha256': {'add': 'bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22', 'edit': 'b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5'}}
+[2026-11-02 11:18:31 IST] final scoring: base
+[2026-11-02 12:58:01 IST] done: logs/20261102T111831+0530_base_eval_final
+[2026-11-02 12:58:01 IST] final scoring: ast
+[2026-11-02 16:08:20 IST] done: logs/20261102T125801+0530_ast_eval_final
+[2026-11-02 16:08:20 IST] final scoring: random
+[2026-11-02 19:19:44 IST] done: logs/20261102T160820+0530_random_eval_final
+[2026-11-02 19:19:44 IST] final evaluation finished

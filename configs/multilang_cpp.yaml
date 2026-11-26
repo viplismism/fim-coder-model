@@ -1,0 +1,104 @@
+# AST vs random FIM holes on C++ (12 training-pool + 10 held-out repos, configs/repos/cpp_*.json),
+# DeepSeek-Coder-6.7B + LoRA, identical recipe to rust_ast_vs_random.yaml. Real-FIM-Eval scored with --lang cpp.
+# Field reference: README.md, 'Configs'. sources.* pins the Rust experiment's inputs and is shared by every config;
+# split.* applies to the reth package split only. Paths are relative to the repo root (work/ is created locally).
+
+run_tag: cpp
+sources:
+  reth:
+    url: https://github.com/paradigmxyz/reth
+    commit: 84caec584e79ddef33572394f787d2d1203a23c7
+    path: work/sources/reth
+  benchmark:
+    hf_dataset: gonglinyuan/real_fim_eval
+    revision: a36062544c7ed6c4e5ffb8dad8536fc7777e1f36
+    path: work/sources/real_fim_eval
+    sha256:
+      add: bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22
+      edit: b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5
+    lang: rust
+model:
+  name: deepseek-ai/deepseek-coder-6.7b-base
+  revision: ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912
+format:
+  bos: <｜begin▁of▁sentence｜>
+  eos: <｜end▁of▁sentence｜>
+  fim_begin: <｜fim▁begin｜>
+  fim_hole: <｜fim▁hole｜>
+  fim_end: <｜fim▁end｜>
+split:
+  unit: package_count
+  seed: 20261101
+  fractions:
+    train: 0.8
+    validation: 0.1
+    test: 0.1
+data:
+  seed: 20261101
+  bytes_per_example: 2048
+  max_seq_tokens: 4096
+  max_middle_tokens: null
+  context_trim: line
+  keyword_text_exempt_types:
+  - string_content
+  - escape_sequence
+  - char_literal
+  output_dir: work/datasets
+base_precision: bf16
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  bnb_4bit_compute_dtype: bfloat16
+prepare_model_for_kbit_training: true
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+training:
+  num_train_epochs: 1
+  per_device_batch_size: 1
+  gradient_accumulation_steps: 16
+  learning_rate: 0.0001
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.05
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optim: adamw_torch
+  seed: 42
+  eval_steps: 50
+  save_steps: 50
+  checkpoint_policy: final
+  validation_subset: validation_subset.json
+  gradient_checkpointing: true
+  bf16: true
+  report_to: none
+wandb:
+  enabled: false
+  entity: null
+  project: ast-aware-fim-finetuning
+  mode: online
+  allowed_access:
+  - PRIVATE
+evaluation:
+  context_tokens: 16384
+  l2r_window_tokens: 4096
+  edit_template:
+    status: inferred
+    before_removed: '<<<<<<< ORIGINAL
+
+      '
+    after_removed: '=======
+
+      '
+    suffix_start: '>>>>>>> UPDATED
+
+      '

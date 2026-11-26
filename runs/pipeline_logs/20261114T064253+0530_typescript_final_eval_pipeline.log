@@ -1,0 +1,8 @@
+[2026-11-14 06:42:53 IST] adapters: ast=logs/20261113T120806+0530_typescript-ast_train_s42/checkpoints/final_adapter random=logs/20261113T202725+0530_typescript-random_train_s42/checkpoints/final_adapter | held-out typescript-fim-v1-heldout (manifest sha256 f21d7acba52b7ad4)
+[2026-11-14 06:42:53 IST] final scoring base
+[2026-11-14 07:45:45 IST] done: logs/20261114T064253+0530_typescript-base_eval_final
+[2026-11-14 07:45:45 IST] final scoring ast
+[2026-11-14 09:45:58 IST] done: logs/20261114T074545+0530_typescript-ast_eval_final
+[2026-11-14 09:45:58 IST] final scoring random
+[2026-11-14 11:46:21 IST] done: logs/20261114T094558+0530_typescript-random_eval_final
+[2026-11-14 11:46:21 IST] final evaluation finished

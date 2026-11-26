@@ -1,0 +1,15 @@
+66 passed in 23.48s
+  }
+ }
+}
+[2026-11-14 11:46:58 IST] train ast (fresh adapter from the base)
+[2026-11-14 21:10:01 IST] done: logs/20261114T114659+0530_go-ast_train_s42
+[2026-11-14 21:10:01 IST] train random (fresh adapter from the base)
+[2026-11-15 06:41:04 IST] done: logs/20261114T211002+0530_go-random_train_s42
+[2026-11-15 06:41:04 IST] validation scoring base
+[2026-11-15 06:59:12 IST] done: logs/20261115T064104+0530_go-base_eval_validation
+[2026-11-15 06:59:12 IST] validation scoring ast
+[2026-11-15 07:32:22 IST] done: logs/20261115T065912+0530_go-ast_eval_validation
+[2026-11-15 07:32:22 IST] validation scoring random
+[2026-11-15 08:05:45 IST] done: logs/20261115T073222+0530_go-random_eval_validation
+[2026-11-15 08:05:45 IST] pilot training + validation scoring finished; final evaluation waits for review

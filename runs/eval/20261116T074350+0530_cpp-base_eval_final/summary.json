@@ -1,0 +1,634 @@
+{
+ "created_utc": "2026-11-16T02:15:30Z",
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "code": {
+  "commit": "a3b1a21335349f1dc32a6631a58567d80dad220a",
+  "dirty_files": [
+   "M checks/multilang/DECONTAMINATION.md",
+   " M checks/multilang/decontaminate_lang.py",
+   " M checks/multilang/review_overlap.py",
+   " M checks/multilang/summarize_final.py",
+   " M fimexp/score.py",
+   "?? checks/multilang/cpp_decontamination.json",
+   "?? checks/multilang/cpp_decontamination_check_cpp-fim-v1.json",
+   "?? checks/multilang/cpp_decontamination_check_cpp-fim-v2.json",
+   "?? checks/multilang/cpp_exclude_files.json",
+   "?? checks/multilang/cpp_exclude_files_v2.json",
+   "?? checks/multilang/cpp_gate.json",
+   "?? checks/multilang/cpp_gate_v1_STOP.json",
+   "?? checks/multilang/cpp_list.json",
+   "?? checks/multilang/cpp_overlap_report.json",
+   "?? checks/multilang/cpp_overlap_review.json",
+   "?? checks/multilang/cpp_overlap_review.md",
+   "?? checks/multilang/cpp_pins.json",
+   "?? checks/multilang/cpp_train_vs_validation_cpp-fim-v1.json",
+   "?? checks/multilang/cpp_train_vs_validation_cpp-fim-v2.json",
+   "?? checks/multilang/gate_lang.py",
+   "?? checks/multilang/go_decontamination.json",
+   "?? checks/multilang/go_decontamination_check_go-fim-v2.json",
+   "?? checks/multilang/go_exclude_files.json",
+   "?? checks/multilang/go_exclude_files_v2.json",
+   "?? checks/multilang/go_gate.json",
+   "?? checks/multilang/go_list.json",
+   "?? checks/multilang/go_overlap_report.json",
+   "?? checks/multilang/go_overlap_review.json",
+   "?? checks/multilang/go_overlap_review.md",
+   "?? checks/multilang/go_pins.json",
+   "?? checks/multilang/go_train_vs_validation_go-fim-v1.json",
+   "?? checks/multilang/go_train_vs_validation_go-fim-v2.json",
+   "?? checks/multilang/propose_repos_rest.py",
+   "?? checks/multilang/propose_repos_v3.log",
+   "?? checks/multilang/proposed_repos_rest.json",
+   "?? checks/multilang/trainval_lang.py",
+   "?? configs/lang_cpp.yaml",
+   "?? configs/lang_go.yaml",
+   "?? scripts/prep_lang.sh",
+   "?? scripts/run_go_final_rerun.sh",
+   "?? scripts/run_lang_queue.sh"
+  ],
+  "sha256": {
+   "fimexp/__init__.py": "fc436e4b166281310a552f8685633daac86d73b9c167b1817f4645b318b092ab",
+   "fimexp/build_data.py": "87c805467b11882a720ebc0394f8407e90d16cb9d937c7d4d2b87f09841108a3",
+   "fimexp/build_heldout.py": "e26929a18e2c1593bb83daeb25cf4190aacff9df630a0a0f256ce1e69d6a647b",
+   "fimexp/build_lang_data.py": "31311284ac68b3c514c3c5169c9fd2ed622e67e8cb6b405f9a6ad33891aa1d0e",
+   "fimexp/build_variants.py": "e4274ff2e653f4374468af9c3124bbf773bdafeab9c8862beab160d001d040a2",
+   "fimexp/gen_batch.py": "3ff7d580f9d7abd251d838e302816c1b7844ab8fb7bb57a6b0bd77a8dc7c5436",
+   "fimexp/generate.py": "42c40317b0a254d9e58ac5723a34cf83ee9e48867cb8ddd67a49fb76987c31bd",
+   "fimexp/holes.py": "c14d60fb96b7b7c38996312b4e133daf769d8d3b03551c58da3f6cb254a4c33a",
+   "fimexp/langs.py": "6688644e2507b5c2e2c1b844a76439bfd1dd7c9eb7b7b23736805559842da2be",
+   "fimexp/model.py": "806b40e2100e97399ac66a7e572c9705086d53e5cba0c6d5d77934fbccdc6318",
+   "fimexp/psm.py": "7d45ba22bfe247321396484a7ed08b7aaaaa1cc2b2cc4b11e2d8577ce12a6483",
+   "fimexp/report_html.py": "c112b1b4cc860ebd58be86499a6a8abc810941f2430da6b370182049c2b687b8",
+   "fimexp/score.py": "344f97688fdbb76a9a0d7c73abddc08863ba17e51a7f39bec91b705a492a9373",
+   "fimexp/sources.py": "7a9234ce8ebbb06c66930d387d0fbeaf3c2fdb5cafe7b3c9238ef5bc6bfa251c",
+   "fimexp/split.py": "52b03ae71da6766ea40156de05f12d07245373be6ce8aae9ba0cc8de09066194",
+   "fimexp/structural.py": "57a2b51396d8e579f9672d0e2a28c942a5b37337afcd55923329de645dab8297",
+   "fimexp/tokenizer_whitespace.py": "0c463749fa22102d5c184b70fa61937fc94b904d2f4589dc6dec147b9efb432b",
+   "fimexp/train.py": "afde5c327df0687b7602a4ca9cc9ca64be4cf7b95857029a830925233284cd4c",
+   "fimexp/val_subset.py": "d76c13463a77068e31183956483f0fe6fa2acda394f38f1d1e25dd5f201cfe61",
+   "fimexp/wandb_log.py": "2d03f12f210a6a89da740a27ebc696fecee87e859ff57b40d0a379cdde4259fd",
+   "configs/experiment.yaml": "1480f48e02fc706a16ae14f7df66643e03fbda14fc5fe974727c356733712334"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "adapter": null,
+ "base_precision": "bf16",
+ "data_version": null,
+ "split": "validation",
+ "benchmark_lang": "cpp",
+ "pair_subset": null,
+ "edit_template": {
+  "status": "inferred",
+  "before_removed": "<<<<<<< ORIGINAL\n",
+  "after_removed": "=======\n",
+  "suffix_start": ">>>>>>> UPDATED\n"
+ },
+ "rules": {
+  "metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
+  "context": "full context up to 16384 tokens; benchmark examples that do not fit are skipped and listed, never truncated"
+ },
+ "tasks": {
+  "bench_add": {
+   "examples": 1643,
+   "skipped_over_context": [],
+   "chars": 1530842.0,
+   "answer_tokens": 503959.0,
+   "corpus_char_ppl": 1.1537940266575777,
+   "token_nll": 0.43455047221568055,
+   "per_package": {
+    "apache/arrow": {
+     "examples": 18,
+     "chars": 15776,
+     "corpus_char_ppl": 1.1438622177021902
+    },
+    "apple/foundationdb": {
+     "examples": 23,
+     "chars": 18525,
+     "corpus_char_ppl": 1.162370238860424
+    },
+    "aseprite/aseprite": {
+     "examples": 2,
+     "chars": 814,
+     "corpus_char_ppl": 1.148089451394097
+    },
+    "bitcoin/bitcoin": {
+     "examples": 51,
+     "chars": 43597,
+     "corpus_char_ppl": 1.1861144932607885
+    },
+    "chromium/chromium": {
+     "examples": 380,
+     "chars": 581108,
+     "corpus_char_ppl": 1.1352926365669045
+    },
+    "dmlc/xgboost": {
+     "examples": 4,
+     "chars": 1804,
+     "corpus_char_ppl": 1.117938918336051
+    },
+    "electron/electron": {
+     "examples": 27,
+     "chars": 15855,
+     "corpus_char_ppl": 1.1792251467052424
+    },
+    "ethereum/solidity": {
+     "examples": 34,
+     "chars": 9828,
+     "corpus_char_ppl": 1.1269613315149816
+    },
+    "facebook/folly": {
+     "examples": 15,
+     "chars": 4993,
+     "corpus_char_ppl": 1.17336182168227
+    },
+    "facebook/hermes": {
+     "examples": 8,
+     "chars": 3451,
+     "corpus_char_ppl": 1.2301296692442854
+    },
+    "facebook/react-native": {
+     "examples": 83,
+     "chars": 61474,
+     "corpus_char_ppl": 1.0787384054791762
+    },
+    "facebook/rocksdb": {
+     "examples": 17,
+     "chars": 25515,
+     "corpus_char_ppl": 1.175763063106941
+    },
+    "facebookresearch/faiss": {
+     "examples": 8,
+     "chars": 9126,
+     "corpus_char_ppl": 1.0912029753933037
+    },
+    "facebookresearch/xformers": {
+     "examples": 1,
+     "chars": 1232,
+     "corpus_char_ppl": 1.0879083280040664
+    },
+    "godotengine/godot": {
+     "examples": 118,
+     "chars": 85900,
+     "corpus_char_ppl": 1.1396178280941995
+    },
+    "google/filament": {
+     "examples": 38,
+     "chars": 17030,
+     "corpus_char_ppl": 1.205452340082932
+    },
+    "google/gvisor": {
+     "examples": 4,
+     "chars": 4928,
+     "corpus_char_ppl": 1.0611307687211136
+    },
+    "lowRISC/opentitan": {
+     "examples": 9,
+     "chars": 3408,
+     "corpus_char_ppl": 1.0903155447898025
+    },
+    "microsoft/LightGBM": {
+     "examples": 1,
+     "chars": 1490,
+     "corpus_char_ppl": 1.0563455203981469
+    },
+    "microsoft/PowerToys": {
+     "examples": 16,
+     "chars": 3008,
+     "corpus_char_ppl": 1.1324755688346282
+    },
+    "microsoft/terminal": {
+     "examples": 7,
+     "chars": 5616,
+     "corpus_char_ppl": 1.1750225873466897
+    },
+    "mongodb/mongo": {
+     "examples": 276,
+     "chars": 233298,
+     "corpus_char_ppl": 1.1742566856953627
+    },
+    "mozilla/gecko-dev": {
+     "examples": 162,
+     "chars": 161167,
+     "corpus_char_ppl": 1.1723365854935979
+    },
+    "numpy/numpy": {
+     "examples": 1,
+     "chars": 239,
+     "corpus_char_ppl": 1.3638995624608778
+    },
+    "ollama/ollama": {
+     "examples": 6,
+     "chars": 1857,
+     "corpus_char_ppl": 1.09403877659905
+    },
+    "openjdk/jdk": {
+     "examples": 84,
+     "chars": 28419,
+     "corpus_char_ppl": 1.2961587487868407
+    },
+    "protocolbuffers/protobuf": {
+     "examples": 34,
+     "chars": 29094,
+     "corpus_char_ppl": 1.1749169249645086
+    },
+    "pytorch/pytorch": {
+     "examples": 63,
+     "chars": 57915,
+     "corpus_char_ppl": 1.1561830359952998
+    },
+    "pytorch/vision": {
+     "examples": 2,
+     "chars": 410,
+     "corpus_char_ppl": 1.3268810618737035
+    },
+    "qbittorrent/qBittorrent": {
+     "examples": 4,
+     "chars": 1997,
+     "corpus_char_ppl": 1.0813148893481457
+    },
+    "ray-project/ray": {
+     "examples": 46,
+     "chars": 40690,
+     "corpus_char_ppl": 1.1066786149161072
+    },
+    "scipy/scipy": {
+     "examples": 1,
+     "chars": 35,
+     "corpus_char_ppl": 1.136979731228358
+    },
+    "v8/v8": {
+     "examples": 100,
+     "chars": 61243,
+     "corpus_char_ppl": 1.2372078360353516
+    }
+   }
+  },
+  "bench_edit": {
+   "examples": 1305,
+   "skipped_over_context": [
+    {
+     "id": "edit:5141",
+     "repo": "openjdk/jdk",
+     "tokens": 17421
+    },
+    {
+     "id": "edit:5152",
+     "repo": "openjdk/jdk",
+     "tokens": 17510
+    }
+   ],
+   "chars": 778217.0,
+   "answer_tokens": 246221.0,
+   "corpus_char_ppl": 1.1639691928390585,
+   "token_nll": 0.47989921589143536,
+   "per_package": {
+    "NVIDIA/TensorRT": {
+     "examples": 10,
+     "chars": 3459,
+     "corpus_char_ppl": 1.1327830696389192
+    },
+    "apache/arrow": {
+     "examples": 11,
+     "chars": 6947,
+     "corpus_char_ppl": 1.090227421182943
+    },
+    "apple/foundationdb": {
+     "examples": 27,
+     "chars": 19341,
+     "corpus_char_ppl": 1.2155172897061386
+    },
+    "aseprite/aseprite": {
+     "examples": 1,
+     "chars": 92,
+     "corpus_char_ppl": 1.3830796221715702
+    },
+    "bitcoin/bitcoin": {
+     "examples": 20,
+     "chars": 11369,
+     "corpus_char_ppl": 1.1321174382704287
+    },
+    "chromium/chromium": {
+     "examples": 372,
+     "chars": 341496,
+     "corpus_char_ppl": 1.1648266099276594
+    },
+    "dmlc/xgboost": {
+     "examples": 3,
+     "chars": 676,
+     "corpus_char_ppl": 1.1490135164021464
+    },
+    "electron/electron": {
+     "examples": 24,
+     "chars": 14954,
+     "corpus_char_ppl": 1.2288056781471228
+    },
+    "ethereum/solidity": {
+     "examples": 16,
+     "chars": 5726,
+     "corpus_char_ppl": 1.2122901995706714
+    },
+    "facebook/folly": {
+     "examples": 8,
+     "chars": 5671,
+     "corpus_char_ppl": 1.1419833888407365
+    },
+    "facebook/hermes": {
+     "examples": 4,
+     "chars": 1370,
+     "corpus_char_ppl": 1.0744492813412414
+    },
+    "facebook/react-native": {
+     "examples": 17,
+     "chars": 9908,
+     "corpus_char_ppl": 1.0778407899135938
+    },
+    "facebook/rocksdb": {
+     "examples": 6,
+     "chars": 1957,
+     "corpus_char_ppl": 1.1329769820219753
+    },
+    "facebookresearch/xformers": {
+     "examples": 1,
+     "chars": 175,
+     "corpus_char_ppl": 1.240658825813726
+    },
+    "godotengine/godot": {
+     "examples": 61,
+     "chars": 22235,
+     "corpus_char_ppl": 1.145626664488927
+    },
+    "google/filament": {
+     "examples": 24,
+     "chars": 6819,
+     "corpus_char_ppl": 1.1412252803311567
+    },
+    "lowRISC/opentitan": {
+     "examples": 1,
+     "chars": 2910,
+     "corpus_char_ppl": 1.0774943048420151
+    },
+    "microsoft/PowerToys": {
+     "examples": 8,
+     "chars": 2671,
+     "corpus_char_ppl": 1.087977531845992
+    },
+    "microsoft/terminal": {
+     "examples": 5,
+     "chars": 1525,
+     "corpus_char_ppl": 1.1991944466283686
+    },
+    "mongodb/mongo": {
+     "examples": 185,
+     "chars": 77668,
+     "corpus_char_ppl": 1.1635947675265736
+    },
+    "mozilla/gecko-dev": {
+     "examples": 182,
+     "chars": 107486,
+     "corpus_char_ppl": 1.1891203165368167
+    },
+    "numpy/numpy": {
+     "examples": 1,
+     "chars": 334,
+     "corpus_char_ppl": 1.21136276608227
+    },
+    "ollama/ollama": {
+     "examples": 6,
+     "chars": 4168,
+     "corpus_char_ppl": 1.0705268241942678
+    },
+    "openjdk/jdk": {
+     "examples": 61,
+     "chars": 22336,
+     "corpus_char_ppl": 1.2789736547973816
+    },
+    "protocolbuffers/protobuf": {
+     "examples": 21,
+     "chars": 7506,
+     "corpus_char_ppl": 1.1213477173939643
+    },
+    "pytorch/pytorch": {
+     "examples": 54,
+     "chars": 20325,
+     "corpus_char_ppl": 1.1483637115961538
+    },
+    "pytorch/vision": {
+     "examples": 1,
+     "chars": 237,
+     "corpus_char_ppl": 1.059514414461362
+    },
+    "qbittorrent/qBittorrent": {
+     "examples": 5,
+     "chars": 1643,
+     "corpus_char_ppl": 1.1202501979724302
+    },
+    "ray-project/ray": {
+     "examples": 55,
+     "chars": 25259,
+     "corpus_char_ppl": 1.1108243626620948
+    },
+    "scipy/scipy": {
+     "examples": 3,
+     "chars": 704,
+     "corpus_char_ppl": 1.2618150825736876
+    },
+    "v8/v8": {
+     "examples": 112,
+     "chars": 51250,
+     "corpus_char_ppl": 1.12628838705009
+    }
+   },
+   "status": "PROVISIONAL: Edit prompt layout inferred from the dataset figure, not confirmed"
+  },
+  "heldout_ast": {
+   "examples": 1000,
+   "skipped_over_context": [],
+   "chars": 1449534.0,
+   "answer_tokens": 476800.0,
+   "corpus_char_ppl": 1.1941772064163707,
+   "token_nll": 0.5394936262675567,
+   "per_package": {
+    "78/xiaozhi-esp32": {
+     "examples": 100,
+     "chars": 134026,
+     "corpus_char_ppl": 1.175624602462587
+    },
+    "Liniyous/ElaWidgetTools": {
+     "examples": 100,
+     "chars": 103793,
+     "corpus_char_ppl": 1.104160577132394
+    },
+    "bmorcelli/Launcher": {
+     "examples": 100,
+     "chars": 97375,
+     "corpus_char_ppl": 1.2245988147737565
+    },
+    "deepseek-ai/3FS": {
+     "examples": 100,
+     "chars": 178998,
+     "corpus_char_ppl": 1.1433407310044295
+    },
+    "duckdb/ducklake": {
+     "examples": 100,
+     "chars": 175937,
+     "corpus_char_ppl": 1.260091303654458
+    },
+    "ikawrakow/ik_llama.cpp": {
+     "examples": 100,
+     "chars": 193319,
+     "corpus_char_ppl": 1.1674827595420705
+    },
+    "kvcache-ai/Mooncake": {
+     "examples": 100,
+     "chars": 170908,
+     "corpus_char_ppl": 1.226772441399835
+    },
+    "lemonade-sdk/lemonade": {
+     "examples": 100,
+     "chars": 148257,
+     "corpus_char_ppl": 1.2013623942266882
+    },
+    "lupinemachines/lupine": {
+     "examples": 100,
+     "chars": 69271,
+     "corpus_char_ppl": 1.1955696204633859
+    },
+    "xxnuo/MTranServer": {
+     "examples": 100,
+     "chars": 177650,
+     "corpus_char_ppl": 1.2276832268292726
+    }
+   }
+  },
+  "heldout_random": {
+   "examples": 1000,
+   "skipped_over_context": [],
+   "chars": 1449534.0,
+   "answer_tokens": 486070.0,
+   "corpus_char_ppl": 1.196564659545604,
+   "token_nll": 0.5351608656566679,
+   "per_package": {
+    "78/xiaozhi-esp32": {
+     "examples": 100,
+     "chars": 134026,
+     "corpus_char_ppl": 1.1777425080536836
+    },
+    "Liniyous/ElaWidgetTools": {
+     "examples": 100,
+     "chars": 103793,
+     "corpus_char_ppl": 1.0929452544536575
+    },
+    "bmorcelli/Launcher": {
+     "examples": 100,
+     "chars": 97375,
+     "corpus_char_ppl": 1.2114181557962296
+    },
+    "deepseek-ai/3FS": {
+     "examples": 100,
+     "chars": 178998,
+     "corpus_char_ppl": 1.1443464645377606
+    },
+    "duckdb/ducklake": {
+     "examples": 100,
+     "chars": 175937,
+     "corpus_char_ppl": 1.2662998794009515
+    },
+    "ikawrakow/ik_llama.cpp": {
+     "examples": 100,
+     "chars": 193319,
+     "corpus_char_ppl": 1.189289905098379
+    },
+    "kvcache-ai/Mooncake": {
+     "examples": 100,
+     "chars": 170908,
+     "corpus_char_ppl": 1.2174324276499555
+    },
+    "lemonade-sdk/lemonade": {
+     "examples": 100,
+     "chars": 148257,
+     "corpus_char_ppl": 1.2232021771164967
+    },
+    "lupinemachines/lupine": {
+     "examples": 100,
+     "chars": 69271,
+     "corpus_char_ppl": 1.1789771604042203
+    },
+    "xxnuo/MTranServer": {
+     "examples": 100,
+     "chars": 177650,
+     "corpus_char_ppl": 1.2261001890401397
+    }
+   }
+  },
+  "heldout_l2r": {
+   "examples": 217,
+   "skipped_over_context": [],
+   "chars": 1470766.0,
+   "answer_tokens": 607683.0,
+   "corpus_char_ppl": 1.3493145736103704,
+   "token_nll": 0.7251094720283958,
+   "per_package": {
+    "78/xiaozhi-esp32": {
+     "examples": 12,
+     "chars": 50419,
+     "corpus_char_ppl": 1.281254909302056
+    },
+    "Liniyous/ElaWidgetTools": {
+     "examples": 11,
+     "chars": 22452,
+     "corpus_char_ppl": 1.2072894004204167
+    },
+    "bmorcelli/Launcher": {
+     "examples": 15,
+     "chars": 105929,
+     "corpus_char_ppl": 1.307822083915966
+    },
+    "deepseek-ai/3FS": {
+     "examples": 11,
+     "chars": 46303,
+     "corpus_char_ppl": 1.2482912815884477
+    },
+    "duckdb/ducklake": {
+     "examples": 15,
+     "chars": 100259,
+     "corpus_char_ppl": 1.2821195215695813
+    },
+    "ikawrakow/ik_llama.cpp": {
+     "examples": 22,
+     "chars": 174385,
+     "corpus_char_ppl": 1.244888414111684
+    },
+    "kvcache-ai/Mooncake": {
+     "examples": 30,
+     "chars": 298506,
+     "corpus_char_ppl": 1.2253434419764644
+    },
+    "lemonade-sdk/lemonade": {
+     "examples": 18,
+     "chars": 149092,
+     "corpus_char_ppl": 1.231784442376212
+    },
+    "lupinemachines/lupine": {
+     "examples": 12,
+     "chars": 51444,
+     "corpus_char_ppl": 1.2972760685812235
+    },
+    "xxnuo/MTranServer": {
+     "examples": 71,
+     "chars": 471977,
+     "corpus_char_ppl": 1.5836018783646746
+    }
+   }
+  }
+ }
+}

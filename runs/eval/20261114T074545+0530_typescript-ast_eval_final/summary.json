@@ -1,0 +1,584 @@
+{
+ "created_utc": "2026-11-14T02:17:14Z",
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "code": {
+  "commit": "6a81166192cf56e8cbe323fef6060e269b5e4beb",
+  "dirty_files": [
+   "M checks/multilang/DECONTAMINATION.md",
+   " M checks/multilang/decontaminate_lang.py",
+   " M checks/multilang/review_overlap.py",
+   " M scripts/after_lang_final_eval.sh",
+   "?? checks/multilang/cpp_decontamination.json",
+   "?? checks/multilang/cpp_decontamination_check_cpp-fim-v1.json",
+   "?? checks/multilang/cpp_decontamination_check_cpp-fim-v2.json",
+   "?? checks/multilang/cpp_exclude_files.json",
+   "?? checks/multilang/cpp_exclude_files_v2.json",
+   "?? checks/multilang/cpp_gate.json",
+   "?? checks/multilang/cpp_gate_v1_STOP.json",
+   "?? checks/multilang/cpp_list.json",
+   "?? checks/multilang/cpp_overlap_report.json",
+   "?? checks/multilang/cpp_overlap_review.json",
+   "?? checks/multilang/cpp_overlap_review.md",
+   "?? checks/multilang/cpp_pins.json",
+   "?? checks/multilang/cpp_train_vs_validation_cpp-fim-v1.json",
+   "?? checks/multilang/cpp_train_vs_validation_cpp-fim-v2.json",
+   "?? checks/multilang/gate_lang.py",
+   "?? checks/multilang/go_decontamination.json",
+   "?? checks/multilang/go_decontamination_check_go-fim-v2.json",
+   "?? checks/multilang/go_exclude_files.json",
+   "?? checks/multilang/go_exclude_files_v2.json",
+   "?? checks/multilang/go_gate.json",
+   "?? checks/multilang/go_list.json",
+   "?? checks/multilang/go_overlap_report.json",
+   "?? checks/multilang/go_overlap_review.json",
+   "?? checks/multilang/go_overlap_review.md",
+   "?? checks/multilang/go_pins.json",
+   "?? checks/multilang/go_train_vs_validation_go-fim-v1.json",
+   "?? checks/multilang/go_train_vs_validation_go-fim-v2.json",
+   "?? checks/multilang/propose_repos_rest.py",
+   "?? checks/multilang/propose_repos_v3.log",
+   "?? checks/multilang/proposed_repos_rest.json",
+   "?? checks/multilang/trainval_lang.py",
+   "?? checks/multilang/typescript_decontamination.json",
+   "?? checks/multilang/typescript_decontamination_check_typescript-fim-v2.json",
+   "?? checks/multilang/typescript_exclude_files.json",
+   "?? checks/multilang/typescript_exclude_files_v2.json",
+   "?? checks/multilang/typescript_gate.json",
+   "?? checks/multilang/typescript_list.json",
+   "?? checks/multilang/typescript_overlap_report.json",
+   "?? checks/multilang/typescript_overlap_review.json",
+   "?? checks/multilang/typescript_overlap_review.md",
+   "?? checks/multilang/typescript_pins.json",
+   "?? checks/multilang/typescript_train_vs_validation_typescript-fim-v1.json",
+   "?? checks/multilang/typescript_train_vs_validation_typescript-fim-v2.json",
+   "?? configs/lang_cpp.yaml",
+   "?? configs/lang_go.yaml",
+   "?? configs/lang_typescript.yaml",
+   "?? scripts/prep_lang.sh",
+   "?? scripts/run_lang_queue.sh"
+  ],
+  "sha256": {
+   "fimexp/__init__.py": "fc436e4b166281310a552f8685633daac86d73b9c167b1817f4645b318b092ab",
+   "fimexp/build_data.py": "87c805467b11882a720ebc0394f8407e90d16cb9d937c7d4d2b87f09841108a3",
+   "fimexp/build_heldout.py": "e26929a18e2c1593bb83daeb25cf4190aacff9df630a0a0f256ce1e69d6a647b",
+   "fimexp/build_lang_data.py": "31311284ac68b3c514c3c5169c9fd2ed622e67e8cb6b405f9a6ad33891aa1d0e",
+   "fimexp/build_variants.py": "e4274ff2e653f4374468af9c3124bbf773bdafeab9c8862beab160d001d040a2",
+   "fimexp/gen_batch.py": "3ff7d580f9d7abd251d838e302816c1b7844ab8fb7bb57a6b0bd77a8dc7c5436",
+   "fimexp/generate.py": "42c40317b0a254d9e58ac5723a34cf83ee9e48867cb8ddd67a49fb76987c31bd",
+   "fimexp/holes.py": "c14d60fb96b7b7c38996312b4e133daf769d8d3b03551c58da3f6cb254a4c33a",
+   "fimexp/langs.py": "6688644e2507b5c2e2c1b844a76439bfd1dd7c9eb7b7b23736805559842da2be",
+   "fimexp/model.py": "806b40e2100e97399ac66a7e572c9705086d53e5cba0c6d5d77934fbccdc6318",
+   "fimexp/psm.py": "7d45ba22bfe247321396484a7ed08b7aaaaa1cc2b2cc4b11e2d8577ce12a6483",
+   "fimexp/report_html.py": "c112b1b4cc860ebd58be86499a6a8abc810941f2430da6b370182049c2b687b8",
+   "fimexp/score.py": "f51b17d414a584027ad3ba84542373bad9056ea8a3ec6d633b4d3209aa25d0da",
+   "fimexp/sources.py": "7a9234ce8ebbb06c66930d387d0fbeaf3c2fdb5cafe7b3c9238ef5bc6bfa251c",
+   "fimexp/split.py": "52b03ae71da6766ea40156de05f12d07245373be6ce8aae9ba0cc8de09066194",
+   "fimexp/structural.py": "57a2b51396d8e579f9672d0e2a28c942a5b37337afcd55923329de645dab8297",
+   "fimexp/tokenizer_whitespace.py": "0c463749fa22102d5c184b70fa61937fc94b904d2f4589dc6dec147b9efb432b",
+   "fimexp/train.py": "afde5c327df0687b7602a4ca9cc9ca64be4cf7b95857029a830925233284cd4c",
+   "fimexp/val_subset.py": "d76c13463a77068e31183956483f0fe6fa2acda394f38f1d1e25dd5f201cfe61",
+   "fimexp/wandb_log.py": "2d03f12f210a6a89da740a27ebc696fecee87e859ff57b40d0a379cdde4259fd",
+   "configs/experiment.yaml": "1480f48e02fc706a16ae14f7df66643e03fbda14fc5fe974727c356733712334"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "adapter": "logs/20261113T120806+0530_typescript-ast_train_s42/checkpoints/final_adapter",
+ "base_precision": "bf16",
+ "data_version": null,
+ "split": "validation",
+ "benchmark_lang": "typescript",
+ "pair_subset": null,
+ "edit_template": {
+  "status": "inferred",
+  "before_removed": "<<<<<<< ORIGINAL\n",
+  "after_removed": "=======\n",
+  "suffix_start": ">>>>>>> UPDATED\n"
+ },
+ "rules": {
+  "metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
+  "context": "full context up to 16384 tokens, error otherwise"
+ },
+ "tasks": {
+  "bench_add": {
+   "examples": 1671,
+   "chars": 884265.0,
+   "answer_tokens": 275177.0,
+   "corpus_char_ppl": 1.1784379030113643,
+   "token_nll": 0.5276140436485567,
+   "per_package": {
+    "TabbyML/tabby": {
+     "examples": 4,
+     "chars": 701,
+     "corpus_char_ppl": 1.2277939016584192
+    },
+    "angular/angular": {
+     "examples": 186,
+     "chars": 104984,
+     "corpus_char_ppl": 1.1558547378843167
+    },
+    "apache/airflow": {
+     "examples": 10,
+     "chars": 1605,
+     "corpus_char_ppl": 1.2515243174867663
+    },
+    "apache/arrow": {
+     "examples": 1,
+     "chars": 603,
+     "corpus_char_ppl": 1.2374490284797306
+    },
+    "apache/echarts": {
+     "examples": 1,
+     "chars": 255,
+     "corpus_char_ppl": 1.2002805071488627
+    },
+    "apache/flink": {
+     "examples": 4,
+     "chars": 2219,
+     "corpus_char_ppl": 1.149585150886371
+    },
+    "apache/incubator-seata": {
+     "examples": 4,
+     "chars": 4331,
+     "corpus_char_ppl": 1.0804577143799028
+    },
+    "apache/superset": {
+     "examples": 44,
+     "chars": 14268,
+     "corpus_char_ppl": 1.1463400077951238
+    },
+    "chroma-core/chroma": {
+     "examples": 1,
+     "chars": 105,
+     "corpus_char_ppl": 1.3984590700110422
+    },
+    "chromium/chromium": {
+     "examples": 31,
+     "chars": 38728,
+     "corpus_char_ppl": 1.1204947735893733
+    },
+    "cube-js/cube": {
+     "examples": 2,
+     "chars": 1378,
+     "corpus_char_ppl": 1.151967753691098
+    },
+    "denoland/deno": {
+     "examples": 1,
+     "chars": 524,
+     "corpus_char_ppl": 1.0663945450102887
+    },
+    "electron/electron": {
+     "examples": 25,
+     "chars": 12289,
+     "corpus_char_ppl": 1.1787344303334453
+    },
+    "facebook/react": {
+     "examples": 13,
+     "chars": 3711,
+     "corpus_char_ppl": 1.2511154473483457
+    },
+    "facebook/react-native": {
+     "examples": 2,
+     "chars": 590,
+     "corpus_char_ppl": 1.6353749810601792
+    },
+    "github/docs": {
+     "examples": 37,
+     "chars": 9633,
+     "corpus_char_ppl": 1.2619784528144464
+    },
+    "google/blockly": {
+     "examples": 1,
+     "chars": 263,
+     "corpus_char_ppl": 1.1703734441937164
+    },
+    "gradio-app/gradio": {
+     "examples": 30,
+     "chars": 13971,
+     "corpus_char_ppl": 1.2168852575124107
+    },
+    "grafana/grafana": {
+     "examples": 179,
+     "chars": 103113,
+     "corpus_char_ppl": 1.1530526777875363
+    },
+    "lichess-org/lila": {
+     "examples": 75,
+     "chars": 24295,
+     "corpus_char_ppl": 1.3039434746736402
+    },
+    "mastodon/mastodon": {
+     "examples": 3,
+     "chars": 513,
+     "corpus_char_ppl": 1.1929555443901756
+    },
+    "microsoft/vscode": {
+     "examples": 490,
+     "chars": 278776,
+     "corpus_char_ppl": 1.174546674645923
+    },
+    "mozilla/gecko-dev": {
+     "examples": 24,
+     "chars": 24671,
+     "corpus_char_ppl": 1.1411899662354283
+    },
+    "streamlit/streamlit": {
+     "examples": 86,
+     "chars": 58341,
+     "corpus_char_ppl": 1.1490491336484236
+    },
+    "tauri-apps/tauri": {
+     "examples": 2,
+     "chars": 1193,
+     "corpus_char_ppl": 1.4521279246315504
+    },
+    "unionlabs/union": {
+     "examples": 147,
+     "chars": 62536,
+     "corpus_char_ppl": 1.1797460473373622
+    },
+    "vercel/next.js": {
+     "examples": 259,
+     "chars": 118425,
+     "corpus_char_ppl": 1.2350777643552995
+    },
+    "vercel/turborepo": {
+     "examples": 9,
+     "chars": 2244,
+     "corpus_char_ppl": 1.335407941989688
+    }
+   }
+  },
+  "bench_edit": {
+   "examples": 1511,
+   "chars": 832523.0,
+   "answer_tokens": 258394.0,
+   "corpus_char_ppl": 1.1409740900705554,
+   "token_nll": 0.4249135045830213,
+   "per_package": {
+    "DioxusLabs/dioxus": {
+     "examples": 1,
+     "chars": 201,
+     "corpus_char_ppl": 1.2553477194287448
+    },
+    "TabbyML/tabby": {
+     "examples": 1,
+     "chars": 224,
+     "corpus_char_ppl": 1.0730759460969683
+    },
+    "angular/angular": {
+     "examples": 134,
+     "chars": 51888,
+     "corpus_char_ppl": 1.2098018343656711
+    },
+    "apache/airflow": {
+     "examples": 12,
+     "chars": 2780,
+     "corpus_char_ppl": 1.167050751027863
+    },
+    "apache/arrow": {
+     "examples": 1,
+     "chars": 324,
+     "corpus_char_ppl": 1.2136478238545287
+    },
+    "apache/echarts": {
+     "examples": 1,
+     "chars": 726,
+     "corpus_char_ppl": 1.0046311196825974
+    },
+    "apache/superset": {
+     "examples": 51,
+     "chars": 10384,
+     "corpus_char_ppl": 1.126650855565923
+    },
+    "chromium/chromium": {
+     "examples": 30,
+     "chars": 26213,
+     "corpus_char_ppl": 1.1762072025028478
+    },
+    "cube-js/cube": {
+     "examples": 1,
+     "chars": 213,
+     "corpus_char_ppl": 1.2860432784936018
+    },
+    "electron/electron": {
+     "examples": 8,
+     "chars": 2432,
+     "corpus_char_ppl": 1.1751739307383606
+    },
+    "facebook/react": {
+     "examples": 10,
+     "chars": 3434,
+     "corpus_char_ppl": 1.123386608635613
+    },
+    "github/docs": {
+     "examples": 18,
+     "chars": 5961,
+     "corpus_char_ppl": 1.1267210755986372
+    },
+    "google/blockly": {
+     "examples": 9,
+     "chars": 2335,
+     "corpus_char_ppl": 1.2421107971872472
+    },
+    "gradio-app/gradio": {
+     "examples": 11,
+     "chars": 4634,
+     "corpus_char_ppl": 1.141147427861965
+    },
+    "grafana/grafana": {
+     "examples": 166,
+     "chars": 97267,
+     "corpus_char_ppl": 1.1668459295143048
+    },
+    "lichess-org/lila": {
+     "examples": 85,
+     "chars": 35915,
+     "corpus_char_ppl": 1.2074102641188096
+    },
+    "linera-io/linera-protocol": {
+     "examples": 10,
+     "chars": 3073,
+     "corpus_char_ppl": 1.231783963126835
+    },
+    "mastodon/mastodon": {
+     "examples": 1,
+     "chars": 803,
+     "corpus_char_ppl": 1.2172023968069947
+    },
+    "microsoft/vscode": {
+     "examples": 494,
+     "chars": 323986,
+     "corpus_char_ppl": 1.1166660807927369
+    },
+    "mozilla/gecko-dev": {
+     "examples": 23,
+     "chars": 26629,
+     "corpus_char_ppl": 1.1596709115933974
+    },
+    "ollama/ollama": {
+     "examples": 1,
+     "chars": 182,
+     "corpus_char_ppl": 1.2334260132038286
+    },
+    "streamlit/streamlit": {
+     "examples": 79,
+     "chars": 24992,
+     "corpus_char_ppl": 1.1968705567587292
+    },
+    "swc-project/swc": {
+     "examples": 4,
+     "chars": 1499,
+     "corpus_char_ppl": 1.2190210532518426
+    },
+    "tauri-apps/tauri": {
+     "examples": 1,
+     "chars": 347,
+     "corpus_char_ppl": 1.1174254845584333
+    },
+    "unionlabs/union": {
+     "examples": 155,
+     "chars": 126533,
+     "corpus_char_ppl": 1.0905164200639943
+    },
+    "vercel/next.js": {
+     "examples": 197,
+     "chars": 77734,
+     "corpus_char_ppl": 1.1727787903815787
+    },
+    "vercel/turborepo": {
+     "examples": 7,
+     "chars": 1814,
+     "corpus_char_ppl": 1.4692138289501913
+    }
+   },
+   "status": "PROVISIONAL: Edit prompt layout inferred from the dataset figure, not confirmed"
+  },
+  "heldout_ast": {
+   "examples": 1000,
+   "chars": 1516732.0,
+   "answer_tokens": 452370.0,
+   "corpus_char_ppl": 1.1581892929017674,
+   "token_nll": 0.4923933328426376,
+   "per_package": {
+    "DayuanJiang/next-ai-draw-io": {
+     "examples": 100,
+     "chars": 122379,
+     "corpus_char_ppl": 1.2124691126452687
+    },
+    "ItzCrazyKns/Vane": {
+     "examples": 100,
+     "chars": 191391,
+     "corpus_char_ppl": 1.129948468943403
+    },
+    "better-auth/better-auth": {
+     "examples": 100,
+     "chars": 149083,
+     "corpus_char_ppl": 1.1341150284448118
+    },
+    "browserbase/stagehand": {
+     "examples": 100,
+     "chars": 175195,
+     "corpus_char_ppl": 1.1978874092389813
+    },
+    "google-gemini/gemini-cli": {
+     "examples": 100,
+     "chars": 178434,
+     "corpus_char_ppl": 1.1395796072278663
+    },
+    "musistudio/claude-code-router": {
+     "examples": 100,
+     "chars": 92211,
+     "corpus_char_ppl": 1.1573332925077322
+    },
+    "onlook-dev/onlook": {
+     "examples": 100,
+     "chars": 144742,
+     "corpus_char_ppl": 1.1003864228138471
+    },
+    "shardeum/shardeum": {
+     "examples": 100,
+     "chars": 206205,
+     "corpus_char_ppl": 1.1529672856219266
+    },
+    "upstash/context7": {
+     "examples": 100,
+     "chars": 98198,
+     "corpus_char_ppl": 1.227122707961256
+    },
+    "yamadashy/repomix": {
+     "examples": 100,
+     "chars": 158894,
+     "corpus_char_ppl": 1.1726387483942868
+    }
+   }
+  },
+  "heldout_random": {
+   "examples": 1000,
+   "chars": 1516732.0,
+   "answer_tokens": 458037.0,
+   "corpus_char_ppl": 1.1624086613893996,
+   "token_nll": 0.4983429224845258,
+   "per_package": {
+    "DayuanJiang/next-ai-draw-io": {
+     "examples": 100,
+     "chars": 122379,
+     "corpus_char_ppl": 1.2228865367648962
+    },
+    "ItzCrazyKns/Vane": {
+     "examples": 100,
+     "chars": 191391,
+     "corpus_char_ppl": 1.1343118612229202
+    },
+    "better-auth/better-auth": {
+     "examples": 100,
+     "chars": 149083,
+     "corpus_char_ppl": 1.1381651272026776
+    },
+    "browserbase/stagehand": {
+     "examples": 100,
+     "chars": 175195,
+     "corpus_char_ppl": 1.2049219397790198
+    },
+    "google-gemini/gemini-cli": {
+     "examples": 100,
+     "chars": 178434,
+     "corpus_char_ppl": 1.140011526869811
+    },
+    "musistudio/claude-code-router": {
+     "examples": 100,
+     "chars": 92211,
+     "corpus_char_ppl": 1.1435349271706683
+    },
+    "onlook-dev/onlook": {
+     "examples": 100,
+     "chars": 144742,
+     "corpus_char_ppl": 1.1017259228093832
+    },
+    "shardeum/shardeum": {
+     "examples": 100,
+     "chars": 206205,
+     "corpus_char_ppl": 1.1458120574370136
+    },
+    "upstash/context7": {
+     "examples": 100,
+     "chars": 98198,
+     "corpus_char_ppl": 1.2517692500560145
+    },
+    "yamadashy/repomix": {
+     "examples": 100,
+     "chars": 158894,
+     "corpus_char_ppl": 1.1902369541451059
+    }
+   }
+  },
+  "heldout_l2r": {
+   "examples": 132,
+   "chars": 812712.0,
+   "answer_tokens": 245461.0,
+   "corpus_char_ppl": 1.2742543878433987,
+   "token_nll": 0.8024487259131433,
+   "per_package": {
+    "DayuanJiang/next-ai-draw-io": {
+     "examples": 16,
+     "chars": 143445,
+     "corpus_char_ppl": 1.3700611210853602
+    },
+    "ItzCrazyKns/Vane": {
+     "examples": 10,
+     "chars": 18930,
+     "corpus_char_ppl": 1.2382435874597084
+    },
+    "better-auth/better-auth": {
+     "examples": 10,
+     "chars": 26569,
+     "corpus_char_ppl": 1.2141178066158376
+    },
+    "browserbase/stagehand": {
+     "examples": 10,
+     "chars": 31720,
+     "corpus_char_ppl": 1.3131174487010564
+    },
+    "google-gemini/gemini-cli": {
+     "examples": 18,
+     "chars": 156134,
+     "corpus_char_ppl": 1.1948728876480077
+    },
+    "musistudio/claude-code-router": {
+     "examples": 20,
+     "chars": 165361,
+     "corpus_char_ppl": 1.1936403644443274
+    },
+    "onlook-dev/onlook": {
+     "examples": 10,
+     "chars": 6226,
+     "corpus_char_ppl": 1.2148264338023047
+    },
+    "shardeum/shardeum": {
+     "examples": 12,
+     "chars": 74907,
+     "corpus_char_ppl": 1.3673318255191123
+    },
+    "upstash/context7": {
+     "examples": 16,
+     "chars": 109909,
+     "corpus_char_ppl": 1.3830874798924224
+    },
+    "yamadashy/repomix": {
+     "examples": 10,
+     "chars": 79511,
+     "corpus_char_ppl": 1.2322290499750415
+    }
+   }
+  }
+ }
+}

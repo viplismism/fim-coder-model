@@ -1,0 +1,56 @@
+{
+ "run_name": "20261118T054928+0530_qwen14b-random_train_s42",
+ "started": "2026-11-18T05:49:28+05:30",
+ "timezone": "IST",
+ "dependency_lock_sha256": "18d35f72ec9a8837127aa40a9ff21cdb45033900f08a862974c798edb27ce2ef",
+ "packages": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "peft": "0.21.2",
+  "accelerate": "1.15.0",
+  "bitsandbytes": "0.50.2",
+  "tokenizers": "0.23.3"
+ },
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "model": {
+  "name": "models/Qwen2.5-Coder-14B",
+  "revision": "f2ad5164aade432d6d56c24bb71589184d5d613d"
+ },
+ "base_precision": "bf16",
+ "data": {
+  "version": "rs-controlplane-qwen14b-v1",
+  "manifest_created": "2026-11-17T18:41:24Z",
+  "manifest_sha256": "1b293d34aa3f9d57d0250ad6f5fd39eefcc01c968d1ada6f671c07cc85385d52",
+  "split_sha256": "b3ea4f227e8b09b4636629f84a17e1d39a29f0c7aff783238a07fe6924791707",
+  "train_file_sha256": "2d6c61c68e04b579efc8b0b98859ce82ddcf10f7ae8305de09a9af8f58c219a4",
+  "validation_subset_sha256": "d6bffa2146bbeebdd96cfb3b5a3e917e6b65ac694ec1c30ba838060cd62a2cab",
+  "validation_examples_during_training": 128
+ },
+ "smoke_train_ids": null,
+ "gpu": "NVIDIA GB10",
+ "trainable": {
+  "tensors": 672,
+  "params": 68812800,
+  "unexpected": [],
+  "frozen_params": 14770033664
+ },
+ "final_full_validation": {
+  "final_full_validation_loss": 0.2074543833732605,
+  "final_full_validation_runtime": 192.4069,
+  "final_full_validation_samples_per_second": 0.722,
+  "final_full_validation_steps_per_second": 0.722,
+  "epoch": 1.0
+ },
+ "finished": "2026-11-18T10:27:52+05:30",
+ "status": "completed",
+ "wall_seconds": 16541.5,
+ "peak_memory_gb": 37.51,
+ "final_adapter": "logs/20261118T054928+0530_qwen14b-random_train_s42/checkpoints/final_adapter"
+}

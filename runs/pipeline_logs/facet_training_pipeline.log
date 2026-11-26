@@ -1,0 +1,12 @@
+[2026-11-20 20:12:45 IST] ast: starting fresh
+[2026-11-21 20:55:51 IST] ast: finished (logs/20261120T201246+0530_facet-qwen14b-ast_train_s42)
+[2026-11-21 20:55:51 IST] random: starting fresh
+[2026-11-21 22:24:07 IST] random: first attempt OOM-killed at 21:17 (step 6, no checkpoint; vLLM also killed); dir renamed to logs/oomkilled_*; restarting fresh
+[2026-11-21 22:24:07 IST] ast: already finished (logs/20261120T201246+0530_facet-qwen14b-ast_train_s42)
+[2026-11-21 22:24:07 IST] random: starting fresh
+[2026-11-21 22:58:45 IST] random: second attempt OOM-killed at 22:58 (step ~12, no checkpoint) when vLLM was started mid-run (model load spike); dir renamed to logs/oomkilled2_*; restarting with vLLM started first
+[2026-11-21 23:01:10 IST] ast: already finished (logs/20261120T201246+0530_facet-qwen14b-ast_train_s42)
+[2026-11-21 23:01:10 IST] random: starting fresh
+[2026-11-22 13:26:47 IST] moved the two OOM-killed random dirs to logs/crashed/ (their names matched the resume glob)
+[2026-11-22 23:54:25 IST] random: finished (logs/20261121T230112+0530_facet-qwen14b-random_train_s42)
+[2026-11-22 23:54:25 IST] both runs finished

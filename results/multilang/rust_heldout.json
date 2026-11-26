@@ -1,0 +1,444 @@
+{
+ "eval_dirs": {
+  "base": "logs/20261107T213917+0530_base_eval_heldout",
+  "ast": "logs/20261107T222847+0530_ast_eval_heldout",
+  "random": "logs/20261108T000211+0530_random_eval_heldout"
+ },
+ "tasks": {
+  "heldout_ast": {
+   "n": 1500,
+   "repos": 15,
+   "ppl": {
+    "base": 1.1881,
+    "ast": 1.1459,
+    "random": 1.1455
+   },
+   "uncertainty_reduction_vs_base": {
+    "ast": 0.2097,
+    "random": 0.2118
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0422,
+     "ci_examples": [
+      -0.0481,
+      -0.0369
+     ],
+     "ci_repos": [
+      -0.0538,
+      -0.0311
+     ]
+    },
+    "random-base": {
+     "value": -0.0426,
+     "ci_examples": [
+      -0.0482,
+      -0.0371
+     ],
+     "ci_repos": [
+      -0.0547,
+      -0.032
+     ]
+    },
+    "ast-random": {
+     "value": 0.0004,
+     "ci_examples": [
+      0.0003,
+      0.0006
+     ],
+     "ci_repos": [
+      0.0002,
+      0.0006
+     ]
+    }
+   },
+   "per_repo": {
+    "BloopAI/vibe-kanban": {
+     "base": 1.1342,
+     "ast": 1.1015,
+     "random": 1.1005,
+     "n": 100
+    },
+    "EcoPasteHub/EcoPaste": {
+     "base": 1.273,
+     "ast": 1.2221,
+     "random": 1.2212,
+     "n": 100
+    },
+    "Zackriya-Solutions/meetily": {
+     "base": 1.2076,
+     "ast": 1.1215,
+     "random": 1.1212,
+     "n": 100
+    },
+    "ayangweb/BongoCat": {
+     "base": 1.2416,
+     "ast": 1.2031,
+     "random": 1.2024,
+     "n": 100
+    },
+    "cjpais/Handy": {
+     "base": 1.2934,
+     "ast": 1.2494,
+     "random": 1.2481,
+     "n": 100
+    },
+    "cocoindex-io/cocoindex": {
+     "base": 1.2254,
+     "ast": 1.1813,
+     "random": 1.1806,
+     "n": 100
+    },
+    "j178/prek": {
+     "base": 1.1957,
+     "ast": 1.1446,
+     "random": 1.1438,
+     "n": 100
+    },
+    "katanemo/plano": {
+     "base": 1.1623,
+     "ast": 1.1202,
+     "random": 1.1201,
+     "n": 100
+    },
+    "koharu-rs/koharu": {
+     "base": 1.1301,
+     "ast": 1.111,
+     "random": 1.1111,
+     "n": 100
+    },
+    "memvid/memvid": {
+     "base": 1.17,
+     "ast": 1.1101,
+     "random": 1.11,
+     "n": 100
+    },
+    "microsoft/edit": {
+     "base": 1.1919,
+     "ast": 1.182,
+     "random": 1.1814,
+     "n": 100
+    },
+    "mufeedvh/code2prompt": {
+     "base": 1.1507,
+     "ast": 1.1022,
+     "random": 1.1019,
+     "n": 100
+    },
+    "tailcallhq/forgecode": {
+     "base": 1.1384,
+     "ast": 1.1029,
+     "random": 1.1029,
+     "n": 100
+    },
+    "voidzero-dev/vite-plus": {
+     "base": 1.2338,
+     "ast": 1.1541,
+     "random": 1.1543,
+     "n": 100
+    },
+    "zizmorcore/zizmor": {
+     "base": 1.1473,
+     "ast": 1.1288,
+     "random": 1.1286,
+     "n": 100
+    }
+   },
+   "ast_better_than_random_repos": "2/15",
+   "tuned_better_than_base_repos": {
+    "ast": "15/15",
+    "random": "15/15"
+   }
+  },
+  "heldout_random": {
+   "n": 1500,
+   "repos": 15,
+   "ppl": {
+    "base": 1.1995,
+    "ast": 1.1583,
+    "random": 1.1562
+   },
+   "uncertainty_reduction_vs_base": {
+    "ast": 0.1925,
+    "random": 0.2024
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0413,
+     "ci_examples": [
+      -0.0468,
+      -0.0365
+     ],
+     "ci_repos": [
+      -0.0499,
+      -0.0322
+     ]
+    },
+    "random-base": {
+     "value": -0.0434,
+     "ci_examples": [
+      -0.0492,
+      -0.0387
+     ],
+     "ci_repos": [
+      -0.0524,
+      -0.0348
+     ]
+    },
+    "ast-random": {
+     "value": 0.0021,
+     "ci_examples": [
+      0.0018,
+      0.0023
+     ],
+     "ci_repos": [
+      0.0018,
+      0.0024
+     ]
+    }
+   },
+   "per_repo": {
+    "BloopAI/vibe-kanban": {
+     "base": 1.148,
+     "ast": 1.1249,
+     "random": 1.1228,
+     "n": 100
+    },
+    "EcoPasteHub/EcoPaste": {
+     "base": 1.2869,
+     "ast": 1.2426,
+     "random": 1.2402,
+     "n": 100
+    },
+    "Zackriya-Solutions/meetily": {
+     "base": 1.1919,
+     "ast": 1.127,
+     "random": 1.1255,
+     "n": 100
+    },
+    "ayangweb/BongoCat": {
+     "base": 1.2676,
+     "ast": 1.2364,
+     "random": 1.2334,
+     "n": 100
+    },
+    "cjpais/Handy": {
+     "base": 1.321,
+     "ast": 1.2728,
+     "random": 1.2696,
+     "n": 100
+    },
+    "cocoindex-io/cocoindex": {
+     "base": 1.2131,
+     "ast": 1.1788,
+     "random": 1.1758,
+     "n": 100
+    },
+    "j178/prek": {
+     "base": 1.1937,
+     "ast": 1.142,
+     "random": 1.1384,
+     "n": 100
+    },
+    "katanemo/plano": {
+     "base": 1.182,
+     "ast": 1.1317,
+     "random": 1.1302,
+     "n": 100
+    },
+    "koharu-rs/koharu": {
+     "base": 1.1354,
+     "ast": 1.1202,
+     "random": 1.1183,
+     "n": 100
+    },
+    "memvid/memvid": {
+     "base": 1.173,
+     "ast": 1.1239,
+     "random": 1.122,
+     "n": 100
+    },
+    "microsoft/edit": {
+     "base": 1.2101,
+     "ast": 1.1941,
+     "random": 1.1926,
+     "n": 100
+    },
+    "mufeedvh/code2prompt": {
+     "base": 1.1604,
+     "ast": 1.1105,
+     "random": 1.1086,
+     "n": 100
+    },
+    "tailcallhq/forgecode": {
+     "base": 1.1499,
+     "ast": 1.1045,
+     "random": 1.1028,
+     "n": 100
+    },
+    "voidzero-dev/vite-plus": {
+     "base": 1.2394,
+     "ast": 1.1514,
+     "random": 1.1492,
+     "n": 100
+    },
+    "zizmorcore/zizmor": {
+     "base": 1.1759,
+     "ast": 1.1504,
+     "random": 1.1488,
+     "n": 100
+    }
+   },
+   "ast_better_than_random_repos": "0/15",
+   "tuned_better_than_base_repos": {
+    "ast": "15/15",
+    "random": "15/15"
+   }
+  },
+  "heldout_l2r": {
+   "n": 249,
+   "repos": 15,
+   "ppl": {
+    "base": 1.2921,
+    "ast": 1.245,
+    "random": 1.2411
+   },
+   "uncertainty_reduction_vs_base": {
+    "ast": 0.1449,
+    "random": 0.1572
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0471,
+     "ci_examples": [
+      -0.0543,
+      -0.0403
+     ],
+     "ci_repos": [
+      -0.06,
+      -0.0348
+     ]
+    },
+    "random-base": {
+     "value": -0.051,
+     "ci_examples": [
+      -0.0593,
+      -0.0436
+     ],
+     "ci_repos": [
+      -0.0633,
+      -0.0395
+     ]
+    },
+    "ast-random": {
+     "value": 0.0039,
+     "ci_examples": [
+      0.0029,
+      0.0055
+     ],
+     "ci_repos": [
+      0.0027,
+      0.0051
+     ]
+    }
+   },
+   "per_repo": {
+    "BloopAI/vibe-kanban": {
+     "base": 1.2374,
+     "ast": 1.2043,
+     "random": 1.2015,
+     "n": 12
+    },
+    "EcoPasteHub/EcoPaste": {
+     "base": 1.3719,
+     "ast": 1.3306,
+     "random": 1.3242,
+     "n": 14
+    },
+    "Zackriya-Solutions/meetily": {
+     "base": 1.2636,
+     "ast": 1.1885,
+     "random": 1.1875,
+     "n": 14
+    },
+    "ayangweb/BongoCat": {
+     "base": 1.4226,
+     "ast": 1.3547,
+     "random": 1.3402,
+     "n": 12
+    },
+    "cjpais/Handy": {
+     "base": 1.3932,
+     "ast": 1.3356,
+     "random": 1.3304,
+     "n": 24
+    },
+    "cocoindex-io/cocoindex": {
+     "base": 1.2967,
+     "ast": 1.2613,
+     "random": 1.2571,
+     "n": 15
+    },
+    "j178/prek": {
+     "base": 1.2818,
+     "ast": 1.2253,
+     "random": 1.2228,
+     "n": 17
+    },
+    "katanemo/plano": {
+     "base": 1.2679,
+     "ast": 1.2032,
+     "random": 1.2013,
+     "n": 20
+    },
+    "koharu-rs/koharu": {
+     "base": 1.2398,
+     "ast": 1.2233,
+     "random": 1.2198,
+     "n": 16
+    },
+    "memvid/memvid": {
+     "base": 1.2085,
+     "ast": 1.1665,
+     "random": 1.1625,
+     "n": 14
+    },
+    "microsoft/edit": {
+     "base": 1.2842,
+     "ast": 1.2655,
+     "random": 1.2602,
+     "n": 33
+    },
+    "mufeedvh/code2prompt": {
+     "base": 1.2242,
+     "ast": 1.1729,
+     "random": 1.1702,
+     "n": 12
+    },
+    "tailcallhq/forgecode": {
+     "base": 1.2546,
+     "ast": 1.1918,
+     "random": 1.1907,
+     "n": 15
+    },
+    "voidzero-dev/vite-plus": {
+     "base": 1.296,
+     "ast": 1.213,
+     "random": 1.21,
+     "n": 15
+    },
+    "zizmorcore/zizmor": {
+     "base": 1.2773,
+     "ast": 1.2359,
+     "random": 1.2336,
+     "n": 16
+    }
+   },
+   "ast_better_than_random_repos": "0/15",
+   "tuned_better_than_base_repos": {
+    "ast": "15/15",
+    "random": "15/15"
+   }
+  }
+ }
+}

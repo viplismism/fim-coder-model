@@ -1,0 +1,56 @@
+{
+ "run_name": "20261115T183857+0530_cpp-random_train_s42",
+ "started": "2026-11-15T18:38:57+05:30",
+ "timezone": "IST",
+ "dependency_lock_sha256": "18d35f72ec9a8837127aa40a9ff21cdb45033900f08a862974c798edb27ce2ef",
+ "packages": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "peft": "0.21.2",
+  "accelerate": "1.15.0",
+  "bitsandbytes": "0.50.2",
+  "tokenizers": "0.23.3"
+ },
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "base_precision": "bf16",
+ "data": {
+  "version": "cpp-fim-v2",
+  "manifest_created": "2026-11-13T10:52:16Z",
+  "manifest_sha256": "6788ba37eb8f512093ed733e4fc5d8d62191a020e437b9ca17faabbab223b0f4",
+  "split_sha256": "b32e5a509729b5f2840072e8588b76583ead4fd666b1601721113a8bc4599449",
+  "train_file_sha256": "37aa9eb81bfa829d0ac8475160a57e20dcd29a92880b8aeb7d645e0f40ae6628",
+  "validation_subset_sha256": "882430211e6b48f57e80630a71eeedf93497e50dc9f1347eacc1ab2a88b95908",
+  "validation_examples_during_training": 128
+ },
+ "smoke_train_ids": null,
+ "gpu": "NVIDIA GB10",
+ "trainable": {
+  "tensors": 448,
+  "params": 39976960,
+  "unexpected": [],
+  "frozen_params": 6740512768
+ },
+ "final_full_validation": {
+  "final_full_validation_loss": 0.3952791690826416,
+  "final_full_validation_runtime": 610.2442,
+  "final_full_validation_samples_per_second": 0.849,
+  "final_full_validation_steps_per_second": 0.849,
+  "epoch": 1.0
+ },
+ "finished": "2026-11-16T04:40:33+05:30",
+ "status": "completed",
+ "wall_seconds": 35987.2,
+ "peak_memory_gb": 15.76,
+ "final_adapter": "logs/20261115T183857+0530_cpp-random_train_s42/checkpoints/final_adapter"
+}

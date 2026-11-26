@@ -1,0 +1,56 @@
+{
+ "run_name": "20261120T201246+0530_facet-qwen14b-ast_train_s42",
+ "started": "2026-11-20T20:12:46+05:30",
+ "timezone": "IST",
+ "dependency_lock_sha256": "18d35f72ec9a8837127aa40a9ff21cdb45033900f08a862974c798edb27ce2ef",
+ "packages": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "peft": "0.21.2",
+  "accelerate": "1.15.0",
+  "bitsandbytes": "0.50.2",
+  "tokenizers": "0.23.3"
+ },
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "model": {
+  "name": "models/Qwen2.5-Coder-14B",
+  "revision": "f2ad5164aade432d6d56c24bb71589184d5d613d"
+ },
+ "base_precision": "bf16",
+ "data": {
+  "version": "rs-facet-qwen14b-v1",
+  "manifest_created": "2026-11-20T10:10:30Z",
+  "manifest_sha256": "749efb7fbe6f78b6e897d1e0af2536fb9c3369e2d0d06c81bbf7d355ee724a54",
+  "split_sha256": "827f9adc3556965c174d63b86a5cbc7529bb61da1b4e8dce069586d6ab903814",
+  "train_file_sha256": "82a1ba60a72d3189fb4f14b3ca1e389401accaa8caac5c2f4c41d53fd42b798c",
+  "validation_subset_sha256": "ede6df3ddda29d996134d7880c591e9328fc700177dfc9b611a598b8fa075961",
+  "validation_examples_during_training": 128
+ },
+ "smoke_train_ids": null,
+ "gpu": "NVIDIA GB10",
+ "trainable": {
+  "tensors": 672,
+  "params": 68812800,
+  "unexpected": [],
+  "frozen_params": 14770033664
+ },
+ "final_full_validation": {
+  "final_full_validation_loss": 0.21247246861457825,
+  "final_full_validation_runtime": 1193.3125,
+  "final_full_validation_samples_per_second": 0.38,
+  "final_full_validation_steps_per_second": 0.38,
+  "epoch": 1.0
+ },
+ "finished": "2026-11-21T20:55:41+05:30",
+ "status": "completed",
+ "wall_seconds": 88771.8,
+ "peak_memory_gb": 37.52,
+ "final_adapter": "logs/20261120T201246+0530_facet-qwen14b-ast_train_s42/checkpoints/final_adapter"
+}

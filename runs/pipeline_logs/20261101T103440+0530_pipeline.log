@@ -1,0 +1,10 @@
+[2026-11-01 10:34:40 IST] preflight
+pins: {'reth_commit': '84caec584e79ddef33572394f787d2d1203a23c7', 'benchmark_revision': 'a36062544c7ed6c4e5ffb8dad8536fc7777e1f36', 'benchmark_sha256': {'add': 'bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22', 'edit': 'b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5'}}
+wandb <wandb-entity>/ast-aware-fim-finetuning access: PRIVATE
+settings: {'num_train_epochs': 1, 'per_device_batch_size': 1, 'gradient_accumulation_steps': 16, 'learning_rate': 0.0001, 'lr_scheduler_type': 'cosine', 'warmup_ratio': 0.05, 'weight_decay': 0.0, 'max_grad_norm': 1.0, 'optim': 'adamw_torch', 'seed': 42, 'eval_steps': 50, 'save_steps': 50} lora: {'r': 16, 'alpha': 32, 'dropout': 0.05, 'target_modules': ['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj']}
+16 passed in 4.66s
+Mem:             121           3          93           0          25         118
+[2026-11-01 10:34:49 IST] smoke adapters to discard before training: logs/20261101T050754+0530_ast_smoke_s42/checkpoints
+logs/20261101T052856+0530_ast_smoke_s42/checkpoints
+logs/20261101T060003+0530_random_smoke_s42/checkpoints
+[2026-11-01 10:34:49 IST] preflight only: done

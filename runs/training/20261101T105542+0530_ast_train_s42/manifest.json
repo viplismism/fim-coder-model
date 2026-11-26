@@ -1,0 +1,56 @@
+{
+ "run_name": "20261101T105542+0530_ast_train_s42",
+ "started": "2026-11-01T10:55:42+05:30",
+ "timezone": "IST",
+ "dependency_lock_sha256": "cafb1670b67624e92b7fcf25441c3bb7156c3d4450260ec3cc3bd4fb0769c403",
+ "packages": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "peft": "0.21.2",
+  "accelerate": "1.15.0",
+  "bitsandbytes": "0.50.2",
+  "tokenizers": "0.23.3"
+ },
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "base_precision": "bf16",
+ "data": {
+  "version": "rust-fim-v2",
+  "manifest_created": "2026-10-31T23:58:05Z",
+  "manifest_sha256": "4eeb5a6b3e2b5af8974be870e1bc92195757ce1a6bb7e0c6071ea4c2a064e50f",
+  "split_sha256": "0040f61f65a0179358f670d0a028fd6b89f2740e9c27f7834dfaaf3d609c75bc",
+  "train_file_sha256": "58256fe1aad578ca565513f5f36be7e0025b20a9b25a90fc2c16adb920ca9ece",
+  "validation_subset_sha256": "9d5ea2f00ec9a74c4fe932a474f52ed85530de74439743092f98b9d42aa18547",
+  "validation_examples_during_training": 130
+ },
+ "smoke_train_ids": null,
+ "gpu": "NVIDIA GB10",
+ "trainable": {
+  "tensors": 448,
+  "params": 39976960,
+  "unexpected": [],
+  "frozen_params": 6740512768
+ },
+ "final_full_validation": {
+  "final_full_validation_loss": 0.42513328790664673,
+  "final_full_validation_runtime": 708.3991,
+  "final_full_validation_samples_per_second": 0.731,
+  "final_full_validation_steps_per_second": 0.731,
+  "epoch": 1.0
+ },
+ "finished": "2026-11-01T22:27:12+05:30",
+ "status": "completed",
+ "wall_seconds": 41393.5,
+ "peak_memory_gb": 15.76,
+ "final_adapter": "logs/20261101T105542+0530_ast_train_s42/checkpoints/final_adapter"
+}

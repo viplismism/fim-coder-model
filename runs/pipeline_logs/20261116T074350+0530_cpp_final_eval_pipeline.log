@@ -1,0 +1,4 @@
+[2026-11-16 07:43:50 IST] adapters: ast=logs/20261115T083609+0530_cpp-ast_train_s42/checkpoints/final_adapter random=logs/20261115T183857+0530_cpp-random_train_s42/checkpoints/final_adapter | held-out cpp-fim-v1-heldout (manifest sha256 ac340b19ea012474)
+[2026-11-16 07:43:50 IST] final scoring base
+[2026-11-16 08:59:36 IST] done: logs/20261116T074350+0530_cpp-base_eval_final
+[2026-11-16 08:59:36 IST] final scoring ast

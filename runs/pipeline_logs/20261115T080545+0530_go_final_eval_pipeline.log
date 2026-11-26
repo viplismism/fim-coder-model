@@ -1,0 +1,3 @@
+[2026-11-15 08:05:45 IST] adapters: ast=logs/20261114T114659+0530_go-ast_train_s42/checkpoints/final_adapter random=logs/20261114T211002+0530_go-random_train_s42/checkpoints/final_adapter | held-out go-fim-v1-heldout (manifest sha256 9e02b16b8c612c7c)
+[2026-11-15 08:05:45 IST] final scoring base
+[2026-11-15 08:35:44 IST] FAILED at: final scoring base (exit 1)

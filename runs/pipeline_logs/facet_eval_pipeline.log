@@ -1,0 +1,55 @@
+[2026-11-22 23:56:13 IST] eval start; adapters: logs/20261120T201246+0530_facet-qwen14b-ast_train_s42/checkpoints/final_adapter | logs/20261121T230112+0530_facet-qwen14b-random_train_s42/checkpoints/final_adapter
+[2026-11-22 23:56:13 IST] generate qwen14b-base on eval_sensitive.jsonl
+[2026-11-23 04:42:40 IST] generate facet-ast on eval_sensitive.jsonl
+[2026-11-23 05:12:56 IST] scored qwen14b-base (1089 rows)
+[2026-11-23 09:03:18 IST] generate facet-random on eval_sensitive.jsonl
+[2026-11-23 09:33:45 IST] scored facet-ast (1089 rows)
+[2026-11-23 13:38:16 IST] generate qwen14b-base on eval_rest.jsonl
+[2026-11-23 14:09:16 IST] scored facet-random (1089 rows)
+[2026-11-23 17:38:24 IST] generate facet-ast on eval_rest.jsonl
+[2026-11-23 17:39:46 IST] old queue paused (SIGSTOP pid 111738) and 32B waiter stopped; replaced by run_facet_eval_v2.sh (reordered)
+[2026-11-23 17:40:00 IST] FAILED generate facet-ast results/repo_specific/facet/eval_rest.jsonl
+[2026-11-23 17:40:00 IST] generate facet-random on eval_rest.jsonl
+[2026-11-23 17:40:44 IST] queue v2 (reordered): rest -> 32B -> ppl -> style check (150/hole type) -> summaries
+[2026-11-23 17:40:44 IST] generate facet-ast on eval_rest.jsonl
+[2026-11-23 20:39:37 IST] generate facet-random on eval_rest.jsonl
+[2026-11-23 23:48:24 IST] generate qwen32b-base on eval_sensitive.jsonl
+[2026-11-23 23:49:09 IST] scored qwen14b-base (1817 rows)
+[2026-11-23 23:49:54 IST] scored facet-ast (1817 rows)
+[2026-11-23 23:50:39 IST] scored facet-random (1817 rows)
+[2026-11-24 07:02:32 IST] scored qwen32b-base (1089 rows)
+[2026-11-24 07:02:32 IST] ppl qwen14b-base
+[2026-11-24 09:19:14 IST] ppl facet-ast
+[2026-11-24 13:17:24 IST] ppl facet-random
+[2026-11-24 17:15:51 IST] generate qwen14b-base-valast on sample150_ast.jsonl
+[2026-11-24 18:04:47 IST] generate facet-ast-valast on sample150_ast.jsonl
+[2026-11-24 18:57:03 IST] generate facet-random-valast on sample150_ast.jsonl
+[2026-11-24 19:49:11 IST] generate qwen14b-base-valrandom on sample150_random.jsonl
+[2026-11-24 20:45:19 IST] generate facet-ast-valrandom on sample150_random.jsonl
+[2026-11-24 21:44:56 IST] generate facet-random-valrandom on sample150_random.jsonl
+build_test_pass/all              n= 1056 {'qwen14b-base': 0.554, 'facet-ast': 0.6316, 'facet-random': 0.6515} {'facet-ast - qwen14b-base': (0.0777, [0.0501, 0.1039]), 'facet-random - qwen14b-base': (0.0975, [0.0716, 0.1228]), 'facet-ast - facet-random': (-0.0199, [-0.0409, 0.0019])}
+build_test_pass/source           n=  903 {'qwen14b-base': 0.5714, 'facet-ast': 0.6467, 'facet-random': 0.6722} {'facet-ast - qwen14b-base': (0.0753, [0.0456, 0.1031]), 'facet-random - qwen14b-base': (0.1008, [0.0717, 0.1286]), 'facet-ast - facet-random': (-0.0255, [-0.0489, -0.0033])}
+build_test_pass/test             n=  153 {'qwen14b-base': 0.451, 'facet-ast': 0.5425, 'facet-random': 0.5294} {'facet-ast - qwen14b-base': (0.0915, [0.0294, 0.1571]), 'facet-random - qwen14b-base': (0.0784, [0.0213, 0.135]), 'facet-ast - facet-random': (0.0131, [-0.0419, 0.0671])}
+build_test_pass/human            n= 1013 {'qwen14b-base': 0.5577, 'facet-ast': 0.6338, 'facet-random': 0.6515} {'facet-ast - qwen14b-base': (0.076, [0.0491, 0.1041]), 'facet-random - qwen14b-base': (0.0938, [0.0696, 0.1212]), 'facet-ast - facet-random': (-0.0178, [-0.0396, 0.0029])}
+build_test_pass/ai_tagged        n=   29 {'qwen14b-base': 0.4828, 'facet-ast': 0.6207, 'facet-random': 0.6552} {'facet-ast - qwen14b-base': (0.1379, [-0.0323, 0.3333]), 'facet-random - qwen14b-base': (0.1724, [0.0417, 0.3077]), 'facet-ast - facet-random': (-0.0345, [-0.1613, 0.1304])}
+build_test_pass/bot_only         n=   14 {'qwen14b-base': 0.4286, 'facet-ast': 0.5, 'facet-random': 0.6429} {'facet-ast - qwen14b-base': (0.0714, [-0.1765, 0.3636]), 'facet-random - qwen14b-base': (0.2143, [0.0588, 0.5]), 'facet-ast - facet-random': (-0.1429, [-0.4444, 0.1176])}
+build_test_pass/neither_hit_limit n=  837 {'qwen14b-base': 0.6858, 'facet-ast': 0.6906, 'facet-random': 0.724} {'facet-ast - qwen14b-base': (0.0048, [-0.0206, 0.0289]), 'facet-random - qwen14b-base': (0.0382, [0.0139, 0.0616]), 'facet-ast - facet-random': (-0.0335, [-0.0563, -0.0111])}
+exact_match/all                  n= 1754 {'qwen14b-base': 0.3107, 'facet-ast': 0.3603, 'facet-random': 0.3689} {'facet-ast - qwen14b-base': (0.0496, [0.0333, 0.0668]), 'facet-random - qwen14b-base': (0.0582, [0.0426, 0.0739]), 'facet-ast - facet-random': (-0.0086, [-0.0217, 0.0049])}
+exact_match/source               n= 1465 {'qwen14b-base': 0.3249, 'facet-ast': 0.3706, 'facet-random': 0.3857} {'facet-ast - qwen14b-base': (0.0457, [0.0282, 0.0637]), 'facet-random - qwen14b-base': (0.0608, [0.044, 0.0798]), 'facet-ast - facet-random': (-0.015, [-0.0292, -0.0013])}
+exact_match/test                 n=  289 {'qwen14b-base': 0.2388, 'facet-ast': 0.308, 'facet-random': 0.2837} {'facet-ast - qwen14b-base': (0.0692, [0.031, 0.113]), 'facet-random - qwen14b-base': (0.045, [0.0174, 0.0777]), 'facet-ast - facet-random': (0.0242, [-0.0036, 0.0557])}
+exact_match/human                n= 1683 {'qwen14b-base': 0.3149, 'facet-ast': 0.3666, 'facet-random': 0.3743} {'facet-ast - qwen14b-base': (0.0517, [0.0349, 0.0688]), 'facet-random - qwen14b-base': (0.0594, [0.0432, 0.0754]), 'facet-ast - facet-random': (-0.0077, [-0.0203, 0.0054])}
+exact_match/ai_tagged            n=   48 {'qwen14b-base': 0.25, 'facet-ast': 0.25, 'facet-random': 0.2708} {'facet-ast - qwen14b-base': (0.0, [-0.0588, 0.0714]), 'facet-random - qwen14b-base': (0.0208, [0.0, 0.0638]), 'facet-ast - facet-random': (-0.0208, [-0.0816, 0.05])}
+exact_match/bot_only             n=   23 {'qwen14b-base': 0.1304, 'facet-ast': 0.1304, 'facet-random': 0.1739} {'facet-ast - qwen14b-base': (0.0, [-0.1053, 0.125]), 'facet-random - qwen14b-base': (0.0435, [0.0, 0.1364]), 'facet-ast - facet-random': (-0.0435, [-0.1154, 0.0])}
+char_ppl/all                     n= 1754 {'qwen14b-base': 1.1378, 'facet-ast': 1.1433, 'facet-random': 1.136} {'facet-ast - qwen14b-base': (0.0055, [0.0038, 0.0071]), 'facet-random - qwen14b-base': (-0.0018, [-0.0034, -0.0002]), 'facet-ast - facet-random': (0.0073, [0.0062, 0.0084])}
+char_ppl/source                  n= 1465 {'qwen14b-base': 1.1309, 'facet-ast': 1.1366, 'facet-random': 1.1292} {'facet-ast - qwen14b-base': (0.0057, [0.004, 0.0076]), 'facet-random - qwen14b-base': (-0.0017, [-0.0036, 0.0002]), 'facet-ast - facet-random': (0.0074, [0.0063, 0.0086])}
+char_ppl/test                    n=  289 {'qwen14b-base': 1.18, 'facet-ast': 1.184, 'facet-random': 1.1774} {'facet-ast - qwen14b-base': (0.004, [-0.0008, 0.0086]), 'facet-random - qwen14b-base': (-0.0026, [-0.0075, 0.002]), 'facet-ast - facet-random': (0.0066, [0.0038, 0.0096])}
+char_ppl/human                   n= 1683 {'qwen14b-base': 1.1242, 'facet-ast': 1.1291, 'facet-random': 1.122} {'facet-ast - qwen14b-base': (0.0049, [0.0032, 0.0066]), 'facet-random - qwen14b-base': (-0.0022, [-0.0041, -0.0006]), 'facet-ast - facet-random': (0.0071, [0.006, 0.0082])}
+char_ppl/ai_tagged               n=   48 {'qwen14b-base': 1.4295, 'facet-ast': 1.4468, 'facet-random': 1.4353} {'facet-ast - qwen14b-base': (0.0173, [0.0083, 0.0246]), 'facet-random - qwen14b-base': (0.0058, [0.0015, 0.0094]), 'facet-ast - facet-random': (0.0115, [0.0036, 0.0183])}
+char_ppl/bot_only                n=   23 {'qwen14b-base': 1.0916, 'facet-ast': 1.1036, 'facet-random': 1.0958} {'facet-ast - qwen14b-base': (0.012, [0.0055, 0.0301]), 'facet-random - qwen14b-base': (0.0042, [-0.0056, 0.029]), 'facet-ast - facet-random': (0.0078, [-0.0037, 0.0162])}
+[2026-11-24 22:46:20 IST] summary written (4 columns)
+ast {"n": 150, "files": 24, "exact_match": {"qwen14b-base": 0.34, "facet-ast": 0.3933, "facet-random": 0.38}, "hit_256_token_limit": {"qwen14b-base": 45, "facet-ast": 42, "facet-random": 45}, "diffs": {"facet-ast - qwen14b-base": {"points": 0.0533, "relative": 0.157, "ci": [0.0281, 0.0909]}, "facet-random - qwen14b-base": {"points": 0.04, "relative": 0.118, "ci": [0.0076, 0.0761]}, "facet-ast - facet-random": {"points": 0.0133, "relative": 0.035, "ci": [-0.0135, 0.0513]}}}
+random {"n": 150, "files": 24, "exact_match": {"qwen14b-base": 0.2867, "facet-ast": 0.3067, "facet-random": 0.2867}, "hit_256_token_limit": {"qwen14b-base": 67, "facet-ast": 65, "facet-random": 67}, "diffs": {"facet-ast - qwen14b-base": {"points": 0.02, "relative": 0.07, "ci": [-0.0204, 0.0532]}, "facet-random - qwen14b-base": {"points": 0.0, "relative": 0.0, "ci": [-0.0444, 0.0333]}, "facet-ast - facet-random": {"points": 0.02, "relative": 0.07, "ci": [-0.0147, 0.0504]}}}
+[2026-11-24 22:46:20 IST] val-style summary written (150-hole samples)
+results/repo_specific/compare_facet.html 260 cards {'both': 110, 'ast': 36, 'rnd': 35, 'basewin': 79}
+[2026-11-24 22:46:20 IST] html written
+[2026-11-24 22:46:20 IST] facet eval pipeline finished

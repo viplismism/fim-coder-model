@@ -1,0 +1,28 @@
+{
+ "train": [
+  "fatedier/frp",
+  "gin-gonic/gin",
+  "junegunn/fzf",
+  "jesseduffield/lazygit",
+  "nektos/act",
+  "moby/moby",
+  "prometheus/prometheus",
+  "usememos/memos",
+  "wagoodman/dive",
+  "etcd-io/etcd",
+  "gogs/gogs",
+  "cli/cli"
+ ],
+ "heldout": [
+  "github/github-mcp-server",
+  "vxcontrol/pentagi",
+  "henrygd/beszel",
+  "TecharoHQ/anubis",
+  "yorukot/superfile",
+  "cloudwego/eino",
+  "darrenburns/posting",
+  "pocket-id/pocket-id",
+  "certimate-go/certimate",
+  "mark3labs/mcp-go"
+ ]
+}

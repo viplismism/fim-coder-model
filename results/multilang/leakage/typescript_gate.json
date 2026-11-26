@@ -1,0 +1,53 @@
+{
+ "lang": "typescript",
+ "status": "READY",
+ "problems": [],
+ "data_version": "typescript-fim-v2",
+ "heldout_version": "typescript-fim-v1-heldout",
+ "pairs": {
+  "train": 7549,
+  "validation": 518,
+  "heldout": 1000
+ },
+ "decontamination_removed_files": 12,
+ "licence_header_exceptions": 0,
+ "planted": {
+  "whole file": {
+   "planted": 20,
+   "caught": 20,
+   "exact 5-line window": 19,
+   "near-duplicate (whole file)": 15,
+   "near-duplicate (30-line chunk)": 18,
+   "near-duplicate (10-line chunk)": 19
+  },
+  "fragment": {
+   "planted": 20,
+   "caught": 15,
+   "exact 5-line window": 12,
+   "near-duplicate (whole file)": 1,
+   "near-duplicate (30-line chunk)": 1,
+   "near-duplicate (10-line chunk)": 12
+  }
+ },
+ "raw_minhash_matches": {
+  "pool_vs_benchmark": 0,
+  "pool_vs_heldout": 0,
+  "train_vs_validation": 0
+ },
+ "train_repos": [
+  "ChatGPTNextWeb/NextChat",
+  "ant-design/ant-design",
+  "excalidraw/excalidraw",
+  "marktext/marktext",
+  "mermaid-js/mermaid",
+  "nuxt/nuxt",
+  "shadcn-ui/ui",
+  "socketio/socket.io",
+  "tailwindlabs/tailwindcss",
+  "vitejs/vite"
+ ],
+ "validation_repos": [
+  "coder/code-server",
+  "hoppscotch/hoppscotch"
+ ]
+}

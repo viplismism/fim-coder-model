@@ -1,0 +1,7 @@
+{
+ "rule": "DECONTAMINATION.md addendum (train vs validation)",
+ "data_version": "typescript-fim-v2",
+ "train_files": 7201,
+ "validation_files": 1203,
+ "removed_validation_files": {}
+}

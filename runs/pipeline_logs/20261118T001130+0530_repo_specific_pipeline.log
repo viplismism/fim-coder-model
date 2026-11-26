@@ -1,0 +1,54 @@
+[2026-11-18 00:11:30 IST] 1. DeepSeek-6.7B base
+[2026-11-18 02:16:31 IST] generated deepseek67b-base
+[2026-11-18 02:16:31 IST] 2. waiting for Qwen-14B download
+[2026-11-18 02:29:53 IST] scored results/repo_specific/full/deepseek67b-base
+[2026-11-18 02:30:31 IST] Qwen-14B verified; building training data
+[2026-11-18 02:30:31 IST] generate qwen14b-base on 10 examples
+[2026-11-18 02:35:31 IST] generated qwen14b-base
+[2026-11-18 02:35:52 IST] generate qwen14b-base on 891 examples
+[2026-11-18 05:33:47 IST] generated qwen14b-base
+[2026-11-18 05:33:47 IST] 3. Qwen-14B LoRA: smoke (5 updates)
+[2026-11-18 05:49:28 IST] smoke ok: completed; 769.0 s; peak 37.44 GB; logs in logs/20261118T053347+0530_qwen14b-random_smoke_s42
+[2026-11-18 05:49:28 IST] full training
+[2026-11-18 05:52:23 IST] scored results/repo_specific/full/qwen14b-base
+[2026-11-18 10:28:00 IST] trained: logs/20261118T054928+0530_qwen14b-random_train_s42/checkpoints/final_adapter
+[2026-11-18 10:28:00 IST] generate qwen14b-ft on 10 examples
+[2026-11-18 10:32:56 IST] generated qwen14b-ft
+[2026-11-18 10:33:18 IST] generate qwen14b-ft on 891 examples
+[2026-11-18 13:06:40 IST] generated qwen14b-ft
+[2026-11-18 13:06:40 IST] 4. waiting for Qwen-32B download
+[2026-11-18 13:07:29 IST] char perplexity: qwen14b-base
+[2026-11-18 13:25:06 IST] scored results/repo_specific/full/qwen14b-ft
+[2026-11-18 13:35:27 IST] ppl done: qwen14b-base
+[2026-11-18 13:35:27 IST] char perplexity: qwen14b-ft
+[2026-11-18 14:21:06 IST] ppl done: qwen14b-ft
+[2026-11-19 06:56:41 IST] generate qwen32b-base on 10 examples
+[2026-11-19 07:06:39 IST] generated qwen32b-base
+[2026-11-19 07:07:01 IST] generate qwen32b-base on 891 examples
+[2026-11-19 11:02:01 IST] generated qwen32b-base
+[2026-11-19 11:02:01 IST] 5. waiting for scoring
+[2026-11-19 11:15:45 IST] scored results/repo_specific/full/qwen32b-base
+build_test_pass/all 632 {'qwen14b-ft': 0.587, 'qwen14b-base': 0.5443, 'deepseek67b-base': 0.5554, 'qwen32b-base': 0.5617} {'qwen14b-base': (0.0427, [0.018, 0.0681]), 'deepseek67b-base': (0.0316, [0.0032, 0.0597]), 'qwen32b-base': (0.0253, [0.0, 0.0525])}
+build_test_pass/source 403 {'qwen14b-ft': 0.5459, 'qwen14b-base': 0.5112, 'deepseek67b-base': 0.5211, 'qwen32b-base': 0.5087} {'qwen14b-base': (0.0347, [0.0053, 0.0645]), 'deepseek67b-base': (0.0248, [-0.0097, 0.0599]), 'qwen32b-base': (0.0372, [0.0024, 0.0729])}
+build_test_pass/test 229 {'qwen14b-ft': 0.6594, 'qwen14b-base': 0.6026, 'deepseek67b-base': 0.6157, 'qwen32b-base': 0.655} {'qwen14b-base': (0.0568, [0.0128, 0.1084]), 'deepseek67b-base': (0.0437, [-0.0047, 0.0936]), 'qwen32b-base': (0.0044, [-0.0373, 0.0442])}
+exact_match/all 891 {'qwen14b-ft': 0.3659, 'qwen14b-base': 0.3423, 'deepseek67b-base': 0.33, 'qwen32b-base': 0.3614} {'qwen14b-base': (0.0236, [0.0068, 0.04]), 'deepseek67b-base': (0.0359, [0.0154, 0.0564]), 'qwen32b-base': (0.0045, [-0.0145, 0.0231])}
+exact_match/source 550 {'qwen14b-ft': 0.3455, 'qwen14b-base': 0.3382, 'deepseek67b-base': 0.3109, 'qwen32b-base': 0.3382} {'qwen14b-base': (0.0073, [-0.0106, 0.0245]), 'deepseek67b-base': (0.0345, [0.0091, 0.0626]), 'qwen32b-base': (0.0073, [-0.0147, 0.0299])}
+exact_match/test 341 {'qwen14b-ft': 0.3988, 'qwen14b-base': 0.349, 'deepseek67b-base': 0.3607, 'qwen32b-base': 0.3988} {'qwen14b-base': (0.0499, [0.0131, 0.0841]), 'deepseek67b-base': (0.0381, [0.0028, 0.0744]), 'qwen32b-base': (0.0, [-0.0337, 0.0335])}
+char_ppl/all 891 {'qwen14b-ft': 1.1401, 'qwen14b-base': 1.1444} {'qwen14b-base': (-0.0042, [-0.0069, -0.0019])}
+char_ppl/source 550 {'qwen14b-ft': 1.1611, 'qwen14b-base': 1.1671} {'qwen14b-base': (-0.006, [-0.0098, -0.0029])}
+char_ppl/test 341 {'qwen14b-ft': 1.1155, 'qwen14b-base': 1.1177} {'qwen14b-base': (-0.0022, [-0.0058, 0.0011])}
+build_test_pass/all 10 {'qwen14b-ft': 0.6, 'qwen14b-base': 0.5, 'deepseek67b-base': 0.6, 'qwen32b-base': 0.5} {'qwen14b-base': (0.1, [0.0, 0.3]), 'deepseek67b-base': (0.0, [0.0, 0.0]), 'qwen32b-base': (0.1, [0.0, 0.3])}
+build_test_pass/source 6 {'qwen14b-ft': 0.6667, 'qwen14b-base': 0.5, 'deepseek67b-base': 0.6667, 'qwen32b-base': 0.5} {'qwen14b-base': (0.1667, [0.0, 0.5]), 'deepseek67b-base': (0.0, [0.0, 0.0]), 'qwen32b-base': (0.1667, [0.0, 0.5])}
+build_test_pass/test 4 {'qwen14b-ft': 0.5, 'qwen14b-base': 0.5, 'deepseek67b-base': 0.5, 'qwen32b-base': 0.5} {'qwen14b-base': (0.0, [0.0, 0.0]), 'deepseek67b-base': (0.0, [0.0, 0.0]), 'qwen32b-base': (0.0, [0.0, 0.0])}
+exact_match/all 10 {'qwen14b-ft': 0.3, 'qwen14b-base': 0.3, 'deepseek67b-base': 0.4, 'qwen32b-base': 0.3} {'qwen14b-base': (0.0, [0.0, 0.0]), 'deepseek67b-base': (-0.1, [-0.3, 0.0]), 'qwen32b-base': (0.0, [0.0, 0.0])}
+exact_match/source 6 {'qwen14b-ft': 0.3333, 'qwen14b-base': 0.3333, 'deepseek67b-base': 0.5, 'qwen32b-base': 0.3333} {'qwen14b-base': (0.0, [0.0, 0.0]), 'deepseek67b-base': (-0.1667, [-0.5, 0.0]), 'qwen32b-base': (0.0, [0.0, 0.0])}
+exact_match/test 4 {'qwen14b-ft': 0.25, 'qwen14b-base': 0.25, 'deepseek67b-base': 0.25, 'qwen32b-base': 0.25} {'qwen14b-base': (0.0, [0.0, 0.0]), 'deepseek67b-base': (0.0, [0.0, 0.0]), 'qwen32b-base': (0.0, [0.0, 0.0])}
+[2026-11-19 11:15:53 IST] pushed
+[2026-11-19 11:15:53 IST] pipeline finished
+[2026-11-19 11:17:22 IST] val-style generation: qwen14b-base on validation_random
+[2026-11-19 11:55:39 IST] val-style generation: qwen14b-ft on validation_random
+[2026-11-19 12:36:30 IST] val-style generation: qwen14b-base on validation_ast
+[2026-11-19 13:11:07 IST] val-style generation: qwen14b-ft on validation_ast
+random {'n': 139, 'files': 58, 'base_em': 0.3022, 'ft_em': 0.3309, 'diff_points': 0.0288, 'relative_gain': 0.095, 'ci': [-0.0084, 0.0676], 'stopped': {'qwen14b-base': 100, 'qwen14b-ft': 102}}
+ast {'n': 139, 'files': 58, 'base_em': 0.3813, 'ft_em': 0.4173, 'diff_points': 0.036, 'relative_gain': 0.094, 'ci': [0.0, 0.078], 'stopped': {'qwen14b-base': 110, 'qwen14b-ft': 101}}
+[2026-11-19 13:51:35 IST] val-style check done

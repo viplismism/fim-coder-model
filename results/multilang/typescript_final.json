@@ -1,0 +1,787 @@
+{
+ "lang": "typescript",
+ "eval_dirs": {
+  "base": "logs/20261114T064253+0530_typescript-base_eval_final",
+  "ast": "logs/20261114T074545+0530_typescript-ast_eval_final",
+  "random": "logs/20261114T094558+0530_typescript-random_eval_final"
+ },
+ "bootstrap_resamples": 2000,
+ "seed": 20261101,
+ "tasks": {
+  "bench_add": {
+   "n": 1671,
+   "groups": 28,
+   "ppl": {
+    "base": 1.1794,
+    "ast": 1.1784,
+    "random": 1.1767
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0047,
+    "random": 0.0137
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0009,
+     "ci_examples": [
+      -0.0021,
+      0.0001
+     ],
+     "ci_groups": [
+      -0.0037,
+      0.0003
+     ]
+    },
+    "random-base": {
+     "value": -0.0027,
+     "ci_examples": [
+      -0.0039,
+      -0.0016
+     ],
+     "ci_groups": [
+      -0.0054,
+      -0.0014
+     ]
+    },
+    "ast-random": {
+     "value": 0.0017,
+     "ci_examples": [
+      0.0015,
+      0.002
+     ],
+     "ci_groups": [
+      0.0016,
+      0.002
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "1/28",
+   "per_group": {
+    "microsoft/vscode": {
+     "base": 1.1745,
+     "ast": 1.1745,
+     "random": 1.1729,
+     "n": 490
+    },
+    "vercel/next.js": {
+     "base": 1.2339,
+     "ast": 1.2351,
+     "random": 1.2336,
+     "n": 259
+    },
+    "angular/angular": {
+     "base": 1.1567,
+     "ast": 1.1559,
+     "random": 1.1543,
+     "n": 186
+    },
+    "grafana/grafana": {
+     "base": 1.1534,
+     "ast": 1.1531,
+     "random": 1.1509,
+     "n": 179
+    },
+    "unionlabs/union": {
+     "base": 1.1789,
+     "ast": 1.1797,
+     "random": 1.1781,
+     "n": 147
+    },
+    "streamlit/streamlit": {
+     "base": 1.1484,
+     "ast": 1.149,
+     "random": 1.1474,
+     "n": 86
+    },
+    "lichess-org/lila": {
+     "base": 1.3054,
+     "ast": 1.3039,
+     "random": 1.301,
+     "n": 75
+    },
+    "apache/superset": {
+     "base": 1.1443,
+     "ast": 1.1463,
+     "random": 1.1434,
+     "n": 44
+    },
+    "github/docs": {
+     "base": 1.2631,
+     "ast": 1.262,
+     "random": 1.2618,
+     "n": 37
+    },
+    "chromium/chromium": {
+     "base": 1.1363,
+     "ast": 1.1205,
+     "random": 1.1189,
+     "n": 31
+    },
+    "gradio-app/gradio": {
+     "base": 1.2157,
+     "ast": 1.2169,
+     "random": 1.2144,
+     "n": 30
+    },
+    "electron/electron": {
+     "base": 1.1815,
+     "ast": 1.1787,
+     "random": 1.1748,
+     "n": 25
+    },
+    "mozilla/gecko-dev": {
+     "base": 1.1527,
+     "ast": 1.1412,
+     "random": 1.1411,
+     "n": 24
+    },
+    "facebook/react": {
+     "base": 1.2479,
+     "ast": 1.2511,
+     "random": 1.2475,
+     "n": 13
+    },
+    "apache/airflow": {
+     "base": 1.2421,
+     "ast": 1.2515,
+     "random": 1.2474,
+     "n": 10
+    },
+    "vercel/turborepo": {
+     "base": 1.3356,
+     "ast": 1.3354,
+     "random": 1.3308,
+     "n": 9
+    },
+    "TabbyML/tabby": {
+     "base": 1.2283,
+     "ast": 1.2278,
+     "random": 1.226,
+     "n": 4
+    },
+    "apache/flink": {
+     "base": 1.1457,
+     "ast": 1.1496,
+     "random": 1.1451,
+     "n": 4
+    },
+    "apache/incubator-seata": {
+     "base": 1.0829,
+     "ast": 1.0805,
+     "random": 1.0803,
+     "n": 4
+    },
+    "mastodon/mastodon": {
+     "base": 1.2089,
+     "ast": 1.193,
+     "random": 1.1975,
+     "n": 3
+    },
+    "cube-js/cube": {
+     "base": 1.1463,
+     "ast": 1.152,
+     "random": 1.149,
+     "n": 2
+    },
+    "facebook/react-native": {
+     "base": 1.6278,
+     "ast": 1.6354,
+     "random": 1.6269,
+     "n": 2
+    },
+    "tauri-apps/tauri": {
+     "base": 1.4566,
+     "ast": 1.4521,
+     "random": 1.452,
+     "n": 2
+    },
+    "apache/arrow": {
+     "base": 1.2364,
+     "ast": 1.2374,
+     "random": 1.2371,
+     "n": 1
+    },
+    "apache/echarts": {
+     "base": 1.1938,
+     "ast": 1.2003,
+     "random": 1.1874,
+     "n": 1
+    },
+    "chroma-core/chroma": {
+     "base": 1.4133,
+     "ast": 1.3985,
+     "random": 1.3891,
+     "n": 1
+    },
+    "denoland/deno": {
+     "base": 1.0549,
+     "ast": 1.0664,
+     "random": 1.057,
+     "n": 1
+    },
+    "google/blockly": {
+     "base": 1.165,
+     "ast": 1.1704,
+     "random": 1.1673,
+     "n": 1
+    }
+   }
+  },
+  "bench_edit": {
+   "n": 1511,
+   "groups": 27,
+   "ppl": {
+    "base": 1.1432,
+    "ast": 1.141,
+    "random": 1.1416
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0146,
+    "random": 0.0107
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0022,
+     "ci_examples": [
+      -0.003,
+      -0.0016
+     ],
+     "ci_groups": [
+      -0.0035,
+      -0.0017
+     ]
+    },
+    "random-base": {
+     "value": -0.0016,
+     "ci_examples": [
+      -0.0023,
+      -0.0011
+     ],
+     "ci_groups": [
+      -0.003,
+      -0.0011
+     ]
+    },
+    "ast-random": {
+     "value": -0.0006,
+     "ci_examples": [
+      -0.0008,
+      -0.0004
+     ],
+     "ci_groups": [
+      -0.0009,
+      -0.0002
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "19/27",
+   "per_group": {
+    "microsoft/vscode": {
+     "base": 1.1186,
+     "ast": 1.1167,
+     "random": 1.1175,
+     "n": 494
+    },
+    "vercel/next.js": {
+     "base": 1.1751,
+     "ast": 1.1728,
+     "random": 1.1741,
+     "n": 197
+    },
+    "grafana/grafana": {
+     "base": 1.1679,
+     "ast": 1.1668,
+     "random": 1.1669,
+     "n": 166
+    },
+    "unionlabs/union": {
+     "base": 1.0923,
+     "ast": 1.0905,
+     "random": 1.0907,
+     "n": 155
+    },
+    "angular/angular": {
+     "base": 1.2125,
+     "ast": 1.2098,
+     "random": 1.2105,
+     "n": 134
+    },
+    "lichess-org/lila": {
+     "base": 1.2101,
+     "ast": 1.2074,
+     "random": 1.2075,
+     "n": 85
+    },
+    "streamlit/streamlit": {
+     "base": 1.1967,
+     "ast": 1.1969,
+     "random": 1.1965,
+     "n": 79
+    },
+    "apache/superset": {
+     "base": 1.1294,
+     "ast": 1.1267,
+     "random": 1.1277,
+     "n": 51
+    },
+    "chromium/chromium": {
+     "base": 1.1871,
+     "ast": 1.1762,
+     "random": 1.1762,
+     "n": 30
+    },
+    "mozilla/gecko-dev": {
+     "base": 1.1644,
+     "ast": 1.1597,
+     "random": 1.1602,
+     "n": 23
+    },
+    "github/docs": {
+     "base": 1.129,
+     "ast": 1.1267,
+     "random": 1.129,
+     "n": 18
+    },
+    "apache/airflow": {
+     "base": 1.171,
+     "ast": 1.1671,
+     "random": 1.1689,
+     "n": 12
+    },
+    "gradio-app/gradio": {
+     "base": 1.1474,
+     "ast": 1.1411,
+     "random": 1.1406,
+     "n": 11
+    },
+    "facebook/react": {
+     "base": 1.1269,
+     "ast": 1.1234,
+     "random": 1.1259,
+     "n": 10
+    },
+    "linera-io/linera-protocol": {
+     "base": 1.2323,
+     "ast": 1.2318,
+     "random": 1.2314,
+     "n": 10
+    },
+    "google/blockly": {
+     "base": 1.2403,
+     "ast": 1.2421,
+     "random": 1.2443,
+     "n": 9
+    },
+    "electron/electron": {
+     "base": 1.1757,
+     "ast": 1.1752,
+     "random": 1.179,
+     "n": 8
+    },
+    "vercel/turborepo": {
+     "base": 1.4654,
+     "ast": 1.4692,
+     "random": 1.4658,
+     "n": 7
+    },
+    "swc-project/swc": {
+     "base": 1.222,
+     "ast": 1.219,
+     "random": 1.217,
+     "n": 4
+    },
+    "DioxusLabs/dioxus": {
+     "base": 1.2613,
+     "ast": 1.2553,
+     "random": 1.2624,
+     "n": 1
+    },
+    "TabbyML/tabby": {
+     "base": 1.0787,
+     "ast": 1.0731,
+     "random": 1.0745,
+     "n": 1
+    },
+    "apache/arrow": {
+     "base": 1.2124,
+     "ast": 1.2136,
+     "random": 1.2137,
+     "n": 1
+    },
+    "apache/echarts": {
+     "base": 1.005,
+     "ast": 1.0046,
+     "random": 1.0039,
+     "n": 1
+    },
+    "cube-js/cube": {
+     "base": 1.2877,
+     "ast": 1.286,
+     "random": 1.2984,
+     "n": 1
+    },
+    "mastodon/mastodon": {
+     "base": 1.2232,
+     "ast": 1.2172,
+     "random": 1.2208,
+     "n": 1
+    },
+    "ollama/ollama": {
+     "base": 1.2382,
+     "ast": 1.2334,
+     "random": 1.2395,
+     "n": 1
+    },
+    "tauri-apps/tauri": {
+     "base": 1.1254,
+     "ast": 1.1174,
+     "random": 1.1161,
+     "n": 1
+    }
+   },
+   "note": "provisional"
+  },
+  "heldout_ast": {
+   "n": 1000,
+   "groups": 10,
+   "ppl": {
+    "base": 1.1642,
+    "ast": 1.1582,
+    "random": 1.1584
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0341,
+    "random": 0.0331
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.006,
+     "ci_examples": [
+      -0.0069,
+      -0.0053
+     ],
+     "ci_groups": [
+      -0.008,
+      -0.0043
+     ]
+    },
+    "random-base": {
+     "value": -0.0058,
+     "ci_examples": [
+      -0.0068,
+      -0.0051
+     ],
+     "ci_groups": [
+      -0.0078,
+      -0.0041
+     ]
+    },
+    "ast-random": {
+     "value": -0.0002,
+     "ci_examples": [
+      -0.0003,
+      -0.0001
+     ],
+     "ci_groups": [
+      -0.0003,
+      -0.0001
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "8/10",
+   "per_group": {
+    "DayuanJiang/next-ai-draw-io": {
+     "base": 1.2196,
+     "ast": 1.2125,
+     "random": 1.2125,
+     "n": 100
+    },
+    "ItzCrazyKns/Vane": {
+     "base": 1.1319,
+     "ast": 1.1299,
+     "random": 1.13,
+     "n": 100
+    },
+    "better-auth/better-auth": {
+     "base": 1.1411,
+     "ast": 1.1341,
+     "random": 1.1343,
+     "n": 100
+    },
+    "browserbase/stagehand": {
+     "base": 1.2096,
+     "ast": 1.1979,
+     "random": 1.198,
+     "n": 100
+    },
+    "google-gemini/gemini-cli": {
+     "base": 1.1456,
+     "ast": 1.1396,
+     "random": 1.1399,
+     "n": 100
+    },
+    "musistudio/claude-code-router": {
+     "base": 1.1598,
+     "ast": 1.1573,
+     "random": 1.1571,
+     "n": 100
+    },
+    "onlook-dev/onlook": {
+     "base": 1.1043,
+     "ast": 1.1004,
+     "random": 1.1006,
+     "n": 100
+    },
+    "shardeum/shardeum": {
+     "base": 1.1571,
+     "ast": 1.153,
+     "random": 1.1532,
+     "n": 100
+    },
+    "upstash/context7": {
+     "base": 1.2375,
+     "ast": 1.2271,
+     "random": 1.2272,
+     "n": 100
+    },
+    "yamadashy/repomix": {
+     "base": 1.18,
+     "ast": 1.1726,
+     "random": 1.1731,
+     "n": 100
+    }
+   }
+  },
+  "heldout_random": {
+   "n": 1000,
+   "groups": 10,
+   "ppl": {
+    "base": 1.1676,
+    "ast": 1.1624,
+    "random": 1.1615
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0288,
+    "random": 0.0339
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0052,
+     "ci_examples": [
+      -0.006,
+      -0.0045
+     ],
+     "ci_groups": [
+      -0.0072,
+      -0.0034
+     ]
+    },
+    "random-base": {
+     "value": -0.0061,
+     "ci_examples": [
+      -0.007,
+      -0.0054
+     ],
+     "ci_groups": [
+      -0.0084,
+      -0.0042
+     ]
+    },
+    "ast-random": {
+     "value": 0.0009,
+     "ci_examples": [
+      0.0008,
+      0.0011
+     ],
+     "ci_groups": [
+      0.0007,
+      0.0013
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "0/10",
+   "per_group": {
+    "DayuanJiang/next-ai-draw-io": {
+     "base": 1.2296,
+     "ast": 1.2229,
+     "random": 1.221,
+     "n": 100
+    },
+    "ItzCrazyKns/Vane": {
+     "base": 1.1352,
+     "ast": 1.1343,
+     "random": 1.1337,
+     "n": 100
+    },
+    "better-auth/better-auth": {
+     "base": 1.1449,
+     "ast": 1.1382,
+     "random": 1.1371,
+     "n": 100
+    },
+    "browserbase/stagehand": {
+     "base": 1.2154,
+     "ast": 1.2049,
+     "random": 1.204,
+     "n": 100
+    },
+    "google-gemini/gemini-cli": {
+     "base": 1.1437,
+     "ast": 1.14,
+     "random": 1.1391,
+     "n": 100
+    },
+    "musistudio/claude-code-router": {
+     "base": 1.1474,
+     "ast": 1.1435,
+     "random": 1.1426,
+     "n": 100
+    },
+    "onlook-dev/onlook": {
+     "base": 1.1039,
+     "ast": 1.1017,
+     "random": 1.1012,
+     "n": 100
+    },
+    "shardeum/shardeum": {
+     "base": 1.149,
+     "ast": 1.1458,
+     "random": 1.1453,
+     "n": 100
+    },
+    "upstash/context7": {
+     "base": 1.2611,
+     "ast": 1.2518,
+     "random": 1.2494,
+     "n": 100
+    },
+    "yamadashy/repomix": {
+     "base": 1.1983,
+     "ast": 1.1902,
+     "random": 1.1897,
+     "n": 100
+    }
+   }
+  },
+  "heldout_l2r": {
+   "n": 132,
+   "groups": 10,
+   "ppl": {
+    "base": 1.2823,
+    "ast": 1.2743,
+    "random": 1.2729
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0253,
+    "random": 0.0295
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.008,
+     "ci_examples": [
+      -0.0093,
+      -0.0067
+     ],
+     "ci_groups": [
+      -0.0115,
+      -0.0053
+     ]
+    },
+    "random-base": {
+     "value": -0.0094,
+     "ci_examples": [
+      -0.0108,
+      -0.008
+     ],
+     "ci_groups": [
+      -0.0134,
+      -0.0062
+     ]
+    },
+    "ast-random": {
+     "value": 0.0013,
+     "ci_examples": [
+      0.0011,
+      0.0016
+     ],
+     "ci_groups": [
+      0.0008,
+      0.0021
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "1/10",
+   "per_group": {
+    "musistudio/claude-code-router": {
+     "base": 1.198,
+     "ast": 1.1936,
+     "random": 1.1925,
+     "n": 20
+    },
+    "google-gemini/gemini-cli": {
+     "base": 1.2007,
+     "ast": 1.1949,
+     "random": 1.1944,
+     "n": 18
+    },
+    "DayuanJiang/next-ai-draw-io": {
+     "base": 1.3844,
+     "ast": 1.3701,
+     "random": 1.3682,
+     "n": 16
+    },
+    "upstash/context7": {
+     "base": 1.3955,
+     "ast": 1.3831,
+     "random": 1.3801,
+     "n": 16
+    },
+    "shardeum/shardeum": {
+     "base": 1.3695,
+     "ast": 1.3673,
+     "random": 1.3672,
+     "n": 12
+    },
+    "ItzCrazyKns/Vane": {
+     "base": 1.2391,
+     "ast": 1.2382,
+     "random": 1.2371,
+     "n": 10
+    },
+    "better-auth/better-auth": {
+     "base": 1.2252,
+     "ast": 1.2141,
+     "random": 1.2115,
+     "n": 10
+    },
+    "browserbase/stagehand": {
+     "base": 1.3265,
+     "ast": 1.3131,
+     "random": 1.3105,
+     "n": 10
+    },
+    "onlook-dev/onlook": {
+     "base": 1.2194,
+     "ast": 1.2148,
+     "random": 1.215,
+     "n": 10
+    },
+    "yamadashy/repomix": {
+     "base": 1.2409,
+     "ast": 1.2322,
+     "random": 1.2314,
+     "n": 10
+    }
+   }
+  }
+ },
+ "primary": {
+  "rule": "AST beats random iff Add ast-random < 0 and repo-level CI upper bound < 0",
+  "ast_minus_random": 0.0017,
+  "ci_groups": [
+   0.0016,
+   0.002
+  ],
+  "ast_beats_random": false
+ }
+}

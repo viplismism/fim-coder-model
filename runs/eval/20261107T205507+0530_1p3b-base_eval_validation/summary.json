@@ -1,0 +1,301 @@
+{
+ "created_utc": "2026-11-07T15:25:16Z",
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "code": {
+  "commit": "2167fe60f3526f4867d76a4ad6bd6a871b77bc30",
+  "dirty_files": [
+   "M fimexp/build_variants.py",
+   " M fimexp/holes.py",
+   " M scripts/run_step0_and_sanity.sh",
+   " M tests/test_data.py",
+   "?? results/build_screen_v2.log",
+   "?? results/build_screen_v3.log"
+  ],
+  "sha256": {
+   "fimexp/__init__.py": "fc436e4b166281310a552f8685633daac86d73b9c167b1817f4645b318b092ab",
+   "fimexp/build_data.py": "87c805467b11882a720ebc0394f8407e90d16cb9d937c7d4d2b87f09841108a3",
+   "fimexp/build_heldout.py": "e26929a18e2c1593bb83daeb25cf4190aacff9df630a0a0f256ce1e69d6a647b",
+   "fimexp/build_variants.py": "e4274ff2e653f4374468af9c3124bbf773bdafeab9c8862beab160d001d040a2",
+   "fimexp/gen_batch.py": "3ff7d580f9d7abd251d838e302816c1b7844ab8fb7bb57a6b0bd77a8dc7c5436",
+   "fimexp/generate.py": "42c40317b0a254d9e58ac5723a34cf83ee9e48867cb8ddd67a49fb76987c31bd",
+   "fimexp/holes.py": "5412bd28af4e79aeeadfa0d71fd2e64e7b6749152168b5b5f69a698f18687797",
+   "fimexp/model.py": "806b40e2100e97399ac66a7e572c9705086d53e5cba0c6d5d77934fbccdc6318",
+   "fimexp/psm.py": "7d45ba22bfe247321396484a7ed08b7aaaaa1cc2b2cc4b11e2d8577ce12a6483",
+   "fimexp/report_html.py": "c112b1b4cc860ebd58be86499a6a8abc810941f2430da6b370182049c2b687b8",
+   "fimexp/score.py": "5cc39405d22c271ce2ca5f930e92ee7d284b7c5e94ea354a2c86cb1790719ba2",
+   "fimexp/sources.py": "13c897aac7fbd76e2506d86b72b67b292019d517cb95079a8025418378d4ea4a",
+   "fimexp/split.py": "52b03ae71da6766ea40156de05f12d07245373be6ce8aae9ba0cc8de09066194",
+   "fimexp/structural.py": "57a2b51396d8e579f9672d0e2a28c942a5b37337afcd55923329de645dab8297",
+   "fimexp/tokenizer_whitespace.py": "0c463749fa22102d5c184b70fa61937fc94b904d2f4589dc6dec147b9efb432b",
+   "fimexp/train.py": "afde5c327df0687b7602a4ca9cc9ca64be4cf7b95857029a830925233284cd4c",
+   "fimexp/val_subset.py": "d76c13463a77068e31183956483f0fe6fa2acda394f38f1d1e25dd5f201cfe61",
+   "fimexp/wandb_log.py": "2d03f12f210a6a89da740a27ebc696fecee87e859ff57b40d0a379cdde4259fd",
+   "configs/experiment.yaml": "1480f48e02fc706a16ae14f7df66643e03fbda14fc5fe974727c356733712334"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-1.3b-base",
+  "revision": "c919139c3a9b4070729c8b2cca4847ab29ca8d94"
+ },
+ "adapter": null,
+ "base_precision": "bf16",
+ "data_version": "rust-fim-v2",
+ "split": "validation",
+ "pair_subset": null,
+ "edit_template": {
+  "status": "inferred",
+  "before_removed": "<<<<<<< ORIGINAL\n",
+  "after_removed": "=======\n",
+  "suffix_start": ">>>>>>> UPDATED\n"
+ },
+ "rules": {
+  "metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
+  "context": "full context up to 16384 tokens, error otherwise"
+ },
+ "tasks": {
+  "reth_ast": {
+   "examples": 518,
+   "chars": 644782.0,
+   "answer_tokens": 201176.0,
+   "corpus_char_ppl": 1.2469691284983357,
+   "token_nll": 0.7074086657257911,
+   "per_package": {
+    "bin/reth": {
+     "examples": 24,
+     "chars": 18283,
+     "corpus_char_ppl": 1.2913943781225077
+    },
+    "crates/cli/runner": {
+     "examples": 7,
+     "chars": 1589,
+     "corpus_char_ppl": 1.2464135889673786
+    },
+    "crates/e2e-test-utils": {
+     "examples": 193,
+     "chars": 204285,
+     "corpus_char_ppl": 1.234666170448619
+    },
+    "crates/net/eth-wire-types": {
+     "examples": 134,
+     "chars": 179051,
+     "corpus_char_ppl": 1.2336549878315388
+    },
+    "crates/node/types": {
+     "examples": 4,
+     "chars": 291,
+     "corpus_char_ppl": 1.030334882607399
+    },
+    "crates/payload/basic": {
+     "examples": 28,
+     "chars": 38102,
+     "corpus_char_ppl": 1.2094189364075727
+    },
+    "crates/static-file/types": {
+     "examples": 29,
+     "chars": 93491,
+     "corpus_char_ppl": 1.2295271647852506
+    },
+    "crates/storage/db-common": {
+     "examples": 42,
+     "chars": 47298,
+     "corpus_char_ppl": 1.2222182074260608
+    },
+    "docs/vocs/docs/snippets/sources/exex/remote": {
+     "examples": 11,
+     "chars": 3656,
+     "corpus_char_ppl": 1.2843261367653152
+    },
+    "docs/vocs/docs/snippets/sources/exex/tracking-state": {
+     "examples": 4,
+     "chars": 2656,
+     "corpus_char_ppl": 1.3755358140685405
+    },
+    "examples/custom-dev-node": {
+     "examples": 2,
+     "chars": 180,
+     "corpus_char_ppl": 1.4666954284209746
+    },
+    "examples/exex-subscription": {
+     "examples": 4,
+     "chars": 1977,
+     "corpus_char_ppl": 1.3029115641216533
+    },
+    "examples/full-contract-state": {
+     "examples": 3,
+     "chars": 1743,
+     "corpus_char_ppl": 1.625121506641908
+    },
+    "testing/ef-tests": {
+     "examples": 33,
+     "chars": 52180,
+     "corpus_char_ppl": 1.39484857335706
+    }
+   }
+  },
+  "reth_random": {
+   "examples": 518,
+   "chars": 644782.0,
+   "answer_tokens": 209316.0,
+   "corpus_char_ppl": 1.2505507217925067,
+   "token_nll": 0.6887335853068118,
+   "per_package": {
+    "bin/reth": {
+     "examples": 24,
+     "chars": 18283,
+     "corpus_char_ppl": 1.2660630258991938
+    },
+    "crates/cli/runner": {
+     "examples": 7,
+     "chars": 1589,
+     "corpus_char_ppl": 1.1775971303705928
+    },
+    "crates/e2e-test-utils": {
+     "examples": 193,
+     "chars": 204285,
+     "corpus_char_ppl": 1.2341588433124124
+    },
+    "crates/net/eth-wire-types": {
+     "examples": 134,
+     "chars": 179051,
+     "corpus_char_ppl": 1.2417400388073287
+    },
+    "crates/node/types": {
+     "examples": 4,
+     "chars": 291,
+     "corpus_char_ppl": 1.050536506972931
+    },
+    "crates/payload/basic": {
+     "examples": 28,
+     "chars": 38102,
+     "corpus_char_ppl": 1.2159586658938695
+    },
+    "crates/static-file/types": {
+     "examples": 29,
+     "chars": 93491,
+     "corpus_char_ppl": 1.2105871637357806
+    },
+    "crates/storage/db-common": {
+     "examples": 42,
+     "chars": 47298,
+     "corpus_char_ppl": 1.2685726376131152
+    },
+    "docs/vocs/docs/snippets/sources/exex/remote": {
+     "examples": 11,
+     "chars": 3656,
+     "corpus_char_ppl": 1.3089409455817433
+    },
+    "docs/vocs/docs/snippets/sources/exex/tracking-state": {
+     "examples": 4,
+     "chars": 2656,
+     "corpus_char_ppl": 1.3093208900845958
+    },
+    "examples/custom-dev-node": {
+     "examples": 2,
+     "chars": 180,
+     "corpus_char_ppl": 1.7355295431792643
+    },
+    "examples/exex-subscription": {
+     "examples": 4,
+     "chars": 1977,
+     "corpus_char_ppl": 1.3157960764862662
+    },
+    "examples/full-contract-state": {
+     "examples": 3,
+     "chars": 1743,
+     "corpus_char_ppl": 1.5411746238976098
+    },
+    "testing/ef-tests": {
+     "examples": 33,
+     "chars": 52180,
+     "corpus_char_ppl": 1.4163982570482219
+    }
+   }
+  },
+  "reth_l2r": {
+   "examples": 136,
+   "chars": 1038258.0,
+   "answer_tokens": 340354.0,
+   "corpus_char_ppl": 1.3592868096275135,
+   "token_nll": 0.9363892865083293,
+   "per_package": {
+    "bin/reth": {
+     "examples": 7,
+     "chars": 39334,
+     "corpus_char_ppl": 1.4461897260375167
+    },
+    "crates/cli/runner": {
+     "examples": 2,
+     "chars": 13280,
+     "corpus_char_ppl": 1.3098199767145966
+    },
+    "crates/e2e-test-utils": {
+     "examples": 43,
+     "chars": 396115,
+     "corpus_char_ppl": 1.3643966496798565
+    },
+    "crates/net/eth-wire-types": {
+     "examples": 37,
+     "chars": 303941,
+     "corpus_char_ppl": 1.3449394328265267
+    },
+    "crates/node/types": {
+     "examples": 1,
+     "chars": 7344,
+     "corpus_char_ppl": 1.2174978562284733
+    },
+    "crates/payload/basic": {
+     "examples": 6,
+     "chars": 52263,
+     "corpus_char_ppl": 1.301743698698122
+    },
+    "crates/static-file/types": {
+     "examples": 8,
+     "chars": 54994,
+     "corpus_char_ppl": 1.2807443181621698
+    },
+    "crates/storage/db-common": {
+     "examples": 8,
+     "chars": 85230,
+     "corpus_char_ppl": 1.3649782422439338
+    },
+    "docs/vocs/docs/snippets/sources/exex/remote": {
+     "examples": 8,
+     "chars": 12103,
+     "corpus_char_ppl": 1.4343485511658727
+    },
+    "docs/vocs/docs/snippets/sources/exex/tracking-state": {
+     "examples": 2,
+     "chars": 4864,
+     "corpus_char_ppl": 1.4690662014677411
+    },
+    "examples/custom-dev-node": {
+     "examples": 1,
+     "chars": 3113,
+     "corpus_char_ppl": 1.9813731718211938
+    },
+    "examples/exex-subscription": {
+     "examples": 1,
+     "chars": 7168,
+     "corpus_char_ppl": 1.3424575048379095
+    },
+    "examples/full-contract-state": {
+     "examples": 1,
+     "chars": 5332,
+     "corpus_char_ppl": 1.4972633591057491
+    },
+    "testing/ef-tests": {
+     "examples": 11,
+     "chars": 53177,
+     "corpus_char_ppl": 1.4423126027411481
+    }
+   }
+  }
+ }
+}

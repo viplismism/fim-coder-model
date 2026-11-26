@@ -1,0 +1,298 @@
+[2026-11-13 11:29:41 IST] waiting for checks/multilang/typescript_list.json
+[2026-11-13 11:29:41 IST] list: {"train":["excalidraw/excalidraw","shadcn-ui/ui","ant-design/ant-design","tailwindlabs/tailwindcss","mermaid-js/mermaid","ChatGPTNextWeb/NextChat","vitejs/vite","hoppscotch/hoppscotch","coder/code-server","marktext/marktext","socketio/socket.io","nuxt/nuxt"],"heldout":["google-gemini/gemini-cli","upstash/context7","ItzCrazyKns/Vane","musistudio/claude-code-router","DayuanJiang/next-ai-draw-io","shardeum/shardeum","better-auth/better-auth","yamadashy/repomix","onlook-dev/onlook","browserbase/stagehand"]}
+[2026-11-13 11:29:41 IST] fetch + pin
+train    excalidraw/excalidraw                    82d5847e57    370 files    5.29 MB  licence ['LICENSE']
+train    shadcn-ui/ui                             dd41d19e2f    627 files    4.38 MB  licence ['LICENSE.md']
+train    ant-design/ant-design                    94ae623993   1073 files    2.38 MB  licence ['LICENSE']
+train    tailwindlabs/tailwindcss                 b08bf83a32    309 files    4.02 MB  licence ['LICENSE']
+train    mermaid-js/mermaid                       04cc38560e   1085 files    6.70 MB  licence ['LICENSE']
+train    ChatGPTNextWeb/NextChat                  1d3dc33151    154 files    0.98 MB  licence ['LICENSE']
+train    vitejs/vite                              61622b8df6    608 files    3.09 MB  licence ['LICENSE']
+train    hoppscotch/hoppscotch                    55908a76a1   1119 files    7.31 MB  licence ['LICENSE']
+train    coder/code-server                        dda09f22fa     86 files    0.40 MB  licence ['LICENSE']
+train    marktext/marktext                        f3b15b9411   1455 files    7.44 MB  licence ['LICENSE']
+train    socketio/socket.io                       545e984850    180 files    0.89 MB  licence ['LICENSE']
+train    nuxt/nuxt                                850bce0e4a   1374 files    5.81 MB  licence ['LICENSE']
+heldout  google-gemini/gemini-cli                 b9776560ea   1788 files   19.11 MB  licence ['LICENSE']
+heldout  upstash/context7                         c5e26f6919    178 files    1.45 MB  licence ['LICENSE']
+heldout  ItzCrazyKns/Vane                         348feca3e3    101 files    0.28 MB  licence ['LICENSE']
+heldout  musistudio/claude-code-router            057abaa1f9    291 files    4.87 MB  licence ['LICENSE']
+heldout  DayuanJiang/next-ai-draw-io              f82d8c7b73    306 files    3.11 MB  licence ['LICENSE']
+heldout  shardeum/shardeum                        0c454caf06    305 files    2.67 MB  licence ['LICENSE']
+heldout  better-auth/better-auth                  0a014aef61   1501 files   13.64 MB  licence ['LICENSE.md']
+heldout  yamadashy/repomix                        758c3d7169    403 files    2.35 MB  licence ['LICENSE']
+heldout  onlook-dev/onlook                        423e2e9243    667 files    2.92 MB  licence ['LICENSE.md']
+heldout  browserbase/stagehand                    58a6cc1495   1201 files    7.84 MB  licence ['LICENSE']
+[2026-11-13 11:31:23 IST] decontamination (pool vs benchmark + held-out)
+{
+ "pool_files": 8417,
+ "units": {
+  "pool": 334152,
+  "targets": 683338
+ },
+ "removed_by_rule": {
+  "exact 5-line window": 3,
+  "near-duplicate (10-line chunk)": 10,
+  "near-duplicate (30-line chunk)": 2,
+  "near-duplicate (whole file)": 1
+ },
+ "removed_by_repo": {
+  "ChatGPTNextWeb/NextChat": "0/154",
+  "ant-design/ant-design": "0/1073",
+  "coder/code-server": "0/86",
+  "excalidraw/excalidraw": "4/366",
+  "hoppscotch/hoppscotch": "1/1119",
+  "marktext/marktext": "1/1454",
+  "mermaid-js/mermaid": "0/1083",
+  "nuxt/nuxt": "0/1369",
+  "shadcn-ui/ui": "2/618",
+  "socketio/socket.io": "0/180",
+  "tailwindlabs/tailwindcss": "2/307",
+  "vitejs/vite": "2/608"
+ },
+ "planted_summary": {
+  "whole file": {
+   "planted": 20,
+   "caught": 20,
+   "exact 5-line window": 19,
+   "near-duplicate (whole file)": 15,
+   "near-duplicate (30-line chunk)": 18,
+   "near-duplicate (10-line chunk)": 19
+  },
+  "fragment": {
+   "planted": 20,
+   "caught": 15,
+   "exact 5-line window": 12,
+   "near-duplicate (whole file)": 1,
+   "near-duplicate (30-line chunk)": 1,
+   "near-duplicate (10-line chunk)": 12
+  }
+ },
+ "missed_controls": [
+  "CONTROL-FRAGMENT(12 lines):benchmark post-file angular/angular:packages/core/src/render3/component_ref.ts [add:17551]",
+  "CONTROL-FRAGMENT(14 lines):benchmark post-file vercel/next.js:packages/next/src/build/webpack/plugins/build-manifest-plugin.ts [edit:10449]",
+  "CONTROL-FRAGMENT(15 lines):benchmark post-file microsoft/vscode:src/vs/workbench/contrib/chat/browser/chatEditing/chatEditingEditorActions.ts [edit:8833]",
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file microsoft/vscode:src/vs/editor/common/model/tokenStore.ts [edit:8863]",
+  "CONTROL-FRAGMENT(18 lines):benchmark post-file microsoft/vscode:src/vs/editor/contrib/gotoSymbol/browser/peek/referencesTree.ts [edit:10117]"
+ ]
+}
+removed files: 12; licence-header exceptions logged: 0
+[2026-11-13 11:32:18 IST] build typescript-fim-v1
+{
+ "train_repos": [
+  "ChatGPTNextWeb/NextChat",
+  "ant-design/ant-design",
+  "excalidraw/excalidraw",
+  "marktext/marktext",
+  "mermaid-js/mermaid",
+  "nuxt/nuxt",
+  "shadcn-ui/ui",
+  "socketio/socket.io",
+  "tailwindlabs/tailwindcss",
+  "vitejs/vite"
+ ],
+ "validation_repos": [
+  "coder/code-server",
+  "hoppscotch/hoppscotch"
+ ],
+ "file_exclusions": {
+  "decontamination (checks/multilang/DECONTAMINATION.md)": 12,
+  "file > 300 KB": 4,
+  "empty": 7,
+  "generated header": 12
+ },
+ "parse_error_files": 51,
+ "dropped_pairs": {
+  "pair: middle alone exceeds max_seq_tokens": 1794,
+  "pair: hole lines alone exceed max_seq_tokens": 7
+ },
+ "train": {
+  "pairs": 7549,
+  "comment_share": 0.0192,
+  "size_classes": {
+   "tiny": 958,
+   "small": 1444,
+   "medium": 1594,
+   "large": 1781,
+   "very_large": 1772
+  }
+ },
+ "validation": {
+  "pairs": 518,
+  "comment_share": 0.0135
+ },
+ "heldout": {
+  "pairs": 1000,
+  "comment_share": 0.011,
+  "size_classes": {
+   "tiny": 134,
+   "small": 154,
+   "medium": 213,
+   "large": 257,
+   "very_large": 242
+  }
+ }
+}
+[2026-11-13 11:54:29 IST] train vs validation check on typescript-fim-v1
+{"train_files": 7201, "validation_files": 1204, "remove": 1}
+[2026-11-13 11:54:45 IST] 1 validation files share code with training: removing them (addendum rule), rebuilding typescript-fim-v2 with the same held-out
+{
+ "train_repos": [
+  "ChatGPTNextWeb/NextChat",
+  "ant-design/ant-design",
+  "excalidraw/excalidraw",
+  "marktext/marktext",
+  "mermaid-js/mermaid",
+  "nuxt/nuxt",
+  "shadcn-ui/ui",
+  "socketio/socket.io",
+  "tailwindlabs/tailwindcss",
+  "vitejs/vite"
+ ],
+ "validation_repos": [
+  "coder/code-server",
+  "hoppscotch/hoppscotch"
+ ],
+ "file_exclusions": {
+  "decontamination (checks/multilang/DECONTAMINATION.md)": 13,
+  "file > 300 KB": 4,
+  "empty": 7,
+  "generated header": 12
+ },
+ "train": {
+  "pairs": 7549,
+  "comment_share": 0.0192,
+  "size_classes": {
+   "tiny": 958,
+   "small": 1444,
+   "medium": 1594,
+   "large": 1781,
+   "very_large": 1772
+  }
+ },
+ "validation": {
+  "pairs": 518,
+  "comment_share": 0.0193
+ },
+ "train_available_by_repo": {
+  "ChatGPTNextWeb/NextChat": 466,
+  "ant-design/ant-design": 1873,
+  "excalidraw/excalidraw": 1696,
+  "marktext/marktext": 4056,
+  "mermaid-js/mermaid": 3545,
+  "nuxt/nuxt": 3340,
+  "shadcn-ui/ui": 2147,
+  "socketio/socket.io": 481,
+  "tailwindlabs/tailwindcss": 1444,
+  "vitejs/vite": 1787
+ },
+ "train_taken_by_repo": {
+  "ChatGPTNextWeb/NextChat": 466,
+  "ant-design/ant-design": 826,
+  "excalidraw/excalidraw": 826,
+  "marktext/marktext": 825,
+  "mermaid-js/mermaid": 825,
+  "nuxt/nuxt": 825,
+  "shadcn-ui/ui": 825,
+  "socketio/socket.io": 481,
+  "tailwindlabs/tailwindcss": 825,
+  "vitejs/vite": 825
+ },
+ "heldout_reused_unchanged": "typescript-fim-v1-heldout"
+}
+{"train_files": 7201, "validation_files": 1203, "remove": 0}
+[2026-11-13 12:04:21 IST] rerun all checks on typescript-fim-v2
+}
+removed files: 0; licence-header exceptions logged: 0
+{
+ "docs": {
+  "pool": 88368,
+  "benchmark_and_heldout": 163000
+ },
+ "positive_control": {
+  "planted": 20,
+  "found": 19
+ },
+ "minhash_verified": {
+  "pool_vs_benchmark": 0,
+  "pool_vs_heldout": 0,
+  "train_vs_validation": 0
+ },
+ "exact_5line_windows": {
+  "pool_windows": 511101,
+  "shared_with_benchmark": 0,
+  "shared_with_heldout": 0,
+  "train_validation_shared": 0
+ }
+}
+{
+ "minhash_summary": {},
+ "max_jaccard_after_licence_removed": 0.0
+}
+{
+ "benchmark": {
+  "shared_windows": 0,
+  "licence_wording": 0,
+  "other": 0
+ },
+ "heldout": {
+  "shared_windows": 0,
+  "licence_wording": 0,
+  "other": 0
+ }
+}
+[2026-11-13 12:06:24 IST] gate
+{
+ "lang": "typescript",
+ "status": "READY",
+ "problems": [],
+ "data_version": "typescript-fim-v2",
+ "heldout_version": "typescript-fim-v1-heldout",
+ "pairs": {
+  "train": 7549,
+  "validation": 518,
+  "heldout": 1000
+ },
+ "decontamination_removed_files": 12,
+ "licence_header_exceptions": 0,
+ "planted": {
+  "whole file": {
+   "planted": 20,
+   "caught": 20,
+   "exact 5-line window": 19,
+   "near-duplicate (whole file)": 15,
+   "near-duplicate (30-line chunk)": 18,
+   "near-duplicate (10-line chunk)": 19
+  },
+  "fragment": {
+   "planted": 20,
+   "caught": 15,
+   "exact 5-line window": 12,
+   "near-duplicate (whole file)": 1,
+   "near-duplicate (30-line chunk)": 1,
+   "near-duplicate (10-line chunk)": 12
+  }
+ },
+ "raw_minhash_matches": {
+  "pool_vs_benchmark": 0,
+  "pool_vs_heldout": 0,
+  "train_vs_validation": 0
+ },
+ "train_repos": [
+  "ChatGPTNextWeb/NextChat",
+  "ant-design/ant-design",
+  "excalidraw/excalidraw",
+  "marktext/marktext",
+  "mermaid-js/mermaid",
+  "nuxt/nuxt",
+  "shadcn-ui/ui",
+  "socketio/socket.io",
+  "tailwindlabs/tailwindcss",
+  "vitejs/vite"
+ ],
+ "validation_repos": [
+  "coder/code-server",
+  "hoppscotch/hoppscotch"
+ ]
+}
+[2026-11-13 12:06:24 IST] prep finished: READY

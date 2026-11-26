@@ -1,0 +1,107 @@
+[2026-11-11 13:50:33 IST] replacements
+  rate limited; waiting 20.2 min
+picked {'repo': 'Aider-AI/aider', 'stars': 50061, 'licence': 'Apache-2.0', 'created': '2023-05-09', 'code_mb': 1.33, 'code_share': 0.8, 'description': 'aider is AI pair programming in your terminal'}
+picked {'repo': 'hiroi-sora/Umi-OCR', 'stars': 48578, 'licence': 'MIT', 'created': '2022-03-28', 'code_mb': 0.48, 'code_share': 0.51, 'description': 'OCR software, free and offline. 开源、免费的离线OCR软件。支持截屏/批量导入图片，PDF文档识别，排除水印/页眉页脚，扫描/生成二维码。内置多国语'}
+skipped: [('public-apis/public-apis', 'not a library'), ('EbookFoundation/free-programming-books', 'licence CC-BY-4.0'), ('donnemartin/system-design-primer', 'licence NOASSERTION'), ('vinta/awesome-python', 'licence NOASSERTION'), ('practical-tutorials/project-based-learning', 'repo size'), ('TheAlgorithms/Python', 'not a library'), ('yt-dlp/yt-dlp', 'licence Unlicense'), ('521xueweihan/HelloGitHub', 'licence None'), ('Significant-Gravitas/AutoGPT', 'licence NOASSERTION'), ('huggingface/transformers', 'benchmark name'), ('AUTOMATIC1111/stable-diffusion-webui', 'licence AGPL-3.0'), ('langgenius/dify', 'licence NOASSERTION'), ('langflow-ai/langflow', 'repo size'), ('langchain-ai/langchain', 'benchmark name'), ('Comfy-Org/ComfyUI', 'licence GPL-3.0')]
+[2026-11-11 14:10:57 IST] fetch
+train    fastapi/fastapi                          e1144f6954   1220 files    4.62 MB  licence ['LICENSE']
+train    3b1b/manim                               fafa083a4f    116 files    0.99 MB  licence ['LICENSE.md']
+train    abi/screenshot-to-code                   a8139779f7    135 files    0.76 MB  licence ['LICENSE']
+train    hiyouga/LlamaFactory                     42b2a546a3    319 files    2.56 MB  licence ['LICENSE']
+train    pallets/flask                            49943b5a94     83 files    0.59 MB  licence ['LICENSE.txt']
+train    FoundationAgents/MetaGPT                 11cdf466d0    890 files    3.38 MB  licence ['LICENSE']
+train    mem0ai/mem0                              f1791daa86    421 files    4.79 MB  licence ['LICENSE']
+train    keras-team/keras                         a4a9199bc0    993 files   11.80 MB  licence ['LICENSE']
+train    Textualize/rich                          3a109ccdff    212 files    1.74 MB  licence ['LICENSE']
+train    psf/requests                             3c7baaa05a     37 files    0.41 MB  licence ['LICENSE']
+train    Aider-AI/aider                           5dc9490bb3    147 files    1.34 MB  licence ['LICENSE.txt']
+train    hiroi-sora/Umi-OCR                       83173efc4f     87 files    0.49 MB  licence ['LICENSE']
+heldout  microsoft/markitdown                     ed178952a6     93 files    0.80 MB  licence ['LICENSE']
+heldout  TauricResearch/TradingAgents             9fa1196fff    184 files    1.22 MB  licence ['LICENSE']
+heldout  browser-use/browser-use                  7fdd63c03f     70 files    1.51 MB  licence ['LICENSE']
+heldout  D4Vinci/Scrapling                        c5121c7c06    171 files    1.78 MB  licence ['LICENSE']
+heldout  unclecode/crawl4ai                       cae74b203a    513 files    5.81 MB  licence ['LICENSE']
+heldout  RVC-Boss/GPT-SoVITS                      59c44686f5    186 files    1.89 MB  licence ['LICENSE']
+heldout  virattt/ai-hedge-fund                    5c553b5222    130 files    1.00 MB  licence ['LICENSE']
+heldout  exo-explore/exo                          a60b95698c    552 files    4.27 MB  licence ['LICENSE']
+heldout  HKUDS/LightRAG                           6328eb0c30    826 files   16.23 MB  licence ['LICENSE']
+heldout  VectifyAI/PageIndex                      2ac8694bf8    113 files    2.45 MB  licence ['LICENSE']
+[2026-11-11 14:11:02 IST] build data
+{
+ "train_repos": [
+  "3b1b/manim",
+  "Aider-AI/aider",
+  "Textualize/rich",
+  "fastapi/fastapi",
+  "hiroi-sora/Umi-OCR",
+  "hiyouga/LlamaFactory",
+  "keras-team/keras",
+  "mem0ai/mem0",
+  "pallets/flask",
+  "psf/requests"
+ ],
+ "validation_repos": [
+  "FoundationAgents/MetaGPT",
+  "abi/screenshot-to-code"
+ ],
+ "file_exclusions": {
+  "empty": 302,
+  "generated header": 140,
+  "file > 300 KB": 3
+ },
+ "parse_error_files": 0,
+ "dropped_pairs": {
+  "pair: middle alone exceeds max_seq_tokens": 1238,
+  "pair: hole lines alone exceed max_seq_tokens": 17
+ },
+ "train": {
+  "pairs": 7549,
+  "comment_share": 0.0136,
+  "size_classes": {
+   "tiny": 1084,
+   "small": 1589,
+   "medium": 1634,
+   "large": 1764,
+   "very_large": 1478
+  }
+ },
+ "validation": {
+  "pairs": 518,
+  "comment_share": 0.0251
+ },
+ "heldout": {
+  "pairs": 1000,
+  "comment_share": 0.02,
+  "size_classes": {
+   "tiny": 140,
+   "small": 222,
+   "medium": 200,
+   "large": 256,
+   "very_large": 182
+  }
+ }
+}
+[2026-11-11 14:26:41 IST] overlap check
+{
+ "docs": {
+  "pool": 52776,
+  "benchmark_and_heldout": 157891
+ },
+ "positive_control": {
+  "planted": 20,
+  "found": 19
+ },
+ "minhash_verified": {
+  "pool_vs_benchmark": 39,
+  "pool_vs_heldout": 37,
+  "train_vs_validation": 0
+ },
+ "exact_5line_windows": {
+  "pool_windows": 353603,
+  "shared_with_benchmark": 150,
+  "shared_with_heldout": 46,
+  "train_validation_shared": 7
+ }
+}
+OVERLAP GATE: STOP FOR REVIEW: 39 verified near-duplicates of benchmark code; 37 verified near-duplicates of held-out code
+[2026-11-11 14:27:56 IST] FAILED at: overlap gate (exit 3)

@@ -1,0 +1,233 @@
+[2026-11-13 13:07:32 IST] waiting for checks/multilang/cpp_list.json
+[2026-11-13 13:07:32 IST] list: {"train":["tesseract-ocr/tesseract","nomic-ai/gpt4all","ocornut/imgui","ggml-org/whisper.cpp","hyprwm/Hyprland","google/googletest","aristocratos/btop","ossrs/srs","ml-explore/mlx","taichi-dev/taichi","fmtlib/fmt","uNetworking/uWebSockets"],"heldout":["78/xiaozhi-esp32","deepseek-ai/3FS","kvcache-ai/Mooncake","lemonade-sdk/lemonade","xxnuo/MTranServer","ikawrakow/ik_llama.cpp","duckdb/ducklake","Liniyous/ElaWidgetTools","lupinemachines/lupine","bmorcelli/Launcher"]}
+[2026-11-13 13:07:32 IST] fetch + pin
+train    tesseract-ocr/tesseract                  34f4e3ffc2    602 files    7.76 MB  licence ['LICENSE']
+train    nomic-ai/gpt4all                         b666d16db5     68 files    0.83 MB  licence ['LICENSE.txt']
+train    ocornut/imgui                            36682babdf     95 files    5.63 MB  licence ['LICENSE.txt']
+train    ggml-org/whisper.cpp                     5922450fbc    649 files   20.43 MB  licence ['LICENSE']
+train    hyprwm/Hyprland                          8333bb7546   1170 files    7.77 MB  licence ['LICENSE']
+train    google/googletest                        845e54d32d    157 files    3.20 MB  licence ['LICENSE']
+train    aristocratos/btop                        5d03929a45     59 files    1.63 MB  licence ['LICENSE']
+train    ossrs/srs                                2438f668e2   1456 files   25.14 MB  licence ['LICENSE']
+train    ml-explore/mlx                           fc344c986c    499 files    5.11 MB  licence ['LICENSE']
+train    taichi-dev/taichi                        ba0e81dce5    683 files    5.99 MB  licence ['LICENSE']
+train    fmtlib/fmt                               4229eb5820     73 files    2.59 MB  licence ['LICENSE']
+train    uNetworking/uWebSockets                  838754e2b2     84 files    0.52 MB  licence ['LICENSE']
+heldout  78/xiaozhi-esp32                         67ca62d4bb    670 files    4.38 MB  licence ['LICENSE']
+heldout  deepseek-ai/3FS                          1aabc71b4b   1006 files    5.29 MB  licence ['LICENSE', 'licenses']
+heldout  kvcache-ai/Mooncake                      3f732b158e   1687 files   26.42 MB  licence ['LICENSE-APACHE']
+heldout  lemonade-sdk/lemonade                    8560a810db    684 files    6.46 MB  licence ['LICENSE']
+heldout  xxnuo/MTranServer                        b363cba7aa     52 files    6.81 MB  licence ['LICENSE']
+heldout  ikawrakow/ik_llama.cpp                   9513b3d44f    448 files   20.86 MB  licence ['LICENSE']
+heldout  duckdb/ducklake                          2ba4e3485a    134 files    1.81 MB  licence ['LICENSE']
+heldout  Liniyous/ElaWidgetTools                  aae58f5d0d    455 files    1.47 MB  licence ['LICENSE']
+heldout  lupinemachines/lupine                    993a97ffd0    153 files    3.71 MB  licence ['LICENSE']
+heldout  bmorcelli/Launcher                       6b432e4e18    193 files    1.51 MB  licence ['LICENSE']
+[2026-11-13 13:09:29 IST] decontamination (pool vs benchmark + held-out)
+{
+ "pool_files": 5477,
+ "units": {
+  "pool": 418307,
+  "targets": 719978
+ },
+ "removed_by_rule": {
+  "exact 5-line window": 505,
+  "near-duplicate (10-line chunk)": 150,
+  "near-duplicate (30-line chunk)": 103,
+  "near-duplicate (whole file)": 12
+ },
+ "removed_by_repo": {
+  "aristocratos/btop": "13/59",
+  "fmtlib/fmt": "13/70",
+  "ggml-org/whisper.cpp": "85/592",
+  "google/googletest": "153/157",
+  "hyprwm/Hyprland": "1/1168",
+  "ml-explore/mlx": "4/499",
+  "nomic-ai/gpt4all": "1/67",
+  "ocornut/imgui": "6/89",
+  "ossrs/srs": "275/1411",
+  "taichi-dev/taichi": "4/680",
+  "tesseract-ocr/tesseract": "4/601",
+  "uNetworking/uWebSockets": "1/84"
+ },
+ "planted_summary": {
+  "whole file": {
+   "planted": 20,
+   "caught": 20,
+   "exact 5-line window": 20,
+   "near-duplicate (whole file)": 16,
+   "near-duplicate (30-line chunk)": 20,
+   "near-duplicate (10-line chunk)": 20
+  },
+  "fragment": {
+   "planted": 20,
+   "caught": 18,
+   "exact 5-line window": 12,
+   "near-duplicate (whole file)": 2,
+   "near-duplicate (30-line chunk)": 3,
+   "near-duplicate (10-line chunk)": 13
+  }
+ },
+ "missed_controls": [
+  "CONTROL-FRAGMENT(12 lines):benchmark post-file mozilla/gecko-dev:dom/webauthn/WebAuthnManagerBase.cpp [edit:8933]",
+  "CONTROL-FRAGMENT(15 lines):benchmark post-file openjdk/jdk:src/hotspot/share/gc/g1/g1SurvRateGroup.cpp [add:14638]"
+ ]
+}
+removed files: 560; licence-header exceptions logged: 415
+[2026-11-13 13:10:56 IST] build cpp-fim-v1
+{
+ "train_repos": [
+  "aristocratos/btop",
+  "fmtlib/fmt",
+  "google/googletest",
+  "ml-explore/mlx",
+  "nomic-ai/gpt4all",
+  "ocornut/imgui",
+  "ossrs/srs",
+  "taichi-dev/taichi",
+  "tesseract-ocr/tesseract",
+  "uNetworking/uWebSockets"
+ ],
+ "validation_repos": [
+  "ggml-org/whisper.cpp",
+  "hyprwm/Hyprland"
+ ],
+ "file_exclusions": {
+  "decontamination (checks/multilang/DECONTAMINATION.md)": 560,
+  "file > 300 KB": 25,
+  "generated header": 91,
+  "empty": 2
+ },
+ "parse_error_files": 1433,
+ "dropped_pairs": {
+  "pair: middle alone exceeds max_seq_tokens": 1454,
+  "pair: hole lines alone exceed max_seq_tokens": 27
+ },
+ "train": {
+  "pairs": 7549,
+  "comment_share": 0.0548,
+  "size_classes": {
+   "tiny": 1070,
+   "small": 1843,
+   "medium": 1156,
+   "large": 1489,
+   "very_large": 1991
+  }
+ },
+ "validation": {
+  "pairs": 518,
+  "comment_share": 0.0154
+ },
+ "heldout": {
+  "pairs": 1000,
+  "comment_share": 0.035,
+  "size_classes": {
+   "tiny": 151,
+   "small": 254,
+   "medium": 182,
+   "large": 163,
+   "very_large": 250
+  }
+ }
+}
+[2026-11-13 13:37:11 IST] train vs validation check on cpp-fim-v1
+{"train_files": 3243, "validation_files": 1674, "remove": 0}
+[2026-11-13 13:37:31 IST] rerun all checks on cpp-fim-v1
+}
+removed files: 0; licence-header exceptions logged: 415
+{
+ "docs": {
+  "pool": 87593,
+  "benchmark_and_heldout": 155165
+ },
+ "positive_control": {
+  "planted": 20,
+  "found": 20
+ },
+ "minhash_verified": {
+  "pool_vs_benchmark": 0,
+  "pool_vs_heldout": 6,
+  "train_vs_validation": 0
+ },
+ "exact_5line_windows": {
+  "pool_windows": 705815,
+  "shared_with_benchmark": 28,
+  "shared_with_heldout": 40,
+  "train_validation_shared": 0
+ }
+}
+{
+ "minhash_summary": {
+  "pool_vs_heldout | remaining shared code: REVIEW": 3
+ },
+ "max_jaccard_after_licence_removed": 0.333
+}
+{
+ "benchmark": {
+  "shared_windows": 28,
+  "licence_wording": 28,
+  "other": 0
+ },
+ "heldout": {
+  "shared_windows": 40,
+  "licence_wording": 40,
+  "other": 0
+ }
+}
+[2026-11-13 13:40:18 IST] gate
+{
+ "lang": "cpp",
+ "status": "STOP",
+ "problems": [
+  "3 MinHash matches not explained by licence headers (max J after removal 0.333)"
+ ],
+ "data_version": "cpp-fim-v1",
+ "heldout_version": "cpp-fim-v1-heldout",
+ "pairs": {
+  "train": 7549,
+  "validation": 518,
+  "heldout": 1000
+ },
+ "decontamination_removed_files": 560,
+ "licence_header_exceptions": 415,
+ "planted": {
+  "whole file": {
+   "planted": 20,
+   "caught": 20,
+   "exact 5-line window": 20,
+   "near-duplicate (whole file)": 16,
+   "near-duplicate (30-line chunk)": 20,
+   "near-duplicate (10-line chunk)": 20
+  },
+  "fragment": {
+   "planted": 20,
+   "caught": 18,
+   "exact 5-line window": 12,
+   "near-duplicate (whole file)": 2,
+   "near-duplicate (30-line chunk)": 3,
+   "near-duplicate (10-line chunk)": 13
+  }
+ },
+ "raw_minhash_matches": {
+  "pool_vs_benchmark": 0,
+  "pool_vs_heldout": 6,
+  "train_vs_validation": 0
+ },
+ "train_repos": [
+  "aristocratos/btop",
+  "fmtlib/fmt",
+  "google/googletest",
+  "ml-explore/mlx",
+  "nomic-ai/gpt4all",
+  "ocornut/imgui",
+  "ossrs/srs",
+  "taichi-dev/taichi",
+  "tesseract-ocr/tesseract",
+  "uNetworking/uWebSockets"
+ ],
+ "validation_repos": [
+  "ggml-org/whisper.cpp",
+  "hyprwm/Hyprland"
+ ]
+}
+[2026-11-13 13:40:18 IST] prep finished: STOP

@@ -1,0 +1,467 @@
+{
+ "created_utc": "2026-11-17T00:59:20Z",
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "code": {
+  "commit": "0d9efa0cf554a708c9409e1954b470f4fe340b25",
+  "dirty_files": [
+   "M checks/multilang/DECONTAMINATION.md",
+   " M checks/multilang/decontaminate_lang.py",
+   " M checks/multilang/review_overlap.py",
+   " M fimexp/score.py",
+   "?? checks/healthlog.sh",
+   "?? checks/multilang/gate_lang.py",
+   "?? checks/multilang/go_decontamination.json",
+   "?? checks/multilang/go_decontamination_check_go-fim-v2.json",
+   "?? checks/multilang/go_exclude_files.json",
+   "?? checks/multilang/go_exclude_files_v2.json",
+   "?? checks/multilang/go_gate.json",
+   "?? checks/multilang/go_list.json",
+   "?? checks/multilang/go_overlap_report.json",
+   "?? checks/multilang/go_overlap_review.json",
+   "?? checks/multilang/go_overlap_review.md",
+   "?? checks/multilang/go_pins.json",
+   "?? checks/multilang/go_train_vs_validation_go-fim-v1.json",
+   "?? checks/multilang/go_train_vs_validation_go-fim-v2.json",
+   "?? checks/multilang/propose_repos_rest.py",
+   "?? checks/multilang/propose_repos_v3.log",
+   "?? checks/multilang/proposed_repos_rest.json",
+   "?? checks/multilang/trainval_lang.py",
+   "?? configs/lang_go.yaml",
+   "?? results/memory_20261116.tsv",
+   "?? results/memory_20261117.tsv",
+   "?? scripts/prep_lang.sh",
+   "?? scripts/resume_after_reboot.sh",
+   "?? scripts/run_go_final_rerun.sh",
+   "?? scripts/run_lang_queue.sh"
+  ],
+  "sha256": {
+   "fimexp/__init__.py": "fc436e4b166281310a552f8685633daac86d73b9c167b1817f4645b318b092ab",
+   "fimexp/build_data.py": "87c805467b11882a720ebc0394f8407e90d16cb9d937c7d4d2b87f09841108a3",
+   "fimexp/build_heldout.py": "e26929a18e2c1593bb83daeb25cf4190aacff9df630a0a0f256ce1e69d6a647b",
+   "fimexp/build_lang_data.py": "31311284ac68b3c514c3c5169c9fd2ed622e67e8cb6b405f9a6ad33891aa1d0e",
+   "fimexp/build_variants.py": "e4274ff2e653f4374468af9c3124bbf773bdafeab9c8862beab160d001d040a2",
+   "fimexp/gen_batch.py": "3ff7d580f9d7abd251d838e302816c1b7844ab8fb7bb57a6b0bd77a8dc7c5436",
+   "fimexp/generate.py": "42c40317b0a254d9e58ac5723a34cf83ee9e48867cb8ddd67a49fb76987c31bd",
+   "fimexp/holes.py": "c14d60fb96b7b7c38996312b4e133daf769d8d3b03551c58da3f6cb254a4c33a",
+   "fimexp/langs.py": "6688644e2507b5c2e2c1b844a76439bfd1dd7c9eb7b7b23736805559842da2be",
+   "fimexp/model.py": "806b40e2100e97399ac66a7e572c9705086d53e5cba0c6d5d77934fbccdc6318",
+   "fimexp/psm.py": "7d45ba22bfe247321396484a7ed08b7aaaaa1cc2b2cc4b11e2d8577ce12a6483",
+   "fimexp/report_html.py": "c112b1b4cc860ebd58be86499a6a8abc810941f2430da6b370182049c2b687b8",
+   "fimexp/score.py": "344f97688fdbb76a9a0d7c73abddc08863ba17e51a7f39bec91b705a492a9373",
+   "fimexp/sources.py": "7a9234ce8ebbb06c66930d387d0fbeaf3c2fdb5cafe7b3c9238ef5bc6bfa251c",
+   "fimexp/split.py": "52b03ae71da6766ea40156de05f12d07245373be6ce8aae9ba0cc8de09066194",
+   "fimexp/structural.py": "57a2b51396d8e579f9672d0e2a28c942a5b37337afcd55923329de645dab8297",
+   "fimexp/tokenizer_whitespace.py": "0c463749fa22102d5c184b70fa61937fc94b904d2f4589dc6dec147b9efb432b",
+   "fimexp/train.py": "afde5c327df0687b7602a4ca9cc9ca64be4cf7b95857029a830925233284cd4c",
+   "fimexp/val_subset.py": "d76c13463a77068e31183956483f0fe6fa2acda394f38f1d1e25dd5f201cfe61",
+   "fimexp/wandb_log.py": "2d03f12f210a6a89da740a27ebc696fecee87e859ff57b40d0a379cdde4259fd",
+   "configs/experiment.yaml": "1480f48e02fc706a16ae14f7df66643e03fbda14fc5fe974727c356733712334"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "adapter": "logs/20261114T114659+0530_go-ast_train_s42/checkpoints/final_adapter",
+ "base_precision": "bf16",
+ "data_version": null,
+ "split": "validation",
+ "benchmark_lang": "go",
+ "pair_subset": null,
+ "edit_template": {
+  "status": "inferred",
+  "before_removed": "<<<<<<< ORIGINAL\n",
+  "after_removed": "=======\n",
+  "suffix_start": ">>>>>>> UPDATED\n"
+ },
+ "rules": {
+  "metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
+  "context": "full context up to 16384 tokens; benchmark examples that do not fit are skipped and listed, never truncated"
+ },
+ "tasks": {
+  "bench_add": {
+   "examples": 1312,
+   "skipped_over_context": [],
+   "chars": 717600.0,
+   "answer_tokens": 253555.0,
+   "corpus_char_ppl": 1.174852434244204,
+   "token_nll": 0.45605842990540774,
+   "per_package": {
+    "IBM/sarama": {
+     "examples": 6,
+     "chars": 2760,
+     "corpus_char_ppl": 1.1543685449204337
+    },
+    "apple/foundationdb": {
+     "examples": 3,
+     "chars": 1835,
+     "corpus_char_ppl": 1.312460989223398
+    },
+    "caddyserver/caddy": {
+     "examples": 8,
+     "chars": 2311,
+     "corpus_char_ppl": 1.288535814035335
+    },
+    "chroma-core/chroma": {
+     "examples": 2,
+     "chars": 559,
+     "corpus_char_ppl": 1.141409931898921
+    },
+    "containers/podman": {
+     "examples": 195,
+     "chars": 105197,
+     "corpus_char_ppl": 1.2312827369848356
+    },
+    "ethereum/go-ethereum": {
+     "examples": 62,
+     "chars": 20219,
+     "corpus_char_ppl": 1.2119284616085704
+    },
+    "gitlabhq/gitlabhq": {
+     "examples": 5,
+     "chars": 3601,
+     "corpus_char_ppl": 1.1706164170456812
+    },
+    "gohugoio/hugo": {
+     "examples": 95,
+     "chars": 54963,
+     "corpus_char_ppl": 1.2186946737910451
+    },
+    "google/gvisor": {
+     "examples": 43,
+     "chars": 17524,
+     "corpus_char_ppl": 1.2011966772837914
+    },
+    "google/osv-scanner": {
+     "examples": 80,
+     "chars": 35674,
+     "corpus_char_ppl": 1.2294900594705913
+    },
+    "grafana/grafana": {
+     "examples": 319,
+     "chars": 188278,
+     "corpus_char_ppl": 1.129878838338326
+    },
+    "k3s-io/k3s": {
+     "examples": 58,
+     "chars": 26741,
+     "corpus_char_ppl": 1.2113793273751794
+    },
+    "kubernetes/kubernetes": {
+     "examples": 260,
+     "chars": 155194,
+     "corpus_char_ppl": 1.1416867441897633
+    },
+    "mudler/LocalAI": {
+     "examples": 35,
+     "chars": 17125,
+     "corpus_char_ppl": 1.1662684992488135
+    },
+    "ollama/ollama": {
+     "examples": 53,
+     "chars": 40471,
+     "corpus_char_ppl": 1.1966511175673153
+    },
+    "rclone/rclone": {
+     "examples": 31,
+     "chars": 19338,
+     "corpus_char_ppl": 1.2285958481639014
+    },
+    "traefik/traefik": {
+     "examples": 26,
+     "chars": 14310,
+     "corpus_char_ppl": 1.1361311227238464
+    },
+    "v2fly/v2ray-core": {
+     "examples": 31,
+     "chars": 11500,
+     "corpus_char_ppl": 1.179359653494976
+    }
+   }
+  },
+  "bench_edit": {
+   "examples": 1274,
+   "skipped_over_context": [
+    {
+     "id": "edit:3775",
+     "repo": "kubernetes/kubernetes",
+     "tokens": 32743
+    }
+   ],
+   "chars": 545140.0,
+   "answer_tokens": 189402.0,
+   "corpus_char_ppl": 1.133992840958115,
+   "token_nll": 0.36192104905213696,
+   "per_package": {
+    "IBM/sarama": {
+     "examples": 1,
+     "chars": 253,
+     "corpus_char_ppl": 1.1385468356526627
+    },
+    "caddyserver/caddy": {
+     "examples": 5,
+     "chars": 2273,
+     "corpus_char_ppl": 1.2582665182055095
+    },
+    "containers/podman": {
+     "examples": 134,
+     "chars": 48535,
+     "corpus_char_ppl": 1.2344678560301086
+    },
+    "ethereum/go-ethereum": {
+     "examples": 71,
+     "chars": 20286,
+     "corpus_char_ppl": 1.1570708886836731
+    },
+    "gitlabhq/gitlabhq": {
+     "examples": 5,
+     "chars": 1850,
+     "corpus_char_ppl": 1.396770755428862
+    },
+    "gohugoio/hugo": {
+     "examples": 47,
+     "chars": 18940,
+     "corpus_char_ppl": 1.1783524092802162
+    },
+    "google/gvisor": {
+     "examples": 19,
+     "chars": 6315,
+     "corpus_char_ppl": 1.0982353935020566
+    },
+    "google/osv-scanner": {
+     "examples": 71,
+     "chars": 38915,
+     "corpus_char_ppl": 1.1754279116797617
+    },
+    "grafana/grafana": {
+     "examples": 333,
+     "chars": 148126,
+     "corpus_char_ppl": 1.1350891518741737
+    },
+    "k3s-io/k3s": {
+     "examples": 49,
+     "chars": 22714,
+     "corpus_char_ppl": 1.1292082027996448
+    },
+    "kubernetes/kubernetes": {
+     "examples": 350,
+     "chars": 161520,
+     "corpus_char_ppl": 1.0985502208219255
+    },
+    "mudler/LocalAI": {
+     "examples": 27,
+     "chars": 10576,
+     "corpus_char_ppl": 1.0889116738557079
+    },
+    "ollama/ollama": {
+     "examples": 38,
+     "chars": 11119,
+     "corpus_char_ppl": 1.1815188214046732
+    },
+    "rclone/rclone": {
+     "examples": 17,
+     "chars": 4979,
+     "corpus_char_ppl": 1.1676151788643654
+    },
+    "traefik/traefik": {
+     "examples": 20,
+     "chars": 6185,
+     "corpus_char_ppl": 1.1545766918083304
+    },
+    "v2fly/v2ray-core": {
+     "examples": 87,
+     "chars": 42554,
+     "corpus_char_ppl": 1.074947178055667
+    }
+   },
+   "status": "PROVISIONAL: Edit prompt layout inferred from the dataset figure, not confirmed"
+  },
+  "heldout_ast": {
+   "examples": 1000,
+   "skipped_over_context": [],
+   "chars": 818853.0,
+   "answer_tokens": 292400.0,
+   "corpus_char_ppl": 1.153178869877529,
+   "token_nll": 0.3991274452291762,
+   "per_package": {
+    "TecharoHQ/anubis": {
+     "examples": 100,
+     "chars": 84229,
+     "corpus_char_ppl": 1.178715814898128
+    },
+    "certimate-go/certimate": {
+     "examples": 100,
+     "chars": 48860,
+     "corpus_char_ppl": 1.1025140159703253
+    },
+    "cloudwego/eino": {
+     "examples": 100,
+     "chars": 91668,
+     "corpus_char_ppl": 1.110098923348699
+    },
+    "darrenburns/posting": {
+     "examples": 100,
+     "chars": 75344,
+     "corpus_char_ppl": 1.2267711181787748
+    },
+    "github/github-mcp-server": {
+     "examples": 100,
+     "chars": 135895,
+     "corpus_char_ppl": 1.1468674063942312
+    },
+    "henrygd/beszel": {
+     "examples": 100,
+     "chars": 71574,
+     "corpus_char_ppl": 1.1607055229283663
+    },
+    "mark3labs/mcp-go": {
+     "examples": 100,
+     "chars": 91415,
+     "corpus_char_ppl": 1.1231367787499758
+    },
+    "pocket-id/pocket-id": {
+     "examples": 100,
+     "chars": 63066,
+     "corpus_char_ppl": 1.147377922046141
+    },
+    "vxcontrol/pentagi": {
+     "examples": 100,
+     "chars": 96877,
+     "corpus_char_ppl": 1.1871173174752823
+    },
+    "yorukot/superfile": {
+     "examples": 100,
+     "chars": 59925,
+     "corpus_char_ppl": 1.1413236615429394
+    }
+   }
+  },
+  "heldout_random": {
+   "examples": 1000,
+   "skipped_over_context": [],
+   "chars": 818853.0,
+   "answer_tokens": 290443.0,
+   "corpus_char_ppl": 1.1485460846084337,
+   "token_nll": 0.39046758248371893,
+   "per_package": {
+    "TecharoHQ/anubis": {
+     "examples": 100,
+     "chars": 84229,
+     "corpus_char_ppl": 1.1762248658798626
+    },
+    "certimate-go/certimate": {
+     "examples": 100,
+     "chars": 48860,
+     "corpus_char_ppl": 1.1151268717658545
+    },
+    "cloudwego/eino": {
+     "examples": 100,
+     "chars": 91668,
+     "corpus_char_ppl": 1.1007278623518635
+    },
+    "darrenburns/posting": {
+     "examples": 100,
+     "chars": 75344,
+     "corpus_char_ppl": 1.2390128508022022
+    },
+    "github/github-mcp-server": {
+     "examples": 100,
+     "chars": 135895,
+     "corpus_char_ppl": 1.1396702276875437
+    },
+    "henrygd/beszel": {
+     "examples": 100,
+     "chars": 71574,
+     "corpus_char_ppl": 1.1639171235092618
+    },
+    "mark3labs/mcp-go": {
+     "examples": 100,
+     "chars": 91415,
+     "corpus_char_ppl": 1.1380603079767087
+    },
+    "pocket-id/pocket-id": {
+     "examples": 100,
+     "chars": 63066,
+     "corpus_char_ppl": 1.1322543000128078
+    },
+    "vxcontrol/pentagi": {
+     "examples": 100,
+     "chars": 96877,
+     "corpus_char_ppl": 1.146317645046694
+    },
+    "yorukot/superfile": {
+     "examples": 100,
+     "chars": 59925,
+     "corpus_char_ppl": 1.1419155444228515
+    }
+   }
+  },
+  "heldout_l2r": {
+   "examples": 124,
+   "skipped_over_context": [],
+   "chars": 723450.0,
+   "answer_tokens": 252346.0,
+   "corpus_char_ppl": 1.2300744223147106,
+   "token_nll": 0.5936617681444468,
+   "per_package": {
+    "TecharoHQ/anubis": {
+     "examples": 10,
+     "chars": 27133,
+     "corpus_char_ppl": 1.3367090772183454
+    },
+    "certimate-go/certimate": {
+     "examples": 10,
+     "chars": 21471,
+     "corpus_char_ppl": 1.2075023662304238
+    },
+    "cloudwego/eino": {
+     "examples": 15,
+     "chars": 100159,
+     "corpus_char_ppl": 1.1871051472906415
+    },
+    "darrenburns/posting": {
+     "examples": 11,
+     "chars": 63942,
+     "corpus_char_ppl": 1.3382609952171163
+    },
+    "github/github-mcp-server": {
+     "examples": 15,
+     "chars": 121264,
+     "corpus_char_ppl": 1.2145424783672345
+    },
+    "henrygd/beszel": {
+     "examples": 12,
+     "chars": 75897,
+     "corpus_char_ppl": 1.2587375296028123
+    },
+    "mark3labs/mcp-go": {
+     "examples": 14,
+     "chars": 102525,
+     "corpus_char_ppl": 1.1530246835121536
+    },
+    "pocket-id/pocket-id": {
+     "examples": 11,
+     "chars": 55414,
+     "corpus_char_ppl": 1.2403149266349047
+    },
+    "vxcontrol/pentagi": {
+     "examples": 15,
+     "chars": 108336,
+     "corpus_char_ppl": 1.2325274109206623
+    },
+    "yorukot/superfile": {
+     "examples": 11,
+     "chars": 47309,
+     "corpus_char_ppl": 1.2848891187000082
+    }
+   }
+  }
+ }
+}

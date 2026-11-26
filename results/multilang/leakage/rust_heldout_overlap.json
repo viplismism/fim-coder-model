@@ -1,0 +1,451 @@
+{
+ "inputs": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "heldout_repos": [
+  {
+   "repo": "cjpais/Handy",
+   "commit": "82dfab9fda18c4bc24e1f6e56d36474d38eca0bc",
+   "stars": 37134,
+   "created": "2025-02-13",
+   "license": "MIT",
+   "rs_files": 82,
+   "rs_bytes": 1377934
+  },
+  {
+   "repo": "Zackriya-Solutions/meetily",
+   "commit": "07c4dfd45361bb6776916a0d46f493dda447f471",
+   "stars": 32389,
+   "created": "2024-12-26",
+   "license": "MIT",
+   "rs_files": 147,
+   "rs_bytes": 1807556
+  },
+  {
+   "repo": "BloopAI/vibe-kanban",
+   "commit": "7c3807084daad0d9d315064f60fa869de254f027",
+   "stars": 28568,
+   "created": "2025-06-14",
+   "license": "Apache-2.0",
+   "rs_files": 443,
+   "rs_bytes": 3711452
+  },
+  {
+   "repo": "ayangweb/BongoCat",
+   "commit": "47a73ed1765b13fdd674ec356d51b5b16a6b5a5b",
+   "stars": 24449,
+   "created": "2025-03-28",
+   "license": "Apache-2.0",
+   "rs_files": 670,
+   "rs_bytes": 6240072
+  },
+  {
+   "repo": "memvid/memvid",
+   "commit": "e6bd9f7b9c38cd8d5370fa0fc936ac1dcd751813",
+   "stars": 17352,
+   "created": "2025-05-27",
+   "license": "Apache-2.0",
+   "rs_files": 158,
+   "rs_bytes": 2342134
+  },
+  {
+   "repo": "microsoft/edit",
+   "commit": "b7f83220868373945945e2218e852c24cbb4dcf0",
+   "stars": 14746,
+   "created": "2025-03-21",
+   "license": "MIT",
+   "rs_files": 78,
+   "rs_bytes": 1228804
+  },
+  {
+   "repo": "cocoindex-io/cocoindex",
+   "commit": "4d573cee6a058cfe50499457bcc7bffb21f4ffde",
+   "stars": 11812,
+   "created": "2025-03-03",
+   "license": "Apache-2.0",
+   "rs_files": 270,
+   "rs_bytes": 3933847
+  },
+  {
+   "repo": "j178/prek",
+   "commit": "c88a1ccc522e24546d348b55aa83332022a6fae9",
+   "stars": 8718,
+   "created": "2024-10-07",
+   "license": "MIT",
+   "rs_files": 232,
+   "rs_bytes": 2886394
+  },
+  {
+   "repo": "mufeedvh/code2prompt",
+   "commit": "66585136062c04275ddd5a01c5518a4d78c4aa76",
+   "stars": 7745,
+   "created": "2024-03-09",
+   "license": "MIT",
+   "rs_files": 73,
+   "rs_bytes": 535847
+  },
+  {
+   "repo": "tailcallhq/forgecode",
+   "commit": "a22b49288856d5b3f3ca57e8532683d54a662c8c",
+   "stars": 7636,
+   "created": "2024-12-08",
+   "license": "Apache-2.0",
+   "rs_files": 474,
+   "rs_bytes": 4658904
+  },
+  {
+   "repo": "EcoPasteHub/EcoPaste",
+   "commit": "5139d30b0f4c1309356a9b308c05092f1038bc9b",
+   "stars": 7556,
+   "created": "2024-05-31",
+   "license": "Apache-2.0",
+   "rs_files": 94,
+   "rs_bytes": 756311
+  },
+  {
+   "repo": "katanemo/plano",
+   "commit": "b13ddd632bde1fea7678386c345665ea5fa671af",
+   "stars": 7105,
+   "created": "2024-07-09",
+   "license": "Apache-2.0",
+   "rs_files": 134,
+   "rs_bytes": 2045767
+  },
+  {
+   "repo": "zizmorcore/zizmor",
+   "commit": "fbf8d0c06f2d7f04a1b75f3b2f1f4ddf960e30ea",
+   "stars": 6860,
+   "created": "2024-08-19",
+   "license": "MIT",
+   "rs_files": 166,
+   "rs_bytes": 1942572
+  },
+  {
+   "repo": "koharu-rs/koharu",
+   "commit": "c7d46f2912ff9ccba31450b5426a437317d458b7",
+   "stars": 6573,
+   "created": "2025-04-09",
+   "license": "Apache-2.0",
+   "rs_files": 408,
+   "rs_bytes": 5564889
+  },
+  {
+   "repo": "voidzero-dev/vite-plus",
+   "commit": "83b76cd85d8d7b97b6e2152010a830d9d1bb3e77",
+   "stars": 6554,
+   "created": "2025-03-06",
+   "license": "MIT",
+   "rs_files": 260,
+   "rs_bytes": 3962722
+  }
+ ],
+ "file_rules": {
+  "max_file_bytes": 300000,
+  "generated_markers": [
+   "@generated",
+   "do not edit",
+   "automatically generated",
+   "auto-generated"
+  ]
+ },
+ "files_kept": 3652,
+ "files_excluded": [
+  [
+   "cjpais/Handy",
+   "src-tauri/src/tray_i18n.rs",
+   "generated header"
+  ],
+  [
+   "BloopAI/vibe-kanban",
+   "crates/db/src/models/workspace.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "crates/bongocat-live2d/src/sys/macos.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "crates/bongocat-live2d/src/sys/windows.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_00.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_01.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_02.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_03.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_04.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_05.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_06.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_07.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_08.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_09.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_10.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_11.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_12.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_13.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_14.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_15.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_16.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_17.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_18.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_19.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_20.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_21.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_22.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_23.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs/pack_24.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "plugins/key-sounds/src/packs.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "tools/cubism-bindgen/fixtures/expected/aarch64-apple-darwin.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "tools/cubism-bindgen/fixtures/expected/x86_64-apple-darwin.rs",
+   "generated header"
+  ],
+  [
+   "ayangweb/BongoCat",
+   "tools/cubism-bindgen/fixtures/expected/x86_64-pc-windows-msvc.rs",
+   "generated header"
+  ],
+  [
+   "j178/prek",
+   "crates/prek-identify/src/tags.rs",
+   "generated header"
+  ],
+  [
+   "tailcallhq/forgecode",
+   "crates/forge_repo/src/database/schema.rs",
+   "generated header"
+  ],
+  [
+   "koharu-rs/koharu",
+   "crates/koharu-torch/src/wrappers/tensor_fallible_generated.rs",
+   "file > 300 KB"
+  ],
+  [
+   "koharu-rs/koharu",
+   "crates/koharu-torch/src/wrappers/tensor_generated.rs",
+   "file > 300 KB"
+  ]
+ ],
+ "docs": {
+  "reth": 29459,
+  "benchmark": 99909,
+  "heldout": 71317
+ },
+ "minhash_verified": {
+  "vs_reth": 0,
+  "vs_benchmark": 0,
+  "across_heldout_repos": 0
+ },
+ "verified_items": {
+  "vs_reth": [],
+  "vs_benchmark": [],
+  "across_heldout_repos": []
+ },
+ "exact_5line_windows": {
+  "cjpais/Handy": {
+   "windows": 17157,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 81
+  },
+  "Zackriya-Solutions/meetily": {
+   "windows": 21183,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 147
+  },
+  "BloopAI/vibe-kanban": {
+   "windows": 36278,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 442
+  },
+  "ayangweb/BongoCat": {
+   "windows": 71050,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 639
+  },
+  "memvid/memvid": {
+   "windows": 23794,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 158
+  },
+  "microsoft/edit": {
+   "windows": 13393,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 78
+  },
+  "cocoindex-io/cocoindex": {
+   "windows": 44983,
+   "in_reth": 1,
+   "in_benchmark": 0,
+   "files": 270
+  },
+  "j178/prek": {
+   "windows": 27616,
+   "in_reth": 18,
+   "in_benchmark": 23,
+   "files": 231
+  },
+  "mufeedvh/code2prompt": {
+   "windows": 6187,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 73
+  },
+  "tailcallhq/forgecode": {
+   "windows": 51498,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 473
+  },
+  "EcoPasteHub/EcoPaste": {
+   "windows": 7608,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 94
+  },
+  "katanemo/plano": {
+   "windows": 21306,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 134
+  },
+  "zizmorcore/zizmor": {
+   "windows": 19155,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 166
+  },
+  "koharu-rs/koharu": {
+   "windows": 32820,
+   "in_reth": 0,
+   "in_benchmark": 0,
+   "files": 406
+  },
+  "voidzero-dev/vite-plus": {
+   "windows": 50898,
+   "in_reth": 1,
+   "in_benchmark": 0,
+   "files": 260
+  }
+ }
+}

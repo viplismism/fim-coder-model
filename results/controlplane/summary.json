@@ -1,0 +1,311 @@
+{
+ "models": [
+  "qwen14b-ft",
+  "qwen14b-base",
+  "deepseek67b-base",
+  "qwen32b-base"
+ ],
+ "examples_common": 891,
+ "bootstrap": {
+  "resample": "commits",
+  "B": 2000,
+  "seed": 20261118
+ },
+ "metrics": {
+  "build_test_pass/all": {
+   "n": 632,
+   "commits": 193,
+   "rate": {
+    "qwen14b-ft": 0.587,
+    "qwen14b-base": 0.5443,
+    "deepseek67b-base": 0.5554,
+    "qwen32b-base": 0.5617
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0427,
+     "ci": [
+      0.018,
+      0.0681
+     ],
+     "finetuned_beats": true
+    },
+    "deepseek67b-base": {
+     "value": 0.0316,
+     "ci": [
+      0.0032,
+      0.0597
+     ],
+     "finetuned_beats": true
+    },
+    "qwen32b-base": {
+     "value": 0.0253,
+     "ci": [
+      0.0,
+      0.0525
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "build_test_pass/source": {
+   "n": 403,
+   "commits": 171,
+   "rate": {
+    "qwen14b-ft": 0.5459,
+    "qwen14b-base": 0.5112,
+    "deepseek67b-base": 0.5211,
+    "qwen32b-base": 0.5087
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0347,
+     "ci": [
+      0.0053,
+      0.0645
+     ],
+     "finetuned_beats": true
+    },
+    "deepseek67b-base": {
+     "value": 0.0248,
+     "ci": [
+      -0.0097,
+      0.0599
+     ],
+     "finetuned_beats": false
+    },
+    "qwen32b-base": {
+     "value": 0.0372,
+     "ci": [
+      0.0024,
+      0.0729
+     ],
+     "finetuned_beats": true
+    }
+   }
+  },
+  "build_test_pass/test": {
+   "n": 229,
+   "commits": 116,
+   "rate": {
+    "qwen14b-ft": 0.6594,
+    "qwen14b-base": 0.6026,
+    "deepseek67b-base": 0.6157,
+    "qwen32b-base": 0.655
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0568,
+     "ci": [
+      0.0128,
+      0.1084
+     ],
+     "finetuned_beats": true
+    },
+    "deepseek67b-base": {
+     "value": 0.0437,
+     "ci": [
+      -0.0047,
+      0.0936
+     ],
+     "finetuned_beats": false
+    },
+    "qwen32b-base": {
+     "value": 0.0044,
+     "ci": [
+      -0.0373,
+      0.0442
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "exact_match/all": {
+   "n": 891,
+   "commits": 208,
+   "rate": {
+    "qwen14b-ft": 0.3659,
+    "qwen14b-base": 0.3423,
+    "deepseek67b-base": 0.33,
+    "qwen32b-base": 0.3614
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0236,
+     "ci": [
+      0.0068,
+      0.04
+     ],
+     "finetuned_beats": true
+    },
+    "deepseek67b-base": {
+     "value": 0.0359,
+     "ci": [
+      0.0154,
+      0.0564
+     ],
+     "finetuned_beats": true
+    },
+    "qwen32b-base": {
+     "value": 0.0045,
+     "ci": [
+      -0.0145,
+      0.0231
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "exact_match/source": {
+   "n": 550,
+   "commits": 191,
+   "rate": {
+    "qwen14b-ft": 0.3455,
+    "qwen14b-base": 0.3382,
+    "deepseek67b-base": 0.3109,
+    "qwen32b-base": 0.3382
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0073,
+     "ci": [
+      -0.0106,
+      0.0245
+     ],
+     "finetuned_beats": false
+    },
+    "deepseek67b-base": {
+     "value": 0.0345,
+     "ci": [
+      0.0091,
+      0.0626
+     ],
+     "finetuned_beats": true
+    },
+    "qwen32b-base": {
+     "value": 0.0073,
+     "ci": [
+      -0.0147,
+      0.0299
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "exact_match/test": {
+   "n": 341,
+   "commits": 142,
+   "rate": {
+    "qwen14b-ft": 0.3988,
+    "qwen14b-base": 0.349,
+    "deepseek67b-base": 0.3607,
+    "qwen32b-base": 0.3988
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": 0.0499,
+     "ci": [
+      0.0131,
+      0.0841
+     ],
+     "finetuned_beats": true
+    },
+    "deepseek67b-base": {
+     "value": 0.0381,
+     "ci": [
+      0.0028,
+      0.0744
+     ],
+     "finetuned_beats": true
+    },
+    "qwen32b-base": {
+     "value": 0.0,
+     "ci": [
+      -0.0337,
+      0.0335
+     ],
+     "finetuned_beats": false
+    }
+   }
+  },
+  "char_ppl/all": {
+   "n": 891,
+   "commits": 208,
+   "char_ppl": {
+    "qwen14b-ft": 1.1401,
+    "qwen14b-base": 1.1444
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": -0.0042,
+     "ci": [
+      -0.0069,
+      -0.0019
+     ],
+     "less_uncertainty": 0.0275,
+     "finetuned_better": true
+    }
+   }
+  },
+  "char_ppl/source": {
+   "n": 550,
+   "commits": 191,
+   "char_ppl": {
+    "qwen14b-ft": 1.1611,
+    "qwen14b-base": 1.1671
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": -0.006,
+     "ci": [
+      -0.0098,
+      -0.0029
+     ],
+     "less_uncertainty": 0.0333,
+     "finetuned_better": true
+    }
+   }
+  },
+  "char_ppl/test": {
+   "n": 341,
+   "commits": 142,
+   "char_ppl": {
+    "qwen14b-ft": 1.1155,
+    "qwen14b-base": 1.1177
+   },
+   "finetuned_minus": {
+    "qwen14b-base": {
+     "value": -0.0022,
+     "ci": [
+      -0.0058,
+      0.0011
+     ],
+     "less_uncertainty": 0.0179,
+     "finetuned_better": false
+    }
+   }
+  }
+ },
+ "generation": {
+  "qwen14b-ft": {
+   "mean_seconds": 10.12,
+   "hit_256_token_limit": 67,
+   "skipped_over_context": 0
+  },
+  "qwen14b-base": {
+   "mean_seconds": 11.78,
+   "hit_256_token_limit": 162,
+   "skipped_over_context": 0
+  },
+  "deepseek67b-base": {
+   "mean_seconds": 8.51,
+   "hit_256_token_limit": 129,
+   "skipped_over_context": 0
+  },
+  "qwen32b-base": {
+   "mean_seconds": 15.32,
+   "hit_256_token_limit": 43,
+   "skipped_over_context": 0
+  }
+ }
+}

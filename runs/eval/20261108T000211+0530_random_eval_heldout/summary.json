@@ -1,0 +1,318 @@
+{
+ "created_utc": "2026-11-07T18:33:35Z",
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "code": {
+  "commit": "2167fe60f3526f4867d76a4ad6bd6a871b77bc30",
+  "dirty_files": [
+   "M fimexp/build_variants.py",
+   " M fimexp/holes.py",
+   " M scripts/run_step0_and_sanity.sh",
+   " M tests/test_data.py",
+   "?? results/build_screen_v2.log",
+   "?? results/build_screen_v3.log",
+   "?? results/sanity_1p3b_vs_6p7b.json",
+   "?? scripts/run_heldout_eval.sh"
+  ],
+  "sha256": {
+   "fimexp/__init__.py": "fc436e4b166281310a552f8685633daac86d73b9c167b1817f4645b318b092ab",
+   "fimexp/build_data.py": "87c805467b11882a720ebc0394f8407e90d16cb9d937c7d4d2b87f09841108a3",
+   "fimexp/build_heldout.py": "e26929a18e2c1593bb83daeb25cf4190aacff9df630a0a0f256ce1e69d6a647b",
+   "fimexp/build_variants.py": "e4274ff2e653f4374468af9c3124bbf773bdafeab9c8862beab160d001d040a2",
+   "fimexp/gen_batch.py": "3ff7d580f9d7abd251d838e302816c1b7844ab8fb7bb57a6b0bd77a8dc7c5436",
+   "fimexp/generate.py": "42c40317b0a254d9e58ac5723a34cf83ee9e48867cb8ddd67a49fb76987c31bd",
+   "fimexp/holes.py": "5412bd28af4e79aeeadfa0d71fd2e64e7b6749152168b5b5f69a698f18687797",
+   "fimexp/model.py": "806b40e2100e97399ac66a7e572c9705086d53e5cba0c6d5d77934fbccdc6318",
+   "fimexp/psm.py": "7d45ba22bfe247321396484a7ed08b7aaaaa1cc2b2cc4b11e2d8577ce12a6483",
+   "fimexp/report_html.py": "c112b1b4cc860ebd58be86499a6a8abc810941f2430da6b370182049c2b687b8",
+   "fimexp/score.py": "5cc39405d22c271ce2ca5f930e92ee7d284b7c5e94ea354a2c86cb1790719ba2",
+   "fimexp/sources.py": "13c897aac7fbd76e2506d86b72b67b292019d517cb95079a8025418378d4ea4a",
+   "fimexp/split.py": "52b03ae71da6766ea40156de05f12d07245373be6ce8aae9ba0cc8de09066194",
+   "fimexp/structural.py": "57a2b51396d8e579f9672d0e2a28c942a5b37337afcd55923329de645dab8297",
+   "fimexp/tokenizer_whitespace.py": "0c463749fa22102d5c184b70fa61937fc94b904d2f4589dc6dec147b9efb432b",
+   "fimexp/train.py": "afde5c327df0687b7602a4ca9cc9ca64be4cf7b95857029a830925233284cd4c",
+   "fimexp/val_subset.py": "d76c13463a77068e31183956483f0fe6fa2acda394f38f1d1e25dd5f201cfe61",
+   "fimexp/wandb_log.py": "2d03f12f210a6a89da740a27ebc696fecee87e859ff57b40d0a379cdde4259fd",
+   "configs/experiment.yaml": "1480f48e02fc706a16ae14f7df66643e03fbda14fc5fe974727c356733712334"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "adapter": "logs/20261101T230132+0530_random_train_s42/checkpoints/final_adapter",
+ "base_precision": "bf16",
+ "data_version": null,
+ "split": "validation",
+ "pair_subset": null,
+ "edit_template": {
+  "status": "inferred",
+  "before_removed": "<<<<<<< ORIGINAL\n",
+  "after_removed": "=======\n",
+  "suffix_start": ">>>>>>> UPDATED\n"
+ },
+ "rules": {
+  "metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
+  "context": "full context up to 16384 tokens, error otherwise"
+ },
+ "tasks": {
+  "heldout_ast": {
+   "examples": 1500,
+   "chars": 1941361.0,
+   "answer_tokens": 527094.0,
+   "corpus_char_ppl": 1.1455163010372962,
+   "token_nll": 0.5003746555508081,
+   "per_package": {
+    "BloopAI/vibe-kanban": {
+     "examples": 100,
+     "chars": 120874,
+     "corpus_char_ppl": 1.1004973592219094
+    },
+    "EcoPasteHub/EcoPaste": {
+     "examples": 100,
+     "chars": 97234,
+     "corpus_char_ppl": 1.221199570902116
+    },
+    "Zackriya-Solutions/meetily": {
+     "examples": 100,
+     "chars": 147055,
+     "corpus_char_ppl": 1.121185385789003
+    },
+    "ayangweb/BongoCat": {
+     "examples": 100,
+     "chars": 98213,
+     "corpus_char_ppl": 1.2023513641132761
+    },
+    "cjpais/Handy": {
+     "examples": 100,
+     "chars": 133091,
+     "corpus_char_ppl": 1.2480512758315245
+    },
+    "cocoindex-io/cocoindex": {
+     "examples": 100,
+     "chars": 110891,
+     "corpus_char_ppl": 1.1805593821163824
+    },
+    "j178/prek": {
+     "examples": 100,
+     "chars": 85376,
+     "corpus_char_ppl": 1.143814563495109
+    },
+    "katanemo/plano": {
+     "examples": 100,
+     "chars": 199366,
+     "corpus_char_ppl": 1.1200576723562368
+    },
+    "koharu-rs/koharu": {
+     "examples": 100,
+     "chars": 82733,
+     "corpus_char_ppl": 1.111107138406271
+    },
+    "memvid/memvid": {
+     "examples": 100,
+     "chars": 159700,
+     "corpus_char_ppl": 1.1100206888051467
+    },
+    "microsoft/edit": {
+     "examples": 100,
+     "chars": 190089,
+     "corpus_char_ppl": 1.1814005669227574
+    },
+    "mufeedvh/code2prompt": {
+     "examples": 100,
+     "chars": 110096,
+     "corpus_char_ppl": 1.1019115182466828
+    },
+    "tailcallhq/forgecode": {
+     "examples": 100,
+     "chars": 128880,
+     "corpus_char_ppl": 1.1029295589095038
+    },
+    "voidzero-dev/vite-plus": {
+     "examples": 100,
+     "chars": 82509,
+     "corpus_char_ppl": 1.1542954800758964
+    },
+    "zizmorcore/zizmor": {
+     "examples": 100,
+     "chars": 195254,
+     "corpus_char_ppl": 1.1286024758086124
+    }
+   }
+  },
+  "heldout_random": {
+   "examples": 1500,
+   "chars": 1941361.0,
+   "answer_tokens": 567654.0,
+   "corpus_char_ppl": 1.1561840340574727,
+   "token_nll": 0.4963233428329648,
+   "per_package": {
+    "BloopAI/vibe-kanban": {
+     "examples": 100,
+     "chars": 120874,
+     "corpus_char_ppl": 1.1228050066351394
+    },
+    "EcoPasteHub/EcoPaste": {
+     "examples": 100,
+     "chars": 97234,
+     "corpus_char_ppl": 1.2402235508532835
+    },
+    "Zackriya-Solutions/meetily": {
+     "examples": 100,
+     "chars": 147055,
+     "corpus_char_ppl": 1.1254822561503661
+    },
+    "ayangweb/BongoCat": {
+     "examples": 100,
+     "chars": 98213,
+     "corpus_char_ppl": 1.2333961085997456
+    },
+    "cjpais/Handy": {
+     "examples": 100,
+     "chars": 133091,
+     "corpus_char_ppl": 1.2695650760343982
+    },
+    "cocoindex-io/cocoindex": {
+     "examples": 100,
+     "chars": 110891,
+     "corpus_char_ppl": 1.175765273742548
+    },
+    "j178/prek": {
+     "examples": 100,
+     "chars": 85376,
+     "corpus_char_ppl": 1.1384467586627351
+    },
+    "katanemo/plano": {
+     "examples": 100,
+     "chars": 199366,
+     "corpus_char_ppl": 1.130184351559054
+    },
+    "koharu-rs/koharu": {
+     "examples": 100,
+     "chars": 82733,
+     "corpus_char_ppl": 1.1182991042136317
+    },
+    "memvid/memvid": {
+     "examples": 100,
+     "chars": 159700,
+     "corpus_char_ppl": 1.1219617073105341
+    },
+    "microsoft/edit": {
+     "examples": 100,
+     "chars": 190089,
+     "corpus_char_ppl": 1.1925789194750758
+    },
+    "mufeedvh/code2prompt": {
+     "examples": 100,
+     "chars": 110096,
+     "corpus_char_ppl": 1.1085959769655407
+    },
+    "tailcallhq/forgecode": {
+     "examples": 100,
+     "chars": 128880,
+     "corpus_char_ppl": 1.1028249005188386
+    },
+    "voidzero-dev/vite-plus": {
+     "examples": 100,
+     "chars": 82509,
+     "corpus_char_ppl": 1.1491912998814346
+    },
+    "zizmorcore/zizmor": {
+     "examples": 100,
+     "chars": 195254,
+     "corpus_char_ppl": 1.1488013922566047
+    }
+   }
+  },
+  "heldout_l2r": {
+   "examples": 249,
+   "chars": 2126638.0,
+   "answer_tokens": 652907.0,
+   "corpus_char_ppl": 1.2410793718825435,
+   "token_nll": 0.7034912855421619,
+   "per_package": {
+    "BloopAI/vibe-kanban": {
+     "examples": 12,
+     "chars": 65981,
+     "corpus_char_ppl": 1.201513547122546
+    },
+    "EcoPasteHub/EcoPaste": {
+     "examples": 14,
+     "chars": 72524,
+     "corpus_char_ppl": 1.3242339398934952
+    },
+    "Zackriya-Solutions/meetily": {
+     "examples": 14,
+     "chars": 124215,
+     "corpus_char_ppl": 1.1875033418783625
+    },
+    "ayangweb/BongoCat": {
+     "examples": 12,
+     "chars": 80564,
+     "corpus_char_ppl": 1.3402104606285132
+    },
+    "cjpais/Handy": {
+     "examples": 24,
+     "chars": 264847,
+     "corpus_char_ppl": 1.3304204218475604
+    },
+    "cocoindex-io/cocoindex": {
+     "examples": 15,
+     "chars": 131212,
+     "corpus_char_ppl": 1.2571068494565782
+    },
+    "j178/prek": {
+     "examples": 17,
+     "chars": 142992,
+     "corpus_char_ppl": 1.2228353074311833
+    },
+    "katanemo/plano": {
+     "examples": 20,
+     "chars": 196223,
+     "corpus_char_ppl": 1.2013275038176885
+    },
+    "koharu-rs/koharu": {
+     "examples": 16,
+     "chars": 127761,
+     "corpus_char_ppl": 1.2198218677364796
+    },
+    "memvid/memvid": {
+     "examples": 14,
+     "chars": 76069,
+     "corpus_char_ppl": 1.1624948571006997
+    },
+    "microsoft/edit": {
+     "examples": 33,
+     "chars": 394324,
+     "corpus_char_ppl": 1.2601702497427907
+    },
+    "mufeedvh/code2prompt": {
+     "examples": 12,
+     "chars": 94420,
+     "corpus_char_ppl": 1.1701840772102448
+    },
+    "tailcallhq/forgecode": {
+     "examples": 15,
+     "chars": 102529,
+     "corpus_char_ppl": 1.190673092294387
+    },
+    "voidzero-dev/vite-plus": {
+     "examples": 15,
+     "chars": 122511,
+     "corpus_char_ppl": 1.2100333655572577
+    },
+    "zizmorcore/zizmor": {
+     "examples": 16,
+     "chars": 130466,
+     "corpus_char_ppl": 1.2335728725674253
+    }
+   }
+  }
+ }
+}

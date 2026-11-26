@@ -1,0 +1,225 @@
+{
+ "lang": "go",
+ "repos": {
+  "fatedier/frp": {
+   "kind": "train",
+   "commit": "a2c975efb5e55102068065d61cfc17ffe34e939d",
+   "files": 383,
+   "bytes": 1866931,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/fatedier__frp"
+  },
+  "gin-gonic/gin": {
+   "kind": "train",
+   "commit": "0f09c3a9b4626d9fe9979cf4d0521d6ae32ab646",
+   "files": 99,
+   "bytes": 705474,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/gin-gonic__gin"
+  },
+  "junegunn/fzf": {
+   "kind": "train",
+   "commit": "4499615fe9c06c0651aa5650e5d0d0a5face99a8",
+   "files": 91,
+   "bytes": 978397,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/junegunn__fzf"
+  },
+  "jesseduffield/lazygit": {
+   "kind": "train",
+   "commit": "f794d3460d6809654f174a2f48f05185b2c63c9e",
+   "files": 2217,
+   "bytes": 20518951,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/jesseduffield__lazygit"
+  },
+  "nektos/act": {
+   "kind": "train",
+   "commit": "2540ba6c49dfbafe167d655e4044921cd2ed19e7",
+   "files": 147,
+   "bytes": 986379,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/nektos__act"
+  },
+  "moby/moby": {
+   "kind": "train",
+   "commit": "a7df059f210527817ae97cbee19dd2a9b382128e",
+   "files": 10851,
+   "bytes": 83369510,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/moby__moby"
+  },
+  "prometheus/prometheus": {
+   "kind": "train",
+   "commit": "49c815a0ea46c7a6a6b723e4b634c4bf36f7022c",
+   "files": 766,
+   "bytes": 13177325,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/prometheus__prometheus"
+  },
+  "usememos/memos": {
+   "kind": "train",
+   "commit": "d0c6e2a7afc6de17220f9b439bb077a5aa12f83f",
+   "files": 556,
+   "bytes": 5747862,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/usememos__memos"
+  },
+  "wagoodman/dive": {
+   "kind": "train",
+   "commit": "e97febbeb6956b11f679f6d823762752185e3fef",
+   "files": 125,
+   "bytes": 431810,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/wagoodman__dive"
+  },
+  "etcd-io/etcd": {
+   "kind": "train",
+   "commit": "1b969e26a2c65733f1ff696e3537373d56b3ae67",
+   "files": 1107,
+   "bytes": 6702339,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/etcd-io__etcd"
+  },
+  "gogs/gogs": {
+   "kind": "train",
+   "commit": "81eda980f092f1e79cd780a39ee98e69a7d39029",
+   "files": 355,
+   "bytes": 1946770,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/gogs__gogs"
+  },
+  "cli/cli": {
+   "kind": "train",
+   "commit": "3d5a9e355a837f2f5ee78d7484c118cc1342ad1a",
+   "files": 1100,
+   "bytes": 10083753,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/cli__cli"
+  },
+  "github/github-mcp-server": {
+   "kind": "heldout",
+   "commit": "6fbcd00b2034502ba3001a49dfaf93593aee7069",
+   "files": 302,
+   "bytes": 5020549,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/github__github-mcp-server"
+  },
+  "vxcontrol/pentagi": {
+   "kind": "heldout",
+   "commit": "cffed9485aa1cca70762cd08a57ac62a80406258",
+   "files": 761,
+   "bytes": 10621281,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/vxcontrol__pentagi"
+  },
+  "henrygd/beszel": {
+   "kind": "heldout",
+   "commit": "9891925bcca62bbcd45a434cf657b1622a5c3e43",
+   "files": 317,
+   "bytes": 2410936,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/henrygd__beszel"
+  },
+  "TecharoHQ/anubis": {
+   "kind": "heldout",
+   "commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+   "files": 248,
+   "bytes": 1035459,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/TecharoHQ__anubis"
+  },
+  "yorukot/superfile": {
+   "kind": "heldout",
+   "commit": "2328e2ecb643ac11198e7a39555484388dfa4785",
+   "files": 207,
+   "bytes": 800234,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/yorukot__superfile"
+  },
+  "cloudwego/eino": {
+   "kind": "heldout",
+   "commit": "4a4b7186693d9805539c7f0c36db7d03a3485c6a",
+   "files": 342,
+   "bytes": 4889371,
+   "licence_files": [
+    "LICENSE-APACHE"
+   ],
+   "path": "work/sources/multilang/go/cloudwego__eino"
+  },
+  "darrenburns/posting": {
+   "kind": "heldout",
+   "commit": "32c45669032342cf9b95d5758af47a0d93de0ad7",
+   "files": 229,
+   "bytes": 1769000,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/darrenburns__posting"
+  },
+  "pocket-id/pocket-id": {
+   "kind": "heldout",
+   "commit": "7b07f65c7cf76ac726afb7ee04d4d26248f1208b",
+   "files": 447,
+   "bytes": 2723773,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/pocket-id__pocket-id"
+  },
+  "certimate-go/certimate": {
+   "kind": "heldout",
+   "commit": "50035ddde83feed00e59eca29f73c406552e27ca",
+   "files": 1698,
+   "bytes": 3586567,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/certimate-go__certimate"
+  },
+  "mark3labs/mcp-go": {
+   "kind": "heldout",
+   "commit": "5968243dcce17a3044ec6b406b64cdd62c0a03cf",
+   "files": 346,
+   "bytes": 3543297,
+   "licence_files": [
+    "LICENSE"
+   ],
+   "path": "work/sources/multilang/go/mark3labs__mcp-go"
+  }
+ }
+}

@@ -1,0 +1,119 @@
+{
+ "rule": "examples whose DeepSeek-6.7B prompt + 256 new tokens exceed 16,384 tokens are dropped for ALL models",
+ "dropped": [
+  {
+   "id": "0958207cfa:event/internal/handler/eventsubscription/handler_test.go:621",
+   "deepseek_prompt_tokens": 16489,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "2efe6f252a:agentic/internal/handler/agenticexposure/handler_test.go:454",
+   "deepseek_prompt_tokens": 16285,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "46847e67d6:spectre/internal/handler/listener_handler_test.go:1828",
+   "deepseek_prompt_tokens": 61246,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "4692c0a3ce:api/internal/controller/apisubscription_controller_failover_test.go:449",
+   "deepseek_prompt_tokens": 21283,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "5393b70f9a:rover/internal/webhook/v1/rover_webhook_test.go:105",
+   "deepseek_prompt_tokens": 18459,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "5c36de4701:rover/internal/webhook/v1/rover_webhook_test.go:126",
+   "deepseek_prompt_tokens": 18798,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "5c36de4701:rover/internal/webhook/v1/rover_webhook_test.go:129",
+   "deepseek_prompt_tokens": 18777,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "6c33e47ade:api/internal/controller/apisubscription_controller_test.go:493",
+   "deepseek_prompt_tokens": 18435,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "764bdca5a1:identity/internal/handler/client/handler_test.go:11",
+   "deepseek_prompt_tokens": 16437,
+   "sensitive": true,
+   "is_test_file": true
+  },
+  {
+   "id": "7f9e19d5e9:common-server/pkg/server/middleware/security/check_access_test.go:11",
+   "deepseek_prompt_tokens": 16722,
+   "sensitive": true,
+   "is_test_file": true
+  },
+  {
+   "id": "8200c55867:rover/internal/webhook/v1/rover_webhook_test.go:141",
+   "deepseek_prompt_tokens": 18310,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "8a86494266:rover/internal/webhook/v1/rover_webhook_test.go:586",
+   "deepseek_prompt_tokens": 17549,
+   "sensitive": true,
+   "is_test_file": true
+  },
+  {
+   "id": "b1cc845dbb:rover-server/internal/mapper/applicationinfo/out_test.go:202",
+   "deepseek_prompt_tokens": 20184,
+   "sensitive": false,
+   "is_test_file": true
+  },
+  {
+   "id": "b1cc845dbb:rover-server/internal/mapper/applicationinfo/out_test.go:558",
+   "deepseek_prompt_tokens": 20135,
+   "sensitive": true,
+   "is_test_file": true
+  },
+  {
+   "id": "c12e965194:api/internal/controller/apisubscription_controller_failover_test.go:1278",
+   "deepseek_prompt_tokens": 21168,
+   "sensitive": true,
+   "is_test_file": true
+  },
+  {
+   "id": "c12e965194:api/internal/controller/apisubscription_controller_failover_test.go:405",
+   "deepseek_prompt_tokens": 21168,
+   "sensitive": true,
+   "is_test_file": true
+  },
+  {
+   "id": "ca5570e5c9:identity/internal/handler/client/handler_test.go:395",
+   "deepseek_prompt_tokens": 16814,
+   "sensitive": true,
+   "is_test_file": true
+  },
+  {
+   "id": "d28fbe21f2:rover-server/internal/mapper/applicationinfo/out_test.go:550",
+   "deepseek_prompt_tokens": 16767,
+   "sensitive": true,
+   "is_test_file": true
+  },
+  {
+   "id": "d28fbe21f2:rover-server/internal/mapper/applicationinfo/out_test.go:583",
+   "deepseek_prompt_tokens": 16767,
+   "sensitive": true,
+   "is_test_file": true
+  }
+ ]
+}

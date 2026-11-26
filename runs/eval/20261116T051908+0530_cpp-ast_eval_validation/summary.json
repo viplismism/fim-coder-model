@@ -1,0 +1,162 @@
+{
+ "created_utc": "2026-11-15T23:50:34Z",
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "code": {
+  "commit": "a3b1a21335349f1dc32a6631a58567d80dad220a",
+  "dirty_files": [
+   "M checks/multilang/DECONTAMINATION.md",
+   " M checks/multilang/decontaminate_lang.py",
+   " M checks/multilang/review_overlap.py",
+   " M checks/multilang/summarize_final.py",
+   " M fimexp/score.py",
+   "?? checks/multilang/cpp_decontamination.json",
+   "?? checks/multilang/cpp_decontamination_check_cpp-fim-v1.json",
+   "?? checks/multilang/cpp_decontamination_check_cpp-fim-v2.json",
+   "?? checks/multilang/cpp_exclude_files.json",
+   "?? checks/multilang/cpp_exclude_files_v2.json",
+   "?? checks/multilang/cpp_gate.json",
+   "?? checks/multilang/cpp_gate_v1_STOP.json",
+   "?? checks/multilang/cpp_list.json",
+   "?? checks/multilang/cpp_overlap_report.json",
+   "?? checks/multilang/cpp_overlap_review.json",
+   "?? checks/multilang/cpp_overlap_review.md",
+   "?? checks/multilang/cpp_pins.json",
+   "?? checks/multilang/cpp_train_vs_validation_cpp-fim-v1.json",
+   "?? checks/multilang/cpp_train_vs_validation_cpp-fim-v2.json",
+   "?? checks/multilang/gate_lang.py",
+   "?? checks/multilang/go_decontamination.json",
+   "?? checks/multilang/go_decontamination_check_go-fim-v2.json",
+   "?? checks/multilang/go_exclude_files.json",
+   "?? checks/multilang/go_exclude_files_v2.json",
+   "?? checks/multilang/go_gate.json",
+   "?? checks/multilang/go_list.json",
+   "?? checks/multilang/go_overlap_report.json",
+   "?? checks/multilang/go_overlap_review.json",
+   "?? checks/multilang/go_overlap_review.md",
+   "?? checks/multilang/go_pins.json",
+   "?? checks/multilang/go_train_vs_validation_go-fim-v1.json",
+   "?? checks/multilang/go_train_vs_validation_go-fim-v2.json",
+   "?? checks/multilang/propose_repos_rest.py",
+   "?? checks/multilang/propose_repos_v3.log",
+   "?? checks/multilang/proposed_repos_rest.json",
+   "?? checks/multilang/trainval_lang.py",
+   "?? configs/lang_cpp.yaml",
+   "?? configs/lang_go.yaml",
+   "?? scripts/prep_lang.sh",
+   "?? scripts/run_go_final_rerun.sh",
+   "?? scripts/run_lang_queue.sh"
+  ],
+  "sha256": {
+   "fimexp/__init__.py": "fc436e4b166281310a552f8685633daac86d73b9c167b1817f4645b318b092ab",
+   "fimexp/build_data.py": "87c805467b11882a720ebc0394f8407e90d16cb9d937c7d4d2b87f09841108a3",
+   "fimexp/build_heldout.py": "e26929a18e2c1593bb83daeb25cf4190aacff9df630a0a0f256ce1e69d6a647b",
+   "fimexp/build_lang_data.py": "31311284ac68b3c514c3c5169c9fd2ed622e67e8cb6b405f9a6ad33891aa1d0e",
+   "fimexp/build_variants.py": "e4274ff2e653f4374468af9c3124bbf773bdafeab9c8862beab160d001d040a2",
+   "fimexp/gen_batch.py": "3ff7d580f9d7abd251d838e302816c1b7844ab8fb7bb57a6b0bd77a8dc7c5436",
+   "fimexp/generate.py": "42c40317b0a254d9e58ac5723a34cf83ee9e48867cb8ddd67a49fb76987c31bd",
+   "fimexp/holes.py": "c14d60fb96b7b7c38996312b4e133daf769d8d3b03551c58da3f6cb254a4c33a",
+   "fimexp/langs.py": "6688644e2507b5c2e2c1b844a76439bfd1dd7c9eb7b7b23736805559842da2be",
+   "fimexp/model.py": "806b40e2100e97399ac66a7e572c9705086d53e5cba0c6d5d77934fbccdc6318",
+   "fimexp/psm.py": "7d45ba22bfe247321396484a7ed08b7aaaaa1cc2b2cc4b11e2d8577ce12a6483",
+   "fimexp/report_html.py": "c112b1b4cc860ebd58be86499a6a8abc810941f2430da6b370182049c2b687b8",
+   "fimexp/score.py": "344f97688fdbb76a9a0d7c73abddc08863ba17e51a7f39bec91b705a492a9373",
+   "fimexp/sources.py": "7a9234ce8ebbb06c66930d387d0fbeaf3c2fdb5cafe7b3c9238ef5bc6bfa251c",
+   "fimexp/split.py": "52b03ae71da6766ea40156de05f12d07245373be6ce8aae9ba0cc8de09066194",
+   "fimexp/structural.py": "57a2b51396d8e579f9672d0e2a28c942a5b37337afcd55923329de645dab8297",
+   "fimexp/tokenizer_whitespace.py": "0c463749fa22102d5c184b70fa61937fc94b904d2f4589dc6dec147b9efb432b",
+   "fimexp/train.py": "afde5c327df0687b7602a4ca9cc9ca64be4cf7b95857029a830925233284cd4c",
+   "fimexp/val_subset.py": "d76c13463a77068e31183956483f0fe6fa2acda394f38f1d1e25dd5f201cfe61",
+   "fimexp/wandb_log.py": "2d03f12f210a6a89da740a27ebc696fecee87e859ff57b40d0a379cdde4259fd",
+   "configs/experiment.yaml": "1480f48e02fc706a16ae14f7df66643e03fbda14fc5fe974727c356733712334"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "adapter": "logs/20261115T083609+0530_cpp-ast_train_s42/checkpoints/final_adapter",
+ "base_precision": "bf16",
+ "data_version": "cpp-fim-v2",
+ "split": "validation",
+ "benchmark_lang": "rust",
+ "pair_subset": null,
+ "edit_template": {
+  "status": "inferred",
+  "before_removed": "<<<<<<< ORIGINAL\n",
+  "after_removed": "=======\n",
+  "suffix_start": ">>>>>>> UPDATED\n"
+ },
+ "rules": {
+  "metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
+  "context": "full context up to 16384 tokens; benchmark examples that do not fit are skipped and listed, never truncated"
+ },
+ "tasks": {
+  "reth_ast": {
+   "examples": 518,
+   "skipped_over_context": [],
+   "chars": 662001.0,
+   "answer_tokens": 229636.0,
+   "corpus_char_ppl": 1.1532971174392872,
+   "token_nll": 0.41116299560967723,
+   "per_package": {
+    "ggml-org/whisper.cpp": {
+     "examples": 259,
+     "chars": 411833,
+     "corpus_char_ppl": 1.1484463888070484
+    },
+    "hyprwm/Hyprland": {
+     "examples": 259,
+     "chars": 250168,
+     "corpus_char_ppl": 1.1613271784998749
+    }
+   }
+  },
+  "reth_random": {
+   "examples": 518,
+   "skipped_over_context": [],
+   "chars": 662001.0,
+   "answer_tokens": 236795.0,
+   "corpus_char_ppl": 1.1592538057126962,
+   "token_nll": 0.41313460494762444,
+   "per_package": {
+    "ggml-org/whisper.cpp": {
+     "examples": 259,
+     "chars": 411833,
+     "corpus_char_ppl": 1.1576787516879108
+    },
+    "hyprwm/Hyprland": {
+     "examples": 259,
+     "chars": 250168,
+     "corpus_char_ppl": 1.1618513691037187
+    }
+   }
+  },
+  "reth_l2r": {
+   "examples": 2531,
+   "skipped_over_context": [],
+   "chars": 14561157.0,
+   "answer_tokens": 5409703.0,
+   "corpus_char_ppl": 1.2472377744748602,
+   "token_nll": 0.5946751088038646,
+   "per_package": {
+    "ggml-org/whisper.cpp": {
+     "examples": 1028,
+     "chars": 6836189,
+     "corpus_char_ppl": 1.2270693050026455
+    },
+    "hyprwm/Hyprland": {
+     "examples": 1503,
+     "chars": 7724968,
+     "corpus_char_ppl": 1.2653621118677512
+    }
+   }
+  }
+ }
+}

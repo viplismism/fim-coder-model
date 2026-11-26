@@ -1,0 +1,857 @@
+{
+ "lang": "cpp",
+ "eval_dirs": {
+  "base": "logs/20261116T074350+0530_cpp-base_eval_final",
+  "ast": "logs/20261117T003033+0530_cpp-ast_eval_final",
+  "random": "logs/20261117T025543+0530_cpp-random_eval_final"
+ },
+ "bootstrap_resamples": 2000,
+ "seed": 20261101,
+ "tasks": {
+  "bench_add": {
+   "n": 1643,
+   "groups": 33,
+   "ppl": {
+    "base": 1.1538,
+    "ast": 1.1557,
+    "random": 1.1542
+   },
+   "less_uncertainty_vs_base": {
+    "ast": -0.0117,
+    "random": -0.0022
+   },
+   "diff": {
+    "ast-base": {
+     "value": 0.0019,
+     "ci_examples": [
+      0.0017,
+      0.0021
+     ],
+     "ci_groups": [
+      0.0014,
+      0.0025
+     ]
+    },
+    "random-base": {
+     "value": 0.0004,
+     "ci_examples": [
+      0.0002,
+      0.0005
+     ],
+     "ci_groups": [
+      0.0001,
+      0.0006
+     ]
+    },
+    "ast-random": {
+     "value": 0.0016,
+     "ci_examples": [
+      0.0014,
+      0.0017
+     ],
+     "ci_groups": [
+      0.0012,
+      0.002
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "4/33",
+   "per_group": {
+    "chromium/chromium": {
+     "base": 1.1353,
+     "ast": 1.1373,
+     "random": 1.1358,
+     "n": 380
+    },
+    "mongodb/mongo": {
+     "base": 1.1743,
+     "ast": 1.1749,
+     "random": 1.1741,
+     "n": 276
+    },
+    "mozilla/gecko-dev": {
+     "base": 1.1723,
+     "ast": 1.1751,
+     "random": 1.173,
+     "n": 162
+    },
+    "godotengine/godot": {
+     "base": 1.1396,
+     "ast": 1.1414,
+     "random": 1.1397,
+     "n": 118
+    },
+    "v8/v8": {
+     "base": 1.2372,
+     "ast": 1.2395,
+     "random": 1.2373,
+     "n": 100
+    },
+    "openjdk/jdk": {
+     "base": 1.2962,
+     "ast": 1.2979,
+     "random": 1.2938,
+     "n": 84
+    },
+    "facebook/react-native": {
+     "base": 1.0787,
+     "ast": 1.08,
+     "random": 1.0786,
+     "n": 83
+    },
+    "pytorch/pytorch": {
+     "base": 1.1562,
+     "ast": 1.1587,
+     "random": 1.1571,
+     "n": 63
+    },
+    "bitcoin/bitcoin": {
+     "base": 1.1861,
+     "ast": 1.1884,
+     "random": 1.1868,
+     "n": 51
+    },
+    "ray-project/ray": {
+     "base": 1.1067,
+     "ast": 1.1082,
+     "random": 1.1072,
+     "n": 46
+    },
+    "google/filament": {
+     "base": 1.2055,
+     "ast": 1.2111,
+     "random": 1.2087,
+     "n": 38
+    },
+    "ethereum/solidity": {
+     "base": 1.127,
+     "ast": 1.13,
+     "random": 1.1269,
+     "n": 34
+    },
+    "protocolbuffers/protobuf": {
+     "base": 1.1749,
+     "ast": 1.1786,
+     "random": 1.1755,
+     "n": 34
+    },
+    "electron/electron": {
+     "base": 1.1792,
+     "ast": 1.182,
+     "random": 1.1788,
+     "n": 27
+    },
+    "apple/foundationdb": {
+     "base": 1.1624,
+     "ast": 1.1648,
+     "random": 1.164,
+     "n": 23
+    },
+    "apache/arrow": {
+     "base": 1.1439,
+     "ast": 1.1452,
+     "random": 1.1442,
+     "n": 18
+    },
+    "facebook/rocksdb": {
+     "base": 1.1758,
+     "ast": 1.1772,
+     "random": 1.1771,
+     "n": 17
+    },
+    "microsoft/PowerToys": {
+     "base": 1.1325,
+     "ast": 1.1342,
+     "random": 1.1329,
+     "n": 16
+    },
+    "facebook/folly": {
+     "base": 1.1734,
+     "ast": 1.1755,
+     "random": 1.1746,
+     "n": 15
+    },
+    "lowRISC/opentitan": {
+     "base": 1.0903,
+     "ast": 1.091,
+     "random": 1.0911,
+     "n": 9
+    },
+    "facebook/hermes": {
+     "base": 1.2301,
+     "ast": 1.2328,
+     "random": 1.2326,
+     "n": 8
+    },
+    "facebookresearch/faiss": {
+     "base": 1.0912,
+     "ast": 1.0936,
+     "random": 1.0918,
+     "n": 8
+    },
+    "microsoft/terminal": {
+     "base": 1.175,
+     "ast": 1.1778,
+     "random": 1.1752,
+     "n": 7
+    },
+    "ollama/ollama": {
+     "base": 1.094,
+     "ast": 1.0974,
+     "random": 1.093,
+     "n": 6
+    },
+    "dmlc/xgboost": {
+     "base": 1.1179,
+     "ast": 1.1177,
+     "random": 1.1186,
+     "n": 4
+    },
+    "google/gvisor": {
+     "base": 1.0611,
+     "ast": 1.0638,
+     "random": 1.0619,
+     "n": 4
+    },
+    "qbittorrent/qBittorrent": {
+     "base": 1.0813,
+     "ast": 1.0876,
+     "random": 1.0824,
+     "n": 4
+    },
+    "aseprite/aseprite": {
+     "base": 1.1481,
+     "ast": 1.1466,
+     "random": 1.1433,
+     "n": 2
+    },
+    "pytorch/vision": {
+     "base": 1.3269,
+     "ast": 1.3167,
+     "random": 1.3141,
+     "n": 2
+    },
+    "facebookresearch/xformers": {
+     "base": 1.0879,
+     "ast": 1.089,
+     "random": 1.0893,
+     "n": 1
+    },
+    "microsoft/LightGBM": {
+     "base": 1.0563,
+     "ast": 1.0607,
+     "random": 1.0542,
+     "n": 1
+    },
+    "numpy/numpy": {
+     "base": 1.3639,
+     "ast": 1.3482,
+     "random": 1.3527,
+     "n": 1
+    },
+    "scipy/scipy": {
+     "base": 1.137,
+     "ast": 1.1433,
+     "random": 1.1312,
+     "n": 1
+    }
+   },
+   "skipped_over_context": []
+  },
+  "bench_edit": {
+   "n": 1305,
+   "groups": 31,
+   "ppl": {
+    "base": 1.164,
+    "ast": 1.1641,
+    "random": 1.1645
+   },
+   "less_uncertainty_vs_base": {
+    "ast": -0.0009,
+    "random": -0.0032
+   },
+   "diff": {
+    "ast-base": {
+     "value": 0.0002,
+     "ci_examples": [
+      -0.0001,
+      0.0004
+     ],
+     "ci_groups": [
+      -0.0008,
+      0.0006
+     ]
+    },
+    "random-base": {
+     "value": 0.0006,
+     "ci_examples": [
+      0.0004,
+      0.0008
+     ],
+     "ci_groups": [
+      0.0001,
+      0.0008
+     ]
+    },
+    "ast-random": {
+     "value": -0.0004,
+     "ci_examples": [
+      -0.0006,
+      -0.0002
+     ],
+     "ci_groups": [
+      -0.0011,
+      -0.0001
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "24/31",
+   "per_group": {
+    "chromium/chromium": {
+     "base": 1.1648,
+     "ast": 1.1657,
+     "random": 1.1656,
+     "n": 372
+    },
+    "mongodb/mongo": {
+     "base": 1.1636,
+     "ast": 1.163,
+     "random": 1.1639,
+     "n": 185
+    },
+    "mozilla/gecko-dev": {
+     "base": 1.1891,
+     "ast": 1.1888,
+     "random": 1.1898,
+     "n": 182
+    },
+    "v8/v8": {
+     "base": 1.1263,
+     "ast": 1.1274,
+     "random": 1.1276,
+     "n": 112
+    },
+    "godotengine/godot": {
+     "base": 1.1456,
+     "ast": 1.1429,
+     "random": 1.1454,
+     "n": 61
+    },
+    "openjdk/jdk": {
+     "base": 1.279,
+     "ast": 1.2791,
+     "random": 1.2806,
+     "n": 61
+    },
+    "ray-project/ray": {
+     "base": 1.1108,
+     "ast": 1.1094,
+     "random": 1.1106,
+     "n": 55
+    },
+    "pytorch/pytorch": {
+     "base": 1.1484,
+     "ast": 1.1476,
+     "random": 1.1483,
+     "n": 54
+    },
+    "apple/foundationdb": {
+     "base": 1.2155,
+     "ast": 1.2157,
+     "random": 1.2159,
+     "n": 27
+    },
+    "electron/electron": {
+     "base": 1.2288,
+     "ast": 1.2277,
+     "random": 1.2284,
+     "n": 24
+    },
+    "google/filament": {
+     "base": 1.1412,
+     "ast": 1.142,
+     "random": 1.1428,
+     "n": 24
+    },
+    "protocolbuffers/protobuf": {
+     "base": 1.1213,
+     "ast": 1.1204,
+     "random": 1.1199,
+     "n": 21
+    },
+    "bitcoin/bitcoin": {
+     "base": 1.1321,
+     "ast": 1.1304,
+     "random": 1.1313,
+     "n": 20
+    },
+    "facebook/react-native": {
+     "base": 1.0778,
+     "ast": 1.0771,
+     "random": 1.0781,
+     "n": 17
+    },
+    "ethereum/solidity": {
+     "base": 1.2123,
+     "ast": 1.2116,
+     "random": 1.2129,
+     "n": 16
+    },
+    "apache/arrow": {
+     "base": 1.0902,
+     "ast": 1.0902,
+     "random": 1.0906,
+     "n": 11
+    },
+    "NVIDIA/TensorRT": {
+     "base": 1.1328,
+     "ast": 1.1304,
+     "random": 1.1308,
+     "n": 10
+    },
+    "facebook/folly": {
+     "base": 1.142,
+     "ast": 1.1456,
+     "random": 1.1437,
+     "n": 8
+    },
+    "microsoft/PowerToys": {
+     "base": 1.088,
+     "ast": 1.0883,
+     "random": 1.0888,
+     "n": 8
+    },
+    "facebook/rocksdb": {
+     "base": 1.133,
+     "ast": 1.1337,
+     "random": 1.1327,
+     "n": 6
+    },
+    "ollama/ollama": {
+     "base": 1.0705,
+     "ast": 1.0718,
+     "random": 1.0705,
+     "n": 6
+    },
+    "microsoft/terminal": {
+     "base": 1.1992,
+     "ast": 1.1969,
+     "random": 1.198,
+     "n": 5
+    },
+    "qbittorrent/qBittorrent": {
+     "base": 1.1203,
+     "ast": 1.1181,
+     "random": 1.1213,
+     "n": 5
+    },
+    "facebook/hermes": {
+     "base": 1.0744,
+     "ast": 1.0777,
+     "random": 1.0753,
+     "n": 4
+    },
+    "dmlc/xgboost": {
+     "base": 1.149,
+     "ast": 1.1318,
+     "random": 1.1394,
+     "n": 3
+    },
+    "scipy/scipy": {
+     "base": 1.2618,
+     "ast": 1.2481,
+     "random": 1.2552,
+     "n": 3
+    },
+    "aseprite/aseprite": {
+     "base": 1.3831,
+     "ast": 1.3847,
+     "random": 1.3888,
+     "n": 1
+    },
+    "facebookresearch/xformers": {
+     "base": 1.2407,
+     "ast": 1.238,
+     "random": 1.2397,
+     "n": 1
+    },
+    "lowRISC/opentitan": {
+     "base": 1.0775,
+     "ast": 1.0789,
+     "random": 1.0779,
+     "n": 1
+    },
+    "numpy/numpy": {
+     "base": 1.2114,
+     "ast": 1.204,
+     "random": 1.2091,
+     "n": 1
+    },
+    "pytorch/vision": {
+     "base": 1.0595,
+     "ast": 1.0642,
+     "random": 1.0643,
+     "n": 1
+    }
+   },
+   "skipped_over_context": [
+    {
+     "id": "edit:5141",
+     "repo": "openjdk/jdk",
+     "tokens": 17421
+    },
+    {
+     "id": "edit:5152",
+     "repo": "openjdk/jdk",
+     "tokens": 17510
+    }
+   ],
+   "note": "provisional"
+  },
+  "heldout_ast": {
+   "n": 1000,
+   "groups": 10,
+   "ppl": {
+    "base": 1.1942,
+    "ast": 1.1932,
+    "random": 1.193
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0047,
+    "random": 0.0054
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.001,
+     "ci_examples": [
+      -0.0013,
+      -0.0007
+     ],
+     "ci_groups": [
+      -0.0018,
+      -0.0003
+     ]
+    },
+    "random-base": {
+     "value": -0.0012,
+     "ci_examples": [
+      -0.0015,
+      -0.0009
+     ],
+     "ci_groups": [
+      -0.002,
+      -0.0004
+     ]
+    },
+    "ast-random": {
+     "value": 0.0002,
+     "ci_examples": [
+      0.0,
+      0.0003
+     ],
+     "ci_groups": [
+      -0.0,
+      0.0004
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "3/10",
+   "per_group": {
+    "78/xiaozhi-esp32": {
+     "base": 1.1756,
+     "ast": 1.1742,
+     "random": 1.1742,
+     "n": 100
+    },
+    "Liniyous/ElaWidgetTools": {
+     "base": 1.1042,
+     "ast": 1.1039,
+     "random": 1.1043,
+     "n": 100
+    },
+    "bmorcelli/Launcher": {
+     "base": 1.2246,
+     "ast": 1.2227,
+     "random": 1.2228,
+     "n": 100
+    },
+    "deepseek-ai/3FS": {
+     "base": 1.1433,
+     "ast": 1.1439,
+     "random": 1.1438,
+     "n": 100
+    },
+    "duckdb/ducklake": {
+     "base": 1.2601,
+     "ast": 1.2593,
+     "random": 1.2587,
+     "n": 100
+    },
+    "ikawrakow/ik_llama.cpp": {
+     "base": 1.1675,
+     "ast": 1.167,
+     "random": 1.167,
+     "n": 100
+    },
+    "kvcache-ai/Mooncake": {
+     "base": 1.2268,
+     "ast": 1.2246,
+     "random": 1.2239,
+     "n": 100
+    },
+    "lemonade-sdk/lemonade": {
+     "base": 1.2014,
+     "ast": 1.1984,
+     "random": 1.1982,
+     "n": 100
+    },
+    "lupinemachines/lupine": {
+     "base": 1.1956,
+     "ast": 1.1933,
+     "random": 1.1928,
+     "n": 100
+    },
+    "xxnuo/MTranServer": {
+     "base": 1.2277,
+     "ast": 1.2279,
+     "random": 1.228,
+     "n": 100
+    }
+   },
+   "skipped_over_context": []
+  },
+  "heldout_random": {
+   "n": 1000,
+   "groups": 10,
+   "ppl": {
+    "base": 1.1966,
+    "ast": 1.1957,
+    "random": 1.1947
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0042,
+    "random": 0.0088
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0009,
+     "ci_examples": [
+      -0.0012,
+      -0.0006
+     ],
+     "ci_groups": [
+      -0.0018,
+      0.0
+     ]
+    },
+    "random-base": {
+     "value": -0.0019,
+     "ci_examples": [
+      -0.0023,
+      -0.0015
+     ],
+     "ci_groups": [
+      -0.003,
+      -0.0009
+     ]
+    },
+    "ast-random": {
+     "value": 0.001,
+     "ci_examples": [
+      0.0008,
+      0.0011
+     ],
+     "ci_groups": [
+      0.0007,
+      0.0013
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "0/10",
+   "per_group": {
+    "78/xiaozhi-esp32": {
+     "base": 1.1777,
+     "ast": 1.1762,
+     "random": 1.1761,
+     "n": 100
+    },
+    "Liniyous/ElaWidgetTools": {
+     "base": 1.0929,
+     "ast": 1.0932,
+     "random": 1.0927,
+     "n": 100
+    },
+    "bmorcelli/Launcher": {
+     "base": 1.2114,
+     "ast": 1.2103,
+     "random": 1.2093,
+     "n": 100
+    },
+    "deepseek-ai/3FS": {
+     "base": 1.1443,
+     "ast": 1.1455,
+     "random": 1.1446,
+     "n": 100
+    },
+    "duckdb/ducklake": {
+     "base": 1.2663,
+     "ast": 1.2648,
+     "random": 1.2632,
+     "n": 100
+    },
+    "ikawrakow/ik_llama.cpp": {
+     "base": 1.1893,
+     "ast": 1.1885,
+     "random": 1.1878,
+     "n": 100
+    },
+    "kvcache-ai/Mooncake": {
+     "base": 1.2174,
+     "ast": 1.215,
+     "random": 1.2136,
+     "n": 100
+    },
+    "lemonade-sdk/lemonade": {
+     "base": 1.2232,
+     "ast": 1.2202,
+     "random": 1.2189,
+     "n": 100
+    },
+    "lupinemachines/lupine": {
+     "base": 1.179,
+     "ast": 1.1765,
+     "random": 1.1748,
+     "n": 100
+    },
+    "xxnuo/MTranServer": {
+     "base": 1.2261,
+     "ast": 1.2271,
+     "random": 1.2263,
+     "n": 100
+    }
+   },
+   "skipped_over_context": []
+  },
+  "heldout_l2r": {
+   "n": 217,
+   "groups": 10,
+   "ppl": {
+    "base": 1.3493,
+    "ast": 1.3491,
+    "random": 1.3485
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0005,
+    "random": 0.0021
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0002,
+     "ci_examples": [
+      -0.0005,
+      0.0001
+     ],
+     "ci_groups": [
+      -0.001,
+      0.0004
+     ]
+    },
+    "random-base": {
+     "value": -0.0008,
+     "ci_examples": [
+      -0.0011,
+      -0.0006
+     ],
+     "ci_groups": [
+      -0.0019,
+      0.0
+     ]
+    },
+    "ast-random": {
+     "value": 0.0006,
+     "ci_examples": [
+      0.0005,
+      0.0008
+     ],
+     "ci_groups": [
+      0.0004,
+      0.001
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "0/10",
+   "per_group": {
+    "xxnuo/MTranServer": {
+     "base": 1.5836,
+     "ast": 1.5843,
+     "random": 1.5841,
+     "n": 71
+    },
+    "kvcache-ai/Mooncake": {
+     "base": 1.2253,
+     "ast": 1.2248,
+     "random": 1.2238,
+     "n": 30
+    },
+    "ikawrakow/ik_llama.cpp": {
+     "base": 1.2449,
+     "ast": 1.2454,
+     "random": 1.2451,
+     "n": 22
+    },
+    "lemonade-sdk/lemonade": {
+     "base": 1.2318,
+     "ast": 1.2298,
+     "random": 1.2288,
+     "n": 18
+    },
+    "bmorcelli/Launcher": {
+     "base": 1.3078,
+     "ast": 1.307,
+     "random": 1.3059,
+     "n": 15
+    },
+    "duckdb/ducklake": {
+     "base": 1.2821,
+     "ast": 1.2815,
+     "random": 1.2808,
+     "n": 15
+    },
+    "78/xiaozhi-esp32": {
+     "base": 1.2813,
+     "ast": 1.2804,
+     "random": 1.2802,
+     "n": 12
+    },
+    "lupinemachines/lupine": {
+     "base": 1.2973,
+     "ast": 1.2956,
+     "random": 1.294,
+     "n": 12
+    },
+    "Liniyous/ElaWidgetTools": {
+     "base": 1.2073,
+     "ast": 1.2088,
+     "random": 1.2079,
+     "n": 11
+    },
+    "deepseek-ai/3FS": {
+     "base": 1.2483,
+     "ast": 1.2507,
+     "random": 1.2501,
+     "n": 11
+    }
+   },
+   "skipped_over_context": []
+  }
+ },
+ "primary": {
+  "rule": "AST beats random iff Add ast-random < 0 and repo-level CI upper bound < 0",
+  "ast_minus_random": 0.0016,
+  "ci_groups": [
+   0.0012,
+   0.002
+  ],
+  "ast_beats_random": false
+ }
+}

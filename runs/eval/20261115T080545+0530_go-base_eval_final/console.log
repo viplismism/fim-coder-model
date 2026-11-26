@@ -1,0 +1,13 @@
+
+bench_add {'examples': 1312, 'chars': 717600.0, 'answer_tokens': 253555.0, 'corpus_char_ppl': 1.1741611043557398, 'token_nll': 0.45439256387410704, 'per_package': {'IBM/sarama': {'examples': 6, 'chars': 2760, 'corpus_char_ppl': 1.1551561349540365}, 'apple/foundationdb': {'examples': 3, 'chars': 1835, 'corpus_char_ppl': 1.3186973832632927}, 'caddyserver/caddy': {'examples': 8, 'chars': 2311, 'corpus_char_ppl': 1.2860881195533478}, 'chroma-core/chroma': {'examples': 2, 'chars': 559, 'corpus_char_ppl': 1.1395037887632735}, 'containers/podman': {'examples': 195, 'chars': 105197, 'corpus_char_ppl': 1.2306414739360116}, 'ethereum/go-ethereum': {'examples': 62, 'chars': 20219, 'corpus_char_ppl': 1.2127195907915542}, 'gitlabhq/gitlabhq': {'examples': 5, 'chars': 3601, 'corpus_char_ppl': 1.1726065511318335}, 'gohugoio/hugo': {'examples': 95, 'chars': 54963, 'corpus_char_ppl': 1.2177688326677367}, 'google/gvisor': {'examples': 43, 'chars': 17524, 'corpus_char_ppl': 1.1998732192549733}, 'google/osv-scanner': {'examples': 80, 'chars': 35674, 'corpus_char_ppl': 1.2286313567114386}, 'grafana/grafana': {'examples': 319, 'chars': 188278, 'corpus_char_ppl': 1.1290717467904607}, 'k3s-io/k3s': {'examples': 58, 'chars': 26741, 'corpus_char_ppl': 1.2102944515227532}, 'kubernetes/kubernetes': {'examples': 260, 'chars': 155194, 'corpus_char_ppl': 1.1414243361055938}, 'mudler/LocalAI': {'examples': 35, 'chars': 17125, 'corpus_char_ppl': 1.1648645181899435}, 'ollama/ollama': {'examples': 53, 'chars': 40471, 'corpus_char_ppl': 1.1947468194590227}, 'rclone/rclone': {'examples': 31, 'chars': 19338, 'corpus_char_ppl': 1.2265631828745895}, 'traefik/traefik': {'examples': 26, 'chars': 14310, 'corpus_char_ppl': 1.1353669065693726}, 'v2fly/v2ray-core': {'examples': 31, 'chars': 11500, 'corpus_char_ppl': 1.1808750272443105}}}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "fimexp/score.py", line 220, in <module>
+    main()
+  File "fimexp/score.py", line 212, in main
+    summary["tasks"][task] = run_task(model, psm, task, items, ctx, out / f"{task}.jsonl")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "fimexp/score.py", line 141, in run_task
+    raise RuntimeError(f"{it['id']}: {len(b['input_ids'])} tokens exceeds context {max_tokens}; no silent truncation")
+RuntimeError: edit:3775: 32743 tokens exceeds context 16384; no silent truncation

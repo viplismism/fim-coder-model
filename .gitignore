@@ -1,0 +1,6 @@
+# everything fetched or generated locally: sources, models, datasets, runs, completions, caches
+work/
+.venv/
+.venv-*/
+__pycache__/
+*.pyc

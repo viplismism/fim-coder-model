@@ -1,0 +1,1273 @@
+{
+ "lang": "python",
+ "eval_dirs": {
+  "base": "logs/20261112T170016+0530_python-base_eval_final",
+  "ast": "logs/20261112T190103+0530_python-ast_eval_final",
+  "random": "logs/20261112T225132+0530_python-random_eval_final"
+ },
+ "bootstrap_resamples": 2000,
+ "seed": 20261101,
+ "tasks": {
+  "bench_add": {
+   "n": 3687,
+   "groups": 71,
+   "ppl": {
+    "base": 1.1749,
+    "ast": 1.1745,
+    "random": 1.1744
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0024,
+    "random": 0.003
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0005,
+     "ci_examples": [
+      -0.0007,
+      -0.0002
+     ],
+     "ci_groups": [
+      -0.0009,
+      -0.0001
+     ]
+    },
+    "random-base": {
+     "value": -0.0006,
+     "ci_examples": [
+      -0.0008,
+      -0.0004
+     ],
+     "ci_groups": [
+      -0.0009,
+      -0.0002
+     ]
+    },
+    "ast-random": {
+     "value": 0.0001,
+     "ci_examples": [
+      -0.0,
+      0.0002
+     ],
+     "ci_groups": [
+      -0.0005,
+      0.0004
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "22/71",
+   "per_group": {
+    "apache/airflow": {
+     "base": 1.1375,
+     "ast": 1.1374,
+     "random": 1.1369,
+     "n": 490
+    },
+    "huggingface/transformers": {
+     "base": 1.1929,
+     "ast": 1.1909,
+     "random": 1.1943,
+     "n": 459
+    },
+    "pytorch/pytorch": {
+     "base": 1.2036,
+     "ast": 1.2034,
+     "random": 1.2029,
+     "n": 437
+    },
+    "ray-project/ray": {
+     "base": 1.1683,
+     "ast": 1.1688,
+     "random": 1.1683,
+     "n": 281
+    },
+    "NVIDIA/NeMo": {
+     "base": 1.1952,
+     "ast": 1.1952,
+     "random": 1.1949,
+     "n": 190
+    },
+    "pola-rs/polars": {
+     "base": 1.1659,
+     "ast": 1.1653,
+     "random": 1.1647,
+     "n": 166
+    },
+    "streamlit/streamlit": {
+     "base": 1.1715,
+     "ast": 1.1716,
+     "random": 1.1711,
+     "n": 160
+    },
+    "NVIDIA/Megatron-LM": {
+     "base": 1.1754,
+     "ast": 1.1734,
+     "random": 1.1736,
+     "n": 156
+    },
+    "sphinx-doc/sphinx": {
+     "base": 1.1475,
+     "ast": 1.1479,
+     "random": 1.1481,
+     "n": 137
+    },
+    "langchain-ai/langchain": {
+     "base": 1.1717,
+     "ast": 1.1709,
+     "random": 1.1703,
+     "n": 118
+    },
+    "scipy/scipy": {
+     "base": 1.3415,
+     "ast": 1.3406,
+     "random": 1.3401,
+     "n": 113
+    },
+    "django/django": {
+     "base": 1.1482,
+     "ast": 1.147,
+     "random": 1.1476,
+     "n": 82
+    },
+    "pytorch/torchtune": {
+     "base": 1.0773,
+     "ast": 1.0773,
+     "random": 1.0772,
+     "n": 53
+    },
+    "huggingface/open-r1": {
+     "base": 1.1771,
+     "ast": 1.1748,
+     "random": 1.1757,
+     "n": 47
+    },
+    "apache/superset": {
+     "base": 1.1308,
+     "ast": 1.1304,
+     "random": 1.13,
+     "n": 46
+    },
+    "mozilla/gecko-dev": {
+     "base": 1.1626,
+     "ast": 1.1633,
+     "random": 1.1622,
+     "n": 46
+    },
+    "gradio-app/gradio": {
+     "base": 1.1642,
+     "ast": 1.1638,
+     "random": 1.1631,
+     "n": 44
+    },
+    "scrapy/scrapy": {
+     "base": 1.1205,
+     "ast": 1.1211,
+     "random": 1.1208,
+     "n": 40
+    },
+    "huggingface/peft": {
+     "base": 1.2514,
+     "ast": 1.2524,
+     "random": 1.2546,
+     "n": 39
+    },
+    "sympy/sympy": {
+     "base": 1.2265,
+     "ast": 1.2265,
+     "random": 1.2256,
+     "n": 38
+    },
+    "pandas-dev/pandas": {
+     "base": 1.2119,
+     "ast": 1.2041,
+     "random": 1.2045,
+     "n": 36
+    },
+    "numpy/numpy": {
+     "base": 1.3868,
+     "ast": 1.3882,
+     "random": 1.3872,
+     "n": 34
+    },
+    "bitcoin/bitcoin": {
+     "base": 1.2001,
+     "ast": 1.1994,
+     "random": 1.1991,
+     "n": 33
+    },
+    "mongodb/mongo": {
+     "base": 1.1764,
+     "ast": 1.1752,
+     "random": 1.1743,
+     "n": 30
+    },
+    "lowRISC/opentitan": {
+     "base": 1.2022,
+     "ast": 1.2024,
+     "random": 1.202,
+     "n": 29
+    },
+    "python-websockets/websockets": {
+     "base": 1.1126,
+     "ast": 1.1132,
+     "random": 1.113,
+     "n": 29
+    },
+    "scikit-learn/scikit-learn": {
+     "base": 1.2513,
+     "ast": 1.2486,
+     "random": 1.2491,
+     "n": 28
+    },
+    "pypa/pip": {
+     "base": 1.2658,
+     "ast": 1.2617,
+     "random": 1.2605,
+     "n": 27
+    },
+    "pytorch/vision": {
+     "base": 1.1506,
+     "ast": 1.1433,
+     "random": 1.1441,
+     "n": 21
+    },
+    "dmlc/xgboost": {
+     "base": 1.2245,
+     "ast": 1.226,
+     "random": 1.2257,
+     "n": 19
+    },
+    "huggingface/accelerate": {
+     "base": 1.0941,
+     "ast": 1.0901,
+     "random": 1.0912,
+     "n": 17
+    },
+    "python-pillow/Pillow": {
+     "base": 1.1638,
+     "ast": 1.1631,
+     "random": 1.1625,
+     "n": 16
+    },
+    "Delgan/loguru": {
+     "base": 1.1117,
+     "ast": 1.1129,
+     "random": 1.11,
+     "n": 15
+    },
+    "godotengine/godot": {
+     "base": 1.4106,
+     "ast": 1.4107,
+     "random": 1.4172,
+     "n": 14
+    },
+    "servo/servo": {
+     "base": 1.1381,
+     "ast": 1.1397,
+     "random": 1.1378,
+     "n": 14
+    },
+    "chromium/chromium": {
+     "base": 1.2119,
+     "ast": 1.2124,
+     "random": 1.212,
+     "n": 13
+    },
+    "matplotlib/matplotlib": {
+     "base": 1.3048,
+     "ast": 1.3056,
+     "random": 1.3037,
+     "n": 13
+    },
+    "NVIDIA/TensorRT": {
+     "base": 1.1522,
+     "ast": 1.151,
+     "random": 1.1512,
+     "n": 12
+    },
+    "ansible/ansible": {
+     "base": 1.3322,
+     "ast": 1.3344,
+     "random": 1.3323,
+     "n": 11
+    },
+    "facebookresearch/xformers": {
+     "base": 1.1994,
+     "ast": 1.1989,
+     "random": 1.1984,
+     "n": 11
+    },
+    "SeleniumHQ/selenium": {
+     "base": 1.0551,
+     "ast": 1.055,
+     "random": 1.0555,
+     "n": 10
+    },
+    "JetBrains/intellij-community": {
+     "base": 1.0318,
+     "ast": 1.0316,
+     "random": 1.0316,
+     "n": 9
+    },
+    "huggingface/datatrove": {
+     "base": 1.208,
+     "ast": 1.2082,
+     "random": 1.2083,
+     "n": 8
+    },
+    "protocolbuffers/protobuf": {
+     "base": 1.2368,
+     "ast": 1.2349,
+     "random": 1.2338,
+     "n": 8
+    },
+    "qdrant/qdrant": {
+     "base": 1.1167,
+     "ast": 1.1161,
+     "random": 1.1167,
+     "n": 8
+    },
+    "v8/v8": {
+     "base": 1.2997,
+     "ast": 1.2999,
+     "random": 1.2978,
+     "n": 8
+    },
+    "apache/flink": {
+     "base": 1.1399,
+     "ast": 1.1391,
+     "random": 1.1371,
+     "n": 7
+    },
+    "apache/kafka": {
+     "base": 1.2687,
+     "ast": 1.2723,
+     "random": 1.267,
+     "n": 6
+    },
+    "chroma-core/chroma": {
+     "base": 1.0983,
+     "ast": 1.0972,
+     "random": 1.0958,
+     "n": 6
+    },
+    "mudler/LocalAI": {
+     "base": 1.1449,
+     "ast": 1.1457,
+     "random": 1.1441,
+     "n": 6
+    },
+    "pyca/cryptography": {
+     "base": 1.1249,
+     "ast": 1.1242,
+     "random": 1.1263,
+     "n": 6
+    },
+    "facebookresearch/hydra": {
+     "base": 1.3093,
+     "ast": 1.3161,
+     "random": 1.3157,
+     "n": 5
+    },
+    "apache/arrow": {
+     "base": 1.1355,
+     "ast": 1.1364,
+     "random": 1.1364,
+     "n": 4
+    },
+    "facebookresearch/faiss": {
+     "base": 1.2078,
+     "ast": 1.2071,
+     "random": 1.2088,
+     "n": 4
+    },
+    "jupyter-server/jupyter_server": {
+     "base": 1.2115,
+     "ast": 1.2142,
+     "random": 1.2108,
+     "n": 4
+    },
+    "apache/spark": {
+     "base": 1.254,
+     "ast": 1.2508,
+     "random": 1.253,
+     "n": 3
+    },
+    "giampaolo/psutil": {
+     "base": 1.1791,
+     "ast": 1.1736,
+     "random": 1.1803,
+     "n": 3
+    },
+    "microsoft/LightGBM": {
+     "base": 1.2406,
+     "ast": 1.2436,
+     "random": 1.2398,
+     "n": 3
+    },
+    "astral-sh/ruff": {
+     "base": 1.3479,
+     "ast": 1.3448,
+     "random": 1.3433,
+     "n": 2
+    },
+    "psf/black": {
+     "base": 1.0628,
+     "ast": 1.0677,
+     "random": 1.0662,
+     "n": 2
+    },
+    "apple/foundationdb": {
+     "base": 1.0378,
+     "ast": 1.0384,
+     "random": 1.0395,
+     "n": 1
+    },
+    "ethereum/solidity": {
+     "base": 2.033,
+     "ast": 2.0118,
+     "random": 2.005,
+     "n": 1
+    },
+    "facebook/folly": {
+     "base": 1.037,
+     "ast": 1.0415,
+     "random": 1.0368,
+     "n": 1
+    },
+    "huggingface/datasets": {
+     "base": 1.3213,
+     "ast": 1.3231,
+     "random": 1.3076,
+     "n": 1
+    },
+    "huggingface/tokenizers": {
+     "base": 1.0767,
+     "ast": 1.0807,
+     "random": 1.0766,
+     "n": 1
+    },
+    "ijl/orjson": {
+     "base": 1.4627,
+     "ast": 1.459,
+     "random": 1.4504,
+     "n": 1
+    },
+    "lichess-org/lila": {
+     "base": 1.6899,
+     "ast": 1.6814,
+     "random": 1.6935,
+     "n": 1
+    },
+    "mwaskom/seaborn": {
+     "base": 1.2657,
+     "ast": 1.2587,
+     "random": 1.2558,
+     "n": 1
+    },
+    "pallets/click": {
+     "base": 1.0671,
+     "ast": 1.0683,
+     "random": 1.0672,
+     "n": 1
+    },
+    "simdjson/simdjson": {
+     "base": 1.2901,
+     "ast": 1.287,
+     "random": 1.2877,
+     "n": 1
+    },
+    "tornadoweb/tornado": {
+     "base": 1.3223,
+     "ast": 1.3349,
+     "random": 1.3264,
+     "n": 1
+    }
+   }
+  },
+  "bench_edit": {
+   "n": 2584,
+   "groups": 65,
+   "ppl": {
+    "base": 1.1718,
+    "ast": 1.1698,
+    "random": 1.1705
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.011,
+    "random": 0.007
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.002,
+     "ci_examples": [
+      -0.0023,
+      -0.0018
+     ],
+     "ci_groups": [
+      -0.0027,
+      -0.0015
+     ]
+    },
+    "random-base": {
+     "value": -0.0013,
+     "ci_examples": [
+      -0.0016,
+      -0.0011
+     ],
+     "ci_groups": [
+      -0.0024,
+      -0.0005
+     ]
+    },
+    "ast-random": {
+     "value": -0.0007,
+     "ci_examples": [
+      -0.0009,
+      -0.0006
+     ],
+     "ci_groups": [
+      -0.0015,
+      0.0005
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "52/65",
+   "per_group": {
+    "apache/airflow": {
+     "base": 1.165,
+     "ast": 1.1615,
+     "random": 1.1634,
+     "n": 445
+    },
+    "pytorch/pytorch": {
+     "base": 1.1833,
+     "ast": 1.1823,
+     "random": 1.1827,
+     "n": 334
+    },
+    "huggingface/transformers": {
+     "base": 1.168,
+     "ast": 1.1665,
+     "random": 1.1614,
+     "n": 294
+    },
+    "ray-project/ray": {
+     "base": 1.1892,
+     "ast": 1.1877,
+     "random": 1.1891,
+     "n": 253
+    },
+    "NVIDIA/NeMo": {
+     "base": 1.1762,
+     "ast": 1.1746,
+     "random": 1.1754,
+     "n": 131
+    },
+    "sphinx-doc/sphinx": {
+     "base": 1.1167,
+     "ast": 1.1129,
+     "random": 1.1146,
+     "n": 108
+    },
+    "scipy/scipy": {
+     "base": 1.2401,
+     "ast": 1.239,
+     "random": 1.2409,
+     "n": 93
+    },
+    "NVIDIA/Megatron-LM": {
+     "base": 1.1545,
+     "ast": 1.1533,
+     "random": 1.155,
+     "n": 83
+    },
+    "mozilla/gecko-dev": {
+     "base": 1.1948,
+     "ast": 1.1938,
+     "random": 1.1947,
+     "n": 79
+    },
+    "streamlit/streamlit": {
+     "base": 1.1849,
+     "ast": 1.1831,
+     "random": 1.1841,
+     "n": 70
+    },
+    "langchain-ai/langchain": {
+     "base": 1.1342,
+     "ast": 1.1303,
+     "random": 1.1314,
+     "n": 56
+    },
+    "pytorch/torchtune": {
+     "base": 1.1315,
+     "ast": 1.129,
+     "random": 1.1296,
+     "n": 41
+    },
+    "mongodb/mongo": {
+     "base": 1.1496,
+     "ast": 1.1495,
+     "random": 1.1502,
+     "n": 36
+    },
+    "pola-rs/polars": {
+     "base": 1.153,
+     "ast": 1.1504,
+     "random": 1.1519,
+     "n": 36
+    },
+    "scrapy/scrapy": {
+     "base": 1.1213,
+     "ast": 1.1208,
+     "random": 1.1211,
+     "n": 32
+    },
+    "sympy/sympy": {
+     "base": 1.181,
+     "ast": 1.1775,
+     "random": 1.1807,
+     "n": 31
+    },
+    "python-websockets/websockets": {
+     "base": 1.1208,
+     "ast": 1.1195,
+     "random": 1.1191,
+     "n": 29
+    },
+    "apache/superset": {
+     "base": 1.1161,
+     "ast": 1.1154,
+     "random": 1.1172,
+     "n": 28
+    },
+    "django/django": {
+     "base": 1.1627,
+     "ast": 1.1544,
+     "random": 1.1571,
+     "n": 27
+    },
+    "numpy/numpy": {
+     "base": 1.1805,
+     "ast": 1.1791,
+     "random": 1.1794,
+     "n": 25
+    },
+    "pandas-dev/pandas": {
+     "base": 1.2257,
+     "ast": 1.2222,
+     "random": 1.2216,
+     "n": 24
+    },
+    "scikit-learn/scikit-learn": {
+     "base": 1.2453,
+     "ast": 1.2376,
+     "random": 1.2405,
+     "n": 24
+    },
+    "gradio-app/gradio": {
+     "base": 1.1456,
+     "ast": 1.1468,
+     "random": 1.1464,
+     "n": 23
+    },
+    "huggingface/open-r1": {
+     "base": 1.2254,
+     "ast": 1.2209,
+     "random": 1.2227,
+     "n": 23
+    },
+    "pytorch/vision": {
+     "base": 1.1847,
+     "ast": 1.1824,
+     "random": 1.1833,
+     "n": 19
+    },
+    "chromium/chromium": {
+     "base": 1.2114,
+     "ast": 1.2119,
+     "random": 1.212,
+     "n": 18
+    },
+    "matplotlib/matplotlib": {
+     "base": 1.2431,
+     "ast": 1.2392,
+     "random": 1.2399,
+     "n": 18
+    },
+    "lowRISC/opentitan": {
+     "base": 1.1475,
+     "ast": 1.147,
+     "random": 1.1471,
+     "n": 17
+    },
+    "python-pillow/Pillow": {
+     "base": 1.097,
+     "ast": 1.0916,
+     "random": 1.095,
+     "n": 17
+    },
+    "ansible/ansible": {
+     "base": 1.1938,
+     "ast": 1.1926,
+     "random": 1.1943,
+     "n": 16
+    },
+    "huggingface/peft": {
+     "base": 1.1775,
+     "ast": 1.1763,
+     "random": 1.178,
+     "n": 13
+    },
+    "bitcoin/bitcoin": {
+     "base": 1.116,
+     "ast": 1.1138,
+     "random": 1.1164,
+     "n": 12
+    },
+    "chroma-core/chroma": {
+     "base": 1.1133,
+     "ast": 1.1102,
+     "random": 1.1117,
+     "n": 10
+    },
+    "dmlc/xgboost": {
+     "base": 1.2985,
+     "ast": 1.2961,
+     "random": 1.2966,
+     "n": 10
+    },
+    "pypa/pip": {
+     "base": 1.19,
+     "ast": 1.1882,
+     "random": 1.1912,
+     "n": 10
+    },
+    "huggingface/datatrove": {
+     "base": 1.1305,
+     "ast": 1.1266,
+     "random": 1.1277,
+     "n": 9
+    },
+    "facebookresearch/xformers": {
+     "base": 1.1284,
+     "ast": 1.1255,
+     "random": 1.1266,
+     "n": 8
+    },
+    "apache/kafka": {
+     "base": 1.1012,
+     "ast": 1.1007,
+     "random": 1.1015,
+     "n": 7
+    },
+    "servo/servo": {
+     "base": 1.1694,
+     "ast": 1.1678,
+     "random": 1.1677,
+     "n": 7
+    },
+    "NVIDIA/TensorRT": {
+     "base": 1.2895,
+     "ast": 1.2857,
+     "random": 1.2881,
+     "n": 6
+    },
+    "huggingface/datasets": {
+     "base": 1.2643,
+     "ast": 1.249,
+     "random": 1.2475,
+     "n": 5
+    },
+    "lichess-org/lila": {
+     "base": 1.1789,
+     "ast": 1.1804,
+     "random": 1.1813,
+     "n": 5
+    },
+    "v8/v8": {
+     "base": 1.1458,
+     "ast": 1.1456,
+     "random": 1.1462,
+     "n": 5
+    },
+    "Delgan/loguru": {
+     "base": 1.1308,
+     "ast": 1.1332,
+     "random": 1.1311,
+     "n": 4
+    },
+    "JetBrains/intellij-community": {
+     "base": 1.0429,
+     "ast": 1.0437,
+     "random": 1.0431,
+     "n": 4
+    },
+    "facebookresearch/hydra": {
+     "base": 1.2077,
+     "ast": 1.2058,
+     "random": 1.2041,
+     "n": 4
+    },
+    "huggingface/accelerate": {
+     "base": 1.1735,
+     "ast": 1.167,
+     "random": 1.1703,
+     "n": 4
+    },
+    "SeleniumHQ/selenium": {
+     "base": 1.1217,
+     "ast": 1.1153,
+     "random": 1.1188,
+     "n": 3
+    },
+    "apache/flink": {
+     "base": 1.1313,
+     "ast": 1.1241,
+     "random": 1.1278,
+     "n": 3
+    },
+    "oracle/graal": {
+     "base": 1.1733,
+     "ast": 1.1655,
+     "random": 1.1676,
+     "n": 3
+    },
+    "protocolbuffers/protobuf": {
+     "base": 1.3596,
+     "ast": 1.3524,
+     "random": 1.3606,
+     "n": 3
+    },
+    "pyca/cryptography": {
+     "base": 1.0892,
+     "ast": 1.0904,
+     "random": 1.0916,
+     "n": 3
+    },
+    "facebookresearch/faiss": {
+     "base": 1.0795,
+     "ast": 1.0773,
+     "random": 1.0797,
+     "n": 2
+    },
+    "godotengine/godot": {
+     "base": 1.2198,
+     "ast": 1.2128,
+     "random": 1.2187,
+     "n": 2
+    },
+    "qdrant/qdrant": {
+     "base": 1.0452,
+     "ast": 1.0406,
+     "random": 1.048,
+     "n": 2
+    },
+    "apache/arrow": {
+     "base": 1.2389,
+     "ast": 1.2372,
+     "random": 1.2379,
+     "n": 1
+    },
+    "apple/foundationdb": {
+     "base": 1.1118,
+     "ast": 1.1018,
+     "random": 1.1069,
+     "n": 1
+    },
+    "electron/electron": {
+     "base": 1.3732,
+     "ast": 1.3802,
+     "random": 1.3746,
+     "n": 1
+    },
+    "facebook/folly": {
+     "base": 1.1177,
+     "ast": 1.1149,
+     "random": 1.1146,
+     "n": 1
+    },
+    "huggingface/tokenizers": {
+     "base": 1.08,
+     "ast": 1.0792,
+     "random": 1.0807,
+     "n": 1
+    },
+    "pallets/click": {
+     "base": 1.1365,
+     "ast": 1.1328,
+     "random": 1.1328,
+     "n": 1
+    },
+    "psf/black": {
+     "base": 1.3116,
+     "ast": 1.3127,
+     "random": 1.3221,
+     "n": 1
+    },
+    "rclone/rclone": {
+     "base": 1.352,
+     "ast": 1.3803,
+     "random": 1.3538,
+     "n": 1
+    },
+    "rustdesk/rustdesk": {
+     "base": 1.0513,
+     "ast": 1.0475,
+     "random": 1.0507,
+     "n": 1
+    },
+    "tornadoweb/tornado": {
+     "base": 1.0876,
+     "ast": 1.0835,
+     "random": 1.085,
+     "n": 1
+    }
+   },
+   "note": "provisional"
+  },
+  "heldout_ast": {
+   "n": 1000,
+   "groups": 10,
+   "ppl": {
+    "base": 1.2432,
+    "ast": 1.2386,
+    "random": 1.2385
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0173,
+    "random": 0.0177
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0047,
+     "ci_examples": [
+      -0.0055,
+      -0.0039
+     ],
+     "ci_groups": [
+      -0.0071,
+      -0.0028
+     ]
+    },
+    "random-base": {
+     "value": -0.0048,
+     "ci_examples": [
+      -0.0056,
+      -0.004
+     ],
+     "ci_groups": [
+      -0.0074,
+      -0.0027
+     ]
+    },
+    "ast-random": {
+     "value": 0.0001,
+     "ci_examples": [
+      -0.0001,
+      0.0003
+     ],
+     "ci_groups": [
+      -0.0002,
+      0.0004
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "3/10",
+   "per_group": {
+    "D4Vinci/Scrapling": {
+     "base": 1.1499,
+     "ast": 1.1478,
+     "random": 1.1482,
+     "n": 100
+    },
+    "HKUDS/LightRAG": {
+     "base": 1.3038,
+     "ast": 1.2948,
+     "random": 1.2947,
+     "n": 100
+    },
+    "RVC-Boss/GPT-SoVITS": {
+     "base": 1.1712,
+     "ast": 1.1711,
+     "random": 1.1711,
+     "n": 100
+    },
+    "TauricResearch/TradingAgents": {
+     "base": 1.3584,
+     "ast": 1.3487,
+     "random": 1.3481,
+     "n": 100
+    },
+    "VectifyAI/PageIndex": {
+     "base": 1.3779,
+     "ast": 1.3702,
+     "random": 1.3699,
+     "n": 100
+    },
+    "browser-use/browser-use": {
+     "base": 1.4515,
+     "ast": 1.4416,
+     "random": 1.4398,
+     "n": 100
+    },
+    "exo-explore/exo": {
+     "base": 1.219,
+     "ast": 1.2162,
+     "random": 1.2161,
+     "n": 100
+    },
+    "microsoft/markitdown": {
+     "base": 1.1641,
+     "ast": 1.1617,
+     "random": 1.1615,
+     "n": 100
+    },
+    "unclecode/crawl4ai": {
+     "base": 1.15,
+     "ast": 1.1466,
+     "random": 1.1468,
+     "n": 100
+    },
+    "virattt/ai-hedge-fund": {
+     "base": 1.2791,
+     "ast": 1.2744,
+     "random": 1.2752,
+     "n": 100
+    }
+   }
+  },
+  "heldout_random": {
+   "n": 1000,
+   "groups": 10,
+   "ppl": {
+    "base": 1.2423,
+    "ast": 1.2374,
+    "random": 1.2362
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0181,
+    "random": 0.0227
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0049,
+     "ci_examples": [
+      -0.0056,
+      -0.0042
+     ],
+     "ci_groups": [
+      -0.0073,
+      -0.003
+     ]
+    },
+    "random-base": {
+     "value": -0.0061,
+     "ci_examples": [
+      -0.0069,
+      -0.0053
+     ],
+     "ci_groups": [
+      -0.0088,
+      -0.004
+     ]
+    },
+    "ast-random": {
+     "value": 0.0012,
+     "ci_examples": [
+      0.001,
+      0.0015
+     ],
+     "ci_groups": [
+      0.0009,
+      0.0017
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "0/10",
+   "per_group": {
+    "D4Vinci/Scrapling": {
+     "base": 1.1372,
+     "ast": 1.1356,
+     "random": 1.1349,
+     "n": 100
+    },
+    "HKUDS/LightRAG": {
+     "base": 1.2927,
+     "ast": 1.2854,
+     "random": 1.2838,
+     "n": 100
+    },
+    "RVC-Boss/GPT-SoVITS": {
+     "base": 1.1855,
+     "ast": 1.1851,
+     "random": 1.1843,
+     "n": 100
+    },
+    "TauricResearch/TradingAgents": {
+     "base": 1.3471,
+     "ast": 1.3361,
+     "random": 1.3352,
+     "n": 100
+    },
+    "VectifyAI/PageIndex": {
+     "base": 1.3393,
+     "ast": 1.3311,
+     "random": 1.3287,
+     "n": 100
+    },
+    "browser-use/browser-use": {
+     "base": 1.4486,
+     "ast": 1.4383,
+     "random": 1.4352,
+     "n": 100
+    },
+    "exo-explore/exo": {
+     "base": 1.2407,
+     "ast": 1.2363,
+     "random": 1.235,
+     "n": 100
+    },
+    "microsoft/markitdown": {
+     "base": 1.1748,
+     "ast": 1.172,
+     "random": 1.1715,
+     "n": 100
+    },
+    "unclecode/crawl4ai": {
+     "base": 1.1658,
+     "ast": 1.1624,
+     "random": 1.1616,
+     "n": 100
+    },
+    "virattt/ai-hedge-fund": {
+     "base": 1.28,
+     "ast": 1.2748,
+     "random": 1.2731,
+     "n": 100
+    }
+   }
+  },
+  "heldout_l2r": {
+   "n": 150,
+   "groups": 10,
+   "ppl": {
+    "base": 1.359,
+    "ast": 1.3501,
+    "random": 1.3489
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0214,
+    "random": 0.0244
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0089,
+     "ci_examples": [
+      -0.0102,
+      -0.0076
+     ],
+     "ci_groups": [
+      -0.0123,
+      -0.0048
+     ]
+    },
+    "random-base": {
+     "value": -0.0101,
+     "ci_examples": [
+      -0.0115,
+      -0.0087
+     ],
+     "ci_groups": [
+      -0.0139,
+      -0.0056
+     ]
+    },
+    "ast-random": {
+     "value": 0.0012,
+     "ci_examples": [
+      0.001,
+      0.0015
+     ],
+     "ci_groups": [
+      0.0007,
+      0.0016
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "0/10",
+   "per_group": {
+    "browser-use/browser-use": {
+     "base": 1.6034,
+     "ast": 1.5875,
+     "random": 1.5855,
+     "n": 25
+    },
+    "HKUDS/LightRAG": {
+     "base": 1.4083,
+     "ast": 1.3952,
+     "random": 1.3931,
+     "n": 19
+    },
+    "VectifyAI/PageIndex": {
+     "base": 1.4501,
+     "ast": 1.4378,
+     "random": 1.4362,
+     "n": 17
+    },
+    "RVC-Boss/GPT-SoVITS": {
+     "base": 1.2148,
+     "ast": 1.2155,
+     "random": 1.2149,
+     "n": 14
+    },
+    "exo-explore/exo": {
+     "base": 1.2544,
+     "ast": 1.2488,
+     "random": 1.2478,
+     "n": 13
+    },
+    "microsoft/markitdown": {
+     "base": 1.2386,
+     "ast": 1.2338,
+     "random": 1.2331,
+     "n": 13
+    },
+    "unclecode/crawl4ai": {
+     "base": 1.1939,
+     "ast": 1.1867,
+     "random": 1.1866,
+     "n": 13
+    },
+    "D4Vinci/Scrapling": {
+     "base": 1.191,
+     "ast": 1.1883,
+     "random": 1.1879,
+     "n": 12
+    },
+    "TauricResearch/TradingAgents": {
+     "base": 1.3537,
+     "ast": 1.3423,
+     "random": 1.3403,
+     "n": 12
+    },
+    "virattt/ai-hedge-fund": {
+     "base": 1.3987,
+     "ast": 1.3861,
+     "random": 1.3854,
+     "n": 12
+    }
+   }
+  }
+ },
+ "primary": {
+  "rule": "AST beats random iff Add ast-random < 0 and repo-level CI upper bound < 0",
+  "ast_minus_random": 0.0001,
+  "ci_groups": [
+   -0.0005,
+   0.0004
+  ],
+  "ast_beats_random": false
+ }
+}

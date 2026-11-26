@@ -1,0 +1,28 @@
+{
+ "train": [
+  "tesseract-ocr/tesseract",
+  "nomic-ai/gpt4all",
+  "ocornut/imgui",
+  "ggml-org/whisper.cpp",
+  "hyprwm/Hyprland",
+  "google/googletest",
+  "aristocratos/btop",
+  "ossrs/srs",
+  "ml-explore/mlx",
+  "taichi-dev/taichi",
+  "fmtlib/fmt",
+  "uNetworking/uWebSockets"
+ ],
+ "heldout": [
+  "78/xiaozhi-esp32",
+  "deepseek-ai/3FS",
+  "kvcache-ai/Mooncake",
+  "lemonade-sdk/lemonade",
+  "xxnuo/MTranServer",
+  "ikawrakow/ik_llama.cpp",
+  "duckdb/ducklake",
+  "Liniyous/ElaWidgetTools",
+  "lupinemachines/lupine",
+  "bmorcelli/Launcher"
+ ]
+}

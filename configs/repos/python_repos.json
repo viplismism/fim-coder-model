@@ -1,0 +1,28 @@
+{
+ "train": [
+  "fastapi/fastapi",
+  "3b1b/manim",
+  "abi/screenshot-to-code",
+  "hiyouga/LlamaFactory",
+  "pallets/flask",
+  "FoundationAgents/MetaGPT",
+  "mem0ai/mem0",
+  "keras-team/keras",
+  "Textualize/rich",
+  "psf/requests",
+  "Aider-AI/aider",
+  "hiroi-sora/Umi-OCR"
+ ],
+ "heldout": [
+  "microsoft/markitdown",
+  "TauricResearch/TradingAgents",
+  "browser-use/browser-use",
+  "D4Vinci/Scrapling",
+  "unclecode/crawl4ai",
+  "RVC-Boss/GPT-SoVITS",
+  "virattt/ai-hedge-fund",
+  "exo-explore/exo",
+  "HKUDS/LightRAG",
+  "VectifyAI/PageIndex"
+ ]
+}

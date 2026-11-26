@@ -1,0 +1,156 @@
+"""Small tests: PSM label mask, tokenization boundaries, AST eligibility, UTF-8 offsets, windows, pairing."""
+
+import math
+import random
+
+import pytest
+
+from core import config as sources
+from data.holes import SourceText, Windower, eligible_nodes, line_token_counts, parser, sample_file
+from core.fim_format import IGNORE, PSM, char_perplexity
+
+CFG = sources.load_config()
+EXEMPT = set(CFG["data"]["keyword_text_exempt_types"])
+
+
+@pytest.fixture(scope="module")
+def psm():
+    from transformers import AutoTokenizer
+    tok = AutoTokenizer.from_pretrained(CFG["model"]["name"], revision=CFG["model"]["revision"])
+    return PSM(tok, CFG["format"])
+
+
+def test_label_mask_middle_plus_eos_only(psm):
+    prefix, middle, suffix = "fn f() -> u32 {\n    ", "a + 1", "\n}\n"
+    b = psm.build(prefix, suffix, middle, add_eos=True)
+    i = psm.ids
+    assert b["input_ids"][:2] == [i["bos"], i["fim_begin"]]
+    assert b["input_ids"][b["n_prompt"] - 1] == i["fim_end"]
+    sup = [t for t, l in zip(b["input_ids"], b["labels"]) if l != IGNORE]
+    assert sup == psm.encode(middle) + [i["eos"]]
+    assert all(l == IGNORE for l in b["labels"][: b["n_prompt"]])
+    assert b["labels"][-1] == i["eos"] and b["input_ids"][-1] == i["eos"]
+    assert psm.tok.decode(sup[:-1], skip_special_tokens=False) == middle
+
+
+def test_scoring_build_has_no_eos(psm):
+    b = psm.build("a", "b", "c", add_eos=False)
+    assert psm.ids["eos"] not in b["input_ids"]
+
+
+def test_separate_segment_tokenization_equals_joint(psm):
+    # Sentinels are added tokens, so segment-wise encoding must equal encoding the joined string.
+    f = CFG["format"]
+    for prefix, suffix, middle in [("let x = ", ";\n", "foo(1)"), ("  ", "  }", " \n  bar"), ("ø ÷", "é", "ü")]:
+        joint = psm.tok(f["bos"] + f["fim_begin"] + prefix + f["fim_hole"] + suffix + f["fim_end"] + middle,
+                        add_special_tokens=False)["input_ids"]
+        assert joint == psm.build(prefix, suffix, middle, add_eos=False)["input_ids"]
+
+
+def test_char_perplexity():
+    assert char_perplexity(0.0, 5) == 1.0
+    assert math.isclose(char_perplexity(-10.0, 5), math.exp(2.0))
+
+
+def test_utf8_offsets_and_reconstruction():
+    text = "// ø comment\nfn café(x: u8) -> u8 {\n    x // ü\n}\n"
+    src = SourceText(text)
+    tree = parser().parse(src.data)
+    for n in eligible_nodes(tree, src, EXEMPT):
+        s, e = src.char_of_byte(n["start_byte"]), src.char_of_byte(n["end_byte"])
+        assert text[s:e] == src.data[n["start_byte"]:n["end_byte"]].decode()
+        assert text[:s] + text[s:e] + text[e:] == text
+        assert src.byte_of_char(s) == n["start_byte"]
+    with pytest.raises(ValueError):
+        src.char_of_byte(4)  # inside the two-byte 'ø'
+
+
+def test_eligibility_rules():
+    text = "/// doc\npub fn f(&mut self) -> bool { return true; }\n"
+    src = SourceText(text)
+    nodes = eligible_nodes(parser().parse(src.data), src, EXEMPT)
+    types = {n["type"] for n in nodes}
+    texts = {text[n["start_byte"]:n["end_byte"]] for n in nodes}
+    assert "source_file" not in types                       # root excluded
+    assert "line_comment" in types                          # standalone comment eligible
+    assert "doc_comment" not in types and "outer_doc_comment_marker" not in types  # comment internals excluded
+    for kw in ("pub", "self", "mut", "true"):
+        assert kw not in texts                              # keyword leaves excluded
+    assert "()" not in texts and "{" not in texts           # punctuation excluded
+    assert "return true" in texts and "&mut self" in texts  # composite nodes stay eligible
+    assert "function_item" in types and "block" in types
+
+
+def test_pairs_reproducible_and_matched():
+    text = "fn a() {}\n" * 50 + "/* block */\nstruct S { x: u8 }\n"
+    data = text.encode()
+    tree = parser().parse(data)
+    p1 = sample_file("x.rs", text, tree, 20, 7, EXEMPT)
+    p2 = sample_file("x.rs", text, tree, 20, 7, EXEMPT)
+    assert p1 == p2
+    for p in p1:
+        (s, e), (rs, re_) = p["ast"], p["random"]
+        assert e - s == re_ - rs and 0 <= rs and re_ <= len(text)
+    # size-proportional: large nodes should dominate over 2000 draws
+    many = sample_file("x.rs", text, tree, 2000, 7, EXEMPT)
+    big = sum(p["node_type"] == "source_file" for p in many)
+    assert big == 0
+
+
+def test_window_fits_and_keeps_answer(psm):
+    text = "".join(f"fn f{i}() -> u32 {{ {i} }}\n" for i in range(800))
+    src = SourceText(text)
+    lt = line_token_counts(src, psm)
+    w = Windower(psm, 256)
+    s = text.index("fn f400"); e = text.index("\n", s)
+    mt = len(psm.encode(text[s:e]))
+    ws, we, total = w.window(src, lt, s, e, mt)
+    assert ws <= s and e <= we and total <= 256
+    b = psm.build(text[ws:s], text[e:we], text[s:e], add_eos=True)
+    assert len(b["input_ids"]) == total
+    assert ws in src.line_starts and (we == len(text) or text[we - 1] == "\n")
+    # an answer that cannot fit is rejected, never truncated
+    assert w.window(src, lt, 0, len(text), len(psm.encode(text))) is None
+
+
+
+def test_aligned_span_is_node_aligned_and_reproducible():
+    import random as _r
+    from data.holes import aligned_span
+    text = "fn a(x: u32) -> u32 {\n    let y = x + 1;\n    let z = y * 2;\n    z - 3\n}\n\nstruct S { a: u8, b: u16 }\n"
+    src = SourceText(text); tree = parser().parse(src.data)
+    starts, ends, stack = set(), set(), [tree.root_node]
+    while stack:
+        n = stack.pop(); starts.add(n.start_byte); ends.add(n.end_byte); stack.extend(n.children)
+    seen = set()
+    for seed in range(50):
+        r1 = aligned_span(tree, src, _r.Random(seed), EXEMPT); r2 = aligned_span(tree, src, _r.Random(seed), EXEMPT)
+        assert r1 == r2 and r1 is not None
+        s, e, _ = r1
+        assert src.byte_of_char(s) in starts and src.byte_of_char(e) in ends and text[s:e].strip()
+        seen.add(text[s:e])
+    assert any("\n" in x for x in seen) and len(seen) > 5   # multi-statement spans occur, and variety
+
+
+def test_windowed_aligned_span_respects_cap_before_snapping():
+    import random as _r
+    from data.holes import aligned_span
+    text = "".join(f"fn f{i}(x: u32) -> u32 {{\n    let y = x + {i};\n    y * 2\n}}\n\n" for i in range(300))
+    src = SourceText(text); tree = parser().parse(src.data)
+    lit = [aligned_span(tree, src, _r.Random(s), EXEMPT) for s in range(200)]
+    win = [aligned_span(tree, src, _r.Random(s), EXEMPT, max_span_chars=400) for s in range(200)]
+    mean = lambda xs: sum(e - s for s, e, _ in xs) / len(xs)
+    assert all(w is not None for w in win)
+    assert mean(win) < mean(lit) / 5          # windowed spans are much smaller than file-wide random endpoints
+    assert aligned_span(tree, src, _r.Random(3), EXEMPT, max_span_chars=400) == aligned_span(tree, src, _r.Random(3), EXEMPT, max_span_chars=400)
+
+
+def test_length_matched_aligned_span():
+    import random as _r
+    from data.holes import aligned_span
+    text = "".join(f"fn f{i}(x: u32) -> u32 {{\n    let y = x + {i};\n    y * 2\n}}\n\n" for i in range(300))
+    src = SourceText(text); tree = parser().parse(src.data)
+    for target in (5, 40, 400):
+        spans = [aligned_span(tree, src, _r.Random(s), EXEMPT, target_chars=target) for s in range(100)]
+        med = sorted(e - s for s, e, _ in spans)[50]
+        assert target / 4 <= med <= target * 4, (target, med)   # snapped lengths track the target

@@ -1,0 +1,38 @@
+{
+  "reth": {
+    "url": "https://github.com/paradigmxyz/reth",
+    "commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+    "file_glob": "**/*.rs"
+  },
+  "benchmark": {
+    "hf_dataset": "gonglinyuan/real_fim_eval",
+    "revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+    "splits": ["add", "edit"],
+    "lang": "rust"
+  },
+  "name_patterns": {
+    "repo": "reth|paradigmxyz|op-rs|op[-_]reth",
+    "content": {
+      "reth_word": "\\breth\\b",
+      "reth_crate_underscore": "\\breth_\\w+",
+      "reth_crate_dash": "\\breth-[a-z]",
+      "paradigmxyz": "paradigmxyz",
+      "op_reth": "op[-_]reth",
+      "revm": "\\brevm\\b",
+      "alloy": "\\balloy[_-]\\w+|\\balloy::"
+    }
+  },
+  "window": {
+    "lines": 5,
+    "min_chars": 150,
+    "normalization": "strip leading/trailing whitespace per line, drop blank lines"
+  },
+  "long_line": {
+    "min_chars": 60,
+    "boilerplate_regex": "^(#\\[derive|#\\[cfg_attr|fn (fmt|serialize|deserialize|visit_\\w+|source)\\b)"
+  },
+  "positive_control": {
+    "repo": "zed-industries/zed",
+    "reference_path_prefix": "crates/editor"
+  }
+}

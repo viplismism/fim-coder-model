@@ -1,0 +1,56 @@
+{
+ "run_name": "20261113T120806+0530_typescript-ast_train_s42",
+ "started": "2026-11-13T12:08:06+05:30",
+ "timezone": "IST",
+ "dependency_lock_sha256": "18d35f72ec9a8837127aa40a9ff21cdb45033900f08a862974c798edb27ce2ef",
+ "packages": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "peft": "0.21.2",
+  "accelerate": "1.15.0",
+  "bitsandbytes": "0.50.2",
+  "tokenizers": "0.23.3"
+ },
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "base_precision": "bf16",
+ "data": {
+  "version": "typescript-fim-v2",
+  "manifest_created": "2026-11-13T06:34:05Z",
+  "manifest_sha256": "71f6e6c98a6c50f7b9511f483e4c8ba8579f0d64aa7694249d68fbcaf9c4ab3e",
+  "split_sha256": "4a8157473a3c07f1c882b8dfd8c4c0972034f1ec94acfef837cdc3b7bae901a0",
+  "train_file_sha256": "d5e8dba028cf30d53826e768097ec4254cbfbfd5893fa3670c7ce4b4b3508e9f",
+  "validation_subset_sha256": "887ff078296408fffe0ad42751b7c41e1c4f3c635e3f200bb27d002bd86b82bb",
+  "validation_examples_during_training": 128
+ },
+ "smoke_train_ids": null,
+ "gpu": "NVIDIA GB10",
+ "trainable": {
+  "tensors": 448,
+  "params": 39976960,
+  "unexpected": [],
+  "frozen_params": 6740512768
+ },
+ "final_full_validation": {
+  "final_full_validation_loss": 0.4026784896850586,
+  "final_full_validation_runtime": 515.6369,
+  "final_full_validation_samples_per_second": 1.005,
+  "final_full_validation_steps_per_second": 1.005,
+  "epoch": 1.0
+ },
+ "finished": "2026-11-13T20:27:10+05:30",
+ "status": "completed",
+ "wall_seconds": 29852.1,
+ "peak_memory_gb": 15.76,
+ "final_adapter": "logs/20261113T120806+0530_typescript-ast_train_s42/checkpoints/final_adapter"
+}

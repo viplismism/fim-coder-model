@@ -1,0 +1,7 @@
+{
+ "rule": "DECONTAMINATION.md addendum (train vs validation)",
+ "data_version": "go-fim-v2",
+ "train_files": 14411,
+ "validation_files": 716,
+ "removed_validation_files": {}
+}

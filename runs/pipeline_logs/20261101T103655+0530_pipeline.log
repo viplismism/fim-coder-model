@@ -1,0 +1,23 @@
+[2026-11-01 10:36:55 IST] preflight
+pins: {'reth_commit': '84caec584e79ddef33572394f787d2d1203a23c7', 'benchmark_revision': 'a36062544c7ed6c4e5ffb8dad8536fc7777e1f36', 'benchmark_sha256': {'add': 'bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22', 'edit': 'b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5'}}
+wandb <wandb-entity>/ast-aware-fim-finetuning access: PRIVATE
+settings: {'num_train_epochs': 1, 'per_device_batch_size': 1, 'gradient_accumulation_steps': 16, 'learning_rate': 0.0001, 'lr_scheduler_type': 'cosine', 'warmup_ratio': 0.05, 'weight_decay': 0.0, 'max_grad_norm': 1.0, 'optim': 'adamw_torch', 'seed': 42, 'eval_steps': 50, 'save_steps': 50} lora: {'r': 16, 'alpha': 32, 'dropout': 0.05, 'target_modules': ['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj']}
+16 passed in 4.72s
+Mem:             121           3          93           0          25         118
+[2026-11-01 10:37:04 IST] smoke adapters to discard before training: logs/20261101T050754+0530_ast_smoke_s42/checkpoints
+logs/20261101T052856+0530_ast_smoke_s42/checkpoints
+logs/20261101T060003+0530_random_smoke_s42/checkpoints
+[2026-11-01 10:37:04 IST] removed logs/20261101T050754+0530_ast_smoke_s42/checkpoints (run logs kept)
+[2026-11-01 10:37:04 IST] removed logs/20261101T052856+0530_ast_smoke_s42/checkpoints (run logs kept)
+[2026-11-01 10:37:04 IST] removed logs/20261101T060003+0530_random_smoke_s42/checkpoints (run logs kept)
+[2026-11-01 10:37:04 IST] validation scoring: base
+[2026-11-01 10:55:41 IST] done: logs/20261101T103704+0530_base_eval_validation
+[2026-11-01 10:55:41 IST] training: ast
+[2026-11-01 22:27:16 IST] done: logs/20261101T105542+0530_ast_train_s42
+[2026-11-01 22:27:16 IST] validation scoring: ast
+[2026-11-01 23:01:31 IST] done: logs/20261101T222716+0530_ast_eval_validation
+[2026-11-01 23:01:31 IST] training: random
+[2026-11-02 10:31:43 IST] done: logs/20261101T230132+0530_random_train_s42
+[2026-11-02 10:31:43 IST] validation scoring: random
+[2026-11-02 11:06:01 IST] done: logs/20261102T103143+0530_random_eval_validation
+[2026-11-02 11:06:01 IST] all steps finished

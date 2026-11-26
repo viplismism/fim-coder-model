@@ -1,0 +1,784 @@
+{
+ "created_utc": "2026-11-02T05:50:02Z",
+ "sources": {
+  "reth_commit": "84caec584e79ddef33572394f787d2d1203a23c7",
+  "benchmark_revision": "a36062544c7ed6c4e5ffb8dad8536fc7777e1f36",
+  "benchmark_sha256": {
+   "add": "bd2ae46588c83c79bb4f99f967700377c4440c3607ad8550cb0334eb8c8a3f22",
+   "edit": "b4f19e8f40535b6421b7c847eebfb64c0be28aa59dc6f636e13fc6173a5b29c5"
+  }
+ },
+ "code": {
+  "commit": "9445db7c8387949ab88b8d9b7822d65f5a195c61",
+  "dirty_files": [
+   "?? scripts/run_final_eval.sh"
+  ],
+  "sha256": {
+   "fimexp/__init__.py": "fc436e4b166281310a552f8685633daac86d73b9c167b1817f4645b318b092ab",
+   "fimexp/build_data.py": "87c805467b11882a720ebc0394f8407e90d16cb9d937c7d4d2b87f09841108a3",
+   "fimexp/holes.py": "95d22fe2d53a14b3510c3bb94c599ca1dc5b9aa4e002c9dcf38e38bd618477ab",
+   "fimexp/model.py": "806b40e2100e97399ac66a7e572c9705086d53e5cba0c6d5d77934fbccdc6318",
+   "fimexp/psm.py": "7d45ba22bfe247321396484a7ed08b7aaaaa1cc2b2cc4b11e2d8577ce12a6483",
+   "fimexp/score.py": "0ebc7fb88ca4c4073a6f7ca10866f1df0a9b4da24398d06d4e35b8984a8b3d1b",
+   "fimexp/sources.py": "13c897aac7fbd76e2506d86b72b67b292019d517cb95079a8025418378d4ea4a",
+   "fimexp/split.py": "52b03ae71da6766ea40156de05f12d07245373be6ce8aae9ba0cc8de09066194",
+   "fimexp/tokenizer_whitespace.py": "0c463749fa22102d5c184b70fa61937fc94b904d2f4589dc6dec147b9efb432b",
+   "fimexp/train.py": "adc74bc973b4f13326157c2bf1a51cdf0abcc6280131dd0941e1669e91c8357b",
+   "fimexp/val_subset.py": "d76c13463a77068e31183956483f0fe6fa2acda394f38f1d1e25dd5f201cfe61",
+   "fimexp/wandb_log.py": "2d03f12f210a6a89da740a27ebc696fecee87e859ff57b40d0a379cdde4259fd",
+   "configs/experiment.yaml": "1480f48e02fc706a16ae14f7df66643e03fbda14fc5fe974727c356733712334"
+  }
+ },
+ "model": {
+  "name": "deepseek-ai/deepseek-coder-6.7b-base",
+  "revision": "ce2207a8bfef3ee92bd7dd4cc31c52cfa0046912"
+ },
+ "adapter": null,
+ "base_precision": "bf16",
+ "data_version": "rust-fim-v2",
+ "split": "test",
+ "pair_subset": null,
+ "edit_template": {
+  "status": "inferred",
+  "before_removed": "<<<<<<< ORIGINAL\n",
+  "after_removed": "=======\n",
+  "suffix_start": ">>>>>>> UPDATED\n"
+ },
+ "rules": {
+  "metric": "exp(-sum answer-token logprob / answer chars); EOS not scored",
+  "context": "full context up to 16384 tokens, error otherwise"
+ },
+ "tasks": {
+  "reth_ast": {
+   "examples": 845,
+   "chars": 1043394.0,
+   "answer_tokens": 309089.0,
+   "corpus_char_ppl": 1.2188156045722922,
+   "token_nll": 0.6679835173353832,
+   "per_package": {
+    "crates/consensus/debug-client": {
+     "examples": 13,
+     "chars": 7014,
+     "corpus_char_ppl": 1.1611703813298218
+    },
+    "crates/dst": {
+     "examples": 3,
+     "chars": 3544,
+     "corpus_char_ppl": 1.231448428424268
+    },
+    "crates/engine/invalid-block-hooks": {
+     "examples": 18,
+     "chars": 30656,
+     "corpus_char_ppl": 1.1927789992192588
+    },
+    "crates/errors": {
+     "examples": 3,
+     "chars": 635,
+     "corpus_char_ppl": 1.0871389346486757
+    },
+    "crates/ethereum/node": {
+     "examples": 263,
+     "chars": 220694,
+     "corpus_char_ppl": 1.262155116537745
+    },
+    "crates/ethereum/reth": {
+     "examples": 2,
+     "chars": 76,
+     "corpus_char_ppl": 1.3340719918059938
+    },
+    "crates/evm/evm": {
+     "examples": 82,
+     "chars": 116000,
+     "corpus_char_ppl": 1.1910591484460344
+    },
+    "crates/evm/execution-types": {
+     "examples": 48,
+     "chars": 91388,
+     "corpus_char_ppl": 1.1943277233424685
+    },
+    "crates/node/api": {
+     "examples": 6,
+     "chars": 492,
+     "corpus_char_ppl": 1.1894177302057556
+    },
+    "crates/prune/types": {
+     "examples": 31,
+     "chars": 68922,
+     "corpus_char_ppl": 1.1769994322423911
+    },
+    "crates/stages/stages": {
+     "examples": 269,
+     "chars": 428104,
+     "corpus_char_ppl": 1.2175417944744762
+    },
+    "crates/tasks": {
+     "examples": 76,
+     "chars": 54656,
+     "corpus_char_ppl": 1.225241121415969
+    },
+    "examples/beacon-api-sse": {
+     "examples": 4,
+     "chars": 2666,
+     "corpus_char_ppl": 1.1783453310813972
+    },
+    "examples/custom-rlpx-subprotocol": {
+     "examples": 12,
+     "chars": 7557,
+     "corpus_char_ppl": 1.1928023528668905
+    },
+    "testing/testing-utils": {
+     "examples": 15,
+     "chars": 10990,
+     "corpus_char_ppl": 1.296407519431311
+    }
+   }
+  },
+  "reth_random": {
+   "examples": 845,
+   "chars": 1043394.0,
+   "answer_tokens": 316062.0,
+   "corpus_char_ppl": 1.2126250662027418,
+   "token_nll": 0.6364362247178061,
+   "per_package": {
+    "crates/consensus/debug-client": {
+     "examples": 13,
+     "chars": 7014,
+     "corpus_char_ppl": 1.1770443056644304
+    },
+    "crates/dst": {
+     "examples": 3,
+     "chars": 3544,
+     "corpus_char_ppl": 1.3237008124373277
+    },
+    "crates/engine/invalid-block-hooks": {
+     "examples": 18,
+     "chars": 30656,
+     "corpus_char_ppl": 1.218480292076312
+    },
+    "crates/errors": {
+     "examples": 3,
+     "chars": 635,
+     "corpus_char_ppl": 1.192359208269978
+    },
+    "crates/ethereum/node": {
+     "examples": 263,
+     "chars": 220694,
+     "corpus_char_ppl": 1.2437522838004522
+    },
+    "crates/ethereum/reth": {
+     "examples": 2,
+     "chars": 76,
+     "corpus_char_ppl": 1.1979409936057723
+    },
+    "crates/evm/evm": {
+     "examples": 82,
+     "chars": 116000,
+     "corpus_char_ppl": 1.1760192799516778
+    },
+    "crates/evm/execution-types": {
+     "examples": 48,
+     "chars": 91388,
+     "corpus_char_ppl": 1.1728462363236671
+    },
+    "crates/node/api": {
+     "examples": 6,
+     "chars": 492,
+     "corpus_char_ppl": 1.077716177330857
+    },
+    "crates/prune/types": {
+     "examples": 31,
+     "chars": 68922,
+     "corpus_char_ppl": 1.2131549802313821
+    },
+    "crates/stages/stages": {
+     "examples": 269,
+     "chars": 428104,
+     "corpus_char_ppl": 1.2185972607200874
+    },
+    "crates/tasks": {
+     "examples": 76,
+     "chars": 54656,
+     "corpus_char_ppl": 1.188314110678617
+    },
+    "examples/beacon-api-sse": {
+     "examples": 4,
+     "chars": 2666,
+     "corpus_char_ppl": 1.2037562276887
+    },
+    "examples/custom-rlpx-subprotocol": {
+     "examples": 12,
+     "chars": 7557,
+     "corpus_char_ppl": 1.2077396974456713
+    },
+    "testing/testing-utils": {
+     "examples": 15,
+     "chars": 10990,
+     "corpus_char_ppl": 1.1966350793751637
+    }
+   }
+  },
+  "reth_l2r": {
+   "examples": 206,
+   "chars": 1692791.0,
+   "answer_tokens": 534450.0,
+   "corpus_char_ppl": 1.318471074018441,
+   "token_nll": 0.8756864950916864,
+   "per_package": {
+    "crates/consensus/debug-client": {
+     "examples": 5,
+     "chars": 22182,
+     "corpus_char_ppl": 1.2885293958279336
+    },
+    "crates/dst": {
+     "examples": 1,
+     "chars": 4193,
+     "corpus_char_ppl": 1.4583311346600984
+    },
+    "crates/engine/invalid-block-hooks": {
+     "examples": 4,
+     "chars": 36936,
+     "corpus_char_ppl": 1.2658910118063262
+    },
+    "crates/errors": {
+     "examples": 2,
+     "chars": 2817,
+     "corpus_char_ppl": 1.3761984195168926
+    },
+    "crates/ethereum/node": {
+     "examples": 62,
+     "chars": 509368,
+     "corpus_char_ppl": 1.3754344561428733
+    },
+    "crates/ethereum/reth": {
+     "examples": 1,
+     "chars": 3631,
+     "corpus_char_ppl": 1.271358013076436
+    },
+    "crates/evm/evm": {
+     "examples": 19,
+     "chars": 164131,
+     "corpus_char_ppl": 1.262436598359546
+    },
+    "crates/evm/execution-types": {
+     "examples": 11,
+     "chars": 98883,
+     "corpus_char_ppl": 1.2355545700405817
+    },
+    "crates/node/api": {
+     "examples": 2,
+     "chars": 10286,
+     "corpus_char_ppl": 1.3746027320835337
+    },
+    "crates/prune/types": {
+     "examples": 9,
+     "chars": 53949,
+     "corpus_char_ppl": 1.2668758211949382
+    },
+    "crates/stages/stages": {
+     "examples": 61,
+     "chars": 593114,
+     "corpus_char_ppl": 1.320312272227697
+    },
+    "crates/tasks": {
+     "examples": 16,
+     "chars": 145219,
+     "corpus_char_ppl": 1.2770058794291577
+    },
+    "examples/beacon-api-sse": {
+     "examples": 1,
+     "chars": 6739,
+     "corpus_char_ppl": 1.3694437624351163
+    },
+    "examples/custom-rlpx-subprotocol": {
+     "examples": 8,
+     "chars": 14069,
+     "corpus_char_ppl": 1.299698720919712
+    },
+    "testing/testing-utils": {
+     "examples": 4,
+     "chars": 27274,
+     "corpus_char_ppl": 1.2752583663811434
+    }
+   }
+  },
+  "bench_add": {
+   "examples": 2747,
+   "chars": 1820007.0,
+   "answer_tokens": 570037.0,
+   "corpus_char_ppl": 1.1815782573865334,
+   "token_nll": 0.5327199478446465,
+   "per_package": {
+    "DioxusLabs/dioxus": {
+     "examples": 3,
+     "chars": 3378,
+     "corpus_char_ppl": 1.1096194426464359
+    },
+    "FuelLabs/fuel-core": {
+     "examples": 36,
+     "chars": 20043,
+     "corpus_char_ppl": 1.1301628903525636
+    },
+    "FuelLabs/fuels-rs": {
+     "examples": 1,
+     "chars": 1142,
+     "corpus_char_ppl": 1.0680578577755528
+    },
+    "FuelLabs/sway": {
+     "examples": 4,
+     "chars": 2051,
+     "corpus_char_ppl": 1.2516510148645887
+    },
+    "TabbyML/tabby": {
+     "examples": 6,
+     "chars": 8681,
+     "corpus_char_ppl": 1.260722102354766
+    },
+    "ankitects/anki": {
+     "examples": 2,
+     "chars": 3846,
+     "corpus_char_ppl": 1.2685512357828053
+    },
+    "astral-sh/ruff": {
+     "examples": 9,
+     "chars": 4719,
+     "corpus_char_ppl": 1.1748203333741554
+    },
+    "astral-sh/uv": {
+     "examples": 1,
+     "chars": 63,
+     "corpus_char_ppl": 1.0466011926511707
+    },
+    "bevyengine/bevy": {
+     "examples": 1,
+     "chars": 332,
+     "corpus_char_ppl": 1.206259909896363
+    },
+    "bytecodealliance/wasmtime": {
+     "examples": 16,
+     "chars": 22326,
+     "corpus_char_ppl": 1.1800593879685137
+    },
+    "chroma-core/chroma": {
+     "examples": 2,
+     "chars": 323,
+     "corpus_char_ppl": 1.07019174723716
+    },
+    "facebook/relay": {
+     "examples": 1,
+     "chars": 330,
+     "corpus_char_ppl": 1.5547153228099717
+    },
+    "helix-editor/helix": {
+     "examples": 25,
+     "chars": 30870,
+     "corpus_char_ppl": 1.2063956010426062
+    },
+    "huggingface/candle": {
+     "examples": 7,
+     "chars": 1850,
+     "corpus_char_ppl": 1.1634247373996964
+    },
+    "huggingface/tokenizers": {
+     "examples": 7,
+     "chars": 1940,
+     "corpus_char_ppl": 1.0643505569383616
+    },
+    "hyperium/hyper": {
+     "examples": 2,
+     "chars": 916,
+     "corpus_char_ppl": 1.2268311475273508
+    },
+    "iced-rs/iced": {
+     "examples": 72,
+     "chars": 36203,
+     "corpus_char_ppl": 1.1661643296372617
+    },
+    "ijl/orjson": {
+     "examples": 7,
+     "chars": 3331,
+     "corpus_char_ppl": 1.173398081977122
+    },
+    "influxdata/influxdb": {
+     "examples": 82,
+     "chars": 85740,
+     "corpus_char_ppl": 1.1592056160287942
+    },
+    "linera-io/linera-protocol": {
+     "examples": 130,
+     "chars": 92813,
+     "corpus_char_ppl": 1.1324845932642567
+    },
+    "lowRISC/opentitan": {
+     "examples": 26,
+     "chars": 13154,
+     "corpus_char_ppl": 1.173723147219486
+    },
+    "meilisearch/meilisearch": {
+     "examples": 149,
+     "chars": 115717,
+     "corpus_char_ppl": 1.2166938455095164
+    },
+    "microsoft/vscode": {
+     "examples": 2,
+     "chars": 758,
+     "corpus_char_ppl": 1.2739816501966728
+    },
+    "mozilla/gecko-dev": {
+     "examples": 30,
+     "chars": 39271,
+     "corpus_char_ppl": 1.1487339345775456
+    },
+    "nushell/nushell": {
+     "examples": 140,
+     "chars": 79030,
+     "corpus_char_ppl": 1.2298991376824966
+    },
+    "pola-rs/polars": {
+     "examples": 301,
+     "chars": 199528,
+     "corpus_char_ppl": 1.1997101401092538
+    },
+    "pyca/cryptography": {
+     "examples": 1,
+     "chars": 4856,
+     "corpus_char_ppl": 1.1592627168084484
+    },
+    "qdrant/qdrant": {
+     "examples": 202,
+     "chars": 86626,
+     "corpus_char_ppl": 1.1603538312177248
+    },
+    "rust-lang/mdBook": {
+     "examples": 1,
+     "chars": 40,
+     "corpus_char_ppl": 1.0368765366423272
+    },
+    "rustdesk/rustdesk": {
+     "examples": 7,
+     "chars": 9858,
+     "corpus_char_ppl": 1.1967681415623728
+    },
+    "servo/servo": {
+     "examples": 210,
+     "chars": 119967,
+     "corpus_char_ppl": 1.2049595477823947
+    },
+    "starship/starship": {
+     "examples": 1,
+     "chars": 260,
+     "corpus_char_ppl": 1.6315926168979304
+    },
+    "surrealdb/surrealdb": {
+     "examples": 207,
+     "chars": 83723,
+     "corpus_char_ppl": 1.2385859858317008
+    },
+    "swc-project/swc": {
+     "examples": 59,
+     "chars": 33999,
+     "corpus_char_ppl": 1.2228001983402945
+    },
+    "tauri-apps/tauri": {
+     "examples": 18,
+     "chars": 3598,
+     "corpus_char_ppl": 1.3438545534768231
+    },
+    "tikv/tikv": {
+     "examples": 32,
+     "chars": 29250,
+     "corpus_char_ppl": 1.2832269113361914
+    },
+    "tokio-rs/axum": {
+     "examples": 3,
+     "chars": 1539,
+     "corpus_char_ppl": 1.052774312695646
+    },
+    "tokio-rs/tokio": {
+     "examples": 19,
+     "chars": 14506,
+     "corpus_char_ppl": 1.3329729190991588
+    },
+    "typst/typst": {
+     "examples": 57,
+     "chars": 35011,
+     "corpus_char_ppl": 1.2298401657823366
+    },
+    "unionlabs/union": {
+     "examples": 208,
+     "chars": 168915,
+     "corpus_char_ppl": 1.155581396525966
+    },
+    "uutils/coreutils": {
+     "examples": 80,
+     "chars": 64613,
+     "corpus_char_ppl": 1.2680499574438002
+    },
+    "vectordotdev/vector": {
+     "examples": 61,
+     "chars": 30197,
+     "corpus_char_ppl": 1.1715124016457032
+    },
+    "vercel/next.js": {
+     "examples": 23,
+     "chars": 12947,
+     "corpus_char_ppl": 1.1022977807787755
+    },
+    "vercel/turborepo": {
+     "examples": 53,
+     "chars": 52848,
+     "corpus_char_ppl": 1.1446926212846065
+    },
+    "yewstack/yew": {
+     "examples": 5,
+     "chars": 1802,
+     "corpus_char_ppl": 1.1755694354887631
+    },
+    "zed-industries/zed": {
+     "examples": 438,
+     "chars": 297097,
+     "corpus_char_ppl": 1.1333585322046529
+    }
+   }
+  },
+  "bench_edit": {
+   "examples": 1980,
+   "chars": 1011869.0,
+   "answer_tokens": 284148.0,
+   "corpus_char_ppl": 1.1534771661369365,
+   "token_nll": 0.5084521829312372,
+   "per_package": {
+    "DioxusLabs/dioxus": {
+     "examples": 4,
+     "chars": 3920,
+     "corpus_char_ppl": 1.074247307239503
+    },
+    "FuelLabs/fuel-core": {
+     "examples": 23,
+     "chars": 8359,
+     "corpus_char_ppl": 1.144808311736994
+    },
+    "FuelLabs/fuels-rs": {
+     "examples": 4,
+     "chars": 1345,
+     "corpus_char_ppl": 1.166753731117718
+    },
+    "FuelLabs/sway": {
+     "examples": 2,
+     "chars": 872,
+     "corpus_char_ppl": 1.1253600747333508
+    },
+    "TabbyML/tabby": {
+     "examples": 2,
+     "chars": 2098,
+     "corpus_char_ppl": 1.2486305908296673
+    },
+    "ankitects/anki": {
+     "examples": 1,
+     "chars": 463,
+     "corpus_char_ppl": 1.2070349060018317
+    },
+    "astral-sh/ruff": {
+     "examples": 6,
+     "chars": 2540,
+     "corpus_char_ppl": 1.129894514793007
+    },
+    "astral-sh/uv": {
+     "examples": 14,
+     "chars": 2749,
+     "corpus_char_ppl": 1.098873278887462
+    },
+    "bevyengine/bevy": {
+     "examples": 1,
+     "chars": 95,
+     "corpus_char_ppl": 1.0748308951494103
+    },
+    "bytecodealliance/wasmtime": {
+     "examples": 2,
+     "chars": 2431,
+     "corpus_char_ppl": 1.4609280496418655
+    },
+    "chroma-core/chroma": {
+     "examples": 1,
+     "chars": 158,
+     "corpus_char_ppl": 1.1609391327156164
+    },
+    "helix-editor/helix": {
+     "examples": 18,
+     "chars": 4816,
+     "corpus_char_ppl": 1.2509250647891077
+    },
+    "huggingface/candle": {
+     "examples": 2,
+     "chars": 1230,
+     "corpus_char_ppl": 1.148911072574455
+    },
+    "hyperium/hyper": {
+     "examples": 1,
+     "chars": 296,
+     "corpus_char_ppl": 1.2027403187887293
+    },
+    "iced-rs/iced": {
+     "examples": 35,
+     "chars": 18237,
+     "corpus_char_ppl": 1.1169744964765815
+    },
+    "ijl/orjson": {
+     "examples": 5,
+     "chars": 2751,
+     "corpus_char_ppl": 1.1228320920824202
+    },
+    "influxdata/influxdb": {
+     "examples": 34,
+     "chars": 16293,
+     "corpus_char_ppl": 1.1794107544954673
+    },
+    "lapce/lapce": {
+     "examples": 1,
+     "chars": 754,
+     "corpus_char_ppl": 1.167850347342669
+    },
+    "linera-io/linera-protocol": {
+     "examples": 85,
+     "chars": 33303,
+     "corpus_char_ppl": 1.1158104746306325
+    },
+    "lowRISC/opentitan": {
+     "examples": 15,
+     "chars": 4427,
+     "corpus_char_ppl": 1.3206715445939703
+    },
+    "meilisearch/meilisearch": {
+     "examples": 101,
+     "chars": 45952,
+     "corpus_char_ppl": 1.146325366585354
+    },
+    "microsoft/vscode": {
+     "examples": 1,
+     "chars": 236,
+     "corpus_char_ppl": 1.1783450549515166
+    },
+    "mozilla/gecko-dev": {
+     "examples": 35,
+     "chars": 24457,
+     "corpus_char_ppl": 1.165665059566851
+    },
+    "nushell/nushell": {
+     "examples": 148,
+     "chars": 75646,
+     "corpus_char_ppl": 1.1534404623617727
+    },
+    "pola-rs/polars": {
+     "examples": 200,
+     "chars": 132376,
+     "corpus_char_ppl": 1.1824477535512257
+    },
+    "protocolbuffers/protobuf": {
+     "examples": 1,
+     "chars": 1017,
+     "corpus_char_ppl": 1.2137642788892125
+    },
+    "qdrant/qdrant": {
+     "examples": 131,
+     "chars": 47184,
+     "corpus_char_ppl": 1.1418068773950965
+    },
+    "rust-lang/mdBook": {
+     "examples": 4,
+     "chars": 3588,
+     "corpus_char_ppl": 1.1726386667982196
+    },
+    "rustdesk/rustdesk": {
+     "examples": 7,
+     "chars": 3728,
+     "corpus_char_ppl": 1.2640259068367574
+    },
+    "servo/servo": {
+     "examples": 170,
+     "chars": 112191,
+     "corpus_char_ppl": 1.1421979091152137
+    },
+    "sharkdp/bat": {
+     "examples": 1,
+     "chars": 363,
+     "corpus_char_ppl": 1.2289710368444746
+    },
+    "starship/starship": {
+     "examples": 1,
+     "chars": 91,
+     "corpus_char_ppl": 1.2656248800756043
+    },
+    "surrealdb/surrealdb": {
+     "examples": 128,
+     "chars": 48714,
+     "corpus_char_ppl": 1.1972100122382334
+    },
+    "swc-project/swc": {
+     "examples": 33,
+     "chars": 9942,
+     "corpus_char_ppl": 1.1458822827252377
+    },
+    "tauri-apps/tauri": {
+     "examples": 19,
+     "chars": 5190,
+     "corpus_char_ppl": 1.2101475261544874
+    },
+    "tikv/tikv": {
+     "examples": 22,
+     "chars": 10413,
+     "corpus_char_ppl": 1.2624307246496083
+    },
+    "tokio-rs/axum": {
+     "examples": 1,
+     "chars": 252,
+     "corpus_char_ppl": 1.2416626164639835
+    },
+    "tokio-rs/tokio": {
+     "examples": 7,
+     "chars": 1584,
+     "corpus_char_ppl": 1.1825134834909465
+    },
+    "typst/typst": {
+     "examples": 60,
+     "chars": 30973,
+     "corpus_char_ppl": 1.2279388780851008
+    },
+    "unionlabs/union": {
+     "examples": 155,
+     "chars": 72936,
+     "corpus_char_ppl": 1.140587032423554
+    },
+    "uutils/coreutils": {
+     "examples": 41,
+     "chars": 20830,
+     "corpus_char_ppl": 1.1766241775877053
+    },
+    "vectordotdev/vector": {
+     "examples": 29,
+     "chars": 11670,
+     "corpus_char_ppl": 1.1658791414739598
+    },
+    "vercel/next.js": {
+     "examples": 43,
+     "chars": 19732,
+     "corpus_char_ppl": 1.1297658820143281
+    },
+    "vercel/turborepo": {
+     "examples": 32,
+     "chars": 17272,
+     "corpus_char_ppl": 1.160970370760695
+    },
+    "yewstack/yew": {
+     "examples": 4,
+     "chars": 2263,
+     "corpus_char_ppl": 1.224682493034449
+    },
+    "zed-industries/zed": {
+     "examples": 350,
+     "chars": 206132,
+     "corpus_char_ppl": 1.1178254742992368
+    }
+   },
+   "status": "PROVISIONAL: Edit prompt layout inferred from the dataset figure, not confirmed"
+  }
+ }
+}

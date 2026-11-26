@@ -1,0 +1,29 @@
+{
+  "n_grams": 10,
+  "num_buckets": 14,
+  "hashes_per_bucket": 8,
+  "norm": {
+    "lowercase": false,
+    "norm_whitespace": true,
+    "remove_punctuation": false,
+    "norm_unicode_diacritics": false,
+    "norm_numbers": true,
+    "norm_weekdays": false,
+    "norm_monthnames": false
+  },
+  "chunk_lines": 30,
+  "chunk_stride": 15,
+  "min_middle_lines": 5,
+  "min_doc_ngrams": 20,
+  "verify_jaccard": 0.5,
+  "max_pairs_per_cluster": 2000,
+  "planted_controls": 20,
+  "rationale": {
+    "tokens": "Rust-aware word tokens: identifiers, numbers and single punctuation characters (punctuation carries structure in code); whitespace and comment formatting do not matter.",
+    "normalization": "case kept (Rust identifiers are case-sensitive), numbers normalized to 0 so changed constants still match, no punctuation removal, no diacritic folding.",
+    "n_grams": "10 tokens is roughly one line of Rust: long enough that single generic lines (derives, fmt signatures) are not shared shingles by themselves.",
+    "units": "whole files plus 30-non-blank-line chunks (stride 15) on both sides so copied functions inside large files are comparable at similar size; benchmark answers (middles) of 5+ non-blank lines as their own unit; Edit examples contribute pre- and post-change files.",
+    "lsh": "14 bands x 8 rows: a pair with Jaccard ~0.72 has a 50% chance to become a candidate; ~0.5 rarely does.",
+    "verification": "every benchmark doc in a cluster with any reth doc is compared exactly (shingle Jaccard and containment) against its best reth partner; verified = Jaccard >= 0.5, then inspected by hand."
+  }
+}

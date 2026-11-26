@@ -1,0 +1,672 @@
+{
+ "lang": "go",
+ "eval_dirs": {
+  "base": "logs/20261117T052109+0530_go-base_eval_final",
+  "ast": "logs/20261117T062750+0530_go-ast_eval_final",
+  "random": "logs/20261117T083437+0530_go-random_eval_final"
+ },
+ "bootstrap_resamples": 2000,
+ "seed": 20261101,
+ "tasks": {
+  "bench_add": {
+   "n": 1312,
+   "groups": 18,
+   "ppl": {
+    "base": 1.1742,
+    "ast": 1.1749,
+    "random": 1.1727
+   },
+   "less_uncertainty_vs_base": {
+    "ast": -0.0037,
+    "random": 0.0078
+   },
+   "diff": {
+    "ast-base": {
+     "value": 0.0007,
+     "ci_examples": [
+      0.0003,
+      0.0011
+     ],
+     "ci_groups": [
+      0.0004,
+      0.001
+     ]
+    },
+    "random-base": {
+     "value": -0.0015,
+     "ci_examples": [
+      -0.0017,
+      -0.0012
+     ],
+     "ci_groups": [
+      -0.0018,
+      -0.0012
+     ]
+    },
+    "ast-random": {
+     "value": 0.0022,
+     "ci_examples": [
+      0.0019,
+      0.0025
+     ],
+     "ci_groups": [
+      0.002,
+      0.0024
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "1/18",
+   "per_group": {
+    "grafana/grafana": {
+     "base": 1.1291,
+     "ast": 1.1299,
+     "random": 1.1279,
+     "n": 319
+    },
+    "kubernetes/kubernetes": {
+     "base": 1.1414,
+     "ast": 1.1417,
+     "random": 1.1397,
+     "n": 260
+    },
+    "containers/podman": {
+     "base": 1.2306,
+     "ast": 1.2313,
+     "random": 1.2287,
+     "n": 195
+    },
+    "gohugoio/hugo": {
+     "base": 1.2178,
+     "ast": 1.2187,
+     "random": 1.2161,
+     "n": 95
+    },
+    "google/osv-scanner": {
+     "base": 1.2286,
+     "ast": 1.2295,
+     "random": 1.2276,
+     "n": 80
+    },
+    "ethereum/go-ethereum": {
+     "base": 1.2127,
+     "ast": 1.2119,
+     "random": 1.2094,
+     "n": 62
+    },
+    "k3s-io/k3s": {
+     "base": 1.2103,
+     "ast": 1.2114,
+     "random": 1.2088,
+     "n": 58
+    },
+    "ollama/ollama": {
+     "base": 1.1947,
+     "ast": 1.1967,
+     "random": 1.1942,
+     "n": 53
+    },
+    "google/gvisor": {
+     "base": 1.1999,
+     "ast": 1.2012,
+     "random": 1.1985,
+     "n": 43
+    },
+    "mudler/LocalAI": {
+     "base": 1.1649,
+     "ast": 1.1663,
+     "random": 1.1644,
+     "n": 35
+    },
+    "rclone/rclone": {
+     "base": 1.2266,
+     "ast": 1.2286,
+     "random": 1.2262,
+     "n": 31
+    },
+    "v2fly/v2ray-core": {
+     "base": 1.1809,
+     "ast": 1.1794,
+     "random": 1.1784,
+     "n": 31
+    },
+    "traefik/traefik": {
+     "base": 1.1354,
+     "ast": 1.1361,
+     "random": 1.1336,
+     "n": 26
+    },
+    "caddyserver/caddy": {
+     "base": 1.2861,
+     "ast": 1.2885,
+     "random": 1.2846,
+     "n": 8
+    },
+    "IBM/sarama": {
+     "base": 1.1552,
+     "ast": 1.1544,
+     "random": 1.1545,
+     "n": 6
+    },
+    "gitlabhq/gitlabhq": {
+     "base": 1.1726,
+     "ast": 1.1706,
+     "random": 1.1706,
+     "n": 5
+    },
+    "apple/foundationdb": {
+     "base": 1.3187,
+     "ast": 1.3125,
+     "random": 1.3118,
+     "n": 3
+    },
+    "chroma-core/chroma": {
+     "base": 1.1395,
+     "ast": 1.1414,
+     "random": 1.1406,
+     "n": 2
+    }
+   },
+   "skipped_over_context": []
+  },
+  "bench_edit": {
+   "n": 1274,
+   "groups": 16,
+   "ppl": {
+    "base": 1.1357,
+    "ast": 1.134,
+    "random": 1.1344
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0119,
+    "random": 0.0094
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0017,
+     "ci_examples": [
+      -0.0021,
+      -0.0014
+     ],
+     "ci_groups": [
+      -0.0029,
+      -0.001
+     ]
+    },
+    "random-base": {
+     "value": -0.0014,
+     "ci_examples": [
+      -0.0016,
+      -0.0011
+     ],
+     "ci_groups": [
+      -0.0021,
+      -0.0008
+     ]
+    },
+    "ast-random": {
+     "value": -0.0004,
+     "ci_examples": [
+      -0.0006,
+      -0.0002
+     ],
+     "ci_groups": [
+      -0.001,
+      -0.0001
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "14/16",
+   "per_group": {
+    "kubernetes/kubernetes": {
+     "base": 1.099,
+     "ast": 1.0986,
+     "random": 1.0984,
+     "n": 350
+    },
+    "grafana/grafana": {
+     "base": 1.137,
+     "ast": 1.1351,
+     "random": 1.1354,
+     "n": 333
+    },
+    "containers/podman": {
+     "base": 1.2368,
+     "ast": 1.2345,
+     "random": 1.235,
+     "n": 134
+    },
+    "v2fly/v2ray-core": {
+     "base": 1.0795,
+     "ast": 1.0749,
+     "random": 1.076,
+     "n": 87
+    },
+    "ethereum/go-ethereum": {
+     "base": 1.16,
+     "ast": 1.1571,
+     "random": 1.1586,
+     "n": 71
+    },
+    "google/osv-scanner": {
+     "base": 1.1758,
+     "ast": 1.1754,
+     "random": 1.1757,
+     "n": 71
+    },
+    "k3s-io/k3s": {
+     "base": 1.1326,
+     "ast": 1.1292,
+     "random": 1.1303,
+     "n": 49
+    },
+    "gohugoio/hugo": {
+     "base": 1.1796,
+     "ast": 1.1784,
+     "random": 1.1787,
+     "n": 47
+    },
+    "ollama/ollama": {
+     "base": 1.1829,
+     "ast": 1.1815,
+     "random": 1.1824,
+     "n": 38
+    },
+    "mudler/LocalAI": {
+     "base": 1.0908,
+     "ast": 1.0889,
+     "random": 1.0905,
+     "n": 27
+    },
+    "traefik/traefik": {
+     "base": 1.1572,
+     "ast": 1.1546,
+     "random": 1.1552,
+     "n": 20
+    },
+    "google/gvisor": {
+     "base": 1.1008,
+     "ast": 1.0982,
+     "random": 1.1002,
+     "n": 19
+    },
+    "rclone/rclone": {
+     "base": 1.1692,
+     "ast": 1.1676,
+     "random": 1.1661,
+     "n": 17
+    },
+    "caddyserver/caddy": {
+     "base": 1.2626,
+     "ast": 1.2583,
+     "random": 1.2608,
+     "n": 5
+    },
+    "gitlabhq/gitlabhq": {
+     "base": 1.3969,
+     "ast": 1.3968,
+     "random": 1.3981,
+     "n": 5
+    },
+    "IBM/sarama": {
+     "base": 1.1359,
+     "ast": 1.1385,
+     "random": 1.1391,
+     "n": 1
+    }
+   },
+   "skipped_over_context": [
+    {
+     "id": "edit:3775",
+     "repo": "kubernetes/kubernetes",
+     "tokens": 32743
+    }
+   ],
+   "note": "provisional"
+  },
+  "heldout_ast": {
+   "n": 1000,
+   "groups": 10,
+   "ppl": {
+    "base": 1.1562,
+    "ast": 1.1532,
+    "random": 1.1534
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0177,
+    "random": 0.0164
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.003,
+     "ci_examples": [
+      -0.0033,
+      -0.0027
+     ],
+     "ci_groups": [
+      -0.0036,
+      -0.0023
+     ]
+    },
+    "random-base": {
+     "value": -0.0028,
+     "ci_examples": [
+      -0.0031,
+      -0.0024
+     ],
+     "ci_groups": [
+      -0.0034,
+      -0.0021
+     ]
+    },
+    "ast-random": {
+     "value": -0.0002,
+     "ci_examples": [
+      -0.0004,
+      -0.0001
+     ],
+     "ci_groups": [
+      -0.0004,
+      -0.0001
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "8/10",
+   "per_group": {
+    "TecharoHQ/anubis": {
+     "base": 1.1812,
+     "ast": 1.1787,
+     "random": 1.179,
+     "n": 100
+    },
+    "certimate-go/certimate": {
+     "base": 1.1033,
+     "ast": 1.1025,
+     "random": 1.1029,
+     "n": 100
+    },
+    "cloudwego/eino": {
+     "base": 1.1118,
+     "ast": 1.1101,
+     "random": 1.1104,
+     "n": 100
+    },
+    "darrenburns/posting": {
+     "base": 1.2316,
+     "ast": 1.2268,
+     "random": 1.2273,
+     "n": 100
+    },
+    "github/github-mcp-server": {
+     "base": 1.1497,
+     "ast": 1.1469,
+     "random": 1.1468,
+     "n": 100
+    },
+    "henrygd/beszel": {
+     "base": 1.1642,
+     "ast": 1.1607,
+     "random": 1.161,
+     "n": 100
+    },
+    "mark3labs/mcp-go": {
+     "base": 1.1266,
+     "ast": 1.1231,
+     "random": 1.1236,
+     "n": 100
+    },
+    "pocket-id/pocket-id": {
+     "base": 1.1516,
+     "ast": 1.1474,
+     "random": 1.1476,
+     "n": 100
+    },
+    "vxcontrol/pentagi": {
+     "base": 1.1909,
+     "ast": 1.1871,
+     "random": 1.1869,
+     "n": 100
+    },
+    "yorukot/superfile": {
+     "base": 1.1431,
+     "ast": 1.1413,
+     "random": 1.1418,
+     "n": 100
+    }
+   },
+   "skipped_over_context": []
+  },
+  "heldout_random": {
+   "n": 1000,
+   "groups": 10,
+   "ppl": {
+    "base": 1.1516,
+    "ast": 1.1485,
+    "random": 1.1473
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0187,
+    "random": 0.0262
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.003,
+     "ci_examples": [
+      -0.0034,
+      -0.0026
+     ],
+     "ci_groups": [
+      -0.0037,
+      -0.0024
+     ]
+    },
+    "random-base": {
+     "value": -0.0042,
+     "ci_examples": [
+      -0.0047,
+      -0.0038
+     ],
+     "ci_groups": [
+      -0.005,
+      -0.0034
+     ]
+    },
+    "ast-random": {
+     "value": 0.0012,
+     "ci_examples": [
+      0.001,
+      0.0015
+     ],
+     "ci_groups": [
+      0.001,
+      0.0015
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "0/10",
+   "per_group": {
+    "TecharoHQ/anubis": {
+     "base": 1.1782,
+     "ast": 1.1762,
+     "random": 1.1752,
+     "n": 100
+    },
+    "certimate-go/certimate": {
+     "base": 1.1159,
+     "ast": 1.1151,
+     "random": 1.1147,
+     "n": 100
+    },
+    "cloudwego/eino": {
+     "base": 1.1026,
+     "ast": 1.1007,
+     "random": 1.0997,
+     "n": 100
+    },
+    "darrenburns/posting": {
+     "base": 1.2435,
+     "ast": 1.239,
+     "random": 1.2369,
+     "n": 100
+    },
+    "github/github-mcp-server": {
+     "base": 1.1429,
+     "ast": 1.1397,
+     "random": 1.1385,
+     "n": 100
+    },
+    "henrygd/beszel": {
+     "base": 1.1682,
+     "ast": 1.1639,
+     "random": 1.1624,
+     "n": 100
+    },
+    "mark3labs/mcp-go": {
+     "base": 1.1424,
+     "ast": 1.1381,
+     "random": 1.137,
+     "n": 100
+    },
+    "pocket-id/pocket-id": {
+     "base": 1.1355,
+     "ast": 1.1323,
+     "random": 1.1304,
+     "n": 100
+    },
+    "vxcontrol/pentagi": {
+     "base": 1.1497,
+     "ast": 1.1463,
+     "random": 1.1451,
+     "n": 100
+    },
+    "yorukot/superfile": {
+     "base": 1.1438,
+     "ast": 1.1419,
+     "random": 1.1413,
+     "n": 100
+    }
+   },
+   "skipped_over_context": []
+  },
+  "heldout_l2r": {
+   "n": 124,
+   "groups": 10,
+   "ppl": {
+    "base": 1.2339,
+    "ast": 1.2301,
+    "random": 1.2289
+   },
+   "less_uncertainty_vs_base": {
+    "ast": 0.0146,
+    "random": 0.0191
+   },
+   "diff": {
+    "ast-base": {
+     "value": -0.0038,
+     "ci_examples": [
+      -0.0044,
+      -0.0032
+     ],
+     "ci_groups": [
+      -0.005,
+      -0.0024
+     ]
+    },
+    "random-base": {
+     "value": -0.0049,
+     "ci_examples": [
+      -0.0057,
+      -0.0042
+     ],
+     "ci_groups": [
+      -0.0066,
+      -0.0033
+     ]
+    },
+    "ast-random": {
+     "value": 0.0012,
+     "ci_examples": [
+      0.0009,
+      0.0015
+     ],
+     "ci_groups": [
+      0.0007,
+      0.0017
+     ]
+    }
+   },
+   "ast_better_than_random_groups": "1/10",
+   "per_group": {
+    "cloudwego/eino": {
+     "base": 1.1871,
+     "ast": 1.1871,
+     "random": 1.1861,
+     "n": 15
+    },
+    "github/github-mcp-server": {
+     "base": 1.2188,
+     "ast": 1.2145,
+     "random": 1.2142,
+     "n": 15
+    },
+    "vxcontrol/pentagi": {
+     "base": 1.2373,
+     "ast": 1.2325,
+     "random": 1.2307,
+     "n": 15
+    },
+    "mark3labs/mcp-go": {
+     "base": 1.1561,
+     "ast": 1.153,
+     "random": 1.1526,
+     "n": 14
+    },
+    "henrygd/beszel": {
+     "base": 1.2634,
+     "ast": 1.2587,
+     "random": 1.2565,
+     "n": 12
+    },
+    "darrenburns/posting": {
+     "base": 1.3454,
+     "ast": 1.3383,
+     "random": 1.3358,
+     "n": 11
+    },
+    "pocket-id/pocket-id": {
+     "base": 1.2464,
+     "ast": 1.2403,
+     "random": 1.2387,
+     "n": 11
+    },
+    "yorukot/superfile": {
+     "base": 1.2858,
+     "ast": 1.2849,
+     "random": 1.284,
+     "n": 11
+    },
+    "TecharoHQ/anubis": {
+     "base": 1.3422,
+     "ast": 1.3367,
+     "random": 1.3356,
+     "n": 10
+    },
+    "certimate-go/certimate": {
+     "base": 1.2105,
+     "ast": 1.2075,
+     "random": 1.2083,
+     "n": 10
+    }
+   },
+   "skipped_over_context": []
+  }
+ },
+ "primary": {
+  "rule": "AST beats random iff Add ast-random < 0 and repo-level CI upper bound < 0",
+  "ast_minus_random": 0.0022,
+  "ci_groups": [
+   0.002,
+   0.0024
+  ],
+  "ast_beats_random": false
+ }
+}

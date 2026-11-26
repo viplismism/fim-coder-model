@@ -1,0 +1,171 @@
+{
+ "rule": {
+  "created_from": "2024-01-01",
+  "created_to": "2025-06-30",
+  "one_per_owner": true,
+  "rs_bytes_min": 200000,
+  "rs_bytes_max": 8000000,
+  "take": 15
+ },
+ "search": {
+  "query": "language:Rust license:{mit,apache-2.0} created:>=2024-01-01 fork:false archived:false stars:>=500, sorted by stars, top 200 per license",
+  "searched": "2026-11-03",
+  "excluded_reth_ecosystem_owners": [
+   "alloy-rs",
+   "base",
+   "bluealloy",
+   "flashbots",
+   "foundry-rs",
+   "ithacaxyz",
+   "op-rs",
+   "paradigmxyz"
+  ]
+ },
+ "picked": [
+  {
+   "repo": "cjpais/Handy",
+   "commit": "82dfab9fda18c4bc24e1f6e56d36474d38eca0bc",
+   "stars": 37134,
+   "created": "2025-02-13",
+   "license": "MIT",
+   "rs_files": 82,
+   "rs_bytes": 1377934
+  },
+  {
+   "repo": "Zackriya-Solutions/meetily",
+   "commit": "07c4dfd45361bb6776916a0d46f493dda447f471",
+   "stars": 32389,
+   "created": "2024-12-26",
+   "license": "MIT",
+   "rs_files": 147,
+   "rs_bytes": 1807556
+  },
+  {
+   "repo": "BloopAI/vibe-kanban",
+   "commit": "7c3807084daad0d9d315064f60fa869de254f027",
+   "stars": 28568,
+   "created": "2025-06-14",
+   "license": "Apache-2.0",
+   "rs_files": 443,
+   "rs_bytes": 3711452
+  },
+  {
+   "repo": "ayangweb/BongoCat",
+   "commit": "47a73ed1765b13fdd674ec356d51b5b16a6b5a5b",
+   "stars": 24449,
+   "created": "2025-03-28",
+   "license": "Apache-2.0",
+   "rs_files": 670,
+   "rs_bytes": 6240072
+  },
+  {
+   "repo": "memvid/memvid",
+   "commit": "e6bd9f7b9c38cd8d5370fa0fc936ac1dcd751813",
+   "stars": 17352,
+   "created": "2025-05-27",
+   "license": "Apache-2.0",
+   "rs_files": 158,
+   "rs_bytes": 2342134
+  },
+  {
+   "repo": "microsoft/edit",
+   "commit": "b7f83220868373945945e2218e852c24cbb4dcf0",
+   "stars": 14746,
+   "created": "2025-03-21",
+   "license": "MIT",
+   "rs_files": 78,
+   "rs_bytes": 1228804
+  },
+  {
+   "repo": "cocoindex-io/cocoindex",
+   "commit": "4d573cee6a058cfe50499457bcc7bffb21f4ffde",
+   "stars": 11812,
+   "created": "2025-03-03",
+   "license": "Apache-2.0",
+   "rs_files": 270,
+   "rs_bytes": 3933847
+  },
+  {
+   "repo": "j178/prek",
+   "commit": "c88a1ccc522e24546d348b55aa83332022a6fae9",
+   "stars": 8718,
+   "created": "2024-10-07",
+   "license": "MIT",
+   "rs_files": 232,
+   "rs_bytes": 2886394
+  },
+  {
+   "repo": "mufeedvh/code2prompt",
+   "commit": "66585136062c04275ddd5a01c5518a4d78c4aa76",
+   "stars": 7745,
+   "created": "2024-03-09",
+   "license": "MIT",
+   "rs_files": 73,
+   "rs_bytes": 535847
+  },
+  {
+   "repo": "tailcallhq/forgecode",
+   "commit": "a22b49288856d5b3f3ca57e8532683d54a662c8c",
+   "stars": 7636,
+   "created": "2024-12-08",
+   "license": "Apache-2.0",
+   "rs_files": 474,
+   "rs_bytes": 4658904
+  },
+  {
+   "repo": "EcoPasteHub/EcoPaste",
+   "commit": "5139d30b0f4c1309356a9b308c05092f1038bc9b",
+   "stars": 7556,
+   "created": "2024-05-31",
+   "license": "Apache-2.0",
+   "rs_files": 94,
+   "rs_bytes": 756311
+  },
+  {
+   "repo": "katanemo/plano",
+   "commit": "b13ddd632bde1fea7678386c345665ea5fa671af",
+   "stars": 7105,
+   "created": "2024-07-09",
+   "license": "Apache-2.0",
+   "rs_files": 134,
+   "rs_bytes": 2045767
+  },
+  {
+   "repo": "zizmorcore/zizmor",
+   "commit": "fbf8d0c06f2d7f04a1b75f3b2f1f4ddf960e30ea",
+   "stars": 6860,
+   "created": "2024-08-19",
+   "license": "MIT",
+   "rs_files": 166,
+   "rs_bytes": 1942572
+  },
+  {
+   "repo": "koharu-rs/koharu",
+   "commit": "c7d46f2912ff9ccba31450b5426a437317d458b7",
+   "stars": 6573,
+   "created": "2025-04-09",
+   "license": "Apache-2.0",
+   "rs_files": 408,
+   "rs_bytes": 5564889
+  },
+  {
+   "repo": "voidzero-dev/vite-plus",
+   "commit": "83b76cd85d8d7b97b6e2152010a830d9d1bb3e77",
+   "stars": 6554,
+   "created": "2025-03-06",
+   "license": "MIT",
+   "rs_files": 260,
+   "rs_bytes": 3962722
+  }
+ ],
+ "skipped": [
+  [
+   "0xPlaygrounds/rig",
+   "rs bytes 27404672"
+  ],
+  [
+   "EricLBuehler/mistral.rs",
+   "rs bytes 21036200"
+  ]
+ ]
+}

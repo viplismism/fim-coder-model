@@ -1,0 +1,8 @@
+[2026-11-17 05:21:09 IST] adapters: ast=logs/20261114T114659+0530_go-ast_train_s42/checkpoints/final_adapter random=logs/20261114T211002+0530_go-random_train_s42/checkpoints/final_adapter | held-out go-fim-v1-heldout (manifest sha256 9e02b16b8c612c7c)
+[2026-11-17 05:21:09 IST] final scoring base
+[2026-11-17 06:27:50 IST] done: logs/20261117T052109+0530_go-base_eval_final
+[2026-11-17 06:27:50 IST] final scoring ast
+[2026-11-17 08:34:37 IST] done: logs/20261117T062750+0530_go-ast_eval_final
+[2026-11-17 08:34:37 IST] final scoring random
+[2026-11-17 10:41:08 IST] done: logs/20261117T083437+0530_go-random_eval_final
+[2026-11-17 10:41:08 IST] final evaluation finished

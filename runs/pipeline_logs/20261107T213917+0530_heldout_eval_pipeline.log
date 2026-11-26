@@ -1,0 +1,8 @@
+[2026-11-07 21:39:17 IST] held-out set manifest sha256: 0719eb6f50148069
+[2026-11-07 21:39:17 IST] scoring base
+[2026-11-07 22:28:47 IST] done: logs/20261107T213917+0530_base_eval_heldout
+[2026-11-07 22:28:47 IST] scoring ast
+[2026-11-08 00:02:11 IST] done: logs/20261107T222847+0530_ast_eval_heldout
+[2026-11-08 00:02:11 IST] scoring random
+[2026-11-08 01:34:56 IST] done: logs/20261108T000211+0530_random_eval_heldout
+[2026-11-08 01:34:56 IST] held-out evaluation finished
