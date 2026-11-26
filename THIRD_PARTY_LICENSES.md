@@ -14,7 +14,7 @@ checked against the Hugging Face model pages.
 | Rust FIM experiment (train / validation / test) | [paradigmxyz/reth](https://github.com/paradigmxyz/reth) | `84caec584e79ddef33572394f787d2d1203a23c7` | MIT OR Apache-2.0 |
 | Repo-specific, Rust | [facet-rs/facet](https://github.com/facet-rs/facet) | cutoff snapshot `d3cd33f75da7b80fc0134ec7346c26512d3ada72`, history up to `65bae5c31a7ce401bc44630fb96250ea884cfd3e` | MIT OR Apache-2.0 |
 | Repo-specific, Go | [telekom/controlplane](https://github.com/telekom/controlplane) | cutoff snapshot `9164dcafe005913bf2c6e4870db776548c66662f`, history up to `cf866975bcaec72810622aa1f8869ead03c6fced` | Apache-2.0 for code (REUSE: CC0-1.0 / CC-BY-4.0 for some non-code files) |
-| Multi-language experiment (Python, TypeScript, Go, C++) | 12 training-pool + 10 held-out repos per language, listed with commits in `configs/repos/<lang>_pins.json` | see pins | MIT, Apache-2.0 or BSD only (selection rule recorded in `configs/repos/rust_heldout_repos.json` and `results/multilang/summary.md`) |
+| Multi-language experiment (Python, TypeScript, Go, C++) | 12 training-pool + 10 held-out repos per language, listed with commits in `configs/repos/<lang>_pins.json` | see pins | MIT, Apache-2.0 or BSD only (selection rule: `results/multilang/summary.md`) |
 | Rust held-out set | 15 repos created after 2024, listed with commits in `configs/repos/rust_heldout_repos.json` | see file | Apache-2.0 (8 repos), MIT (7 repos) |
 
 Report files under `results/multilang/leakage/` name repository paths and contain similarity numbers. Quoted code lines have been
